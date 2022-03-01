@@ -1,5 +1,3 @@
 # Online-Course-Shopping-Website
 #ABCDEFG
-
-
-cdgerrgjaeigjoraoijaag
+This is a test...
