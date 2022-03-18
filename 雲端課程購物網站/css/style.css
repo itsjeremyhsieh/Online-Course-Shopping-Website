@@ -27,6 +27,7 @@
 @import url(css/jquery.fancybox.min.css);
 @import url(css/jquery-ui.css);
 @import url(css/nice-select.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
@@ -269,6 +270,7 @@ button {
      font-size: 17px;
      line-height: 20px;
      font-weight: 500;
+     font-family: 'Noto Sans TC';
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
