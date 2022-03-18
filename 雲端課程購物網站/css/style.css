@@ -256,9 +256,10 @@ button {
 
 /*-- navigation--*/
 
-.navigation.navbar {
+.navigation.navbar /**header那排按鈕底色**/
+{
      float: right;
-     background: #fff;
+     background: #f5d06b;
      clear: both;
      padding: 23px 25px !important;
      border-radius: 64px;
@@ -274,15 +275,15 @@ button {
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
-.navigation.navbar-dark .navbar-nav .nav-link:hover {
-     color: #03cafc;
+.navigation.navbar-dark .navbar-nav .nav-link:hover {/**滑鼠游標在上面時**/
+     color: #1e8005;
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
-.navigation.navbar-dark .navbar-nav .show>.nav-link {
-     color: #03cafc;
+.navigation.navbar-dark .navbar-nav .show>.nav-link {/**在該頁面時按鈕的顏色**/
+     color: #978a15;
 }
 
 .navbar-expand-md .navbar-nav {
@@ -290,29 +291,31 @@ button {
 }
 
 .login_btn a {
-     background: #03cafc;
+     background: #db9717;/**按鈕底色**/
      padding: 9px 32px !important;
      display: inline;
      border-radius: 20px;
-     color: #fff !important;
+     color: #fff !important;/**按鈕字體色**/
      margin: 0 10px;
 }
 
-.login_btn a:hover {
-     background: #000 !important;
+.login_btn a:hover {/**滑鼠一標在login上時**/
+     background: rgb(170, 98, 3) !important;
 }
 
-.sea_icon a {
-     color: #8c8c8c !important;
+.sea_icon a /**搜尋icon顏色**/
+{
+     color: #a56607 !important;
 }
 
-.header {
+.header /**header上面那條**/
+{
      width: 100%;
      padding: 30px 30px;
      background: transparent;
      position: absolute;
      z-index: 999;
-     border-top: #090102 solid 11px;
+     border-top: #f5d992 solid 11px;
 }
 
 .logo {
@@ -322,8 +325,9 @@ button {
 
 /** banner section **/
 
-.banner_main {
-     background: #f5f6f6;
+.banner_main 
+{
+     background: #2a9e47;
      padding: 198px 0px 90px 0px;
 }
 
@@ -341,8 +345,8 @@ button {
 }
 
 .text-bg .read_more {
-     border: #1a1a1a solid 2px;
-     color: #1a1a1a !important;
+     border: #aa1a1a solid 2px;
+     color: #c92626 !important;
      font-weight: 500;
      display: block;
      margin: 0 auto;
@@ -376,8 +380,8 @@ button {
 #banner1 .carousel-control-prev:focus,
 #banner1 .carousel-control-next:focus {
      background: transparent;
-     border: #03cafc solid 2px;
-     color: #03cafc;
+     border: hsl(192, 65%, 78%) solid 2px;
+     color: hsl(192, 65%, 78%) ;
 }
 
 #banner1 a.carousel-control-prev {
@@ -425,7 +429,7 @@ button {
 }
 
 .read_more:hover {
-     background: #03cafc;
+     background: #7eb0bd;
      color: #fff !important;
      transition: ease-in all 0.5s;
 }
@@ -505,7 +509,7 @@ button {
 }
 
 .blu {
-     color: #03cafc;
+     color: #7566b9;
      text-transform: initial;
 }
 
@@ -830,9 +834,10 @@ ul.location_icon li a {
 
 /** inner page css **/
 
-.position_head .header {
+.position_head .header  /**header背景**/
+{      
      position: inherit;
-     background: #03cafc;
+     background: #f5e6a2;
 }
 
 .position_head .glasses,
