@@ -313,7 +313,7 @@ button {
      background: transparent;
      position: absolute;
      z-index: 999;
-     border-top: #206491 solid 11px;
+     border-top: #28a5f8 solid 11px;
 }
 
 .logo {
@@ -836,7 +836,7 @@ ul.location_icon li a {
 .position_head .header  /**header背景**/
 {      
      position: inherit;
-     background: #03cafc;
+     background: #96e2f5;
 }
 
 .position_head .glasses,
