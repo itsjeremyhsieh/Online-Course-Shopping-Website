@@ -261,7 +261,7 @@ button {
      float: right;
      background: #f5d06b;
      clear: both;
-     padding: 23px 25px !important;
+     padding: 23px 20px !important;
      border-radius: 64px;
 }
 
@@ -287,7 +287,7 @@ button {
 }
 
 .navbar-expand-md .navbar-nav {
-     padding-right: 10px;
+     padding-right: 20px;
 }
 
 .login_btn a {
@@ -305,6 +305,7 @@ button {
 
 .sea_icon a /**搜尋icon顏色**/
 {
+     padding: 5px;
      color: #a56607 !important;
 }
 
