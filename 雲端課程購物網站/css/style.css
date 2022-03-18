@@ -778,8 +778,8 @@ button {
 
 /** footer **/
 
-.footer {
-     background: #252525;
+.footer {/**footer底色**/
+     background: #facc78;
      padding-top: 90px;
      text-align: center;
      font-family: 'Roboto', sans-serif;
