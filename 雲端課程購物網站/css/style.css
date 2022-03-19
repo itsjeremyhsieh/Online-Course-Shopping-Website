@@ -873,7 +873,7 @@ body {
      outline: none; }
    
    .wrapper {
-     min-height: 100vh;
+     min-height: 150vh;
      display: flex;
      align-items: center;
      justify-content: center;
