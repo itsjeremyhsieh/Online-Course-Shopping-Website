@@ -137,9 +137,10 @@
                   <span class="fa fa-lock"></span>
                   <input type="password" class="form-control" placeholder="密碼確認">
                </div>
-               <div class="form-holder">
+               <div class="form-holder form-control">
                   <span class="fa fa-venus-mars"></span>
-                  <input type="text" class="form-control" placeholder="">
+                  <input type="radio" id="sex1" name="male" value="先生">先生
+                  <input type="radio" id="sex2" name="female" value="小姐">小姐
                   <!---這裡要用radiobutton-->
                </div>
                <div class="form-holder">
@@ -148,12 +149,36 @@
                </div>
 
 
-
-
-
-               <div class="form-holder">
+               <div class="form-holder" >
                   <span class="fa fa-house-chimney"></span>
-                  <input type="text" class="form-control" id="Address" placeholder="通訊地址">
+                  <select class="form-control-multi">
+                     <option value="" disabled selected>縣市</option>
+                     <option>基隆市</option>
+                     <option>台北市</option>
+                     <option>新北市</option>
+                     <option>宜蘭縣</option>
+                     <option>桃園市</option>
+                     <option>新竹市</option>
+                     <option>新竹縣</option>
+                     <option>苗栗縣</option>
+                     <option>台中市</option>
+                     <option>彰化縣</option>
+                     <option>南投縣</option>
+                     <option>雲林縣</option>
+                     <option>嘉義市</option>
+                     <option>嘉義縣</option>
+                     <option>台南市</option>
+                     <option>屏東縣</option>
+                     <option>花蓮縣</option>
+                     <option>台東縣</option>
+                     <option>澎湖縣</option>
+                     <option>連江縣</option>
+                     <option>金門縣</option>
+                  </select>
+                  <select class="form-control-multi">
+                     <option value="" disabled selected>鄉鎮市區</option>
+                  </select>
+                  <input type="text" class="form-control-multi" id="Address" placeholder="通訊地址">
                   <!----弄出可以讓使用者選擇的方框-->
 
                </div>
