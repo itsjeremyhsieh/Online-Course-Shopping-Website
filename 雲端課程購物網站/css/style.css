@@ -985,7 +985,7 @@ body {
      border: none;
      border-bottom: 1px solid #e6e6e6;
      display: inline;
-     width: 160px;
+     width: 185px;
      height:100px;
      background: none;
      padding: 50px 40px 0px;
@@ -993,6 +993,18 @@ body {
      font-family: "Muli-SemiBold";
      font-size: 20px; 
      }
+     .form-control-multi-text {/**通訊地址方框**/
+          border: none;
+          border-bottom: 1px solid #e6e6e6;
+          display: inline;
+          width: 300px;
+          height:100px;
+          background: none;
+          padding: 50px 40px 0px;
+          color: #666;
+          font-family: "Muli-SemiBold";
+          font-size: 20px; 
+          }
      input.form-control-multi {
      border: none;
      border-bottom: 1px solid #e6e6e6;
