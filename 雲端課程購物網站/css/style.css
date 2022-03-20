@@ -74,6 +74,18 @@ h6 {
      margin: 0
 }
 
+.middle
+{
+     letter-spacing: 0;
+     font-weight: normal;
+     position: relative;
+     padding: 0 0 10px 0;
+     font-weight: normal;
+     line-height: normal;
+     color: #111111;
+     margin: 0
+}
+
 h1 {
      font-size: 24px;
 }
@@ -706,6 +718,8 @@ button {
      padding: 0;
 }
 
+
+
 #map {
      height: 100%;
      min-height: 732px;
@@ -875,12 +889,19 @@ body {
    :focus {
      outline: none; }
    
-   .wrapper {
-     min-height: 150vh;
+   .wrapper-register {
+     min-height: 200vh;
      display: flex;
      align-items: center;
      justify-content: center;
      background-image: url(alchemy-0000.jpg); }
+
+     .wrapper-login {
+          min-height: 120vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-image: url(alchemy-0000.jpg); }
    
    .inner {
      position: relative;
@@ -918,9 +939,12 @@ body {
      font-size: 40px;
      font-family: "Muli-SemiBold";
      color: #333;
-     letter-spacing: 3px;
+     letter-spacing:3px;
      text-align: center;
      margin-bottom: 33px; }
+   h5{
+     text-align: center;
+   }
    
    .form-holder {
      position: relative;
@@ -1088,5 +1112,6 @@ body {
      .wrapper {
        background: none; } }
 
+       
 
 /**end of 會員註冊**/
