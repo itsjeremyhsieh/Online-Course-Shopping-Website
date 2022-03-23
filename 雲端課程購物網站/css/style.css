@@ -1115,3 +1115,8 @@ body {
        
 
 /**end of 會員註冊**/
+.split/**購物車愛心搜尋間隔**/
+{
+     position: relative;
+     padding:5px;
+}
