@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US" class="hide-scroll">
 <head> 
+    <title>Counter of new victories HTML Template Live Demo</title>
+    <meta name="Keywords">
+    <meta name="Description">
+    
+
+
+
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width">
+    <link href="//fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin" rel="preload" as="font" />
+
+
+
+
+
 
 <script>
     window.serverSettings = {
@@ -348,6 +362,14 @@ var shareasaleSSCID=shareasaleGetParameterByName("sscid");function shareasaleSet
 </script>
 
 
+
+
+
+<script src="//capp.nicepage.com/6b047001247bd3acaf8181458c0aa5aa8659c202/main-libs.js" ></script>
+<link href="//capp.nicepage.com/6b047001247bd3acaf8181458c0aa5aa8659c202/main-libs.css" rel="stylesheet" />
+
+
+
 <script>
     function receiveCountryCode() {
         if ($.cookie('UserCountryCode') !== undefined) {
@@ -428,7 +450,10 @@ var shareasaleSSCID=shareasaleGetParameterByName("sscid");function shareasaleSet
             });
         }
 
-        
+        function setActiveResponsiveButton(btn) {
+            $(".page-preview-header > a").removeClass("active");
+            $(btn).addClass("active");
+        }
 
         function detectActiveResponsiveButton() {
             var d = device;
@@ -481,7 +506,34 @@ var shareasaleSSCID=shareasaleGetParameterByName("sscid");function shareasaleSet
             height: 100%;
         }
 
-        
+        .page-preview-header {
+            background: #f2f2f2;
+            border: none;
+            height: 70px;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-preview-header > a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 4px;
+        }
+
+        .page-preview-header > a:hover {
+            background: #e2f0fc;
+            text-decoration: none;
+        }
+
+        .page-preview-header > a.active {
+            background: #c9e4f9;
+        }
+
+        .page-preview-header > .close {
+            float: right;
+            margin-right: 10px;
+        }
+
         .page-preview-body {
             height: calc(100% - 70px);
             overflow: hidden;
@@ -500,7 +552,19 @@ var shareasaleSSCID=shareasaleGetParameterByName("sscid");function shareasaleSet
         
 
 
-
+<div class="page-preview">
+    <div class="page-preview-header">
+        <a class="hidden-sm hidden-xs" href="#" id="previewDesktopBtn" data-preview-size="100%"><img alt="Responsive Desktop Mode" src="//csite.nicepage.com/Images/Site/responsive-desktop.png"></a>
+        <a class="hidden-sm hidden-xs" href="#" id="previewLaptopBtn" data-preview-size="1040px"><img alt="Responsive Laptop Mode" src="//csite.nicepage.com/Images/Site/responsive-laptop.png"></a>
+        <a class="hidden-xs" href="#" id="previewTabletBtn" data-preview-size="820px"><img alt="Responsive Tablet Mode" src="//csite.nicepage.com/Images/Site/responsive-tablet.png"></a>
+        <a class="hidden-xs" href="#" id="previewPhoneHorizontalBtn" data-preview-size="640px"><img alt="Responsive Phone Horizontal Mode" src="//csite.nicepage.com/Images/Site/responsive-phone-horizontal.png"></a>
+        <a class="hidden-xs" href="#" id="previewPhoneBtn" data-preview-size="440px"><img alt="Responsive Phone Mode" src="//csite.nicepage.com/Images/Site/responsive-phone.png"></a>
+        <a class="close" href="/ht/900921/counter-of-new-victories-html-template"><img alt="Close" src="//csite.nicepage.com/Images/Site/icon-close.png"></a>
+    </div>
+    <div class="page-preview-body">
+        <iframe id="livePreviewFrame" src="https://website900920.nicepage.io/Contact.html?version=18625756-9563-4a2b-87ca-36ad0818a009" width="1057" height="640" style="width:100%;"></iframe>
+    </div>
+</div>
 <a style="position:absolute;top:17px;left:10px;" href="/"><img alt="NicePage.com" src="//csite.nicepage.com/Images/logo-w.png"></a>
 
         <script>
