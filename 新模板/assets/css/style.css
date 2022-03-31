@@ -57,6 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Dosis", sans-serif;
   font-weight: 400;
   margin-top: 0;
+  text-align: center;
 }
 
 h1 {
@@ -148,6 +149,14 @@ ul {
 .section {
   float: left;
   width: 100%;
+}
+.loginsection {
+  float: left;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Addition media query */
