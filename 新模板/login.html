@@ -187,8 +187,78 @@ bottom: 0
 /** end footer **/
 
 
+  
+.shape-ex1{
+    border: none;
+     width: 100%;
+     height: 49px;
+     margin-top: 50px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0;
+     background: #99ccff;
+     color: #fff;
+     text-transform: uppercase;
+     font-family: "Muli-SemiBold";
+     font-size: 15px;
+     letter-spacing: 2px;
+     transition: all 0.5s;
+     position: relative;
+     overflow: hidden; 
+}
 
 
+.shape-ex1 span {
+       position: relative;
+       z-index: 2; }
+       .shape-ex1:before, .shape-ex1:after {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 1;
+       background-color: rgba(77, 162, 247, 0.25);
+       -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+       -o-transition: all 0.3s;
+       transition: all 0.3s;
+       -webkit-transform: translate(-100%, 0);
+       transform: translate(-100%, 0);
+       -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+       transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
+       .shape-ex1:after {
+       -webkit-transition-delay: 0.2s;
+       transition-delay: 0.2s; }
+       .shape-ex1:hover:before, .shape-ex1:hover:after {
+       -webkit-transform: translate(0, 0);
+       transform: translate(0, 0); }
+   
+   @media (max-width: 991px) {
+     .inner {
+       width: 400px;
+       left: 4%; } }
+   @media (max-width: 767px) {
+     .inner {
+       width: 100%;
+       left: 0; }
+   
+     .image-1, .image-2 {
+       display: none; }
+   
+     form {
+       padding: 35px;
+       box-shadow: none;
+       -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+       -ms-box-shadow: none;
+       -o-box-shadow: none; }
+   
+     .wrapper {
+       background: none; } }
 
 
 
@@ -386,11 +456,11 @@ bottom: 0
                                 </div>
                                 <br><input type="checkbox" id="remember"> 記住我
                                 <!------lnr-phone-handset-->
-            
-            
-                                <button>
-                                    <span>登入</span>
-                                </button>
+                                
+                                <div class="shape-ex1">登入</div>
+                                
+                            
+                                
                                 <br><a class="form-link" href="forgetpsw.html">忘記帳號/密碼</a><br>
                                 <br>
                                 <h5><a class="form-link" href="register.html">尚未註冊?</a></h5>
