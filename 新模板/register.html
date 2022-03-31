@@ -1,0 +1,606 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Jadusona - eCommerce Baby shop Bootstrap5 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- CSS
+	============================================ -->
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/icon-font.min.css">
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="assets/css/helper.css">
+    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <style>
+        .wrapper-login {
+        top:100px;   
+          min-height: 0vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          background-image: url(alchemy-0000.jpg); }
+
+            .form1 {
+            width: 80%;
+            position: relative;
+            z-index: 9;
+            padding: 77px 61px 66px;
+            background: #fff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            -ms-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
+
+            h3 {
+            text-transform: uppercase;
+            font-size: 25px;
+            font-family: "Muli-SemiBold";
+            color: #333;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 33px; }
+
+            .form-holder {
+            position: relative;
+            margin-bottom: 21px; }
+            .form-holder span {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 15px;
+                color: #333; }
+                .form-holder span.lnr-lock {
+                left: 2px; }
+
+                .form-control {
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+            display: block;
+            width: 100%;
+            height: 38px;
+            background: none;
+            padding: 3px 42px 0px;
+            color: #666;
+            font-family: "Muli-SemiBold";
+            font-size: 16px; }
+            .form-control::-webkit-input-placeholder {
+                font-size: 14px;
+                font-family: "Muli-Regular";
+                color: #999;
+                transform: translateY(1px); }
+            .form-control::-moz-placeholder {
+                font-size: 14px;
+                font-family: "Muli-Regular";
+                color: #999;
+                transform: translateY(1px); }
+            .form-control:-ms-input-placeholder {
+                font-size: 14px;
+                font-family: "Muli-Regular";
+                color: #999;
+                transform: translateY(1px); }
+            .form-control:-moz-placeholder {
+                font-size: 14px;
+                font-family: "Muli-Regular";
+                color: #999;
+                transform: translateY(1px); }
+            .form-control:focus {
+                border-bottom: 1px solid #accffe; }
+                .form-control-multi {
+                    border: none;
+            border-bottom: 1px solid #e6e6e6;
+            display:inline;
+            width: 180px;
+            height: 38px;
+            background: none;
+            padding: 3px 42px 0px;
+            color: #666;
+            font-family: "Muli-SemiBold";
+            font-size: 16px;
+                    }
+
+                @media (max-width: 991px) {
+                    .inner {
+                    width: 400px;
+                    left: 4%; } }
+                @media (max-width: 767px) {
+                .inner {
+                    width: 100%;
+                    left: 0; }}
+
+                   
+
+
+
+
+
+
+
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+         
+
+
+/** footer **/
+
+
+
+.dui-container{
+position: relative;
+min-height: 100%;
+}
+main {
+padding-bottom: 50%;
+}
+header, footer{
+line-height: 50px;
+height: 50px;
+margin-bottom:-50px;
+}
+footer{
+top: 5%;
+width: 100%;
+position: relative;
+bottom: 0
+}
+
+
+
+
+.copyright {
+     margin-top: 80px;
+     padding-bottom: 20px;
+     background: #fbfdfd;
+}
+
+.copyright p {
+     color: #292929;
+     font-size: 18px;
+     line-height: 22px;
+     text-align: center;
+     padding-top: 25px;
+     font-weight: normal;
+}
+
+.copyright a {
+     color: #292929;
+}
+
+.copyright a:hover {
+     color: #03cafc;
+}
+
+
+/** end footer **/
+
+
+  
+.shape-ex1{
+    border: none;
+     width: 100%;
+     height: 49px;
+     margin-top: 50px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0;
+     background: #99ccff;
+     color: #fff;
+     text-transform: uppercase;
+     font-family: "Muli-SemiBold";
+     font-size: 15px;
+     letter-spacing: 2px;
+     transition: all 0.5s;
+     position: relative;
+     overflow: hidden; 
+}
+
+
+.shape-ex1 span {
+       position: relative;
+       z-index: 2; }
+       .shape-ex1:before, .shape-ex1:after {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 1;
+       background-color: rgba(77, 162, 247, 0.25);
+       -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+       -o-transition: all 0.3s;
+       transition: all 0.3s;
+       -webkit-transform: translate(-100%, 0);
+       transform: translate(-100%, 0);
+       -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+       transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
+       .shape-ex1:after {
+       -webkit-transition-delay: 0.2s;
+       transition-delay: 0.2s; }
+       .shape-ex1:hover:before, .shape-ex1:hover:after {
+       -webkit-transform: translate(0, 0);
+       transform: translate(0, 0); }
+   
+   @media (max-width: 991px) {
+     .inner {
+       width: 400px;
+       left: 4%; } }
+   @media (max-width: 767px) {
+     .inner {
+       width: 100%;
+       left: 0; }
+   
+     .image-1, .image-2 {
+       display: none; }
+   
+     form {
+       padding: 35px;
+       box-shadow: none;
+       -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+       -ms-box-shadow: none;
+       -o-box-shadow: none; }
+   
+     .wrapper {
+       background: none; } }
+
+
+
+
+
+
+ 
+  
+
+ 
+
+/*# sourceMappingURL=style.css.map */
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="dui-container">
+        <header>
+        <div class="main-wrapper">
+
+            <!-- Header Section Start -->
+            <div class="header-section section">
+        
+                <!-- Header Top Start -->
+                <div class="header-top header-top-one bg-theme-two">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-center">
+        
+                            <div class="col mt-10 mb-10 d-none d-md-flex">
+                                <!-- Header Top Left Start -->
+                                <div class="header-top-left">
+                                    <p>Welcome to Jadusona</p>
+                                    <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
+                                </div><!-- Header Top Left End -->
+                            </div>
+        
+                            <div class="col mt-10 mb-10">
+                                <!-- Header Language Currency Start -->
+                                <ul class="header-lan-curr">
+        
+                                    <li><a href="#">eng</a>
+                                        <ul>
+                                            <li><a href="#">english</a></li>
+                                            <li><a href="#">spanish</a></li>
+                                            <li><a href="#">france</a></li>
+                                            <li><a href="#">russian</a></li>
+                                            <li><a href="#">chinese</a></li>
+                                        </ul>
+                                    </li>
+        
+                                    <li><a href="#">$usd</a>
+                                        <ul>
+                                            <li><a href="#">pound</a></li>
+                                            <li><a href="#">dollar</a></li>
+                                            <li><a href="#">euro</a></li>
+                                            <li><a href="#">yen</a></li>
+                                        </ul>
+                                    </li>
+        
+                                </ul><!-- Header Language Currency End -->
+                            </div>
+        
+                            <div class="col mt-10 mb-10">
+                                <!-- Header Shop Links Start -->
+                                <div class="header-top-right">
+        
+                                    <p><a href="my-account.html">My Account</a></p>
+                                    <p><a href="login.html">Register</a><a href="login.html">Login</a></p>
+        
+                                </div><!-- Header Shop Links End -->
+                            </div>
+        
+                        </div>
+                    </div>
+                </div><!-- Header Top End -->
+        
+                <!-- Header Bottom Start -->
+                <div class="header-bottom header-bottom-one header-sticky">
+                    <div class="container-fluid">
+                        <div class="row menu-center align-items-center justify-content-between">
+        
+                            <div class="col mt-15 mb-15">
+                                <!-- Logo Start -->
+                                <div class="header-logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo.png" alt="Jadusona">
+                                    </a>
+                                </div><!-- Logo End -->
+                            </div>
+        
+                            <div class="col order-2 order-lg-3">
+                                <!-- Header Advance Search Start -->
+                                <div class="header-shop-links">
+        
+                                    <div class="header-search">
+                                        <button class="search-toggle"><img src="assets/images/icons/search.png" alt="Search Toggle"><img class="toggle-close" src="assets/images/icons/close.png" alt="Search Toggle"></button>
+                                        <div class="header-search-wrap">
+                                            <form action="#">
+                                                <input type="text" placeholder="Type and hit enter">
+                                                <button><img src="assets/images/icons/search.png" alt="Search"></button>
+                                            </form>
+                                        </div>
+                                    </div>
+        
+                                    <div class="header-wishlist">
+                                        <a href="wishlist.html"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
+                                    </div>
+        
+                                    <div class="header-mini-cart">
+                                        <a href="cart.html"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
+                                    </div>
+        
+                                </div><!-- Header Advance Search End -->
+                            </div>
+        
+                            <div class="col order-3 order-lg-2">
+                                <div class="main-menu">
+                                    <nav>
+                                        <ul>
+                                            <li><a href="index.html">HOME</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="index.html">Home One</a></li>
+                                                    <li><a href="index-2.html">Home Two</a></li>
+                                                    <li><a href="index-3.html">Home Three</a></li>
+                                                    <li><a href="index-box.html">Home Box</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="shop.html">SHOP</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
+                                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                                                    <li><a href="single-product.html">Single Product</a></li>
+                                                    <li><a href="single-product-left-sidebar.html">Single Product Left Sidebar</a></li>
+                                                    <li><a href="single-product-right-sidebar.html">Single Product Right Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="active"><a href="#">PAGES</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="cart.html">Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li class="active"><a href="login-register.html">Login & Register</a></li>
+                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a href="404.html">404 Error</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="blog.html">BLOG</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="single-blog.html">Single Blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">CONTACT</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile Menu -->
+                            <div class="mobile-menu order-4 d-block d-lg-none col"></div>
+        
+                        </div>
+                    </div>
+                </div><!-- Header BOttom End -->
+            </div>
+        </div>
+            </header> <!-- Header Section End -->
+
+
+
+    <!-- Page Section Start -->
+    <main>
+        <div class=" loginsection ">
+            <div class="container">
+                
+    
+                    
+                <div class="wrapper-login">
+                            <div class="form1">
+                            <form action="" >
+                                <h3>會員註冊</h3>
+
+               <div class="form-holder">
+                  <span class="fa fa-address-card"></span>
+                  <input type="text" id="user" class="form-control" placeholder="*使用者名稱" required>
+               </div>
+
+               <div class="form-holder">
+                  <span class="fa fa-user"></span>
+                  <input type="text" id="account" class="form-control" placeholder="*會員帳號" required>
+               </div>
+               <div class="form-holder">
+                  <span class="fa fa-envelope "></i> </span>
+                  <input type="email" class="form-control" name="email" placeholder="*電子郵件" required>
+               </div>
+               <div class="form-holder">
+                  <span class="fa fa-lock"></span>
+                  <input type="password" class="form-control" placeholder="*密碼" required>
+               </div>
+               <div class="form-holder">
+
+                  <span class="fa fa-lock"></span>
+                  <input type="password" class="form-control" placeholder="*密碼確認" required>
+               </div>
+               <div class="form-holder form-control">
+                  <span class="fa fa-venus-mars"></span>
+                  <input type="radio" id="sex1" name="male" value="先生">先生
+                  <input type="radio" id="sex2" name="female" value="小姐">小姐
+                  <!---這裡要用radiobutton-->
+               </div>
+               <div class="form-holder">
+                  <span class="fa fa-mobile"></span>
+                  <input type="text" class="form-control" placeholder="*手機號碼" required>
+               </div>
+
+               
+
+               <div class="form-holder" >
+                  <span class="fa fa-home"></span>
+                  <select class="form-control-multi" required>
+                     <option value="" disabled selected>*縣市</option>
+                     <option>基隆市</option>
+                     <option>台北市</option>
+                     <option>新北市</option>
+                     <option>宜蘭縣</option>
+                     <option>桃園市</option>
+                     <option>新竹市</option>
+                     <option>新竹縣</option>
+                     <option>苗栗縣</option>
+                     <option>台中市</option>
+                     <option>彰化縣</option>
+                     <option>南投縣</option>
+                     <option>雲林縣</option>
+                     <option>嘉義市</option>
+                     <option>嘉義縣</option>
+                     <option>台南市</option>
+                     <option>屏東縣</option>
+                     <option>花蓮縣</option>
+                     <option>台東縣</option>
+                     <option>澎湖縣</option>
+                     <option>連江縣</option>
+                     <option>金門縣</option>
+                  </select>
+                  <select class="form-control-multi" required>
+                     <option value="" disabled selected>鄉鎮市區</option>
+                  </select>
+                  
+                  <input type="text" class="form-control-multi-text" id="Address" placeholder="*通訊地址" required>
+                  <!----弄出可以讓使用者選擇的方框-->
+
+               </div>
+
+
+               <!------lnr-phone-handset-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+                <div class="shape-ex1">註冊</div>
+               
+            </form>
+
+                            </div>
+                </div>
+    
+                        
+                            
+                           
+                        
+                    
+    
+                   
+    
+                   
+                
+            </div>
+        </div>
+        </main>
+    <!-- Page Section End -->
+
+
+
+   
+    <br>
+     <!-- Footer Bottom Section Start -->
+     <footer>
+     <div class="footer-bottom-section section bg-theme-two pt-15 pb-15" ">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="footer-copyright">© 2022 Jadusona. Made with <i class="fa fa-heart heart-icon"></i> By <a target="_blank" href="https://hasthemes.com">HasThemes</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+     </footer><!-- Footer Bottom Section End -->
+
+
+
+    </div>
+</body>
+<!-- JS
+============================================ -->
+
+<!-- jQuery JS -->
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<!-- Migrate JS -->
+<script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<!-- Plugins JS -->
+<script src="assets/js/plugins.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
