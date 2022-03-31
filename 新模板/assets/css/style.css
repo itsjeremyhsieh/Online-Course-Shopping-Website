@@ -157,6 +157,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 /* Addition media query */
@@ -6355,6 +6356,7 @@ img.mfp-img {
 .footer-top-section {
   background-image: url(../images/pattern/pattern-dot.png);
   background-repeat: repeat;
+  
 }
 
 /*-- Footer Widget --*/
@@ -6380,6 +6382,7 @@ img.mfp-img {
   height: 1px;
   width: 70px;
   content: "";
+  
 }
 .footer-widget h5 {
   font-size: 16px;
