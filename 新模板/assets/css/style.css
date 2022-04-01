@@ -6109,6 +6109,13 @@ img.mfp-img {
   padding: 10px 20px;
   font-size: 14px;
 }
+.login-register-form-wrap input[type=checkbox] {
+  width: auto;
+  background-color: #1a161e;
+  color: #ffffff;
+ 
+  font-weight: 600;
+}
 .login-register-form-wrap input[type=submit] {
   width: auto;
   background-color: #1a161e;
