@@ -6509,7 +6509,7 @@ img.mfp-img {
 /**表單按鈕置中**/
 .shape-ex1{
   border: none;
-  top:50px;
+  
   display: flex;
   justify-content: center; 
   align-items: center; 
