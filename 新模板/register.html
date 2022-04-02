@@ -31,12 +31,7 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <style>
-        .radiobuttons-container {
-    height:auto;
-    -webkit-column-count: 2;
-    -moz-column-count:2;
-    column-count: 2;
-}
+        
     </style>
 </head>
 
@@ -208,49 +203,77 @@
                                 <div class="row">
 
                                     <div class="row justify-content-center">
-                                        <div class="col-4 mb-10"><input type="text" placeholder="姓名" ></div>
+                                    <div class="col-4 mb-10"><input type="text" placeholder="姓名" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                    <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                    <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                    <div class="col-4 mb-10"><input type="password" placeholder="密碼" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                    <div class="col-4 mb-10"><input type="password" placeholder="密碼確認" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                    <div class="col-4 mb-10"><input type="text" placeholder="手機號碼" ></div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-4 mb-10">                                   
+                                                &nbsp;&nbsp;<label for="">性別：</label>
+                                                <input type="radio" name="sex" value="male" class="radio" style="width:auto;height: auto;" >男性
+                                                <input type="radio" name="sex" value="female" class="radio" style="height: auto; width:auto;">女性                                                                                                          
                                         </div>
+                                    </div>
 
-                                        <div class="row justify-content-center">
-                                            <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" ></div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-4 mb-10">                  
+                                            &nbsp;&nbsp;<label for="" >地址：</label>
+                                                <select name="address" style="width: 41%;"><option value="" disabled selected>*縣市</option>
+                                                    <option>基隆市</option>
+                                                    <option>台北市</option>
+                                                    <option>新北市</option>
+                                                    <option>宜蘭縣</option>
+                                                    <option>桃園市</option>
+                                                    <option>新竹市</option>
+                                                    <option>新竹縣</option>
+                                                    <option>苗栗縣</option>
+                                                    <option>台中市</option>
+                                                    <option>彰化縣</option>
+                                                    <option>南投縣</option>
+                                                    <option>雲林縣</option>
+                                                    <option>嘉義市</option>
+                                                    <option>嘉義縣</option>
+                                                    <option>台南市</option>
+                                                    <option>屏東縣</option>
+                                                    <option>花蓮縣</option>
+                                                    <option>台東縣</option>
+                                                    <option>澎湖縣</option>
+                                                    <option>連江縣</option>
+                                                    <option>金門縣</option>
+                                                </select>
+
+                                                <select name="address" style="width: 41%;" ><option value="" disabled selected >鄉鎮市區</option>                                                                   
+                                                </select>
+                                                
+                                                <input type="text" placeholder="通訊地址" style="position: relative ;top:3px;" >                                                                                                 
+                                        </div>
+                                    </div>  
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-4 mb-10">
+                                            <div class="shape-ex1"><input type="submit" value="註冊會員" style="position: relative;top:5px;" >
                                             </div>
-
-                                            <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" ></div>
-                                                </div>
-
-                                                <div class="row justify-content-center">
-                                                    <div class="col-4 mb-10"><input type="password" placeholder="密碼" ></div>
-                                                    </div>
-
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-4 mb-10"><input type="password" placeholder="密碼確認" ></div>
-                                                        </div>
-
-                                                        <div class="row justify-content-center">
-                                                        <div class="col-4 mb-10"><input type="text" placeholder="手機號碼" ></div>
-                                                        </div>
-
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-4 mb-10">                                   
-                                                                    <label for="">性別：</label>
-                                                                    <input type="radio" name="sex" value="male" class="radio" style="width:auto;height: auto;" >男性
-                                                                    <input type="radio" name="sex" value="female" class="radio" style="height: auto; width:auto;">女性                                                                                                          
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            
-
-
-
-
-                                        
-                                    
-                                            <div class="row justify-content-center">
-                                                <div class="col-4 mb-10">
-                                                <div class="shape-ex1"><input type="submit" value="註冊會員" style="position: relative;top: auto;" ></div>
-                                                </div>
-                                                </div>
+                                        </div>
+                                    </div>
                                     
                                 </div>
                             
@@ -264,7 +287,7 @@
          
             </div>
         </div>
-        </main>
+    </main>
     <!-- Page Section End -->
 
 

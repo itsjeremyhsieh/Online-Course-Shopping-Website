@@ -6508,10 +6508,6 @@ img.mfp-img {
 
 /**表單按鈕置中**/
 .shape-ex1{
-  border: none;
-  
   display: flex;
-  justify-content: center; 
-  align-items: center; 
   position: relative;
                   }
