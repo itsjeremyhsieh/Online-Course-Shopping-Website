@@ -6084,6 +6084,7 @@ img.mfp-img {
 /*-- Login & Register Form Wrap --*/
 .login-register-form-wrap {
   /*-- Social Login --*/
+  margin:auto;
 }
 .login-register-form-wrap h3 {
   font-size: 24px;
@@ -6091,6 +6092,7 @@ img.mfp-img {
   text-transform: capitalize;
   margin-bottom: 30px;
   font-weight: 600;
+  margin:auto;
 }
 .login-register-form-wrap h4 {
   font-size: 18px;
@@ -6098,6 +6100,7 @@ img.mfp-img {
   text-transform: capitalize;
   margin-bottom: 20px;
   font-weight: 600;
+  margin:auto;
 }
 .login-register-form-wrap input {
   width: 100%;
@@ -6108,13 +6111,15 @@ img.mfp-img {
   line-height: 22px;
   padding: 10px 20px;
   font-size: 14px;
+  margin:auto;
 }
 .login-register-form-wrap input[type=checkbox] {
   width: auto;
   background-color: #1a161e;
   color: #ffffff;
- 
+  margin:auto;
   font-weight: 600;
+  
 }
 .login-register-form-wrap input[type=submit] {
   width: auto;
@@ -6123,15 +6128,18 @@ img.mfp-img {
   text-transform: uppercase;
   padding: 10px 30px;
   font-weight: 600;
+  margin:auto;
 }
 .login-register-form-wrap input[type=submit]:hover {
   background-color: #ff708a;
   border-color: #ff708a;
+  margin:auto;
 }
 .login-register-form-wrap .social-login {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin:auto;
 }
 .login-register-form-wrap .social-login a {
   width: 36px;
@@ -6141,15 +6149,18 @@ img.mfp-img {
   border-radius: 50%;
   text-align: center;
   margin-right: 15px;
+  margin:auto;
 }
 .login-register-form-wrap .social-login a i {
   font-size: 14px;
   line-height: 34px;
+  margin:auto;
 }
 .login-register-form-wrap .social-login a:hover {
   background-color: #ff708a;
   border-color: #ff708a;
   color: #ffffff;
+  margin:auto;
 }
 
 /*-- Login & Register Separator --*/
@@ -6494,3 +6505,13 @@ img.mfp-img {
   margin: 0 4px;
   font-size: 13px;
 }
+
+/**表單按鈕置中**/
+.shape-ex1{
+  border: none;
+  top:50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative;
+                  }
