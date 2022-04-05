@@ -7870,3 +7870,9 @@ ul li {
 .rating:hover>input:checked~label:before {
   opacity: 0.4
 }
+
+.sold{
+  font-size: 15px;
+  font-family: 'cursive';
+  font-weight: 1000;
+}
