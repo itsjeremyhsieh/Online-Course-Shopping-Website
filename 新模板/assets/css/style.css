@@ -7649,11 +7649,9 @@ only screen and (max-width: 767px) {
   position: relative;
 }
 
+
 /** COMMENT**/
-body {
-  margin-top: 20px;
-  background: #eee;
-}
+
 
 .review-list ul li .left span {
   width: 32px;
