@@ -4797,6 +4797,7 @@ only screen and (max-width: 767px) {
 .single-product-content .description p {
   font-size: 16px;
   line-height: 28px;
+  font-family:monospace;
 }
 
 .single-product-content .availability {
