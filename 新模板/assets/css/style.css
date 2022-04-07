@@ -7892,4 +7892,5 @@ ul li {
     background: linear-gradient(90deg, rgb(2, 86, 124), rgb(172, 236, 236) var(--progress), transparent 0);
     border: 1px solid #eee;
     transition: .3s --progress;
+    
 }
