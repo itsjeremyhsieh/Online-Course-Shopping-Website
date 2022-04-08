@@ -29,15 +29,15 @@
 
 <body>
 
-  <!-- Begin page -->
-  <div id="layout-wrapper">
+ <!-- Begin page -->
+ <div id="layout-wrapper">
 
     <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="/" class="logo logo-dark">
+                <a href="admin.html" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="public/assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -46,7 +46,7 @@
                     </span>
                 </a>
 
-                <a href="/" class="logo logo-light">
+                <a href="admin.html" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="public/assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -92,93 +92,8 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block language-switch">
-                <button type="button" class="btn header-item waves-effect"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    
-                        <img src="public/assets/images/flags/us.jpg" alt="Header Language" height="16">
-                    
-                </button>
-                <div class="dropdown-menu dropdown-menu-end">
+            
 
-                    <!-- item-->
-                    <a href="?clang=en" class="dropdown-item notify-item">
-                        <img src="public/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
-                    </a>
-                    
-                    <!-- item-->
-                    <a href="?clang=es" class="dropdown-item notify-item">
-                        <img src="public/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="?clang=de" class="dropdown-item notify-item">
-                        <img src="public/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="?clang=it" class="dropdown-item notify-item">
-                        <img src="public/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="?clang=ru" class="dropdown-item notify-item">
-                        <img src="public/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="dropdown d-none d-lg-inline-block ms-1">
-                <button type="button" class="btn header-item noti-icon waves-effect"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="uil-apps"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                    <div class="px-lg-2">
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/github.png" alt="Github">
-                                    <span>GitHub</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/bitbucket.png" alt="bitbucket">
-                                    <span>Bitbucket</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/dribbble.png" alt="dribbble">
-                                    <span>Dribbble</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/dropbox.png" alt="dropbox">
-                                    <span>Dropbox</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/mail_chimp.png" alt="mail_chimp">
-                                    <span>Mail Chimp</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="public/assets/images/brands/slack.png" alt="slack">
-                                    <span>Slack</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
@@ -283,11 +198,9 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">View Profile</span></a>
-                    <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
-                    <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
-                    <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Lock screen</span></a>
-                    <a class="dropdown-item" href="/logout"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
+                    <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">查看帳號</span></a>
+                    <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">帳號設定</span> <span class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
+                    <a class="dropdown-item" href="/logout"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">登出</span></a>
                 </div>
             </div>
 
@@ -305,7 +218,7 @@
 
     <!-- LOGO -->
     <div class="navbar-brand-box">
-        <a href="/" class="logo logo-dark">
+        <a href="admin.html" class="logo logo-dark">
             <span class="logo-sm">
                 <img src="public/assets/images/logo-sm.png" alt="" height="22">
             </span>
@@ -314,7 +227,7 @@
             </span>
         </a>
 
-        <a href="/" class="logo logo-light">
+        <a href="admin.html" class="logo logo-light">
             <span class="logo-sm">
                 <img src="public/assets/images/logo-sm.png" alt="" height="22">
             </span>
@@ -337,259 +250,65 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="/">
+                    <a href="admin.html">
                         <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-window-section"></i>
-                        <span>Layouts</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow">Vertical</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-dark-sidebar">Dark Sidebar</a></li>
-                                <li><a href="layouts-compact-sidebar">Compact Sidebar</a></li>
-                                <li><a href="layouts-icon-sidebar">Icon Sidebar</a></li>
-                                <li><a href="layouts-boxed">Boxed Width</a></li>
-                                <li><a href="layouts-preloader">Preloader</a></li>
-                                <li><a href="layouts-colored-sidebar">Colored Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal">Horizontal</a></li>
-                                <li><a href="layouts-hori-topbar-dark">Topbar Dark</a></li>
-                                <li><a href="layouts-hori-boxed-width">Boxed Width</a></li>
-                                <li><a href="layouts-hori-preloader">Preloader</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+              
 
-                <li class="menu-title">Apps</li>
+                <li class="menu-title">功能列表</li>
 
-                <li>
-                    <a href="calendar" class="waves-effect">
-                        <i class="uil-calender"></i>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="chat.html" class=" waves-effect">
-                        <i class="uil-comments-alt"></i>
-                        <span class="badge rounded-pill bg-warning float-end">New</span>
-                        <span>Chat</span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-store"></i>
-                        <span>Ecommerce</span>
+                        <span>課程管理</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ecommerce-products.html">Products</a></li>
-                        <li><a href="ecommerce-product-detail.html">Product Detail</a></li>
-                        <li><a href="ecommerce-orders.html">Orders</a></li>
-                        <li><a href="ecommerce-customers.html">Customers</a></li>
-                        <li><a href="ecommerce-cart.html">Cart</a></li>
-                        <li><a href="ecommerce-checkout.html">Checkout</a></li>
-                        <li><a href="ecommerce-shops.html">Shops</a></li>
-                        <li><a href="ecommerce-add-product.html">Add Product</a></li>
+                        <li><a href="ecommerce-products.html">課程</a></li>
+                        <li><a href="ecommerce-product-detail.html">課程資訊</a></li>
+                        <li><a href="ecommerce-add-product.html">新增課程</a></li>
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
-                    </ul>
-                </li>
+               
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-invoice"></i>
-                        <span>Invoices</span>
+                        <span>訂單管理</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="invoices-list.html">Invoice List</a></li>
-                        <li><a href="invoices-detail.html">Invoice Detail</a></li>
+                        <li><a href="invoices-list.html">訂單列表</a></li>
+                        <li><a href="invoices-detail.html">訂單明細</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-book-alt"></i>
-                        <span>Contacts</span>
+                        <span>會員帳號管理</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="contacts-grid.html">User Grid</a></li>
-                        <li><a href="contacts-list.html">User List</a></li>
-                        <li><a href="contacts-profile.html">Profile</a></li>
+                        <li><a href="contacts-grid.html">會員列表</a></li>
+                        
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-book-alt"></i>
+                        <span>留言管理</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="contacts-grid.html">留言列表</a></li>
+                        
+                    </ul>
+                </li>
                 <li class="menu-title">Pages</li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-user-circle"></i>
-                        <span>Authentication</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login">Login</a></li>
-                        <li><a href="auth-register">Register</a></li>
-                        <li><a href="auth-recoverpw">Recover Password</a></li>
-                        <li><a href="auth-lock-screen">Lock Screen</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-file-alt"></i>
-                        <span>Utility</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter">Starter Page</a></li>
-                        <li><a href="pages-maintenance">Maintenance</a></li>
-                        <li><a href="pages-comingsoon">Coming Soon</a></li>
-                        <li><a href="pages-timeline">Timeline</a></li>
-                        <li><a href="pages-faqs">FAQs</a></li>
-                        <li><a href="pages-pricing">Pricing</a></li>
-                        <li><a href="pages-404">Error 404</a></li>
-                        <li><a href="pages-500">Error 500</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-title">Components</li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-flask"></i>
-                        <span>UI Elements</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ui-alerts">Alerts</a></li>
-                        <li><a href="ui-buttons">Buttons</a></li>
-                        <li><a href="ui-cards">Cards</a></li>
-                        <li><a href="ui-carousel">Carousel</a></li>
-                        <li><a href="ui-dropdowns">Dropdowns</a></li>
-                        <li><a href="ui-grid">Grid</a></li>
-                        <li><a href="ui-images">Images</a></li>
-                        <li><a href="ui-lightbox">Lightbox</a></li>
-                        <li><a href="ui-modals">Modals</a></li>
-                        <li><a href="ui-rangeslider">Range Slider</a></li>
-                        <li><a href="ui-session-timeout">Session Timeout</a></li>
-                        <li><a href="ui-progressbars">Progress Bars</a></li>
-                        <li><a href="ui-sweet-alert">Sweet-Alert</a></li>
-                        <li><a href="ui-tabs-accordions">Tabs &amp; Accordions</a></li>
-                        <li><a href="ui-typography">Typography</a></li>
-                        <li><a href="ui-video">Video</a></li>
-                        <li><a href="ui-general">General</a></li>
-                        <li><a href="ui-colors">Colors</a></li>
-                        <li><a href="ui-rating">Rating</a></li>
-                        <li><a href="ui-notifications">Notifications</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="uil-shutter-alt"></i>
-                        <span class="badge rounded-pill bg-info float-end">6</span>
-                        <span>Forms</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="form-elements">Basic Elements</a></li>
-                        <li><a href="form-validation">Validation</a></li>
-                        <li><a href="form-advanced">Advanced Plugins</a></li>
-                        <li><a href="form-editors">Editors</a></li>
-                        <li><a href="form-uploads">File Upload</a></li>
-                        <li><a href="form-xeditable">Xeditable</a></li>
-                        <li><a href="form-repeater">Repeater</a></li>
-                        <li><a href="form-wizard">Wizard</a></li>
-                        <li><a href="form-mask">Mask</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-list-ul"></i>
-                        <span>Tables</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tables-basic">Bootstrap Basic</a></li>
-                        <li><a href="tables-datatable">Datatables</a></li>
-                        <li><a href="tables-responsive">Responsive</a></li>
-                        <li><a href="tables-editable">Editable</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-chart"></i>
-                        <span>Charts</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="charts-apex">Apex</a></li>
-                        <li><a href="charts-chartjs">Chartjs</a></li>
-                        <li><a href="charts-flot">Flot</a></li>
-                        <li><a href="charts-knob">Jquery Knob</a></li>
-                        <li><a href="charts-sparkline">Sparkline</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-streering"></i>
-                        <span>Icons</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="icons-unicons">Unicons</a></li>
-                        <li><a href="icons-boxicons">Boxicons</a></li>
-                        <li><a href="icons-materialdesign">Material Design</a></li>
-                        <li><a href="icons-dripicons">Dripicons</a></li>
-                        <li><a href="icons-fontawesome">Font Awesome</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-location-point"></i>
-                        <span>Maps</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="maps-google">Google</a></li>
-                        <li><a href="maps-vector">Vector</a></li>
-                        <li><a href="maps-leaflet">Leaflet</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-share-alt"></i>
-                        <span>Multi Level</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);">Level 1.1</a></li>
-                        <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="javascript: void(0);">Level 2.1</a></li>
-                                <li><a href="javascript: void(0);">Level 2.2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
 
             </ul>
         </div>
@@ -607,7 +326,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Products</h4>
+            <h4 class="mb-0">課程</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -625,494 +344,228 @@
           
 
 <div class="row">
-    <div class="col-xl-3 col-lg-4">
-        <div class="card">
-            <div class="card-header bg-transparent border-bottom">
-                <h5 class="mb-0">Filters</h5>
-            </div>
-
-            <div class="p-4">
-                <h5 class="font-size-14 mb-3">Categories</h5>
-                <div class="custom-accordion">
-                    <a class="text-body fw-semibold pb-2 d-block" data-bs-toggle="collapse" href="#categories-collapse" role="button" aria-expanded="false" aria-controls="categories-collapse">
-                        <i class="mdi mdi-chevron-up accor-down-icon text-primary me-1"></i> Footwear
-                    </a>
-                    <div class="collapse show" id="categories-collapse">
-                        <div class="card p-2 border shadow-none">
-                            <ul class="list-unstyled categories-list mb-0">
-                                <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i> Formal Shoes</a></li>
-                                <li class="active"><a href="#"><i class="mdi mdi-circle-medium me-1"></i> Sports Shoes</a></li>
-                                <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i> casual Shoes</a></li>
-                                <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i> Sandals</a></li>
-                                <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i> Slippers</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="p-4 border-top">
-                <div>
-                    <h5 class="font-size-14 mb-4">Price</h5>
-
-                    <input type="text" id="pricerange">
-                </div>
-            </div>
-
-            <div class="custom-accordion">
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filtersizes-collapse" class="text-dark d-block" data-bs-toggle="collapse">Sizes <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
-
-                        <div class="collapse show" id="filtersizes-collapse">
-                            <div class="mt-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-1">
-                                        <h5 class="font-size-15 mb-0">Select Sizes</h5>
-                                    </div>
-                                    <div class="w-xs">
-                                        <select class="form-select">
-                                            <option value="1">3</option>
-                                            <option value="2">4</option>
-                                            <option value="3">5</option>
-                                            <option value="4">6</option>
-                                            <option value="5" selected>7</option>
-                                            <option value="6">8</option>
-                                            <option value="7">9</option>
-                                            <option value="8">10</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterprodductcolor-collapse" class="text-dark d-block" data-bs-toggle="collapse">Colors <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
-
-                        <div class="collapse show" id="filterprodductcolor-collapse">
-                            <div class="mt-4">
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck1">
-                                    <label class="form-check-label" for="productcolorCheck1"><i class="mdi mdi-circle text-dark mx-1"></i> Black</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck2">
-                                    <label class="form-check-label" for="productcolorCheck2"><i class="mdi mdi-circle text-light mx-1"></i> White</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck3">
-                                    <label class="form-check-label" for="productcolorCheck3"><i class="mdi mdi-circle text-secondary mx-1"></i> Gray</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck4">
-                                    <label class="form-check-label" for="productcolorCheck4"><i class="mdi mdi-circle text-primary mx-1"></i> Blue</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck5">
-                                    <label class="form-check-label" for="productcolorCheck5"><i class="mdi mdi-circle text-success mx-1"></i> green</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck6">
-                                    <label class="form-check-label" for="productcolorCheck6"><i class="mdi mdi-circle text-danger mx-1"></i> Red</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck7">
-                                    <label class="form-check-label" for="productcolorCheck7"><i class="mdi mdi-circle text-warning mx-1"></i> Yellow</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="productcolorCheck8">
-                                    <label class="form-check-label" for="productcolorCheck8"><i class="mdi mdi-circle text-purple mx-1"></i> Purple</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterproduct-color-collapse" class="text-dark d-block" data-bs-toggle="collapse">Customer Rating <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
-
-                        <div class="collapse show" id="filterproduct-color-collapse">
-                            <div class="mt-4">
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio1" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio1">4 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio2" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio2">3 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio3" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio3">2 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio4" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio4">1 <i class="mdi mdi-star text-warning"></i></label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterproduct-discount-collapse" class="collapsed text-dark d-block" data-bs-toggle="collapse">Discount <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
-
-                        <div class="collapse" id="filterproduct-discount-collapse">
-                            <div class="mt-4">
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio1" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio1">50% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio2" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio2">40% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio3" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio3">30% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio4" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio4">20% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio5" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio5">10% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio6" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio6">Less than 10%</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+    <div class="col-xl-6 col-lg-2">
+        <h4 >課程列表</h4>
+        <table class="table table-hover tm-table-small tm-product-table">
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">課程名稱</th>
+                <th scope="col">售出數量</th>
+                <th scope="col">到期日期</th>
+                <th scope="col">&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 1</td>
+                <td>1,450</td>
+               
+                <td>28 March 2025</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 2</td>
+                <td>1,250</td>
+               
+                <td>21 March 2022</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 3</td>
+                <td>1,100</td>
+          
+                <td>18 Feb 2030</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 4</td>
+                <td>1,400</td>
+             
+                <td>24 Feb 2024</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 5</td>
+                <td>1,800</td>
+      
+                <td>22 Feb 2035</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 6</td>
+                <td>1,000</td>
+             
+                <td>20 Feb 2026</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 7</td>
+                <td>500</td>
+    
+                <td>10 Feb 2024</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 8</td>
+                <td>1,000</td>
+        
+                <td>08 Feb 2022</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 9</td>
+                <td>1,200</td>
+             
+                <td>24 Jan 2030</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 10</td>
+                <td>1,600</td>
+              
+                <td>22 Jan 2023</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name">Lorem Ipsum Product 11</td>
+                <td>2,000</td>
+          
+                <td>21 Jan 2019</td>
+                <td>
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary btn-block text-uppercase">
+            刪除選擇課程
+          </button>
     </div>
-
-    <div class="col-xl-9 col-lg-8">
-        <div class="card">
-            <div class="card-body">
-                <div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h5>Showing result for "Shoes"</h5>
-                                <ol class="breadcrumb p-0 bg-transparent mb-2">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Footwear</a></li>
-                                    <li class="breadcrumb-item active">Shoes</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-inline float-md-end">
-                                <div class="search-box ml-2">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control bg-light border-light rounded" placeholder="Search...">
-                                        <i class="mdi mdi-magnify search-icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <ul class="nav nav-tabs nav-tabs-custom mt-3 mb-2 ecommerce-sortby-list">
-                        <li class="nav-item">
-                            <a class="nav-link disabled fw-medium" href="#" tabindex="-1" aria-disabled="true">Sort by:</a>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Popularity</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Newest</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Discount</a>
-                        </li>
-                        
-                    </ul>
-
-                    <div class="row">
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <div class="product-ribbon badge bg-warning">
-                                        Trending
-                                    </div>
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-1.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Nike N012 Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Gray, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$280</del></span> $260</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-dark"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-light"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-primary"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <div class="product-ribbon badge bg-danger">
-                                        - 20 %
-                                    </div>
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-2.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Adidas Running Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Black, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$250</del></span> $240</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-danger"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-dark"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-light"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-3.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Puma P103 Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Purple, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$260</del></span> $250</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-purple"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-light"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-dark"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                   
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-4.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Sports S120 Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Cyan, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$240</del></span> $230</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-info"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-success"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-5.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Adidas AB23 Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Blue, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$240</del></span> $250</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-dark"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-light"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-primary"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <div class="product-ribbon badge bg-danger">
-                                        - 20 %
-                                    </div>
-                                    <div class="product-wishlist">
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-outline"></i>
-                                        </a>
-                                    </div>
-                                    <img src="public/assets/images/product/img-6.png" alt="" class="img-fluid mx-auto d-block">
-                                </div>
-                                
-                                <div class="text-center product-content p-4">
-                                    
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Nike N012 Shoes</a></h5>
-                                    <p class="text-muted font-size-13">Gray, Shoes</p>
-
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$270</del></span> $260</h5>
-                                    
-                                    <ul class="list-inline mb-0 text-muted product-color">
-                                        <li class="list-inline-item">
-                                            Colors :
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-dark"></i>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="mdi mdi-circle text-light"></i>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <div>
-                                <p class="mb-sm-0">Page 2 of 84</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-sm-end">
-                                <ul class="pagination pagination-rounded mb-sm-0">
-                                    <li class="page-item disabled">
-                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+        <h4>課程分類</h4>
+          <table class="table tm-table-small tm-product-table">
+            <tbody>
+              <tr>
+                <td class="tm-product-name">國小課程</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">國中課程</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">高中課程</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">國文</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">英文</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">數學</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">自然科學</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="tm-product-name">社會</td>
+                <td class="text-center">
+                  <a href="#" class="tm-product-delete-link">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
 </div>
 <!-- end row -->
 
