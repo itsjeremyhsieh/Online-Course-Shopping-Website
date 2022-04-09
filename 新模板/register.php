@@ -427,6 +427,40 @@
 
                                             <div class="row justify-content-center ">
                                                 <div class="col-4 mb-10">
+                                                    &nbsp;&nbsp;<label for="">生日：</label>
+                                                        
+                                                            <select name="birthday" class="dropdown" id="" style="width: 30%;" >
+                                                                
+                                                                <?php for ($i = 1; $i <= 100; $i++)
+                                                                {
+                                                                    $date = date("Y") - $i;
+                                                                    echo "<option value='$date'>" . $date . "</option>";
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        
+                                                            <select name="birthday" class="dropdown" style="width: 28%;" >
+                                                            <?php for ($i = 1; $i <= 12; $i++)
+                                                                {
+                                                                $month =  $i;
+                                                                echo "<option value='$month'>" . $month . "</option>";
+                                                                }
+                                                                ?>
+                                                            </select>
+
+                                                            <select name="birthday" class="dropdown"style="width: 25%;" >
+                                                            <?php for ($i = 1; $i <= 31; $i++)
+                                                                {
+                                                                $day = $i;
+                                                                echo "<option value='$day'>" . $day . "</option>";
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                </div>
+                                            </div>       
+
+                                            <div class="row justify-content-center ">
+                                                <div class="col-4 mb-10">
                                                     &nbsp;&nbsp;<label for="">地址：</label>
                                                         
                                                             <select name="address" class="dropdown" id="" style="position: relative; width: 42%;" >
