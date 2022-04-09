@@ -7395,18 +7395,22 @@ only screen and (max-width: 767px) {
   line-height: 1;
   margin-bottom: 30px;
   font-weight: 600;
+
 }
+
 
 .contact-info-wrap>p {
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 20px;
+  
 }
 
 /*-- Contact Info --*/
 .contact-info li {
   overflow: hidden;
   margin-bottom: 15px;
+  
 }
 
 .contact-info li:last-child {
@@ -7421,22 +7425,26 @@ only screen and (max-width: 767px) {
   margin-top: 3px;
   width: 40px;
   text-align: left;
+  
 }
 
 .contact-info li p {
   overflow: hidden;
   font-size: 16px;
   line-height: 26px;
+  
 }
 
 .contact-info li p a {
   display: block;
   float: left;
   clear: both;
+  
 }
 
 .contact-info li p a:hover {
   color: #ff708a;
+  
 }
 
 /*-- Contact Form Wrap --*/
@@ -7445,6 +7453,7 @@ only screen and (max-width: 767px) {
   line-height: 1;
   margin-bottom: 30px;
   font-weight: 600;
+  
 }
 
 /*-- Contact Form --*/
@@ -7456,6 +7465,7 @@ only screen and (max-width: 767px) {
   border-radius: 4px;
   color: #333333;
   padding: 5px 15px;
+  
 }
 
 .contact-form input[type=submit] {
@@ -7467,6 +7477,7 @@ only screen and (max-width: 767px) {
   padding: 5px 40px;
   border-radius: 50px;
   font-weight: 600;
+  
 }
 
 .contact-form input[type=submit]:hover {
@@ -7482,11 +7493,51 @@ only screen and (max-width: 767px) {
   color: #333333;
   padding: 5px 15px;
   resize: none;
+  
 }
+.contact-info
+{
+  position: relative;
+  top:10%;
+}
+
+.contact-center
+{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  font-size: 17px;
+}
+
+.contact-icon
+{
+  display: flex;
+  align-items: center; 
+  left:25%;
+  position: relative; 
+    
+    
+}
+.contact-icon-1
+{
+    display: flex;
+    align-items: center; 
+    left: 25%;
+    position: relative;
+}
+
+
 
 /*----------------------------------------*/
 /*  17. Footer CSS
 /*----------------------------------------*/
+.top-30
+{
+  position: relative;
+  top: 1000%;
+}
+
+
 .footer-top-section {
   background-image: url(../images/pattern/pattern-dot.png);
   background-repeat: repeat;
