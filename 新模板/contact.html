@@ -31,7 +31,112 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 </head>
+<style>
+    .chat-message{
+    background: #f9f9f9;  
+}
 
+.chat li img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.chat-body {
+  padding-bottom: 20px;
+}
+
+.chat li.left .chat-body {
+  margin-left: 70px;
+  background-color: #fff;
+}
+
+.chat li .chat-body {
+  position: relative;
+  font-size: 11px;
+  padding: 10px;
+  border: 1px solid #f1f5fc;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.chat li .chat-body .header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f1f5fc;
+}
+
+.chat li .chat-body p {
+  margin: 0;
+}
+
+.chat li.left .chat-body:before {
+  position: absolute;
+  top: 10px;
+  left: -8px;
+  display: inline-block;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #f1f5fc;
+  border-left: 1px solid #f1f5fc;
+  content: '';
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+.chat li.right .chat-body:before {
+  position: absolute;
+  top: 10px;
+  right: -8px;
+  display: inline-block;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #f1f5fc;
+  border-right: 1px solid #f1f5fc;
+  content: '';
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+.chat li {
+  margin: 15px 0;
+}
+
+.chat li.right .chat-body {
+  margin-right: 70px;
+  background-color: #fff;
+}
+
+.chat-box {
+/*
+  position: fixed;
+  bottom: 0;
+  left: 444px;
+  right: 0;
+*/
+  padding: 15px;
+  border-top: 1px solid #eee;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+</style>
 <body>
 
 <div class="main-wrapper">
@@ -191,22 +296,25 @@
             <div class="row row-30 mbn-40">
 
                <div class="contact-info-wrap col-md-6 col-12 mb-40">
-                   <h3>關於我們</h3>
-                   <p>Jadusona is the best theme for  elit, sed do eiusmod tempor dolor sit ame  tse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam,</p>
-                   <ul class="contact-info">
-                       <li>
-                           <i class="fa fa-map-marker"></i>
-                           <p>256, 1st AVE, You address <br>will be here</p>
-                       </li>
-                       <li>
-                           <i class="fa fa-phone"></i>
-                           <p><a href="#">+01 235 567 89</a><a href="#">+01 235 286 65</a></p>
-                       </li>
-                       <li>
-                           <i class="fa fa-globe"></i>
-                           <p><a href="#">info@example.com</a><a href="#">www.example.com</a></p>
-                       </li>
-                   </ul>
+                   <h3>留言板</h3>
+                   
+                   <ul class="chat">
+                    <li class="left clearfix">
+                    	<span class="chat-img pull-left">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+                    	<div class="chat-body clearfix">
+                    		<div class="header">
+                    			<strong class="primary-font">John Doe</strong>
+                    			<small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                    		</div>
+                    		<p>
+                    			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    		</p>
+                    	</div>
+                    </li>
+                </ul>
+                    
                </div>
 
                <div class="contact-form-wrap col-md-6 col-12 mb-40">
@@ -227,6 +335,38 @@
             </div>
         </div>
     </div><!-- Page Section End -->
+
+     <!-- Page Section Start -->
+     <div class="page-section section section-padding">
+        <div class="container">
+            <div class="row row-30 mbn-40">
+
+               <div class="contact-info-wrap col-md-6 col-12 mb-40">
+                   <h3>關於我們</h3>
+                   <p>Jadusona is the best theme for  elit, sed do eiusmod tempor dolor sit ame  tse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam,</p>
+                   <ul class="contact-info">
+                       <li>
+                           <i class="fa fa-map-marker"></i>
+                           <p>256, 1st AVE, You address <br>will be here</p>
+                       </li>
+                       <li>
+                           <i class="fa fa-phone"></i>
+                           <p><a href="#">+01 235 567 89</a><a href="#">+01 235 286 65</a></p>
+                       </li>
+                       <li>
+                           <i class="fa fa-globe"></i>
+                           <p><a href="#">info@example.com</a><a href="#">www.example.com</a></p>
+                       </li>
+                   </ul>
+               </div>
+
+               
+
+            </div>
+        </div>
+    </div><!-- Page Section End -->
+
+
 
     <!-- Brand Section Start -->
     <div class="brand-section section section-padding pt-0">
