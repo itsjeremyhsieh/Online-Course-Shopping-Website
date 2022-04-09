@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Invoice List | Minible - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="public/assets/images/favicon.ico">
+
+
+
+    <!-- bootstrap-datepicker css -->
+    <link href="public/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- DataTables -->
+    <link href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+
+    <!-- Bootstrap Css -->
+    <link href="public/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="public/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="admin.html" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="public/assets/images/logo-sm.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="public/assets/images/logo-dark.png" alt="" height="20">
+                            </span>
+                        </a>
+
+                        <a href="admin.html" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="public/assets/images/logo-sm.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="public/assets/images/logo-light.png" alt="" height="20">
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button"
+                        class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+
+                    <!-- App Search-->
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="uil-search"></span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-flex">
+
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="uil-search"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..."
+                                            aria-label="Recipient's username">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i
+                                                    class="mdi mdi-magnify"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            data-bs-toggle="fullscreen">
+                            <i class="uil-minus-path"></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="uil-bell"></i>
+                            <span class="badge bg-danger rounded-pill">3</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-notifications-dropdown">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h5 class="m-0 font-size-16"> 通知 </h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#!" class="small"> 全部已讀</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-simplebar style="max-height: 230px;">
+                                <a href="" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                <i class="uil-shopping-basket"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h6 class="mt-0 mb-1">您的訂單已送達</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 分鐘 前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <img src="public/assets/images/users/avatar-3.jpg"
+                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-1">
+                                            <h6 class="mt-0 mb-1">James Lemire</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">It will seem like simplified English.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 小時 前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                <i class="uil-truck"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h6 class="mt-0 mb-1">Your item is shipped</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 分鐘 前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <img src="public/assets/images/users/avatar-4.jpg"
+                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-1">
+                                            <h6 class="mt-0 mb-1">Salena Layfield</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 小時 前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-2 border-top d-grid">
+                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                    <i class="uil-arrow-circle-right me-1"></i> 查看更多..
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user"
+                                src="public/assets/images/users/avatar-4.jpg" alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Marcus</span>
+                            <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="#"><i
+                                    class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span
+                                    class="align-middle">查看帳號</span></a>
+                            <a class="dropdown-item d-block" href="#"><i
+                                    class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">帳號設定</span> <span
+                                    class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
+                            <a class="dropdown-item" href="/logout"><i
+                                    class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">登出</span></a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                            <i class="uil-cog"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="admin.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="public/assets/images/logo.png" alt="" height="50">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="public/assets/images/logo.png" alt="" height="50">
+                    </span>
+                </a>
+
+                <a href="admin.html" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="public/assets/images/logo.png" alt="" height="50">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="public/assets/images/logo.png" alt="" height="50">
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <div data-simplebar class="sidebar-menu-scroll">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title">目錄</li>
+
+                        <li>
+                            <a href="admin.html">
+                                <i class="uil-home-alt"></i><span
+                                    class="badge rounded-pill bg-primary float-end">01</span>
+                                <span>儀錶板</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="menu-title">功能列表</li>
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-store"></i>
+                                <span>課程管理</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="ecommerce-products.html">課程</a></li>
+                                <li><a href="ecommerce-product-detail.html">課程資訊</a></li>
+                                <li><a href="ecommerce-add-product.html">新增課程</a></li>
+                            </ul>
+                        </li>
+
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-invoice"></i>
+                                <span>訂單管理</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="invoices-list.html">訂單列表</a></li>
+                                <li><a href="invoices-detail.html">訂單明細</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-book-alt"></i>
+                                <span>會員帳號管理</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="contacts-grid.html">會員列表</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-book-alt"></i>
+                                <span>留言管理</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="message.html">留言列表</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0">發票明細</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">發票</a></li>
+                                        <li class="breadcrumb-item active">發票明細</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div>
+                                <button type="button" class="btn btn-success waves-effect waves-light mb-3"><i
+                                        class="mdi mdi-plus me-1"></i> 新增發票</button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="float-end">
+                                <div class=" mb-3">
+                                    <div class="input-daterange input-group" id="datepicker6"
+                                        data-date-format="dd M, yyyy" data-date-autoclose="true"
+                                        data-provide="datepicker" data-date-container='#datepicker6'>
+                                        <input type="text" class="form-control text-start" placeholder="From"
+                                            name="From" />
+                                        <input type="text" class="form-control text-start" placeholder="To" name="To" />
+
+                                        <button type="button" class="btn btn-primary"><i
+                                                class="mdi mdi-filter-variant"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="table-responsive mb-4">
+                                <table class="table table-centered datatable dt-responsive nowrap table-card-list"
+                                    style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
+                                    <thead>
+                                        <tr class="bg-transparent">
+                                            <th style="width: 24px;">
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck">
+                                                    <label class="form-check-label" for="invoicecheck"></label>
+                                                </div>
+                                            </th>
+                                            <th>發票編號</th>
+                                            <th>開票日期</th>
+                                            <th>開票名稱</th>
+                                            <th>數量</th>
+                                            <th>狀況</th>
+                                            <th>下載Pdf</th>
+                                            <th style="width: 120px;">修改</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck1">
+                                                    <label class="form-check-label" for="invoicecheck1"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0131</a>
+                                            </td>
+                                            <td>
+                                                10 Jul, 2020
+                                            </td>
+                                            <td>Connie Franco</td>
+
+                                            <td>
+                                                $141
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck2">
+                                                    <label class="form-check-label" for="invoicecheck2"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0130</a>
+                                            </td>
+                                            <td>
+                                                09 Jul, 2020
+                                            </td>
+                                            <td>Paul Reynolds</td>
+
+                                            <td>
+                                                $153
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck3">
+                                                    <label class="form-check-label" for="invoicecheck3"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0129</a>
+                                            </td>
+                                            <td>
+                                                09 Jul, 2020
+                                            </td>
+                                            <td>Ronald Patterson</td>
+
+                                            <td>
+                                                $220
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-warning font-size-12">待付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck4">
+                                                    <label class="form-check-label" for="invoicecheck4"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0128</a>
+                                            </td>
+                                            <td>
+                                                08 Jul, 2020
+                                            </td>
+                                            <td>Adella Perez</td>
+
+                                            <td>
+                                                $175
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck5">
+                                                    <label class="form-check-label" for="invoicecheck5"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0127</a>
+                                            </td>
+                                            <td>
+                                                07 Jul, 2020
+                                            </td>
+                                            <td>Theresa Mayers</td>
+
+                                            <td>
+                                                $160
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck6">
+                                                    <label class="form-check-label" for="invoicecheck6"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0126</a>
+                                            </td>
+                                            <td>
+                                                06 Jul, 2020
+                                            </td>
+                                            <td>Michael Wallace</td>
+
+                                            <td>
+                                                $150
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck7">
+                                                    <label class="form-check-label" for="invoicecheck7"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0125</a>
+                                            </td>
+                                            <td>
+                                                05 Jul, 2020
+                                            </td>
+                                            <td>Oliver Gonzales</td>
+
+                                            <td>
+                                                $165
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-warning font-size-12">待付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck8">
+                                                    <label class="form-check-label" for="invoicecheck8"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0124</a>
+                                            </td>
+                                            <td>
+                                                05 Jul, 2020
+                                            </td>
+                                            <td>David Burke</td>
+
+                                            <td>
+                                                $170
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck9">
+                                                    <label class="form-check-label" for="invoicecheck9"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0123</a>
+                                            </td>
+                                            <td>
+                                                04 Jul, 2020
+                                            </td>
+                                            <td>Willie Verner</td>
+
+                                            <td>
+                                                $140
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-warning font-size-12">待付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck10">
+                                                    <label class="form-check-label" for="invoicecheck10"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0122</a>
+                                            </td>
+                                            <td>
+                                                03 Jul, 2020
+                                            </td>
+                                            <td>Felix Perry</td>
+
+                                            <td>
+                                                $155
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck11">
+                                                    <label class="form-check-label" for="invoicecheck11"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0121</a>
+                                            </td>
+                                            <td>
+                                                02 Jul, 2020
+                                            </td>
+                                            <td>Virgil Kelley</td>
+
+                                            <td>
+                                                $165
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-success font-size-12">已付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="invoicecheck12">
+                                                    <label class="form-check-label" for="invoicecheck12"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#MN0120</a>
+                                            </td>
+                                            <td>
+                                                02 Jul, 2020
+                                            </td>
+                                            <td>Matthew Lawler</td>
+
+                                            <td>
+                                                $170
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-soft-warning font-size-12">待付款</div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <button class="btn btn-light btn-sm w-xs">Pdf <i
+                                                            class="uil uil-download-alt ms-2"></i></button>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i
+                                                        class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Minible.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a
+                                    href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div data-simplebar class="h-100">
+
+            <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+                <h5 class="m-0 me-2">Settings</h5>
+
+                <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                    <i class="mdi mdi-close noti-icon"></i>
+                </a>
+            </div>
+
+
+            <!-- Settings -->
+            <hr class="mt-0" />
+            <h6 class="text-center mb-0">Choose Layouts</h6>
+
+            <div class="p-4">
+                <div class="mb-2">
+                    <img src="public/assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input type="checkbox" class="form-check-input theme-choice" id="light-mode-switch" checked />
+                    <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                </div>
+
+                <div class="mb-2">
+                    <img src="public/assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch"
+                        data-bsStyle="public/assets/css/bootstrap-dark.min.css"
+                        data-appStyle="public/assets/css/app-dark.min.css" />
+                    <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                </div>
+
+                <div class="mb-2">
+                    <img src="public/assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="form-check form-switch mb-5">
+                    <input type="checkbox" class="form-check-input theme-choice" id="rtl-mode-switch"
+                        data-appStyle="public/assets/css/app-rtl.min.css" />
+                    <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+                </div>
+
+
+            </div>
+
+        </div> <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+    <!-- JAVASCRIPT -->
+    <script src="public/assets/libs/jquery/jquery.min.js"></script>
+    <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="public/assets/libs/node-waves/waves.min.js"></script>
+    <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+
+
+
+    <!-- bootstrap datepicker -->
+    <script src="public/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="public/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="public/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="public/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="public/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- init js -->
+    <script src="public/assets/js/pages/ecommerce-datatables.init.js"></script>
+
+
+
+    <script src="public/assets/js/app.js"></script>
+
+
+</body>
+
+</html>
