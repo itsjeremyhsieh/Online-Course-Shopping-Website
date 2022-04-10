@@ -7945,3 +7945,168 @@ ul li {
     transition: .3s --progress;
     
 }
+
+/***login***************************/
+.loginwrapper {
+  margin: auto;
+}
+
+.remember {
+  position: relative;
+  width: 42%;
+}
+
+.length {
+  width: 100px;
+
+}
+
+textarea {
+  overflow-y: scroll;
+  height: 100px;
+  width: 380px;
+  resize: none;
+  /* Remove this if you want the user to resize the textarea */
+}
+
+body {
+  background-color: #F7F7F7;
+}
+
+.c_title {
+  background-color: #E6E6E6;
+  margin-top: 3px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  font-size: 11pt;
+  color: #990033;
+}
+
+.c_content {
+  background-color: #FFFFFF;
+  margin-top: 3px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  font-size: 11pt;
+  color: blue;
+}
+
+.c_button {
+  background: #e3e3db;
+  font-size: 16px;
+  color: #6633FF;
+  padding: 6px 14px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff #d8d8d0 #d8d8d0 #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#message {
+  color: #D82424;
+  font-weight: normal;
+  font-family: "微軟正黑體";
+  display: inline;
+  padding: 1px;
+}
+
+.error {
+  color: #D82424;
+  font-weight: normal;
+  font-family: "微軟正黑體";
+  display: inline;
+  padding: 1px;
+}
+
+/**login************/
+textarea {
+  overflow-y: scroll;
+  height: 100px;
+  width:380px;
+  resize: none; /* Remove this if you want the user to resize the textarea */
+}
+body {
+background-color:#F7F7F7;
+}
+
+.c_title{
+background-color:#E6E6E6;
+margin-top:3px;
+padding-top:5px;
+padding-bottom:3px;
+padding-left:5px;
+font-size: 11pt;
+color: #990033;
+}
+
+.c_content {
+background-color:#FFFFFF;
+margin-top:3px;
+padding-top:5px;
+padding-bottom:3px;
+padding-left:5px;
+font-size: 11pt;
+color: blue;
+}
+
+.c_button {
+background: #e3e3db;
+font-size:16px; 
+color: #6633FF; 
+padding: 6px 14px;
+border-width: 2px;
+border-style: solid;
+border-color: #fff #d8d8d0 #d8d8d0 #fff;
+text-decoration: none;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+#message {
+  color: #D82424;
+  font-weight: normal;
+  font-family: "微軟正黑體";
+  display: inline;
+  padding: 1px;
+}
+
+.error {
+  color: #D82424;
+  font-weight: normal;
+  font-family: "微軟正黑體";
+  display: inline;
+  padding: 1px;
+}
+
+.loginwrapper
+{
+    margin:auto;
+}
+.remember
+{
+    position: relative;
+    top:50px;
+}
+.length
+{
+    width:100px;
+    
+}
+
+.loginwrapper {
+  margin: auto;
+}
+
+.remember {
+  position: relative;
+  width:42%;
+}
+
+.length {
+  width: 100px;
+
+}

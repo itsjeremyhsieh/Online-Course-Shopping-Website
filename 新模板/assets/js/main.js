@@ -500,3 +500,6 @@ $('[name="payment-method"]').on('click', function(){
     
    
 })(jQuery);	
+
+
+
