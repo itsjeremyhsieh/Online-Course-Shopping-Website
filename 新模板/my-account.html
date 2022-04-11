@@ -31,7 +31,60 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <style>
-      
+      .service-block-inner {
+     padding: 15px 20px;
+     position: relative;
+     margin-bottom: 30px;
+     height:180px;
+}
+ .service-block-inner::before {
+     content: "";
+     width: 5px;
+     height: 100%;
+     border-radius: 0px;
+     background: #a1d0ec;
+     position: absolute;
+     top: 0;
+     left: 0;
+     transition: all 0.5s ease 0s;
+}
+ .service-block-inner::after {
+     content: "";
+     width: 5px;
+     height: 0;
+     border-radius: 0px;
+     background: #579187;
+     position: absolute;
+     top: 0;
+     left: 0;
+     transition: all 0.5s ease 0s;
+}
+ .service-block-inner h3 {
+     font-size: 24px;
+     text-transform: uppercase;
+     font-weight: 600;
+}
+ .service-block-inner p {
+     margin: 0px;
+     font-size: 16px;
+     font-weight: 300;
+     padding-bottom: 0px;
+}
+
+.service-block-inner h4 {
+     margin: 0px;
+     font-size: 17px;
+     font-weight: 1000;
+     padding-bottom: 0px;
+     text-transform: uppercase;
+     text-align: left;
+}
+ .service-block-inner:hover::after {
+     height: 100%;
+}
+td,th{
+    border:1px solid black;
+}
     </style>
 
 
@@ -218,7 +271,7 @@
 				<!-- My Account Tab Menu End -->
 
 				<!-- My Account Tab Content Start -->
-				<div class="col-lg-9 col-12 mb-30">
+				 <div class="col-lg-9 col-12 mb-30">
 					<div class="tab-content" id="myaccountContent">
 						<!-- Single Tab Content Start -->
 						<div class="tab-pane fade show active" id="dashboad" role="tabpanel">
@@ -245,9 +298,86 @@
             
                                 <br>
                                <center>距離下一等級還差$4500</center>
+
+
+                               
+                               <div class="row my-5">
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="service-block-inner">
+                                        <h3>普通會員</h3>
+                                        <h4> 加入即成為我們的一般會員</h4>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="service-block-inner">
+                                        <h3>白金會員</h3>
+                                       <h4>實際消費金額達6000元，且有效交易次數達1次以上。</h4>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="service-block-inner">
+                                        <h3>黃金會員</h3>
+                                        <h4>實際消費金額達15,000元，且有效交易次數達4次以上。</h4>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                
                                 
-							</div>
-						</div>
+      
+           
+                
+                    
+                        <h1 class="wow fadeInDown animated" data-wow-duration="0.7s" data-wow-delay="0s">會員優惠 Member Discount</h1> 				                       
+                        <div class="table-wrapper" > 						
+                            <div class="table-2" > 							
+                                <table style="border:3px #cccccc solid;"cellpadding="10" border='1';border-collapse:collapse;  > 								
+                                    <tbody> 									
+                                        <tr> 										
+                                            <th style="width:95px">會員等級</th> 										
+                                            <th style="min-width: 180px">運費門檻</th> 										
+                                            <th>專屬優惠</th> 										
+                                            <th>生日禮</th> 										
+                                            <th>不定期優惠</th> 									
+                                        </tr> 									
+                                        <tr> 										
+                                            <td>一般會員</td> 										
+                                            <td> 單次購物折扣後，滿1200元即可享有免運費(含特價商品) <br>※海外買家不適用<br>※實際免運門檻請依照官網活動公告，會因每月活動有更動。</td> 										
+                                            <td>&nbsp;</td> 										
+                                            <td>不定期發送優惠折扣碼</td> 										
+                                            <td>&nbsp;</td> 									
+                                        </tr> 									
+                                        <tr> 										
+                                            <td>VIP會員</td> 										
+                                            <td> 單次購物折扣後，滿1200元即可享有免運費(含特價商品) <br>※海外買家不適用<br>※實際免運門檻請依照官網活動公告，會因每月活動有更動。</td> 										<td>正品全面享有95折優惠</td> 										<td>不定期發送優惠折扣碼</td> 										<td>每月不定期舉辦會員周，正品全面享有9折優惠。(特價品不適用)</td> 									</tr> 									<tr> 										<td>SVIP會員</td> 										<td> 單次購物折扣後，滿1200元即可享有免運費(含特價商品) <br>※海外買家不適用<br>※實際免運門檻請依照官網活動公告，會因每月活動有更動。</td> 										<td>正品全面享有9折優惠</td> 										
+                                                <td>不定期發送優惠折扣碼</td> 										
+                                                <td>每月不定期舉辦會員周，正品全面享有85折優惠。(特價品不適用)</td> 									
+                                        </tr> 								
+                                    </tbody> 							
+                                </table> 						
+                            </div> 					
+                        </div> 					
+                    
+                               
+                               
+                              
+                                    
+                                
+                                    
+
+
+
+
+
+
+                               
+                               
+
+
+                               </div>
+                            </div>
 						<!-- Single Tab Content End -->
 
 						<!-- Single Tab Content Start -->
