@@ -70,7 +70,9 @@
                         maxlength: "帳號最長10個字"
                     },
                     pwd: {
-                        equalTo: "兩次密碼不相符"
+                        required: "密碼為必填欄位",
+                        minlength: "密碼最少要6個字",
+                        maxlength: "密碼最長12個字"
                     },
                 }
             });
