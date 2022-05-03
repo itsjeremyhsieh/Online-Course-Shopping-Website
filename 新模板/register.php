@@ -127,7 +127,7 @@
 
         $("#form1").validate({
             submitHandler: function(form) {
-                alert("success!");
+                alert("註冊成功！");
                 form.submit();
             },
             rules: {
