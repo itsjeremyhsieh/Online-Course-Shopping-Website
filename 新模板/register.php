@@ -421,7 +421,6 @@
                                                         <option value="" disabled selected>請選擇</option>
                                                         <option>男性</option>
                                                         <option>女性</option>
-                                                        <option>其他</option>
                                                     </select>
                                                 </div>
                                             </div>
