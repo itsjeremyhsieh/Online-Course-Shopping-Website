@@ -490,22 +490,7 @@
                                                         <option>金門縣</option>
                                                     </select>
 
-                                                    <select name="address" class="dropdown"
-                                                        style="position: relative; width: 42%;">
-                                                        <option value="" disabled selected>鄉鎮市區</option>
-                                                    </select>
-
-
-
-
-
-
-
-
-
-
-
-
+                                                   
                                                     <input type="text" placeholder="通訊地址"
                                                         style="position: relative ;top:3px;" name="通訊地址">
                                                 </div>
