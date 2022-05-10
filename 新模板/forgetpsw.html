@@ -30,12 +30,31 @@
     
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <style>
-        
 
+    
+    <script>
+    $(document).ready(function($) {
+        //for select
+        $.validator.addMethod("notEqualsto", function(value, element, arg) {
+            return arg != value;
+        }, "您尚未選擇!");
 
-
-    </style>
+        $("#form1").validate({
+            submitHandler: function(form) {
+                alert("註冊成功！");
+                form.submit();
+            },
+            rules: {
+                password: {
+                    required: true,
+                }
+            },
+            password: {
+                
+            }
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -197,11 +216,11 @@
         <div class="loginsection">
             <div class="container">
                 <div class="row mbn-40">                
-                    <div class="login-register-form-wrap">                       
-                        <form action="#" class="mb-2">
+                    <div class="login-register-form-wrap">    
+                        <form action="" method="POST" name="form1" id="form1" class="mb-2"></form>                   
                             <div class="row">                               
                                 <div class="row justify-content-center">
-                                    <div class="col-4 mb-10"><input type="password" placeholder="會員帳號或電子郵件" ></div>
+                                    <div class="col-4 mb-10"><input type="password" name="password" placeholder="會員帳號或電子郵件" ></div>
                                 </div>
 
                                 <div class="row justify-content-center">

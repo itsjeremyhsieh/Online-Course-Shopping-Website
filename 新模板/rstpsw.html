@@ -30,6 +30,39 @@
     
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <script>
+        $(document).ready(function($) {
+            //for select
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+    
+            $("#form1").validate({
+                submitHandler: function(form) {
+                    alert("註冊成功！");
+                    form.submit();
+                },
+                rules: {
+                    pwd: {
+                        required: true,
+                    },
+                    pwd2: {
+                        required: true,
+                        equalTo: "#pwd"
+                    },
+                },
+                messages: {
+                    pwd: {
+                        required: "密碼為必填欄位",
+                    },
+                    pwd2: {
+                        equalTo: "兩次密碼不相符"
+                    },
+                }
+            });
+        });
+        </script>
 </head>
 
 <body>
@@ -195,15 +228,15 @@
                     
                         <div class="login-register-form-wrap">
                          
-                            <form action="#" class="mb-2">
+                            <form action="" method="POST" name="form1" id="form1" class="mb-2">
                                 <div class="row">
 
                                     <div class="row justify-content-center">
-                                        <div class="col-4 mb-10"><input type="text" placeholder="輸入新密碼" ></div>
+                                        <div class="col-4 mb-10"><input type="text" name="pwd" placeholder="輸入新密碼" ></div>
                                     </div>
 
                                         <div class="row justify-content-center">
-                                            <div class="col-4 mb-10"><input type="text" placeholder="再次輸入新密碼" ></div>
+                                            <div class="col-4 mb-10"><input type="text" name="pwd2" placeholder="再次輸入新密碼" ></div>
                                         </div>
                                     
                                             <div class="row justify-content-center">
