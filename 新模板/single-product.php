@@ -82,8 +82,8 @@
                         <!-- Header Shop Links Start -->
                         <div class="header-top-right">
 
-                            <p><a href="my-account.html">我的帳號</a>
-                            <a href="register.php">註冊會員</a><a href="login.html">登入</a></p>
+                            <p><a href="my-account.php">我的帳號</a>
+                            <a href="register.php">註冊會員</a><a href="login.php">登入</a></p>
                             <p>目前線上人數：1人</p>
                         </div><!-- Header Shop Links End -->
                     </div>
@@ -100,7 +100,7 @@
                     <div class="col mt-15 mb-15">
                         <!-- Logo Start -->
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="assets/images/logo.png" alt="CourseLux">
                             </a>
                         </div><!-- Logo End -->
@@ -121,11 +121,11 @@
                             </div>
 
                             <div class="header-wishlist">
-                                <a href="wishlist.html"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
+                                <a href="wishlist.php"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
                             </div>
 
                             <div class="header-mini-cart">
-                                <a href="cart.html"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
+                                <a href="cart.php"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
                             </div>
 
                         </div><!-- Header Advance Search End -->
@@ -135,10 +135,10 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li class="active"><a href="index.html">首頁</a>
+                                    <li class="active"><a href="index.php">首頁</a>
                                         
                                     </li>
-                                    <li><a href="courses.html">雲端課程</a>
+                                    <li><a href="courses.php">雲端課程</a>
                                         <ul class="sub-menu">
                                             <li><a href="">國一</a></li>
                                             <li><a href="">國二</a></li>
@@ -149,9 +149,9 @@
                                         </ul>
                                        
                                     </li>
-                                    <li><a href="my-course.html">我的課程</a>
+                                    <li><a href="my-course.php">我的課程</a>
                                     </li>
-                                    <li><a href="contact.html">關於我們</a></li>
+                                    <li><a href="contact.php">關於我們</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -174,8 +174,8 @@
 
                     <h1>課程介紹</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="index.html">首頁</a></li>
-                        <li><a href="single-product.html">課程介紹</a></li>
+                        <li><a href="index.php">首頁</a></li>
+                        <li><a href="single-product.php">課程介紹</a></li>
                     </ul>
 
                 </div>
@@ -194,7 +194,7 @@
                         <div class="col-lg-6 col-12 mb-40">
 
                             <div class="pro-large-img mb-10 fix ">
-                                    <img src="assets/images/product/product-big-1.jpg" alt=""/>
+                                <p style="text-align:center;"> <img src="assets/images/product/玉育自然-國中一年級(上學期).jpg" alt="" width="320" /> </p>
                             </div>
                             <!-- Single Product Thumbnail Slider -->
                            
@@ -589,7 +589,7 @@
 
 								<div class="content-left">
 
-									<h4 class="title"><a href="single-product.html">Tmart Baby Dress</a></h4>
+									<h4 class="title"><a href="single-product.php">Tmart Baby Dress</a></h4>
 
 									<div class="ratting">
 										<i class="fa fa-star"></i>
@@ -634,7 +634,7 @@
 
 								<div class="content-left">
 
-									<h4 class="title"><a href="single-product.html">Jumpsuit Outfits</a></h4>
+									<h4 class="title"><a href="single-product.php">Jumpsuit Outfits</a></h4>
 
 									<div class="ratting">
 										<i class="fa fa-star"></i>
@@ -678,7 +678,7 @@
 
 								<div class="content-left">
 
-									<h4 class="title"><a href="single-product.html">Smart Shirt</a></h4>
+									<h4 class="title"><a href="single-product.php">Smart Shirt</a></h4>
 
 									<div class="ratting">
 										<i class="fa fa-star"></i>
@@ -722,7 +722,7 @@
 
 								<div class="content-left">
 
-									<h4 class="title"><a href="single-product.html">Kids Shoe</a></h4>
+									<h4 class="title"><a href="single-product.php">Kids Shoe</a></h4>
 
 									<div class="ratting">
 										<i class="fa fa-star"></i>
@@ -766,7 +766,7 @@
 
 								<div class="content-left">
 
-									<h4 class="title"><a href="single-product.html"> Bowknot Bodysuit</a></h4>
+									<h4 class="title"><a href="single-product.php"> Bowknot Bodysuit</a></h4>
 
 									<div class="ratting">
 										<i class="fa fa-star"></i>

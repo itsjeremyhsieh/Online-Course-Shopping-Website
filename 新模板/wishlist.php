@@ -56,7 +56,7 @@
                         <!-- Header Language Currency Start -->
                         <ul class="header-lan-curr">
 
-                         
+                            
                             <li><a href="#">語言</a>
                                 <ul>
                                     <li><a href="#">繁體中文</a></li>
@@ -81,8 +81,8 @@
                         <!-- Header Shop Links Start -->
                         <div class="header-top-right">
 
-                            <p><a href="my-account.html">我的帳號</a>
-                            <a href="register.php">註冊會員</a><a href="login.html">登入</a></p>
+                            <p><a href="my-account.php">我的帳號</a>
+                            <a href="register.php">註冊會員</a><a href="login.php">登入</a></p>
                             <p>目前線上人數：1人</p>
 
                         </div><!-- Header Shop Links End -->
@@ -100,7 +100,7 @@
                     <div class="col mt-15 mb-15">
                         <!-- Logo Start -->
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="assets/images/logo.png" alt="Jadusona">
                             </a>
                         </div><!-- Logo End -->
@@ -121,11 +121,11 @@
                             </div>
 
                             <div class="header-wishlist">
-                                <a href="wishlist.html"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
+                                <a href="wishlist.php"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
                             </div>
 
                             <div class="header-mini-cart">
-                                <a href="cart.html"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
+                                <a href="cart.php"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
                             </div>
 
                         </div><!-- Header Advance Search End -->
@@ -135,23 +135,23 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li class="active"><a href="index.html">首頁</a>
-                                            
-                                    </li>
-                                    <li><a href="courses.html">雲端課程</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="">國一</a></li>
-                                            <li><a href="">國二</a></li>
-                                            <li><a href="">國三</a></li>
-                                            <li><a href="">高一</a></li>
-                                            <li><a href="">高二</a></li>
-                                            <li><a href="">高三</a></li>
-                                        </ul>
-                                   
-                                    </li>
-                                    <li><a href="my-course.html">我的課程</a>
-                                    </li>
-                                    <li><a href="contact.html">關於我們</a></li>
+                                        <li class="active"><a href="index.php">首頁</a>
+                                        
+                                        </li>
+                                        <li><a href="courses.php">雲端課程</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="">國一</a></li>
+                                                <li><a href="">國二</a></li>
+                                                <li><a href="">國三</a></li>
+                                                <li><a href="">高一</a></li>
+                                                <li><a href="">高二</a></li>
+                                                <li><a href="">高三</a></li>
+                                            </ul>
+                                           
+                                        </li>
+                                        <li><a href="my-course.php">我的課程</a>
+                                        </li>
+                                        <li><a href="contact.php">關於我們</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -172,10 +172,10 @@
             <div class="row">
                 <div class="page-banner-content col">
 
-                    <h1>購物車</h1>
+                    <h1>願望清單</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="index.html">首頁</a></li>
-                        <li><a href="wishlist.html">購物車</a></li>
+                        <li><a href="index.php">首頁</a></li>
+                        <li><a href="wishlist.php">願望清單</a></li>
                     </ul>
 
                 </div>
@@ -188,8 +188,8 @@
         <div class="container">
 
             <form action="#">				
-                <div class="row mbn-40">
-                    <div class="col-12 mb-40">
+                <div class="row">
+                    <div class="col-12">
                         <div class="cart-table table-responsive">
                             <table>
                                 <thead>
@@ -208,58 +208,19 @@
                                         <td class="pro-title"><a href="#">Tmart Baby Dress</a></td>
                                         <td class="pro-price"><span class="amount">$25</span></td>
                                         <td class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></td>
-                                        <td class="pro-subtotal">$25</td>
-                                        <td class="pro-remove"><a href="#">🗑️</a></td>
+                                        <td class="pro-add-cart"><a href="#">加入購物車</a></td>
+                                        <td class="pro-remove"><a href="#">×</a></td>
                                     </tr>
                                     <tr>
                                         <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-2.jpg" alt="" /></a></td>
                                         <td class="pro-title"><a href="#">Jumpsuit Outfits</a></td>
                                         <td class="pro-price"><span class="amount">$09</span></td>
                                         <td class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></td>
-                                        <td class="pro-subtotal">$09</td>
-                                        <td class="pro-remove"><a href="#">🗑️</a></td>
+                                        <td class="pro-add-cart"><a href="#">加入購物車</a></td>
+                                        <td class="pro-remove"><a href="#">×</a></td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-7 col-12 mb-40">
-                        <div class="cart-buttons mb-30">
-                            <input type="submit" value="更新購物車" />
-                            <a href="#">繼續選購</a>
-                        </div>
-                        <div class="cart-coupon">
-                            <br>
-                            <h4>優惠券</h4>
-                            <br>
-                            <p>前往察看您的優惠券</p>
-                             <div class="cuppon-form">
-                                <input type="text" placeholder="優惠代碼" />
-                                <input type="submit" value="新增優惠券" />
-                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-12 mb-40">
-                        <div class="cart-total fix">
-                            <br>
-                            <h3>購物車內商品總價</h3>
-                            <table>
-                                <tbody>
-                                    <tr class="cart-subtotal">
-                                        <th>小計</th>
-                                        <td><span class="amount">$306.00</span></td>
-                                    </tr>
-                                    <tr class="order-total">
-                                        <th>總共</th>
-                                        <td>
-                                            <strong><span class="amount">$306.00</span></strong>
-                                        </td>
-                                    </tr>											
-                                </tbody>
-                            </table>
-                            <div class="proceed-to-checkout section mt-30">
-                                <a href="#">確認結算</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -310,20 +271,20 @@
 
                 <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                     <h4 class="title">聯繫我們</h4>
-                    <p>500彰化市師大路二號</p>
-                    <p><a href="tel:01234567890">01234 567 890</a><a href="tel:01234567891">01234 567 891</a></p>
-                    <p><a href="mailto:info@example.com">info@example.com</a><a href="#">www.example.com</a></p>
-            </div>
+                        <p>500彰化市師大路二號</p>
+                        <p><a href="tel:01234567890">01234 567 890</a><a href="tel:01234567891">01234 567 891</a></p>
+                        <p><a href="mailto:info@example.com">info@example.com</a><a href="#">www.example.com</a></p>
+                </div>
 
-            <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
-                <h4 class="title">商品</h4>
-                <ul>
-                    <li><a href="#">新品上架</a></li>
-                    <li><a href="#">最熱銷</a></li>
-                    <li><a href="#">流行商品</a></li>
-                    <li><a href="#">現正優惠</a></li>
-                    <li><a href="#">打折商品</a></li>
-                    <li><a href="#">特色商品</a></li>
+                <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
+                    <h4 class="title">商品</h4>
+                    <ul>
+                        <li><a href="#">新品上架</a></li>
+                        <li><a href="#">最熱銷</a></li>
+                        <li><a href="#">流行商品</a></li>
+                        <li><a href="#">現正優惠</a></li>
+                        <li><a href="#">打折商品</a></li>
+                        <li><a href="#">特色商品</a></li>
                     </ul>
                 </div>
 
@@ -356,6 +317,7 @@
 
                     <h5>追蹤我們</h5> 
                     <p class="footer-social"><a href="#">Facebook</a> - <a href="#">Instagram</a> - <a href="#">YouTube</a></p>
+
 
                 </div>
 

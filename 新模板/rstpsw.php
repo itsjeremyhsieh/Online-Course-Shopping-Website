@@ -114,8 +114,8 @@
                                 <!-- Header Shop Links Start -->
                                 <div class="header-top-right">
     
-                                    <p><a href="my-account.html">我的帳號</a>
-                                        <a href="register.php">註冊會員</a><a href="login.html">登入</a>
+                                    <p><a href="my-account.php">我的帳號</a>
+                                        <a href="register.php">註冊會員</a><a href="login.php">登入</a>
                                     </p>
                                     <p>目前線上人數：1人</p>
                                 </div><!-- Header Shop Links End -->
@@ -133,7 +133,7 @@
                             <div class="col mt-15 mb-15">
                                 <!-- Logo Start -->
                                 <div class="header-logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="assets/images/logo.png" alt="CourseLux">
                                     </a>
                                 </div><!-- Logo End -->
@@ -156,12 +156,12 @@
                                     </div>
     
                                     <div class="header-wishlist">
-                                        <a href="wishlist.html"><img src="assets/images/icons/wishlist.png" alt="Wishlist">
+                                        <a href="wishlist.php"><img src="assets/images/icons/wishlist.png" alt="Wishlist">
                                             <span>02</span></a>
                                     </div>
     
                                     <div class="header-mini-cart">
-                                        <a href="cart.html"><img src="assets/images/icons/cart.png" alt="Cart">
+                                        <a href="cart.php"><img src="assets/images/icons/cart.png" alt="Cart">
                                             <span>02($250)</span></a>
                                     </div>
     
@@ -172,10 +172,10 @@
                                 <div class="main-menu">
                                     <nav>
                                         <ul>
-                                            <li><a href="index.html">首頁</a>
+                                            <li><a href="index.php">首頁</a>
     
                                             </li>
-                                            <li><a href="courses.html">雲端課程</a>
+                                            <li><a href="courses.php">雲端課程</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="">國一</a></li>
                                                     <li><a href="">國二</a></li>
@@ -185,9 +185,9 @@
                                                     <li><a href="">高三</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="my-course.html">我的課程</a>
+                                            <li><a href="my-course.php">我的課程</a>
                                             </li>
-                                            <li><a href="contact.html">關於我們</a></li>
+                                            <li><a href="contact.php">關於我們</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -209,8 +209,8 @@
 
                         <h1>重設密碼</h1>
                         <ul class="page-breadcrumb">
-                            <li><a href="index.html">首頁</a></li>
-                            <li><a href="courses.html">重設密碼</a></li>
+                            <li><a href="index.php">首頁</a></li>
+                            <li><a href="courses.php">重設密碼</a></li>
                         </ul>
 
                     </div>
