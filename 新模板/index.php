@@ -236,7 +236,7 @@
                                 break;
                      
                             echo "<div class='col-xl-3 col-lg-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                            . "玉育自然-國中一年級(上學期)". ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
+                            . $row['name']. ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
                             . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php'>" . $row["name"]. "</a></h4>"
                             . "</div><div class='content-right'><span class='price'>" . $row["price"] ."</span></div></div></div></div></div>";
                             
@@ -287,7 +287,7 @@
                                     while ($row = mysqli_fetch_assoc($result)) {
 
                                         echo "<div class='slide-item'><div class='best-deal-product'><div class='image'><img src='assets/images/product/"
-                                                . "玉育自然-國中一年級(上學期)". ".jpg'></div><div class='content-top'><div class='content-top-left'><h4 class='title'><a href='#'>" 
+                                                .  $row['name']. ".jpg'></div><div class='content-top'><div class='content-top-left'><h4 class='title'><a href='#'>" 
                                                 . "</a></h4></div><div class='content-top-right'><span style='color: #afeeee' class='price'>" . $row["price"]. "</span></div></div><div class='content-bottom'>"
                                                 . "<a href='#' style='color: #afeeee' data-hover='加入購物車'>加入購物車</a></div></div></div>";
                                      
@@ -330,7 +330,7 @@
                                         if ($count1 == 8)
                                             break;
                                         echo "<div class='col mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img height = '250px' src='assets/images/product/"
-                                            . "玉育自然-國中一年級(上學期)" . ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
+                                            .  $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
                                             . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php'>" . $row["name"] . "</a></h4>"
                                             . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
                                        $count1 = $count1 + 1;
