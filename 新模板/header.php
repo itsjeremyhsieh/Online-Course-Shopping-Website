@@ -82,11 +82,11 @@
                     </div>
 
                     <div class="header-wishlist">
-                        <a href="wishlist.php"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span>02</span></a>
+                        <a href="wishlist.php"><img src="assets/images/icons/wishlist.png" alt="Wishlist"> <span><?php echo $wishcnt; ?></span></a>
                     </div>
 
                     <div class="header-mini-cart">
-                        <a href="cart.php"><img src="assets/images/icons/cart.png" alt="Cart"> <span>02($250)</span></a>
+                        <a href="cart.php"><img src="assets/images/icons/cart.png" alt="Cart"> <span><?php echo $cartcnt; ?></span></a>
                     </div>
 
                 </div><!-- Header Advance Search End -->

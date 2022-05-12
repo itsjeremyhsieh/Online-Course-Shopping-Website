@@ -1,5 +1,6 @@
 <?php
 session_start();
+$arr_cart = array_filter(explode(",",$_SESSION['cart']));
 ?>
 
 <!doctype html>
@@ -36,7 +37,8 @@ session_start();
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             $('a').click(function() {
