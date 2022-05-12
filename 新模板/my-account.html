@@ -104,7 +104,88 @@
 
         }
     </style>
-
+    <script>
+        $(document).ready(function($) {
+            //for select
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+    
+            $("#form1").validate({
+                submitHandler: function(form) {
+                    alert("註冊成功！");
+                    form.submit();
+                },
+                rules: {
+                    first_name: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 50
+                    },
+                    display_name: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 50
+                    },
+                    pwd: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    new_pwd: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    new_pwd2: {
+                        required: true,
+                        equalTo: "#pwd"
+                    },
+                    address: {
+                        required: true,
+    
+                    },
+                    phone: {
+                        length: 10,
+                        required: true,
+    
+                    },
+                    email: {
+                        required: true,
+    
+                    }
+    
+                },
+                messages: {
+                    first_name: {
+                        required: "姓名為必填欄位",
+                        minlength: "姓名最少要4個字",
+                        maxlength: "姓名最長10個字"
+                    },
+                    display_name: {
+                        required: "帳號為必填欄位",
+                        minlength: "帳號最少要4個字",
+                        maxlength: "帳號最長10個字"
+                    },
+                    phone: {
+                        required: "此為必填欄位",
+                    },
+                    address: {
+                        required: "此為必填欄位",
+                    },
+                    psw: {
+                        required: "此為必填欄位",
+                    },
+                    new_psw: {
+                        required: "此為必填欄位",
+                    },
+                    new_pwd2: {
+                        equalTo: "兩次密碼不相符"
+                    },
+                }
+            });
+        });
+        </script>
 
 </head>
 
@@ -546,18 +627,18 @@
                                     <h3>帳號管理</h3>
 
                                     <div class="account-details-form">
-                                        <form action="#">
+                                        <form action="" method="POST" name="form1" id="form1" class="mb-2">
                                             <div class="row">
                                                 <div class="col-lg-6 col-12 mb-30">
-                                                    <input id="first-name" placeholder="姓名" type="text">
+                                                    <input id="first_name" name="first_name" placeholder="姓名" type="text">
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-                                                    <input id="display-name" placeholder="使用者名稱" type="text">
+                                                    <input id="display_name" name="display_name" placeholder="使用者名稱" type="text">
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-                                                    <input id="email" placeholder="電子郵件" type="email">
+                                                    <input id="email" name="email" placeholder="電子郵件" type="email">
                                                 </div>
 
                                                 <div class="col-12 mb-30">
@@ -570,11 +651,11 @@
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-                                                    <input id="phone" placeholder="手機號碼" type="text">
+                                                    <input id="phone" name="phone" placeholder="手機號碼" type="text">
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-                                                    <input id="address" placeholder="通訊地址" type="text">
+                                                    <input id="address" name="address" placeholder="通訊地址" type="text">
                                                 </div>
 
                                                 <div class="col-12 mb-30">
@@ -582,17 +663,15 @@
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-                                                    <input id="current-pwd" placeholder="請輸入目前密碼"
-                                                        type="password">
+                                                    <input id="psw" name="psw" placeholder="請輸入目前密碼" type="password">
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mb-30">
-                                                    <input id="new-pwd" placeholder="請輸入新密碼" type="password">
+                                                    <input id="new_pwd" name="new_pwd" placeholder="請輸入新密碼" type="password">
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mb-30">
-                                                    <input id="confirm-pwd" placeholder="請再次輸入新密碼"
-                                                        type="password">
+                                                    <input id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼" type="password">
                                                 </div>
 
                                                 <div class="col-12">
