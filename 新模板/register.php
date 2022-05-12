@@ -215,140 +215,7 @@
         <header>
             <div class="main-wrapper">
 
-                <!-- Header Section Start -->
-                <div class="header-section section">
-
-                    <!-- Header Top Start -->
-                    <div class="header-top header-top-one bg-theme-two">
-                        <div class="container-fluid">
-                            <div class="row align-items-center justify-content-center">
-
-                                <div class="col mt-10 mb-10 d-none d-md-flex">
-                                    <!-- Header Top Left Start -->
-                                    <div class="header-top-left">
-                                        <p>雲端課程購物網站</p>
-
-                                    </div><!-- Header Top Left End -->
-                                </div>
-
-                                <div class="col mt-10 mb-10">
-                                    <!-- Header Language Currency Start -->
-                                    <ul class="header-lan-curr">
-
-                                        <li><a href="#">語言</a>
-                                            <ul>
-                                                <li><a href="#">繁體中文</a></li>
-                                                <li><a href="#">英文</a></li>
-
-                                            </ul>
-                                        </li>
-
-                                        <li><a href="#">貨幣</a>
-                                            <ul>
-                                                <li><a href="#">英鎊</a></li>
-                                                <li><a href="#">美金</a></li>
-                                                <li><a href="#">歐元</a></li>
-                                                <li><a href="#">新台幣</a></li>
-                                            </ul>
-                                        </li>
-
-                                    </ul><!-- Header Language Currency End -->
-                                </div>
-
-                                <div class="col mt-10 mb-10">
-                                    <!-- Header Shop Links Start -->
-                                    <div class="header-top-right">
-
-                                        <p><a href="my-account.html">我的帳號</a>
-                                            <a href="register.html">註冊會員</a><a href="login.html">登入</a>
-                                        </p>
-                                        <p>目前線上人數：1人</p>
-                                    </div><!-- Header Shop Links End -->
-                                </div>
-
-                            </div>
-                        </div>
-                    </div><!-- Header Top End -->
-
-                    <!-- Header Bottom Start -->
-                    <div class="header-bottom header-bottom-one header-sticky">
-                        <div class="container-fluid">
-                            <div class="row menu-center align-items-center justify-content-between">
-
-                                <div class="col mt-15 mb-15">
-                                    <!-- Logo Start -->
-                                    <div class="header-logo">
-                                        <a href="index.html">
-                                            <img src="assets/images/logo.png" alt="CourseLux">
-                                        </a>
-                                    </div><!-- Logo End -->
-                                </div>
-
-                                <div class="col order-2 order-lg-3">
-                                    <!-- Header Advance Search Start -->
-                                    <div class="header-shop-links">
-
-                                        <div class="header-search">
-                                            <button class="search-toggle"><img src="assets/images/icons/search.png"
-                                                    alt="Search Toggle"><img class="toggle-close"
-                                                    src="assets/images/icons/close.png" alt="Search Toggle"></button>
-                                            <div class="header-search-wrap">
-                                                <form action="#">
-                                                    <input type="text" placeholder="Type and hit enter">
-                                                    <button><img src="assets/images/icons/search.png"
-                                                            alt="Search"></button>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                        <div class="header-wishlist">
-                                            <a href="wishlist.html"><img src="assets/images/icons/wishlist.png"
-                                                    alt="Wishlist">
-                                                <span>02</span></a>
-                                        </div>
-
-                                        <div class="header-mini-cart">
-                                            <a href="cart.html"><img src="assets/images/icons/cart.png" alt="Cart">
-                                                <span>02($250)</span></a>
-                                        </div>
-
-                                    </div><!-- Header Advance Search End -->
-                                </div>
-
-                                <div class="col order-3 order-lg-2">
-                                    <div class="main-menu">
-                                        <nav>
-                                            <ul>
-                                                <li><a href="index.html">首頁</a>
-
-                                                </li>
-                                                <li><a href="courses.html">雲端課程</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="">國一</a></li>
-                                                        <li><a href="">國二</a></li>
-                                                        <li><a href="">國三</a></li>
-                                                        <li><a href="">高一</a></li>
-                                                        <li><a href="">高二</a></li>
-                                                        <li><a href="">高三</a></li>
-                                                    </ul>
-
-                                                </li>
-                                                <li><a href="my-course.html">我的課程</a>
-                                                </li>
-                                                <li><a href="contact.html">關於我們</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-
-                                <!-- Mobile Menu -->
-                                <div class="mobile-menu order-4 d-block d-lg-none col"></div>
-
-                            </div>
-                        </div>
-                    </div><!-- Header BOttom End -->
-
-                </div><!-- Header Section End -->
+            <?php include "header.php" ?>
                 <!-- Page Banner Section Start -->
                 <div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
                     <div class="container">
@@ -357,8 +224,8 @@
 
                                 <h1>註冊會員</h1>
                                 <ul class="page-breadcrumb">
-                                    <li><a href="index.html">首頁</a></li>
-                                    <li><a href="courses.html">註冊會員</a></li>
+                                    <li><a href="index.php">首頁</a></li>
+                                    <li><a href="courses.php">註冊會員</a></li>
                                 </ul>
 
                             </div>
@@ -548,88 +415,7 @@
                     </div>
                 </div><!-- Brand Section End -->
 
-                <!-- Footer Top Section Start -->
-                <div class="footer-top-section section bg-theme-two-light section-padding">
-                    <div class="container">
-                        <div class="row mbn-40">
-
-                            <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
-                                <h4 class="title">聯繫我們</h4>
-                                <p>500彰化市師大路二號</p>
-                                <p><a href="tel:01234567890">01234 567 890</a><a href="tel:01234567891">01234 567
-                                        891</a></p>
-                                <p><a href="mailto:info@example.com">info@example.com</a><a href="#">www.example.com</a>
-                                </p>
-                            </div>
-
-                            <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
-                                <h4 class="title">商品</h4>
-                                <ul>
-                                    <li><a href="#">新品上架</a></li>
-                                    <li><a href="#">最熱銷</a></li>
-                                    <li><a href="#">流行商品</a></li>
-                                    <li><a href="#">現正優惠</a></li>
-                                    <li><a href="#">打折商品</a></li>
-                                    <li><a href="#">特色商品</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
-                                <h4 class="title">通知</h4>
-                                <ul>
-                                    <li><a href="#">關於我們</a></li>
-                                    <li><a href="#">條款&條件</a></li>
-                                    <li><a href="#">付款方式</a></li>
-                                    <li><a href="#">產品品質保證</a></li>
-                                    <li><a href="#">退貨須知</a></li>
-                                    <li><a href="#">付款須知</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
-                                <h4 class="title">電子報</h4>
-                                <p>訂閱CourseLux電子報以接收最新消息！</p>
-
-                                <form id="mc-form" class="mc-form footer-subscribe-form">
-                                    <input id="mc-email" autocomplete="off" placeholder="請輸入您的Email" name="EMAIL"
-                                        type="email">
-                                    <button id="mc-submit"><i class="fa fa-paper-plane-o"></i></button>
-                                </form>
-                                <!-- mailchimp-alerts Start -->
-                                <div class="mailchimp-alerts">
-                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                                </div><!-- mailchimp-alerts end -->
-
-                                <h5>追蹤我們</h5>
-                                <p class="footer-social"><a href="#">Facebook</a> - <a href="#">Instagram</a> - <a
-                                        href="#">YouTube</a></p>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div><!-- Footer Top Section End -->
-
-
-
-
-                <br>
-                <!-- Footer Bottom Section Start -->
-                <footer>
-                    <div class="footer-bottom-section section bg-theme-two pt-15 pb-15" ">
-        <div class=" container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <p class="footer-copyright">© 2022 CourseLux</p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </footer><!-- Footer Bottom Section End -->
-
-
+                <?php include "footer.php" ?>
 
     </div>
 </body>

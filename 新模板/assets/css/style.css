@@ -3885,7 +3885,7 @@ only screen and (max-width: 767px) {
 
 /*-- Product Item --*/
 .product-item .product-inner {
-  padding-bottom: 65px;
+  padding-bottom: 60px;
   overflow: hidden;
   position: relative;
   /*-- Image --*/
