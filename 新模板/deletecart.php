@@ -1,13 +1,12 @@
 <?php
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = array();
-}
+
 session_start();
 $id = $_GET['id'];//商品ID
 echo $id;
-//if (!in_array($id,$_SESSION['cart'])){
-    $_SESSION['cart'][]=$id;//加入陣列
-//}
+
+$key = array_search($_GET['id'], $_SESSION['cart']);	
+unset($_SESSION['cart'][$key]);
+ $_SESSION['cart'] = array_values($_SESSION['cart']);
 //返回上一頁
 $url = $_SERVER['HTTP_REFERER'];
 

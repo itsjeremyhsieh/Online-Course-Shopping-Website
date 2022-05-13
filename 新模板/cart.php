@@ -112,7 +112,7 @@
                                                             echo  "<tr><td class='pro-thumbnail'><a href='single-product.php?id=" . $row["name"] . "' ><img src='assets/images/product/"
                                                             .  $row['name'] . ".jpg'></a></td><td class='pro-title'><a href='single-product.php?id=" . $row["name"] . "' >" 
                                                             . $row["name"] . "</a></td><td class='pro-price'><span class='amount'>" .$row['price'] ."</span></td><td class='pro-remove'>"
-                                                            . "<a href='#'>🗑️</a></td></tr>";
+                                                            . "<a href='deletecart.php?id=" . $row["name"] . "'>🗑️</a></td></tr>";
                                                             $totalcost += $row['price'];
                                                         }
                                                     }
