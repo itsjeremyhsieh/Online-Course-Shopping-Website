@@ -5,6 +5,12 @@ if (isset($_SESSION['cart'])) {
 } else {
     $cartcnt = 0;
 }
+
+if (isset($_SESSION['wish'])) {
+    $wishcnt = count($_SESSION['wish']);
+} else {
+    $wishcnt = 0;
+}
 ?>
 
 <!-- Header Section Start -->
@@ -105,7 +111,7 @@ if (isset($_SESSION['cart'])) {
                 <div class="main-menu">
                     <nav>
                         <ul>
-                            <li class="active"><a href="index.php">首頁</a>
+                            <li><a href="index.php">首頁</a>
 
                             </li>
                             <li><a href="courses.php">雲端課程</a>

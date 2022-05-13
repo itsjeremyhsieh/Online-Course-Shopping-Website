@@ -143,24 +143,13 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
 
                                     
                                     <div class="actions">
-
-                                        <button><i class="ti-shopping-cart"></i><span>加入購物車</span></button>
+                                    <a href='addcart.php?id=" . $row["name"] . "'> <button><i class="ti-shopping-cart"></i><span>加入購物車</span></button></a>
+                                    <a href='addwish.php?id=" . $row["name"] . "'><button class="box" data-tooltip="Wishlist"><i class="ti-heart"></i></button></a>
                                 
-                                        <button class="box" data-tooltip="Wishlist"><i class="ti-heart"></i></button>
-
                                     </div>
 
 
-                                    <div class="share">
-
-                                        <h5>分享: </h5>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-
-                                    </div>
-
+                                    
                                 </div>
                             </div>
 
@@ -459,7 +448,7 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
                         while ($row = mysqli_fetch_assoc($result)) {
                            
                             echo " <div class='slick-slide'><div class='product-item'><div class='product-inner'><div class='image'><img src='assets/images/product/"
-                                    .  $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><button>加入願望清單</button>"
+                                    .  $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a>"
                                     . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" 
                                     . $row["name"] . "</a></h4></div><div class='content-right'><span class='price'>". $row['price'] ."</span></div></div></div></div></div>";
                         }

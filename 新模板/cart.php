@@ -96,7 +96,7 @@
                                     </thead>
                                     <tbody>
                                        <?php 
-                                       $name = $_SESSION['cart'][$i];
+                                      
                                        $totalcost = 0;
                                        echo $name;
                                             if ($cartcnt == 0)
