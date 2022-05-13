@@ -1,6 +1,34 @@
 <?php
 session_start();
-echo "name=" . $_SESSION['name'];
+$_SESSION['name'] = $_GET['id'];
+//echo "name=" . $_SESSION['name'];
+$name = $_SESSION['name'];
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' ")) {
+    while($row = mysqli_fetch_assoc($result)){
+    $name = $row['name'];
+    $subject = $row['subject'];
+    $grade = $row['grade'];
+    $smt = $row['smt'];
+    $teacher = $row['teacher'];
+    $length = $row['length'];
+    $total = $row['total'];
+    $price = $row['price'];
+    $sold = $row['sold'];
+    $valid = $row['valid'];
+    $description = $row['description'];}
+}
+//echo "subject=" . $subject;
 ?>
 
 <!doctype html>
@@ -9,7 +37,7 @@ echo "name=" . $_SESSION['name'];
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Jadusona - eCommerce Baby shop Bootstrap5 Template</title>
+    <title>Courses</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -73,7 +101,7 @@ echo "name=" . $_SESSION['name'];
                             <div class="col-lg-6 col-12 mb-40">
 
                                 <div class="pro-large-img mb-10 fix ">
-                                    <p style="text-align:center;"> <img src="assets/images/product/玉育自然-國中一年級(上學期).jpg" alt="" width="320" /> </p>
+                                    <p style="text-align:center;"> <?php echo "<img src='assets/images/product/". $name.".jpg'  width='320' />" ?></p>
                                 </div>
                                 <!-- Single Product Thumbnail Slider -->
 
@@ -85,7 +113,7 @@ echo "name=" . $_SESSION['name'];
                                     <div class="head">
                                         <div class="head-left">
 
-                                            <h3 class="title">謝宥英文-國中三年級(上學期)</h3>
+                                            <h3 class="title"><?php echo $name?> </h3>
 
                                             <div class="ratting">
                                                 <i class="fa fa-star"></i>
@@ -96,46 +124,28 @@ echo "name=" . $_SESSION['name'];
                                             </div>
 
                                             <div class="sold">
-                                                <br>已售出:4
+                                                <br>已售出: <?php echo $sold?>
                                             </div>
                                         </div>
 
                                         <div class="head-right">
-                                            <span class="price">$6800</span>
+                                            <span class="price"><?php echo $price?></span>
                                         </div>
 
 
                                     </div>
 
                                     <div class="description">
-                                        <p>本課程旨在提昇學生的英文口語表達能力與聽力；除了口語能力方面的練習之外，學生也在教科書單元設計當中學習台灣與美國的文化差異，提升學生職場
-                                            英語能力</p>
+                                        <p><?php echo $description?></p>
                                     </div>
 
-                                    <span class="availability">商品數量: <span>48</span></span>
+                                   
 
-                                    <div class="quantity-colors">
-
-                                        <div class="quantity">
-                                            <h5>數量:</h5>
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                        </div>
-                                        <!---
-                                    <div class="colors">
-                                        <h5>Color:</h5>
-                                        <div class="color-options">
-                                            <button style="background-color: #ff502e"></button>
-                                            <button style="background-color: #fff600"></button>
-                                            <button style="background-color: #1b2436"></button>
-                                        </div>
-                                    </div>                            
-                                    -->
-                                    </div>
-
+                                    
                                     <div class="actions">
 
                                         <button><i class="ti-shopping-cart"></i><span>加入購物車</span></button>
-                                        <button class="box" data-tooltip="Compare"><i class="ti-control-shuffle"></i></button>
+                                
                                         <button class="box" data-tooltip="Wishlist"><i class="ti-heart"></i></button>
 
                                     </div>
@@ -217,23 +227,23 @@ echo "name=" . $_SESSION['name'];
                                         <tbody>
                                             <tr class="odd">
                                                 <td>科目</td>
-                                                <td>英文</td>
+                                                <td><?php echo $subject?></td>
                                             </tr>
                                             <tr class="even">
                                                 <td>適用年級</td>
-                                                <td>國三 上學期</td>
+                                                <td><?php echo $grade . " " . $smt?></td>
                                             </tr>
                                             <tr class="odd">
                                                 <td>上課老師</td>
-                                                <td>謝宥老師</td>
+                                                <td><?php echo $teacher?></td>
                                             </tr>
                                             <tr class="even">
                                                 <td>上課時長</td>
-                                                <td>50分鐘</td>
+                                                <td><?php echo $length?></td>
                                             </tr>
                                             <tr class="odd">
                                                 <td>總節數</td>
-                                                <td>20節</td>
+                                                <td><?php echo $total?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -442,229 +452,21 @@ echo "name=" . $_SESSION['name'];
 
                 <div class="related-product-slider related-product-slider-1 slick-space p-0">
 
-                    <div class="slick-slide">
-
-                        <div class="product-item">
-                            <div class="product-inner">
-
-                                <div class="image">
-                                    <img src="assets/images/product/product-1.jpg" alt="">
-
-                                    <div class="image-overlay">
-                                        <div class="action-buttons">
-                                            <button>加入購物車</button>
-                                            <button>加入願望清單</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="content">
-
-                                    <div class="content-left">
-
-                                        <h4 class="title"><a href="single-product.php">Tmart Baby Dress</a></h4>
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="content-right">
-                                        <span class="price">$25</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="slick-slide">
-
-                        <div class="product-item">
-                            <div class="product-inner">
-
-                                <div class="image">
-                                    <img src="assets/images/product/product-2.jpg" alt="">
-
-                                    <div class="image-overlay">
-                                        <div class="action-buttons">
-                                            <button>加入購物車</button>
-                                            <button>加入願望清單</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="content">
-
-                                    <div class="content-left">
-
-                                        <h4 class="title"><a href="single-product.php">Jumpsuit Outfits</a></h4>
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="content-right">
-                                        <span class="price">$09</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="slick-slide">
-
-                        <div class="product-item">
-                            <div class="product-inner">
-
-                                <div class="image">
-                                    <img src="assets/images/product/product-3.jpg" alt="">
-
-                                    <div class="image-overlay">
-                                        <div class="action-buttons">
-                                            <button>加入購物車</button>
-                                            <button>加入願望清單</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="content">
-
-                                    <div class="content-left">
-
-                                        <h4 class="title"><a href="single-product.php">Smart Shirt</a></h4>
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="content-right">
-                                        <span class="price">$18</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="slick-slide">
-
-                        <div class="product-item">
-                            <div class="product-inner">
-
-                                <div class="image">
-                                    <img src="assets/images/product/product-4.jpg" alt="">
-
-                                    <div class="image-overlay">
-                                        <div class="action-buttons">
-                                            <button>加入購物車</button>
-                                            <button>加入願望清單</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="content">
-
-                                    <div class="content-left">
-
-                                        <h4 class="title"><a href="single-product.php">Kids Shoe</a></h4>
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="content-right">
-                                        <span class="price">$15</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="slick-slide">
-
-                        <div class="product-item">
-                            <div class="product-inner">
-
-                                <div class="image">
-                                    <img src="assets/images/product/product-5.jpg" alt="">
-
-                                    <div class="image-overlay">
-                                        <div class="action-buttons">
-                                            <button>加入購物車</button>
-                                            <button>加入願望清單</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="content">
-
-                                    <div class="content-left">
-
-                                        <h4 class="title"><a href="single-product.php"> Bowknot Bodysuit</a></h4>
-
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="content-right">
-                                        <span class="price">$12</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
+                    
+                <?php
+                    if ($result = mysqli_query($link, "SELECT * FROM course WHERE subject = '$subject' ORDER BY sold DESC")) {
+                        $count = 1;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                           
+                            echo " <div class='slick-slide'><div class='product-item'><div class='product-inner'><div class='image'><img src='assets/images/product/"
+                                    .  $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button>"
+                                    . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" 
+                                    . $row["name"] . "</a></h4></div><div class='content-right'><span class='price'>". $row['price'] ."</span></div></div></div></div></div>";
+                        }
+                    }
+                ?>
                 </div>
-            </div>
+            </div> 
         </div><!-- Related Product Section End -->
 
         <!-- Brand Section Start -->
