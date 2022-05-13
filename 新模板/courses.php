@@ -2,10 +2,17 @@
 session_start();
 
 if (isset($_SESSION['cart'])) {
-    $cnt = count($_SESSION['cart']);
+    $cartcnt = count($_SESSION['cart']);
 } else {
-    $cnt = 0;
+    $cartcnt = 0;
 }
+
+if (isset($_SESSION['wish'])) {
+    $wishcnt = count($_SESSION['wish']);
+} else {
+    $wishcnt = 0;
+}
+
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
 if (!$link) {
@@ -56,7 +63,11 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 <body>
 
     <div class="main-wrapper">
-        <?php include "header.php" ?>
+        
+    <?php include "header.php" ?>
+
+        
+
 
 
         <!-- Page Banner Section Start -->
@@ -113,14 +124,14 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 while ($row = mysqli_fetch_assoc($result)) {
 
                                     echo "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                                        . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'><button onclick='location.href='addcart.php?id='" . $row["name"]  . "';'>加入購物車</button><button>加入願望清單</button></div></div></div>"
+                                        . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a>   <a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
                                         . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
                                         . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
                                 }
                                 $num = mysqli_num_rows($result);
                                 mysqli_free_result($result);
                             }
-
+                         
                             mysqli_close($link);
                             ?>
                             <div class="col-12">

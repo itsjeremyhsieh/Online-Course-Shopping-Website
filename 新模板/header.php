@@ -1,6 +1,10 @@
 <?php
 session_start();
-$cartcnt = $_SESSION['cart'];
+if (isset($_SESSION['cart'])) {
+    $cartcnt = count($_SESSION['cart']);
+} else {
+    $cartcnt = 0;
+}
 ?>
 
 <!-- Header Section Start -->

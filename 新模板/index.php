@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['cart'])) {
+    $cartcnt = count($_SESSION['cart']);
+} else {
+    $cartcnt = 0;
+}
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
@@ -122,7 +127,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 break;
 
                             echo "<div class='col-xl-3 col-lg-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                                . $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
+                                . $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><button>加入願望清單</button></div></div></div>"
                                 . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
                                 . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
 

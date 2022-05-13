@@ -1,3 +1,24 @@
+<?php 
+    session_start();
+
+    if (isset($_SESSION['cart'])) {
+        $cartcnt = count($_SESSION['cart']);
+    } else {
+        $cartcnt = 0;
+    }
+
+    $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+    if (!$link) {
+        echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+        echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+        exit();
+    }
+    mysqli_query($link, 'SET CHARACTER SET utf8');
+    mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -67,34 +88,39 @@
                                     <thead>
                                         <tr>
                                             <th class="pro-thumbnail">圖片</th>
-                                            <th class="pro-title">商品</th>
-                                            <th class="pro-price">價格</th>
-                                            <th class="pro-quantity">數量</th>
-                                            <th class="pro-subtotal">總價</th>
+                                            <th class="pro-title">課程</th>
+                                            <th class="pro-price">售價</th>
+                        
                                             <th class="pro-remove">移除</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-1.jpg" alt="" /></a></td>
-                                            <td class="pro-title"><a href="#">Tmart Baby Dress</a></td>
-                                            <td class="pro-price"><span class="amount">$25</span></td>
-                                            <td class="pro-quantity">
-                                                <div class="pro-qty"><input type="text" value="1"></div>
-                                            </td>
-                                            <td class="pro-subtotal">$25</td>
-                                            <td class="pro-remove"><a href="#">🗑️</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-2.jpg" alt="" /></a></td>
-                                            <td class="pro-title"><a href="#">Jumpsuit Outfits</a></td>
-                                            <td class="pro-price"><span class="amount">$09</span></td>
-                                            <td class="pro-quantity">
-                                                <div class="pro-qty"><input type="text" value="1"></div>
-                                            </td>
-                                            <td class="pro-subtotal">$09</td>
-                                            <td class="pro-remove"><a href="#">🗑️</a></td>
-                                        </tr>
+                                       <?php 
+                                       $name = $_SESSION['cart'][$i];
+                                       $totalcost = 0;
+                                       echo $name;
+                                            if ($cartcnt == 0)
+                                                echo "購物車目前沒有課程喔";
+                                            else
+                                            {
+            
+                                                for($i = 0 ; $i < $cartcnt ; $i ++)
+                                                {
+                                                    $name = $_SESSION['cart'][$i];
+                                                    if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name'")) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            echo  "<tr><td class='pro-thumbnail'><a href='single-product.php?id=" . $row["name"] . "' ><img src='assets/images/product/"
+                                                            .  $row['name'] . ".jpg'></a></td><td class='pro-title'><a href='single-product.php?id=" . $row["name"] . "' >" 
+                                                            . $row["name"] . "</a></td><td class='pro-price'><span class='amount'>" .$row['price'] ."</span></td><td class='pro-remove'>"
+                                                            . "<a href='#'>🗑️</a></td></tr>";
+                                                            $totalcost += $row['price'];
+                                                        }
+                                                    }
+                                                
+                                                }
+                                            }
+                                        ?>
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -123,12 +149,12 @@
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>小計</th>
-                                            <td><span class="amount">$306.00</span></td>
+                                            <td><span class="amount"> <?php echo $totalcost?></span></td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>總共</th>
                                             <td>
-                                                <strong><span class="amount">$306.00</span></strong>
+                                                <strong><span class="amount"><?php echo $totalcost?></span></strong>
                                             </td>
                                         </tr>
                                     </tbody>
