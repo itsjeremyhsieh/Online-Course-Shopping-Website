@@ -64,10 +64,10 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 <body>
 
     <div class="main-wrapper">
-        
-    <?php include "header.php" ?>
 
-        
+        <?php include "header.php" ?>
+
+
 
 
 
@@ -132,8 +132,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 $num = mysqli_num_rows($result);
                                 mysqli_free_result($result);
                             }
-                         
-                            mysqli_close($link);
+
+                           
                             ?>
                             <div class="col-12">
                                 <ul class="page-pagination">
@@ -180,18 +180,28 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                         <div class="sidebar">
                             <h4 class="sidebar-title">熱門商品</h4>
                             <div class="sidebar-product-wrap">
-                                <div class="sidebar-product">
+                                <?php
+                                if ($result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC")) {
+                                    $count = 0;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+
+                                        if ($count == 3)
+                                            break;
+
+                                        echo "<div class='sidebar-product'><a href='single-product.php' class='image'><img src='assets/images/product/"
+                                            . $row["name"] . ".jpg'></a><div class='content'><a href='single-product.php?id=" . $row["name"] . "' class='title' >" . $row["name"] . "</a>"
+                                            . "<span class='price'>" . $row['price'] . "</span></div></div> ";
+                                        $count++;
+                                    }
+                                }
+                                ?>
+
+                                <!-- <div class="sidebar-product">
                                     <a href="single-product.php" class="image"><img src="assets/images/product/product-1.jpg" alt=""></a>
                                     <div class="content">
                                         <a href="single-product.php" class="title">謝宥國中進階英文—國一上</a>
                                         <span class="price">$1099 <span class="old">$1899</span></span>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="sidebar-product">
@@ -199,13 +209,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                     <div class="content">
                                         <a href="single-product.php" class="title">蔓萱高中資優數學—高二下</a>
                                         <span class="price">$1699 <span class="old">$2499</span></span>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
+                            
                                     </div>
                                 </div>
                                 <div class="sidebar-product">
@@ -213,43 +217,14 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                     <div class="content">
                                         <a href="single-product.php" class="title">戴琪國小自然—小六上</a>
                                         <span class="price">$899 <span class="old">$1299</span></span>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
-                        <div class="sidebar">
-                            <h3 class="sidebar-title">價格</h3>
 
-                            <div class="sidebar-price">
-                                <div id="price-range"></div>
-                                <input type="text" id="price-amount" readonly>
-                            </div>
-                        </div>
 
-                        <div class="sidebar">
-                            <h3 class="sidebar-title">Tags</h3>
-                            <ul class="sidebar-tag">
-                                <li><a href="#">新上架</a></li>
-                                <li><a href="#">名師課程</a></li>
-                                <li><a href="#">會考</a></li>
-                                <li><a href="#">總複習</a></li>
-                                <li><a href="#">英檢</a></li>
-                                <li><a href="#">多益</a></li>
-                                <li><a href="#">資優</a></li>
-                                <li><a href="#">升大學</a></li>
-                                <li><a href="#">學測</a></li>
-                                <li><a href="#">分科測驗</a></li>
-                                <li><a href="#">科學班</a></li>
-                            </ul>
-                        </div>
+
 
                     </div>
 
