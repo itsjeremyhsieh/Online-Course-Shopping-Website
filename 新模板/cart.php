@@ -101,8 +101,8 @@
                         </div>
                         <div class="col-lg-8 col-md-7 col-12 mb-40">
                             <div class="cart-buttons mb-30">
-                                <input type="submit" value="更新購物車" />
-                                <a href="#">繼續選購</a>
+                                
+                                <a href="courses.php">繼續選購</a>
                             </div>
                             <div class="cart-coupon">
                                 <br>

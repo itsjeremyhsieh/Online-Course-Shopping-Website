@@ -1,6 +1,21 @@
 <?php
 session_start();
-echo "name=" . $_SESSION['name'];
+
+if (isset($_SESSION['cart'])) {
+    $cnt = count($_SESSION['cart']);
+} else {
+    $cnt = 0;
+}
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
 ?>
 
 
@@ -93,23 +108,14 @@ echo "name=" . $_SESSION['name'];
                             </div>
                             <!--商品-->
                             <?php
-                            $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
-
-                            if (!$link) {
-                                echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
-                                echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
-                                exit();
-                            }
-                            mysqli_query($link, 'SET CHARACTER SET utf8');
-                            mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
                             if ($result = mysqli_query($link, "SELECT * FROM course ")) {
                                 while ($row = mysqli_fetch_assoc($result)) {
 
                                     echo "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                                            . $row["name"]. ".jpg'><div class='image-overlay'><div class='action-buttons'><button>加入購物車</button><button>加入願望清單</button></div></div></div>"
-                                            . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php'>" . $row["name"]. "</a></h4>"
-                                            . "</div><div class='content-right'><span class='price'>" . $row["price"] ."</span></div></div></div></div></div>";
+                                        . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'><button onclick='location.href='addcart.php?id='" . $row["name"]  . "';'>加入購物車</button><button>加入願望清單</button></div></div></div>"
+                                        . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
+                                        . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
                                 }
                                 $num = mysqli_num_rows($result);
                                 mysqli_free_result($result);

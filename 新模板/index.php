@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$arr_cart = array_filter(explode(",",$_SESSION['cart']));
+
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
 if (!$link) {
@@ -180,8 +180,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
                             <div class="row">
                                 <div class="section-title text-start col mb-30">
-                                    <h1>會考總複習課程</h1>
-                                    <p>所有會考總複習雲端課程都在這裡</p>
+                                    <h1>會考/學測總複習課程</h1>
+                                    <p>所有會考學測總複習雲端課程都在這裡！幫助你戰勝大考</p>
                                 </div>
                             </div>
 

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$cartcnt = $_SESSION['cart'];
+?>
+
 <!-- Header Section Start -->
 <div class="header-section section">
 
