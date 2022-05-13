@@ -77,8 +77,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                     <!-- Hero Content -->
                     <div class="hero-content">
 
-                        <h1>Get 35% off <br>Latest Course Product</h1>
-                        <a href="#">SHOP NOW</a>
+                        <h1> <br>最強的名師雲端課程都在CourseLux</h1>
+                        <a href="courses.php">查看所有課程</a>
 
                     </div>
 
@@ -90,8 +90,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                     <!-- Hero Content -->
                     <div class="hero-content">
 
-                        <h1>Get 35% off <br>Latest Course Product</h1>
-                        <a href="#">SHOP NOW</a>
+                        <h1> <br>查看最新最熱門的課程！</h1>
+                        <a href="courses.php">立即查看</a>
 
                     </div>
 

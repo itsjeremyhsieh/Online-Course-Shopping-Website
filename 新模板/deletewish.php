@@ -6,7 +6,7 @@ echo $id;
 
 $key = array_search($_GET['id'], $_SESSION['wish']);	
 unset($_SESSION['wish'][$key]);
- $_SESSION['wish'] = array_values($_SESSION['wish']);
+$_SESSION['wish'] = array_values($_SESSION['wish']);
 //ªð¦^¤W¤@­¶
 $url = $_SERVER['HTTP_REFERER'];
 

@@ -1,13 +1,20 @@
 <?php
+session_start();
+if (!isset($_SESSION['wish'])) {
+    $_SESSION['wish'] = Array();
+}
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
-session_start();
+
 $id = $_GET['id'];//商品ID
-echo $id;
-//if (!in_array($id,$_SESSION['cart'])){
-    $_SESSION['cart'][]=$id;//加入陣列
-//}
+
+if (!in_array($id,$_SESSION['cart'])){
+    if ( !in_array($id,$_SESSION['wish']))
+        $_SESSION['cart'][]=$id;//加入陣列
+    
+}
+
 //返回上一頁
 $url = $_SERVER['HTTP_REFERER'];
 
