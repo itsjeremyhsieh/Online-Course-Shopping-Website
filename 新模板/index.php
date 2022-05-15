@@ -18,7 +18,9 @@ if (!$link) {
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
+
 <?php  //MySQL 函數寫法
+/*
   mysql_query("SET NAMES 'UTF8'"); 
   mysql_select_db($dbname);
 
@@ -44,6 +46,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
   if($page_end>$per_total){  //最後頁的最後筆數=總筆數
 	 $page_end = $per_total;
   }
+  */
 ?>
 
 <!doctype html>
