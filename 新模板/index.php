@@ -24,6 +24,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     //資料庫連結
     $connect = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
     mysqli_set_charset($connect, 'utf8');
+    $sql = "select * from course";
+    $query = mysqli_query($connect, $sql);
     /*
     $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
     $data1 = mysqli_fetch_assoc($result); // $data1[0] 就是資料總數
