@@ -23,7 +23,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
     //資料庫連結
     $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
-    $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC")
+    $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
     $data1 = mysql_fetch_row($result1); 
     /*
     $per = 12; //每頁顯示項目數量
