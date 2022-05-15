@@ -26,7 +26,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
     $data1 = mysqli_fetch_assoc($result); // $data1[0] 就是資料總數
     $per = 12; //每頁顯示項目數量
-    $pages = ceil($data1[0]/$per); //取得不小於值的下一個整數
+    $pages = ceil($data1/$per); //取得不小於值的下一個整數
     /*
     if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
         $page=1; //則在此設定起始頁數
