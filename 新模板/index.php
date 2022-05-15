@@ -22,7 +22,9 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 <?php
 
     //資料庫連結
-    $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+    $connect = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+    mysqli_set_charset($connect, 'utf8');
+    /*
     $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
     $data1 = mysqli_fetch_assoc($result); // $data1[0] 就是資料總數
     $per = 12; //每頁顯示項目數量
@@ -36,7 +38,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     
     $start = ($page-1)*$per; //每一頁開始的資料序號
     $result2 = mysqli_query($result.' LIMIT '.$start.', '.$per,$link);
-    
+    */
 ?>
 
 <!doctype html>
