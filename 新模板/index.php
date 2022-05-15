@@ -22,12 +22,12 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 <?php
 
     //資料庫連結
-    //$conn=mysql_connect('localhost', 'root', 'root123456', 'group_26');
     $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
-    $sql = "SELECT * FROM `course`"; //修改成你要的 SQL 語法
-    $result = mysql_query($sql,$link);
+    //$sql = "SELECT * FROM `course`"; //修改成你要的 SQL 語法
+    $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC")
     /*
-    $data_nums = mysql_num_rows($result); //統計總比數
+    $data1 = mysql_fetch_row($result1); 
+    /*
     $per = 12; //每頁顯示項目數量
     $pages = ceil($data_nums/$per); //取得不小於值的下一個整數
     if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
