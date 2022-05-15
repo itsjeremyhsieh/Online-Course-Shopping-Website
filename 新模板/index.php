@@ -27,15 +27,16 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     $data1 = mysqli_fetch_assoc($result); // $data1[0] 就是資料總數
     $per = 12; //每頁顯示項目數量
     $pages = ceil($data1[0]/$per); //取得不小於值的下一個整數
-    /*
+    
     if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
         $page=1; //則在此設定起始頁數
     } else {
         $page = intval($_GET["page"]); //總頁數//確認頁數只能夠是數值資料
     }
+    /*
     $start = ($page-1)*$per; //每一頁開始的資料序號
     $result = mysql_query($sql.' LIMIT '.$start.', '.$per,$link)
-    */ 
+    */
 ?>
 
 <!doctype html>
