@@ -19,34 +19,23 @@ mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
 
-<?php  //MySQL 函數寫法
+<?php
+    //資料庫連結
+    $conn=mysql_connect('127.0.0.1','root','') or die("Error");
+    mysql_select_db('group_26');
+    $sql = "SELECT name FROM `course`"; //修改成你要的 SQL 語法
+    $result = mysql_query($sql,$conn) or die("Error");
 
-  mysql_query("SET NAMES 'UTF8'"); 
-  mysql_select_db($dbname);
-
-  $sql = 'SELECT * FROM course';
-  $result = mysql_query($sql) or die('MySQL query error');
-
-  //分頁設定
-  $per_total = mysql_num_rows($result);  //計算總筆數
-  $per = 16;  //每頁筆數
-  $pages = ceil($per_total/$per);  //計算總頁數;ceil(x)取>=x的整數,也就是小數無條件進1法
-
-  if(!isset($_GET['page'])){  //!isset 判斷有沒有$_GET['page']這個變數
-  	  $page = 1;	  
-  }else{
-	  $page = $_GET['page'];
-  }
-
-  $start = ($page-1)*$per;  //每一頁開始的資料序號(資料庫序號是從0開始)
-  $result = mysql_query($sql.' LIMIT '.$start.', '.$per) or die('MySQL query error'); //讀取選取頁的資料
-
-  $page_start = $start +1;  //選取頁的起始筆數
-  $page_end = $start + $per;  //選取頁的最後筆數
-  if($page_end>$per_total){  //最後頁的最後筆數=總筆數
-	 $page_end = $per_total;
-  }
-  
+    $data_nums = mysql_num_rows($result); //統計總比數
+    $per = 12; //每頁顯示項目數量
+    $pages = ceil($data_nums/$per); //取得不小於值的下一個整數
+    if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
+        $page=1; //則在此設定起始頁數
+    } else {
+        $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    }
+    $start = ($page-1)*$per; //每一頁開始的資料序號
+    $result = mysql_query($sql.' LIMIT '.$start.', '.$per,$conn) or die("Error");
 ?>
 
 <!doctype html>
@@ -170,64 +159,19 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
         </div><!-- Product Section End -->
 
-        <div class="row">
-            <div class="col-md-6" align="center">	
-            <?php
-                //每頁顯示筆數明細
-                echo '顯示 '.$page_start.' 到 '.$page_end.' 筆 共 '.$per_total.' 筆，目前在第 '.$page.' 頁 共 '.$pages.' 頁'; 
-            ?>
-            </div>
-
-            <div class="col-md-6" align="center">
-            <?php
-            if($pages>1){  //總頁數>1才顯示分頁選單
-
-                //分頁頁碼；在第一頁時,該頁就不超連結,可連結就送出$_GET['page']
-                if($page=='1'){
-                    echo "首頁 ";
-                    echo "上一頁 ";		
-                }else{
-                    echo "<a href=?page=1>首頁 </a> ";
-                    echo "<a href=?page=".($page-1).">上一頁 </a> ";		
+        <?php
+            /*//分頁頁碼
+            echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
+            echo "<br /><a href=?page=1>首頁</a> ";
+            echo "第 ";
+            for( $i=1 ; $i<=$pages ; $i++ ) {
+                if ( $page-3 < $i && $i < $page+3 ) {
+                    echo "<a href=?page=".$i.">".$i."</a> ";
                 }
-
-            //此分頁頁籤以左、右頁數來控制總顯示頁籤數，例如顯示5個分頁數且將當下分頁位於中間，則設2+1+2 即可。若要當下頁位於第1個，則設0+1+4。也就是總合就是要顯示分頁數。如要顯示10頁，則為 4+1+5 或 0+1+9，以此類推。	
-                for($i=1 ; $i<=$pages ;$i++){ 
-                    $lnum = 2;  //顯示左分頁數，直接修改就可增減顯示左頁數
-                    $rnum = 2;  //顯示右分頁數，直接修改就可增減顯示右頁數
-
-            //判斷左(右)頁籤數是否足夠設定的分頁數，不夠就增加右(左)頁數，以保持總顯示分頁數目。
-                if($page <= $lnum){
-                    $rnum = $rnum + ($lnum-$page+1);
-                }
-
-                if($page+$rnum > $pages){
-                    $lnum = $lnum + ($rnum - ($pages-$page));
-                }
-
-                    //分頁部份處於該頁就不超連結,不是就連結送出$_GET['page']
-                    if($page-$lnum <= $i && $i <= $page+$rnum){
-                        if($i==$page){
-                            echo $i.' ';
-                                }else{
-                                    echo '<a href=?page='.$i.'>'.$i.'</a> ';
-                            }
-                        }
-                    }
-
-
-                //在最後頁時,該頁就不超連結,可連結就送出$_GET['page']	
-                if($page==$pages){
-                    echo " 下一頁";
-                    echo " 末頁";	
-                }else{
-                    echo "<a href=?page=".($page+1)."> 下一頁</a>";
-                    echo "<a href=?page=".$pages."> 末頁</a>";		
-                }
-            }
-            ?>	
-            </div>
-        </div>	      
+            } 
+            echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
+            */
+        ?>
 
 
             <!-- Product Section Start -->
