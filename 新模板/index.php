@@ -18,6 +18,33 @@ if (!$link) {
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
+<?php  //MySQL 函數寫法
+  mysql_query("SET NAMES 'UTF8'"); 
+  mysql_select_db($dbname);
+
+  $sql = 'SELECT * FROM course';
+  $result = mysql_query($sql) or die('MySQL query error');
+
+  //分頁設定
+  $per_total = mysql_num_rows($result);  //計算總筆數
+  $per = 10;  //每頁筆數
+  $pages = ceil($per_total/$per);  //計算總頁數;ceil(x)取>=x的整數,也就是小數無條件進1法
+
+  if(!isset($_GET['page'])){  //!isset 判斷有沒有$_GET['page']這個變數
+  	  $page = 1;	  
+  }else{
+	  $page = $_GET['page'];
+  }
+
+  $start = ($page-1)*$per;  //每一頁開始的資料序號(資料庫序號是從0開始)
+  $result = mysql_query($sql.' LIMIT '.$start.', '.$per) or die('MySQL query error'); //讀取選取頁的資料
+
+  $page_start = $start +1;  //選取頁的起始筆數
+  $page_end = $start + $per;  //選取頁的最後筆數
+  if($page_end>$per_total){  //最後頁的最後筆數=總筆數
+	 $page_end = $per_total;
+  }
+?>
 
 <!doctype html>
 <html class="no-js" lang="en">
