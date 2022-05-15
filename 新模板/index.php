@@ -20,7 +20,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
 
 <?php  //MySQL 函數寫法
-/*
+
   mysql_query("SET NAMES 'UTF8'"); 
   mysql_select_db($dbname);
 
@@ -29,7 +29,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
   //分頁設定
   $per_total = mysql_num_rows($result);  //計算總筆數
-  $per = 10;  //每頁筆數
+  $per = 16;  //每頁筆數
   $pages = ceil($per_total/$per);  //計算總頁數;ceil(x)取>=x的整數,也就是小數無條件進1法
 
   if(!isset($_GET['page'])){  //!isset 判斷有沒有$_GET['page']這個變數
@@ -46,7 +46,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
   if($page_end>$per_total){  //最後頁的最後筆數=總筆數
 	 $page_end = $per_total;
   }
-  */
+  
 ?>
 
 <!doctype html>
@@ -145,10 +145,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                 </div>
 
                 <div class="row mbn-40">
-
                     <?php
-                   
-
                     if ($result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC")) {
                         $count = 1;
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -169,11 +166,68 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
               
                     ?>
+            </div>
+
+        </div><!-- Product Section End -->
+
+        <div class="row">
+            <div class="col-md-6" align="center">	
+            <?php
+                //每頁顯示筆數明細
+                echo '顯示 '.$page_start.' 到 '.$page_end.' 筆 共 '.$per_total.' 筆，目前在第 '.$page.' 頁 共 '.$pages.' 頁'; 
+            ?>
+            </div>
+
+            <div class="col-md-6" align="center">
+            <?php
+            if($pages>1){  //總頁數>1才顯示分頁選單
+
+                //分頁頁碼；在第一頁時,該頁就不超連結,可連結就送出$_GET['page']
+                if($page=='1'){
+                    echo "首頁 ";
+                    echo "上一頁 ";		
+                }else{
+                    echo "<a href=?page=1>首頁 </a> ";
+                    echo "<a href=?page=".($page-1).">上一頁 </a> ";		
+                }
+
+            //此分頁頁籤以左、右頁數來控制總顯示頁籤數，例如顯示5個分頁數且將當下分頁位於中間，則設2+1+2 即可。若要當下頁位於第1個，則設0+1+4。也就是總合就是要顯示分頁數。如要顯示10頁，則為 4+1+5 或 0+1+9，以此類推。	
+                for($i=1 ; $i<=$pages ;$i++){ 
+                    $lnum = 2;  //顯示左分頁數，直接修改就可增減顯示左頁數
+                    $rnum = 2;  //顯示右分頁數，直接修改就可增減顯示右頁數
+
+            //判斷左(右)頁籤數是否足夠設定的分頁數，不夠就增加右(左)頁數，以保持總顯示分頁數目。
+                if($page <= $lnum){
+                    $rnum = $rnum + ($lnum-$page+1);
+                }
+
+                if($page+$rnum > $pages){
+                    $lnum = $lnum + ($rnum - ($pages-$page));
+                }
+
+                    //分頁部份處於該頁就不超連結,不是就連結送出$_GET['page']
+                    if($page-$lnum <= $i && $i <= $page+$rnum){
+                        if($i==$page){
+                            echo $i.' ';
+                                }else{
+                                    echo '<a href=?page='.$i.'>'.$i.'</a> ';
+                            }
+                        }
+                    }
 
 
-                </div>
-            </div><!-- Product Section End -->
-
+                //在最後頁時,該頁就不超連結,可連結就送出$_GET['page']	
+                if($page==$pages){
+                    echo " 下一頁";
+                    echo " 末頁";	
+                }else{
+                    echo "<a href=?page=".($page+1)."> 下一頁</a>";
+                    echo "<a href=?page=".$pages."> 末頁</a>";		
+                }
+            }
+            ?>	
+            </div>
+        </div>	      
 
 
             <!-- Product Section Start -->
