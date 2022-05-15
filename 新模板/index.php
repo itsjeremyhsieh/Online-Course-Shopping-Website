@@ -25,7 +25,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     mysql_select_db('group_26');
     $sql = "SELECT * FROM `course`"; //修改成你要的 SQL 語法
     $result = mysql_query($sql,$conn)
-
+    /*
     $data_nums = mysql_num_rows($result); //統計總比數
     $per = 12; //每頁顯示項目數量
     $pages = ceil($data_nums/$per); //取得不小於值的下一個整數
@@ -35,7 +35,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
         $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
     }
     $start = ($page-1)*$per; //每一頁開始的資料序號
-    $result = mysql_query($sql.' LIMIT '.$start.', '.$per,$conn) 
+    $result = mysql_query($sql.' LIMIT '.$start.', '.$per,$conn)
+    */ 
 ?>
 
 <!doctype html>
