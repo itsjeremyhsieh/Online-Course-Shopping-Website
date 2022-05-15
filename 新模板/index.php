@@ -47,6 +47,10 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     } else {
         $next = $page + 1;	
     }
+    $start = ($page - 1) * $pageSize;
+    $sql = "select * from course limit $start, $pageSize";
+    $res = mysqli_query($connect, $sql);
+    $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
     /*
     $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
