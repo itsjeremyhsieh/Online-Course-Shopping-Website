@@ -20,6 +20,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
 
 <?php
+    /*
     //資料庫連結
     $conn=mysql_connect('localhost', 'root', 'root123456', 'group_26');
     /*
