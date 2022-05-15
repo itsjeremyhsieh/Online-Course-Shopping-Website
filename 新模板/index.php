@@ -35,7 +35,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     }
     
     $start = ($page-1)*$per; //每一頁開始的資料序號
-    $result2 = mysqli_query($result.' LIMIT ' . $start . ', ' . $per); 
+    $result2 = mysqli_query('SELECT * FROM course LIMIT ' . $start . ', ' . $per);
     
 ?>
 
