@@ -33,10 +33,10 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     } else {
         $page = intval($_GET["page"]); //總頁數//確認頁數只能夠是數值資料
     }
-    /*
+    
     $start = ($page-1)*$per; //每一頁開始的資料序號
-    $result = mysql_query($sql.' LIMIT '.$start.', '.$per,$link)
-    */
+    $result2 = mysqli_query($result.' LIMIT ' . $start . ', ' . $per,$link); 
+    
 ?>
 
 <!doctype html>
@@ -161,7 +161,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
         </div><!-- Product Section End -->
 
         <?php
-            /*//分頁頁碼
+            //分頁頁碼
             echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
             echo "<br /><a href=?page=1>首頁</a> ";
             echo "第 ";
@@ -171,7 +171,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                 }
             } 
             echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
-            */
+            
         ?>
 
 
