@@ -24,8 +24,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     //資料庫連結
     //$conn=mysql_connect('localhost', 'root', 'root123456', 'group_26');
     $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
-    /*
     $sql = "SELECT * FROM `course`"; //修改成你要的 SQL 語法
+    /*
     $result = mysql_query($sql,$link)
     /*
     $data_nums = mysql_num_rows($result); //統計總比數
