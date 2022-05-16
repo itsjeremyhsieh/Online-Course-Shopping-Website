@@ -1,5 +1,5 @@
 <?php
-
+/*
     //資料庫連結
     $connect = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
     mysqli_set_charset($connect, 'utf8');
