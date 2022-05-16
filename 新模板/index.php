@@ -20,7 +20,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
 
 <?php
-
+/*
     //資料庫連結
     $connect = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
     mysqli_set_charset($connect, 'utf8');
@@ -66,7 +66,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     
     $start = ($page-1)*$per; //每一頁開始的資料序號
     $result2 = mysqli_query($result.' LIMIT '.$start.', '.$per,$link);
-    */
+*/
 ?>
 
 <!doctype html>
@@ -189,8 +189,9 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
             </div>
 
         </div><!-- Product Section End -->
-
+        
         <?php
+        /*
             //分頁頁碼
             echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
             echo "<br /><a href=?page=1>首頁</a> ";
@@ -201,9 +202,9 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                 }
             } 
             echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
-            
+        */   
         ?>
-
+       
 
             <!-- Product Section Start -->
             <div class="product-section section section-padding pt-0">
