@@ -1,3 +1,52 @@
+<?php
+
+    //資料庫連結
+    $connect = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+    mysqli_set_charset($connect, 'utf8');
+    $sql = "select * from course";
+    $query = mysqli_query($connect, $sql);
+    $num = mysqli_num_rows($query);
+    $pageSize = 12;
+    $totalPage = ceil($num / $pageSize);
+    // 獲取當前頁
+    if ($_GET['page']) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    // 在當前頁的基礎上確定上一頁
+    if ($page == 1) {
+        $up = 1;
+    } else {
+        $up = $page - 1;
+    }
+    // 在當前頁的基礎上確定下一頁
+    if ($page == $totalPage) {
+        $next = $totalPage;
+    } else {
+        $next = $page + 1;	
+    }
+    $start = ($page - 1) * $pageSize;
+    $sql = "select * from course limit $start, $pageSize";
+    $res = mysqli_query($connect, $sql);
+    $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+
+    /*
+    $result = mysqli_query($link, "SELECT * FROM course ORDER BY sold DESC");
+    $data1 = mysqli_fetch_assoc($result); // $data1[0] 就是資料總數
+    $per = 12; //每頁顯示項目數量
+    $pages = ceil($data1[0]/$per); //取得不小於值的下一個整數
+    
+    if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
+        $page=1; //則在此設定起始頁數
+    } else {
+        $page = intval($_GET["page"]); //總頁數//確認頁數只能夠是數值資料
+    }
+    
+    $start = ($page-1)*$per; //每一頁開始的資料序號
+    $result2 = mysqli_query($result.' LIMIT '.$start.', '.$per,$link);
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
