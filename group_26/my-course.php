@@ -45,7 +45,7 @@
     
     $start = ($page-1)*$per; //每一頁開始的資料序號
     $result2 = mysqli_query($result.' LIMIT '.$start.', '.$per,$link);
-
+    */
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
