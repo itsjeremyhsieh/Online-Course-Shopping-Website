@@ -115,13 +115,7 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
 
                                             <h3 class="title"><?php echo $name?> </h3>
 
-                                            <div class="ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
+                                           
 
                                             <div class="sold">
                                                 <br>已售出: <?php echo $sold?>
@@ -139,12 +133,13 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
                                         <p><?php echo $description?></p>
                                     </div>
 
-                                   
-
                                     
                                     <div class="actions">
-                                    <a href='addcart.php?id=" . $row["name"] . "'> <button><i class="ti-shopping-cart"></i><span>加入購物車</span></button></a>
-                                    <a href='addwish.php?id=" . $row["name"] . "'><button class="box" data-tooltip="Wishlist"><i class="ti-heart"></i></button></a>
+                                    
+                                    <?php
+                                     echo "<a href='addcart.php?id=" . $name . "'> <button><i class='ti-shopping-cart'></i><span>加入購物車</span></button></a><a href='addwish.php?id=" . $name . "'><button class='box' data-tooltip='Wishlist'><i class='ti-heart'></i></button></a>";
+                                    ?>
+                                   
                                 
                                     </div>
 
