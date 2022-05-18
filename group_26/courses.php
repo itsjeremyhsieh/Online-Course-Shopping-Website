@@ -13,7 +13,7 @@ if (isset($_SESSION['wish'])) {
 } else {
     $wishcnt = 0;
 }
-
+/*
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
 if (!$link) {
@@ -22,11 +22,7 @@ if (!$link) {
     exit();
 }
 mysqli_query($link, 'SET CHARACTER SET utf8');
-mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
-
-?>
-
-<?php
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");*/
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
  or die("無法開啟MySQL資料庫連結!<br>");
@@ -41,14 +37,16 @@ if ($result = mysqli_query($link,$sql))
     $total_page = ceil($total_records/12);
     if (!isset($_GET['page'])) {$_GET['page'] = 1;}
     mysqli_data_seek($result,($_GET['page'] - 1) * 12);
-
-    for($j=1;$j<=12;$j++)
+    $cnt = 0;
+    while( $row = mysqli_fetch_assoc($result))
     {
-            $row = mysqli_fetch_assoc($result);
+           if($cnt == 12)
+                break;
             $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
             . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
             . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
             . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
+            $cnt ++;
     }
     $num = mysqli_num_rows($result); //查詢結果筆數
     mysqli_free_result($result); // 釋放佔用的記憶體
@@ -57,10 +55,10 @@ $data .="<div class='col-12'><ul class='page-pagination'>";
 for($i=1;$i<=$total_page;$i++)
 {
     if ($i == $_GET['page']) {
-        $data .= "<li><a href='#'>".$i. "</a></li>&nbsp;";
+        $data .= "<li class='active'><a href='#'>".$i. "</a></li>&nbsp;";
     }
     else {
-        $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=".$i."'> ".$i. "</a></li>&nbsp;&nbsp;";
+        $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=".$i."'>".$i. "</a></li>&nbsp;";
     }
 }
 $data .="</div></ul>";
@@ -237,30 +235,6 @@ $data .="</div></ul>";
                                     }
                                 }
                                 ?>
-
-                                <!-- <div class="sidebar-product">
-                                    <a href="single-product.php" class="image"><img src="assets/images/product/product-1.jpg" alt=""></a>
-                                    <div class="content">
-                                        <a href="single-product.php" class="title">謝宥國中進階英文—國一上</a>
-                                        <span class="price">$1099 <span class="old">$1899</span></span>
-                                       
-                                    </div>
-                                </div>
-                                <div class="sidebar-product">
-                                    <a href="single-product.php" class="image"><img src="assets/images/product/product-2.jpg" alt=""></a>
-                                    <div class="content">
-                                        <a href="single-product.php" class="title">蔓萱高中資優數學—高二下</a>
-                                        <span class="price">$1699 <span class="old">$2499</span></span>
-                            
-                                    </div>
-                                </div>
-                                <div class="sidebar-product">
-                                    <a href="single-product.php" class="image"><img src="assets/images/product/product-3.jpg" alt=""></a>
-                                    <div class="content">
-                                        <a href="single-product.php" class="title">戴琪國小自然—小六上</a>
-                                        <span class="price">$899 <span class="old">$1299</span></span>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
 
