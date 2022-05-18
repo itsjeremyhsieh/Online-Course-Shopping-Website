@@ -57,7 +57,7 @@ $data .="<div class='col-12'><ul class='page-pagination'>";
 for($i=1;$i<=$total_page;$i++)
 {
     if ($i == $_GET['page']) {
-        $data .= "<li>" .$i. "</li>&nbsp;&nbsp;";
+        $data .= "<li><a href='#'>".$i. "</a></li>&nbsp;";
     }
     else {
         $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=".$i."'> ".$i. "</a></li>&nbsp;&nbsp;";
