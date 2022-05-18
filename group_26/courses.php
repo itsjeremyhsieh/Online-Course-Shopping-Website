@@ -13,55 +13,51 @@ if (isset($_SESSION['wish'])) {
 } else {
     $wishcnt = 0;
 }
-/*
-$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
-if (!$link) {
-    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
-    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
-    exit();
-}
-mysqli_query($link, 'SET CHARACTER SET utf8');
-mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");*/
+
+if (isset($_POST['option'])) {
+    $val = $_POST['option'];
+} else
+    $val = 9;
+//echo $val;
+
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
- or die("無法開啟MySQL資料庫連結!<br>");
- $sql = "select * from course";
+    or die("無法開啟MySQL資料庫連結!<br>");
+$sql = "select * from course";
 // 送出編碼的MySQL指令
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
-if ($result = mysqli_query($link,$sql))
-{
-    $total_records=mysqli_num_rows($result);
-    $total_page = ceil($total_records/12);
-    if (!isset($_GET['page'])) {$_GET['page'] = 1;}
-    mysqli_data_seek($result,($_GET['page'] - 1) * 12);
+if ($result = mysqli_query($link, $sql)) {
+    $total_records = mysqli_num_rows($result);
+    $total_page = ceil($total_records / 12);
+    if (!isset($_GET['page'])) {
+        $_GET['page'] = 1;
+    }
+    mysqli_data_seek($result, ($_GET['page'] - 1) * 12);
     $cnt = 0;
-    while( $row = mysqli_fetch_assoc($result))
-    {
-           if($cnt == 12)
-                break;
-            $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($cnt == 9)
+            break;
+        $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
             . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
             . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
             . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
-            $cnt ++;
+        $cnt++;
     }
     $num = mysqli_num_rows($result); //查詢結果筆數
     mysqli_free_result($result); // 釋放佔用的記憶體
 }
-$data .="<div class='col-12'><ul class='page-pagination'>";
-for($i=1;$i<=$total_page;$i++)
-{
+$data .= "<div class='col-12'><ul class='page-pagination'>";
+for ($i = 1; $i <= $total_page; $i++) {
     if ($i == $_GET['page']) {
-        $data .= "<li class='active'><a href='#'>".$i. "</a></li>&nbsp;";
-    }
-    else {
-        $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=".$i."'>".$i. "</a></li>&nbsp;";
+        $data .= "<li class='active'><a href='#'>" . $i . "</a></li>&nbsp;";
+    } else {
+        $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=" . $i . "'>" . $i . "</a></li>&nbsp;";
     }
 }
-$data .="</div></ul>";
+$data .= "</div></ul>";
 ?>
 
 <!doctype html>
@@ -96,6 +92,21 @@ $data .="</div></ul>";
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0 /jquery.min.js"></script>
+    <script type="text/javascript">
+        function fetch_select(val) {
+            $.ajax({
+                type: 'post',
+                url: 'courses.php',
+                datatype: 'json',
+                data: {
+                    option: val
+                },
+              
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -103,10 +114,6 @@ $data .="</div></ul>";
     <div class="main-wrapper">
 
         <?php include "header.php" ?>
-
-
-
-
 
         <!-- Page Banner Section Start -->
         <div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
@@ -136,11 +143,11 @@ $data .="</div></ul>";
                             <div class="col-12">
                                 <div class="product-show">
                                     <h4>顯示:</h4>
-                                    <select class="nice-select">
-                                        <option>8</option>
-                                        <option>12</option>
-                                        <option>16</option>
-                                        <option>20</option>
+                                    <select class="nice-select" id="display" onchange="fetch_select(this.value);">
+                                        <option value="9">9</option>
+                                        <option value="12">12</option>
+                                        <option value="15">15</option>
+                                        <option value="18">18</option>
                                     </select>
                                 </div>
                                 <div class="product-short">
@@ -156,9 +163,9 @@ $data .="</div></ul>";
                                 </div>
                             </div>
                             <!--商品-->
-                            <?php  echo $data;  ?>
+                            <?php echo $data;  ?>
 
-                            
+
                             <?php
                             /*
                             if ($result = mysqli_query($link, "SELECT * FROM course ")) {
@@ -174,7 +181,7 @@ $data .="</div></ul>";
                             }
                             */
                             ?>
-                            
+
                             <!--<div class="col-12">
                                 <ul class="page-pagination">
                                     <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
@@ -185,7 +192,7 @@ $data .="</div></ul>";
                                     <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                 </ul>
                             </div>-->
-                            
+
                         </div>
                     </div>
 
