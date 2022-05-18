@@ -27,42 +27,43 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 ?>
 
 <?php
-    
-    //資料庫連結
-    $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
-    $sql = "select * from course";
-    mysqli_query($link, 'SET CHARACTER SET utf8');
-    mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
-    // 獲取總數據量
-    $query = mysqli_query($link, $sql);
-    $num = mysqli_num_rows($query);
-    $pageSize = 8;
-    $totalPage = ceil($num / $pageSize);
-    // 獲取當前頁
-    if ($_GET['page']) {
-        $page = $_GET['page'];
-    } else {
-        $page = 1;
-    }
-    // 在當前頁的基礎上確定上一頁
-    if ($page == 1) {
-        $up = 1;
-    } else {
-        $up = $page - 1;
-    }
-    // 在當前頁的基礎上確定下一頁
-    if ($page == $totalPage) {
-        $next = $totalPage;
-    } else {
-        $next = $page + 1;	
-    }
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
+ or die("無法開啟MySQL資料庫連結!<br>");
+ $sql = "select * from course";
+// 送出編碼的MySQL指令
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
-    $start = ($page - 1) * $pageSize;
-    $sql = "select * from course limit $start, $pageSize";
-    $res = mysqli_query($link, $sql);
-    $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
-    
+if ($result = mysqli_query($link,$sql))
+{
+    $total_records=mysqli_num_rows($result);
+    $total_page = ceil($total_records/12);
+    if (!isset($_GET['page'])) {$_GET['page'] = 1;}
+    mysqli_data_seek($result,($_GET['page'] - 1) * 12);
+
+    for($j=1;$j<=12;$j++)
+    {
+            $row = mysqli_fetch_assoc($result);
+            $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
+            . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
+            . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
+            . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
+    }
+    $num = mysqli_num_rows($result); //查詢結果筆數
+    mysqli_free_result($result); // 釋放佔用的記憶體
+}
+$data .="<div class='col-12'><ul class='page-pagination'>";
+for($i=1;$i<=$total_page;$i++)
+{
+    if ($i == $_GET['page']) {
+        $data .= "<li>" .$i. "</li>&nbsp;&nbsp;";
+    }
+    else {
+        $data .= "<li><a href='" . $_SERVER['PHP_SELF'] . "?page=".$i."'> ".$i. "</a></li>&nbsp;&nbsp;";
+    }
+}
+$data .="</div></ul>";
 ?>
 
 <!doctype html>
@@ -157,8 +158,11 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 </div>
                             </div>
                             <!--商品-->
-                            <?php
+                            <?php  echo $data;  ?>
 
+                            
+                            <?php
+                            /*
                             if ($result = mysqli_query($link, "SELECT * FROM course ")) {
                                 while ($row = mysqli_fetch_assoc($result)) {
 
@@ -170,27 +174,10 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 $num = mysqli_num_rows($result);
                                 mysqli_free_result($result);
                             }
-
-                           
-                            ?>
-                            
-                            <?php
-                            /*
-                            $sql = "SELECT * FROM course"; 
-                            $res = mysqli_query($link, $sql);// 查询数据
-                            $num = mysqli_num_rows($query);
-                            $totalPage = ceil($num / $pageSize);
-
-                            echo "<a href='pagination.php?page=1'>".'|<'."</a> "; // 第一页
-
-                            for ($i=1; $i<=$total_pages; $i++) { 
-                                    echo "<a href='pagination.php?page=".$i."'>".$i."</a> "; 
-                            }; 
-                            echo "<a href='pagination.php?page=$total_pages'>".'>|'."</a> "; // 最后一页
                             */
                             ?>
                             
-                            <div class="col-12">
+                            <!--<div class="col-12">
                                 <ul class="page-pagination">
                                     <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                     <li class="active"><a href="#">1</a></li>
@@ -199,7 +186,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                     <li><a href="#">4</a></li>
                                     <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                 </ul>
-                            </div>
+                            </div>-->
                             
                         </div>
                     </div>
