@@ -118,96 +118,112 @@
     </style>
 
 
-    <script>
-    $(document).ready(function($) {
-        //for select
-        $.validator.addMethod("notEqualsto", function(value, element, arg) {
-            return arg != value;
-        }, "您尚未選擇!");
+<script>
+$(document).ready(function($) {
+    //for select
+    $.validator.addMethod("notEqualsto", function(value, element, arg) {
+        return arg != value;
+    }, "您尚未選擇!");
 
-        $("#form1").validate({
-            submitHandler: function(form) {
-                alert("註冊成功！");
-                form.submit();
+    $("#form1").validate({
+        submitHandler: function(form) {
+            alert("註冊成功！");
+            form.submit();
+        },
+        rules: {
+            姓名: {
+                required: true,
+                minlength: 1,
+                maxlength: 50
             },
-            rules: {
-                姓名: {
-                    required: true,
-                    minlength: 1,
-                    maxlength: 50
-                },
-                使用者名稱: {
-                    required: true,
-                    minlength: 1,
-                    maxlength: 50
-                },
-                pwd: {
-                    required: true,
-                    minlength: 6,
-                    maxlength: 12
-                },
-                pwd2: {
-                    required: true,
-                    equalTo: "#pwd"
-                },
-                content: {
-                    required: true,
-
-                },
-                手機號碼: {
-                    length: 10,
-                    required: true,
-
-                },
-                email: {
-                    required: true,
-
-                },
-                通訊地址: {
-                    required: true,
-
-                },
-                公告類型: {
-                    required: true
-                },
-                url: {
-                    required: true
-                },
-                to_1: {
-                    require_from_group: [1, ".to_group"]
-                },
-                to_2: {
-                    require_from_group: [1, ".to_group"]
-                },
-                to_3: {
-                    require_from_group: [1, ".to_group"]
-                }
-
+            使用者名稱: {
+                required: true,
+                minlength: 1,
+                maxlength: 50
+            },
+            pwd: {
+                required: true,
+                minlength: 6,
+                maxlength: 12
+            },
+            pwd2: {
+                required: true,
+                equalTo: "#pwd"
+            },
+            content: {
+                required: true,
 
             },
-            messages: {
-                account: {
-                    required: "帳號為必填欄位",
-                    minlength: "帳號最少要4個字",
-                    maxlength: "帳號最長10個字"
-                },
-                pwd2: {
-                    equalTo: "兩次密碼不相符"
-                },
-                to_1: {
-                    require_from_group: ""
-                },
-                to_2: {
-                    require_from_group: ""
-                },
-                to_3: {
-                    require_from_group: "請至少選擇1項"
-                },
+            手機號碼: {
+                length: 10,
+                required: true,
 
+            },
+            email: {
+                required: true,
+
+            },
+            通訊地址: {
+                required: true,
+
+            },
+            公告類型: {
+                required: true
+            },
+            url: {
+                required: true
+            },
+            to_1: {
+                require_from_group: [1, ".to_group"]
+            },
+            to_2: {
+                require_from_group: [1, ".to_group"]
+            },
+            to_3: {
+                require_from_group: [1, ".to_group"]
             }
-        });
+
+
+        },
+        messages: {
+            account: {
+                required: "帳號為必填欄位",
+                minlength: "帳號最少要4個字",
+                maxlength: "帳號最長10個字"
+            },
+            pwd2: {
+                equalTo: "兩次密碼不相符"
+            },
+            to_1: {
+                require_from_group: ""
+            },
+            to_2: {
+                require_from_group: ""
+            },
+            to_3: {
+                require_from_group: "請至少選擇1項"
+            },
+
+        }
     });
-    </script>
+});
+</script>
+
+<script>
+    function sendRequest() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.responseText=='1')   document.getElementById('show_msg').innerHTML = '此帳號已存在!';
+          else   document.getElementById('show_msg').innerHTML = '';
+    }
+  };
+  var url='check_account_ajax.php?p_usr=' + document.form1.p_usr.value + '&timeStamp='+new Date().getTime();
+  xhttp.open('GET',url,true);//建立XMLHttpRequest連線要求
+  xhttp.send();
+}
+
+</script>
 </head>
 
 <body>
@@ -256,7 +272,7 @@
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱"
-                                                        name="使用者名稱"></div>
+                                                        name="使用者名稱" onkeyup=sendRequest();></div>
                                             </div>
 
                                             <div class="row justify-content-center">
@@ -373,6 +389,7 @@
 
                                         </div>
                                     </form>
+                                    <!--<center>訊息：<span id='show_msg' style="color:red"></span></center>-->
                                 </div>
                             </div>
                         </div>
