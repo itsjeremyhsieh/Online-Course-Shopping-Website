@@ -15,11 +15,10 @@ if (isset($_SESSION['wish'])) {
 }
 
 
-if (isset($_POST['option'])) {
+if (!isset($_POST['option'])) {
     $val = $_POST['option'];
 } else
     $val = 9;
-//echo $val;
 
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
@@ -31,14 +30,14 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
 if ($result = mysqli_query($link, $sql)) {
     $total_records = mysqli_num_rows($result);
-    $total_page = ceil($total_records / 12);
+    $total_page = ceil($total_records / 9); //$val
     if (!isset($_GET['page'])) {
         $_GET['page'] = 1;
     }
-    mysqli_data_seek($result, ($_GET['page'] - 1) * 12);
+    mysqli_data_seek($result, ($_GET['page'] - 1) * $val);
     $cnt = 0;
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($cnt == 9)
+        if ($cnt == 9) //$val
             break;
         $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
             . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
@@ -103,6 +102,11 @@ $data .= "</div></ul>";
                 data: {
                     option: val
                 },
+                success: function(){
+                    <?php
+
+                    ?>
+                }
               
             });
         }
@@ -164,34 +168,6 @@ $data .= "</div></ul>";
                             </div>
                             <!--商品-->
                             <?php echo $data;  ?>
-
-
-                            <?php
-                            /*
-                            if ($result = mysqli_query($link, "SELECT * FROM course ")) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-
-                                    echo "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                                        . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
-                                        . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
-                                        . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
-                                }
-                                $num = mysqli_num_rows($result);
-                                mysqli_free_result($result);
-                            }
-                            */
-                            ?>
-
-                            <!--<div class="col-12">
-                                <ul class="page-pagination">
-                                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                </ul>
-                            </div>-->
 
                         </div>
                     </div>
