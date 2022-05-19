@@ -152,7 +152,6 @@
                     },
                     email: {
                         required: true,
-    
                     }
     
                 },
@@ -173,10 +172,10 @@
                     address: {
                         required: "此為必填欄位",
                     },
-                    psw: {
+                    pwd: {
                         required: "此為必填欄位",
                     },
-                    new_psw: {
+                    new_pwd: {
                         required: "此為必填欄位",
                     },
                     new_pwd2: {
@@ -488,7 +487,7 @@
                             <!-- Single Tab Content End -->
 
                             <!-- Single Tab Content Start -->
-                            <div class="tab-pane fade" id="account-info" role="tabpanel">
+                            <div id="account-info" class="tab-pane fade" role="tabpanel">
                                 <div class="myaccount-content">
                                     <h3>帳號管理</h3>
 
@@ -529,11 +528,7 @@
                                                 </div>
 
                                                 <div class="col-12 mb-30">
-<<<<<<< HEAD:新模板/my-account.html
-                                                    <input id="psw" name="psw" placeholder="請輸入目前密碼" type="password">
-=======
-                                                    <input id="current-pwd" placeholder="請輸入目前密碼" type="password">
->>>>>>> 2c8813102b53aceabde7a9240c084bc23b51a429:新模板/my-account.php
+                                                    <input id="current-pwd"  name="pwd" placeholder="請輸入目前密碼" type="password">
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mb-30">
@@ -541,15 +536,11 @@
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mb-30">
-<<<<<<< HEAD:新模板/my-account.html
                                                     <input id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼" type="password">
-=======
-                                                    <input id="confirm-pwd" placeholder="請再次輸入新密碼" type="password">
->>>>>>> 2c8813102b53aceabde7a9240c084bc23b51a429:新模板/my-account.php
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <button class="btn btn-dark btn-round btn-lg">儲存資訊</button>
+                                                    <a href="#account-info"><input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg"></a>
                                                 </div>
 
                                             </div>
