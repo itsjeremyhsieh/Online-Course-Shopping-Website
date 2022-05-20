@@ -14,8 +14,9 @@ if (!$link) {
 
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
-if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' ")) {
+if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
     while($row = mysqli_fetch_assoc($result)){
+    $id = $row['id'];
     $name = $row['name'];
     $subject = $row['subject'];
     $grade = $row['grade'];
@@ -101,7 +102,7 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
                             <div class="col-lg-6 col-12 mb-40">
 
                                 <div class="pro-large-img mb-10 fix ">
-                                    <p style="text-align:center;"> <?php echo "<img src='assets/images/product/". $name.".jpg'  width='320' />" ?></p>
+                                    <p style="text-align:center;"> <?php echo "<img src='assets/images/product/". $id.".jpg'  width='320' />" ?></p>
                                 </div>
                                 <!-- Single Product Thumbnail Slider -->
 
@@ -137,7 +138,7 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
                                     <div class="actions">
                                     
                                     <?php
-                                     echo "<a href='addcart.php?id=" . $name . "'> <button><i class='ti-shopping-cart'></i><span>加入購物車</span></button></a><a href='addwish.php?id=" . $name . "'><button class='box' data-tooltip='Wishlist'><i class='ti-heart'></i></button></a>";
+                                     echo "<a href='addcart.php?id=" . $id . "'> <button><i class='ti-shopping-cart'></i><span>加入購物車</span></button></a><a href='addwish.php?id=" . $id . "'><button class='box' data-tooltip='Wishlist'><i class='ti-heart'></i></button></a>";
                                     ?>
                                    
                                 
@@ -443,8 +444,8 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name' "))
                         while ($row = mysqli_fetch_assoc($result)) {
                            
                             echo " <div class='slick-slide'><div class='product-item'><div class='product-inner'><div class='image'><img src='assets/images/product/"
-                                    .  $row['name'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a>"
-                                    . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" 
+                                    .  $row['id'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a>"
+                                    . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >" 
                                     . $row["name"] . "</a></h4></div><div class='content-right'><span class='price'>". $row['price'] ."</span></div></div></div></div></div>";
                         }
                     }

@@ -107,12 +107,12 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
                                                 for ($i = 0; $i < $wishcnt; $i++) {
                                                     $name = $_SESSION['wish'][$i];
-                                                    if ($result = mysqli_query($link, "SELECT * FROM course WHERE name = '$name'")) {
+                                                    if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name'")) {
                                                         while ($row = mysqli_fetch_assoc($result)) {
-                                                            echo  "<tr><td class='pro-thumbnail'><a href='single-product.php?id=" . $row["name"] . "' ><img src='assets/images/product/"
-                                                            .  $row['name'] . ".jpg'></a></td><td class='pro-title'><a href='single-product.php?id=" . $row["name"] . "' >" 
+                                                            echo  "<tr><td class='pro-thumbnail'><a href='single-product.php?id=" . $row["id"] . "' ><img src='assets/images/product/"
+                                                            .  $row['id'] . ".jpg'></a></td><td class='pro-title'><a href='single-product.php?id=" . $row["id"] . "' >" 
                                                             . $row["name"] . "</a></td><td class='pro-price'><span class='amount'>" .$row['price'] ."</span></td><td class='pro-add-cart'>"
-                                                            . "<a href='addtocart.php?id=" . $row["name"] . "'>加入購物車</a></td><td class='pro-remove'><a href='deletewish.php?id=" . $row["name"] . "'>×</a></td>";
+                                                            . "<a href='addtocart.php?id=" . $row["id"] . "'>加入購物車</a></td><td class='pro-remove'><a href='deletewish.php?id=" . $row["id"] . "'>×</a></td>";
                                                         }
                                                     }
                                                 }

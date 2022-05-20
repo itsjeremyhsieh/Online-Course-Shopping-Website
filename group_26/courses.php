@@ -40,8 +40,8 @@ if ($result = mysqli_query($link, $sql)) {
         if ($cnt == 9) //$val
             break;
         $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-            . $row["name"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
-            . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
+            . $row["id"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a></div></div></div>"
+            . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >" . $row["name"] . "</a></h4>"
             . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
         $cnt++;
     }
@@ -211,8 +211,8 @@ $data .= "</div></ul>";
                                         if ($count == 3)
                                             break;
 
-                                        echo "<div class='sidebar-product'><a href='single-product.php' class='image'><img src='assets/images/product/"
-                                            . $row["name"] . ".jpg'></a><div class='content'><a href='single-product.php?id=" . $row["name"] . "' class='title' >" . $row["name"] . "</a>"
+                                        echo "<div class='sidebar-product'><a href='single-product.php?id=" . $row["id"] . "' class='image' ><img src='assets/images/product/"
+                                            . $row["id"] . ".jpg'></a><div class='content'><a href='single-product.php?id=" . $row["id"] . "' class='title' >" . $row["name"] . "</a>"
                                             . "<span class='price'>" . $row['price'] . "</span></div></div> ";
                                         $count++;
                                     }

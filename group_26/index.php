@@ -124,8 +124,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                 break;
 
                             echo "<div class='col-xl-3 col-lg-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
-                                . $row['id'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["name"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["name"] . "'><button>加入願望清單</button></a></div></div></div>"
-                                . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["name"] . "' >" . $row["name"] . "</a></h4>"
+                                . $row['id'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a></div></div></div>"
+                                . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >" . $row["name"] . "</a></h4>"
                                 . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
 
                             $count = $count + 1;
@@ -138,23 +138,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                     ?>
             </div>
 
-        </div><!-- Product Section End -->
-        
-        <?php
-        /*
-            //分頁頁碼
-            echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
-            echo "<br /><a href=?page=1>首頁</a> ";
-            echo "第 ";
-            for( $i=1 ; $i<=$pages ; $i++ ) {
-                if ( $page-3 < $i && $i < $page+3 ) {
-                    echo "<a href=?page=".$i.">".$i."</a> ";
-                }
-            } 
-            echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
-        */   
-        ?>
-       
+        </div><!-- Product Section End -->     
 
             <!-- Product Section Start -->
             <div class="product-section section section-padding pt-0">
@@ -179,8 +163,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                     $count = 1;
                                     while ($row = mysqli_fetch_assoc($result)) {
 
-                                        echo "<div class='slide-item'><div class='best-deal-product'> <a href='single-product.php?id=" . $row["name"] . "' ><div class='image'><img src='assets/images/product/"
-                                            .  $row['name'] . ".jpg'></div></a><div class='content-top'><div class='content-top-left'><h4 class='title'><a href='#'>"
+                                        echo "<div class='slide-item'><div class='best-deal-product'> <a href='single-product.php?id=" . $row["id"] . "' ><div class='image'><img src='assets/images/product/"
+                                            .  $row['id'] . ".jpg'></div></a><div class='content-top'><div class='content-top-left'><h4 class='title'><a href='#'>"
                                             . "</a></h4></div><div class='content-top-right'><span style='color: #afeeee' class='price'>" . $row["price"] . "</span></div></div><div class='content-bottom'>"
                                             . "</div></div></div>";
                                     }
@@ -212,8 +196,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                                         if ($count1 == 8)
                                             break;
                                         echo "<div class='col mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img height = '270px' width = '320px' src='assets/images/product/"
-                                            .  $row['name'] . ".jpg'><div class='image-overlay'></div></div>"
-                                            . "<div class='content'><div class='content-left'><h4 class='title'> <a href='single-product.php?id=" . $row["name"] . "' style='font-size: 14px' >" . $row["name"] . "</a></h4>"
+                                            .  $row['id'] . ".jpg'><div class='image-overlay'></div></div>"
+                                            . "<div class='content'><div class='content-left'><h4 class='title'> <a href='single-product.php?id=" . $row["id"] . "' style='font-size: 14px' >" . $row["name"] . "</a></h4>"
                                             . "</div><div class='content-right'><span class='price'  >" . $row["price"] . "</span></div></div></div></div></div>";
                                         $count1 = $count1 + 1;
                                     }
