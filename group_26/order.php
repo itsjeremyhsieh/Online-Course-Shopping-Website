@@ -104,87 +104,6 @@
 
         }
     </style>
-    <script>
-        $(document).ready(function($) {
-            //for select
-            $.validator.addMethod("notEqualsto", function(value, element, arg) {
-                return arg != value;
-            }, "您尚未選擇!");
-    
-            $("#form1").validate({
-                submitHandler: function(form) {
-                    alert("註冊成功！");
-                    form.submit();
-                },
-                rules: {
-                    first_name: {
-                        required: true,
-                        minlength: 1,
-                        maxlength: 50
-                    },
-                    display_name: {
-                        required: true,
-                        minlength: 1,
-                        maxlength: 50
-                    },
-                    pwd: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 12
-                    },
-                    new_pwd: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 12
-                    },
-                    new_pwd2: {
-                        required: true,
-                        equalTo: "#pwd"
-                    },
-                    address: {
-                        required: true,
-    
-                    },
-                    phone: {
-                        length: 10,
-                        required: true,
-    
-                    },
-                    email: {
-                        required: true,
-                    }
-    
-                },
-                messages: {
-                    first_name: {
-                        required: "姓名為必填欄位",
-                        minlength: "姓名最少要4個字",
-                        maxlength: "姓名最長10個字"
-                    },
-                    display_name: {
-                        required: "帳號為必填欄位",
-                        minlength: "帳號最少要4個字",
-                        maxlength: "帳號最長10個字"
-                    },
-                    phone: {
-                        required: "此為必填欄位",
-                    },
-                    address: {
-                        required: "此為必填欄位",
-                    },
-                    pwd: {
-                        required: "此為必填欄位",
-                    },
-                    new_pwd: {
-                        required: "此為必填欄位",
-                    },
-                    new_pwd2: {
-                        equalTo: "兩次密碼不相符"
-                    },
-                }
-            });
-        });
-        </script>
 
 </head>
 
@@ -219,8 +138,7 @@
 
                     <div class="col-lg-3 col-12 mb-30">
                         <div class="myaccount-tab-menu nav" role="tablist">
-                            <a href="#dashboad" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
-                                會員資訊</a>
+                            <a href="#dashboad" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>會員資訊</a>
 
                             <a href="#orders" class="active" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
 

@@ -149,13 +149,13 @@ if(!isset($_SESSION['userid']))
                             <a href="#dashboad" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
                                 會員資訊</a>
 
-                            <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
+                            <a href="order.php" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
 
-                            <a href="#download" data-bs-toggle="tab"><i class="fa fa-cloud-download"></i> 下載資訊</a>
+                            <a href="download.php" data-bs-toggle="tab"><i class="fa fa-cloud-download"></i> 下載資訊</a>
 
-                            <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> 付款方式</a>
+                            <a href="payment-method.php" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> 付款方式</a>
 
-                            <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> 帳單地址</a>
+                            <a href="address-edit.php" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> 帳單地址</a>
 
                             <a href="account.php" data-bs-toggle="tab"><i class="fa fa-user"></i> 帳號管理</a>
 
