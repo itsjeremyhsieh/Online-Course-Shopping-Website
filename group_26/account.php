@@ -238,18 +238,19 @@
                     <div class="col-lg-9 col-12 mb-30">
                         <h3>帳號管理</h3>
                         <div class="account-details-form">
+
                             <form action="" method="POST" name="form1" id="form1" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input id="first_name" name="first_name" required="required" placeholder="姓名" type="text">
+                                        <input type="text" id="first_name" name="first_name" placeholder="姓名">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input id="display_name" name="display_name" required="required" placeholder="使用者名稱" type="text">
+                                        <input type="text" id="display_name" name="display_name" placeholder="使用者名稱">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input id="email" name="email" required="required" placeholder="電子郵件" type="email">
+                                        <input type="email" id="email" name="email" placeholder="電子郵件">
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -262,11 +263,11 @@
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input id="phone" name="phone" required="required" placeholder="手機號碼" type="text">
+                                        <input type="text" id="phone" name="phone" placeholder="手機號碼">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input id="address" name="address" required="required" placeholder="通訊地址" type="text">
+                                        <input type="text" id="address" name="address" placeholder="通訊地址">
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -274,23 +275,22 @@
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input id="current-pwd"  name="pwd" required="required" placeholder="請輸入目前密碼" type="password">
+                                        <input type="password" id="current-pwd"  name="pwd" placeholder="請輸入目前密碼">
                                     </div>
 
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input id="new_pwd" name="new_pwd" required="required" placeholder="請輸入新密碼" type="password">
+                                        <input type="password" id="new_pwd" name="new_pwd" placeholder="請輸入新密碼">
                                     </div>
 
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input id="new_pwd2" name="new_pwd2" required="required" placeholder="請再次輸入新密碼" type="password">
+                                        <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
                                     </div>
-
-                                    <div class="col-12">
-                                        <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
-                                    </div>
-
+                                </form>
+                                <div class="col-12">
+                                    <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                 </div>
-                            </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
