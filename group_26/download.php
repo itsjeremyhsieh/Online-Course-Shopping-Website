@@ -155,15 +155,36 @@
                     </div>
 
                     <div class="col-lg-9 col-12 mb-30">
-                        <h3>通訊地址</h3>
-                        <address>
-                            <p><strong>Alex Tuntuni</strong></p>
-                            <p>1355 Market St, Suite 900 <br>
-                                San Francisco, CA 94103</p>
-                            <p>Mobile: (123) 456-7890</p>
-                        </address>
+                        <h3>課程下載</h3>
+                        <div class="myaccount-table table-responsive text-center">
+                            <table class="table table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>課程名稱</th>
+                                        <th>開通日期</th>
+                                        <th>有效期限</th>
+                                        <th>下載</th>
+                                    </tr>
+                                </thead>
 
-                        <a href="#" class="btn btn-dark btn-round d-inline-block"><i class="fa fa-edit"></i>編輯地址</a>
+                                <tbody>
+                                    <tr>
+                                        <td>Moisturizing Oil</td>
+                                        <td>Aug 22, 2022</td>
+                                        <td>Yes</td>
+                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Katopeno Altuni</td>
+                                        <td>Sep 12, 2022</td>
+                                        <td>Never</td>
+                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
