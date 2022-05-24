@@ -286,7 +286,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <a href="#account-info"><input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg"></a>
+                                        <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                     </div>
 
                                 </div>
