@@ -130,7 +130,7 @@
                 </div>
             </div>
         </div><!-- Page Banner Section End -->
-
+        
         <!-- Page Section Start -->
         <div class="page-section section section-padding">
             <div class="container">
@@ -155,44 +155,32 @@
                     </div>
 
                     <div class="col-lg-9 col-12 mb-30">
-                        <h3>訂單</h3>
+                        <h3>課程下載</h3>
                         <div class="myaccount-table table-responsive text-center">
                             <table class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>編號</th>
-                                        <th>名稱</th>
-                                        <th>日期</th>
-                                        <th>狀態</th>
-                                        <th>總價</th>
-                                        <th>明細</th>
+                                        <th>課程名稱</th>
+                                        <th>開通日期</th>
+                                        <th>有效期限</th>
+                                        <th>下載</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
                                         <td>Moisturizing Oil</td>
                                         <td>Aug 22, 2022</td>
-                                        <td>Pending</td>
-                                        <td>$45</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
+                                        <td>Yes</td>
+                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>2</td>
                                         <td>Katopeno Altuni</td>
-                                        <td>July 22, 2022</td>
-                                        <td>Approved</td>
-                                        <td>$100</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Murikhete Paris</td>
-                                        <td>June 12, 2022</td>
-                                        <td>On Hold</td>
-                                        <td>$99</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
+                                        <td>Sep 12, 2022</td>
+                                        <td>Never</td>
+                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

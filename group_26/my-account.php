@@ -146,8 +146,7 @@ if(!isset($_SESSION['userid']))
                     <!-- My Account Tab Menu Start -->
                     <div class="col-lg-3 col-12 mb-30">
                         <div class="myaccount-tab-menu nav" role="tablist">
-                            <a href="#dashboad" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
-                                會員資訊</a>
+                            <a href="my-account.php" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>會員資訊</a>
 
                             <a href="order.php" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
 
