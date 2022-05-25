@@ -20,22 +20,32 @@ if ($result = mysqli_query($link, $sql)) {
     mysqli_data_seek($result, ($_GET['page'] - 1) * $val);
 
     $cnt = 0;
-
+    $usercourses = array();
     while ($row = mysqli_fetch_assoc($result)) {
        echo $row["courseid"];
+       
+        $new = array_push($usercourses, $row["courseid"]);
         if ($cnt == 9) //$val
             break;
-        $sql1 = "select * from course where id = '" . $row["courseid"]. "'";
+        
+      
+
+        $cnt++;
+    }
+    for($i = 0 ; $i < count($usercourses) ; $i ++)
+    {
+        $sql1 = "select * from course where id = '" . $usercourses[$i]. "'";
         if ($result = mysqli_query($link, $sql1)) {
-            while ($row1 = mysqli_fetch_assoc($result))
+            if ($row1 = mysqli_fetch_assoc($result))
             $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
                 . $row1["id"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='https://youtube.com'><button>開始上課</button></a><a href='sample1.pdf'><button>下載課程教材</button></a></div></div></div>"
                 . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row1["id"] . "' >" . $row1["name"] . "</a></h4>"
                 . "</div></div></div></div></div>";
         }
-
-        $cnt++;
     }
+   
+
+
     $num = mysqli_num_rows($result); //查詢結果筆數
     mysqli_free_result($result); // 釋放佔用的記憶體
 }
