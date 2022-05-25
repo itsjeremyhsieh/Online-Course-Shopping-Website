@@ -31,6 +31,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 if ($result = mysqli_query($link, $sql)) {
     $total_records = mysqli_num_rows($result);
     $total_page = ceil($total_records / 9); //$val
+    
     if (!isset($_GET['page'])) {
         $_GET['page'] = 1;
     }

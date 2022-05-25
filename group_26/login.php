@@ -46,21 +46,17 @@ session_start();
 
     <script>
         $(document).ready(function($) {
-            //for select
             $.validator.addMethod("notEqualsto", function(value, element, arg) {
                 return arg != value;
             }, "您尚未選擇!");
 
             $("#form2").validate({
                 submitHandler: function(form) {
-                
                     form.submit();
                 },
                 rules: {
-                    帳號: {
+                    username: {
                         required: true,
-                        minlength: 6,
-                        maxlength: 10
                     },
                     pwd: {
                         required: true,
@@ -70,9 +66,8 @@ session_start();
                 },
                 messages: {
                     帳號: {
-                        required: "帳號為必填欄位",
-                        minlength: "帳號最少要6個字",
-                        maxlength: "帳號最長10個字"
+                        required: "帳號為必填欄位"
+                      
                     },
                     pwd: {
                         required: "密碼為必填欄位",
@@ -83,9 +78,6 @@ session_start();
             });
         });
     </script>
-
-
-
 
 </head>
 
@@ -123,7 +115,7 @@ session_start();
                                     <form action="loginfunc.php" method="POST" name="form2" id="form2" class="mb-2">
                                         <div class="row">
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="會員帳號或電子郵件" name="username"></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="會員帳號" name="username"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
@@ -195,9 +187,6 @@ session_start();
                 </div><!-- Brand Section End -->
 
                 <?php include "footer.php" ?>
-
-
-
             </div>
 </body>
 <!-- JS

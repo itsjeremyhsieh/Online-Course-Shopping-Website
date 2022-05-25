@@ -63,6 +63,11 @@ if (isset($_SESSION['wish'])) {
                             <a href="my-account.php">我的帳號 </a>
                             <a href="register.php">註冊會員</a>
                             <?php
+                            if($_SESSION['userid'] == 'admin') 
+                                echo "<a href='admin/admin.html'>後臺管理</a>";
+                           
+                            ?>
+                            <?php
                             if(!isset($_SESSION['userid'])) 
                                 echo "<a href='login.php'>登入</a>";
                             else
