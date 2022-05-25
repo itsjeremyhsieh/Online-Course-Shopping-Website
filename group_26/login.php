@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -48,7 +53,7 @@
 
             $("#form2").validate({
                 submitHandler: function(form) {
-                    alert("登入成功！");
+                
                     form.submit();
                 },
                 rules: {
@@ -115,21 +120,21 @@
                         <div class="container">
                             <div class="row mbn-40">
                                 <div class="login-register-form-wrap">
-                                    <form action="" method="POST" name="form2" id="form2" class="mb-2">
+                                    <form action="loginfunc.php" method="POST" name="form2" id="form2" class="mb-2">
                                         <div class="row">
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="會員帳號或電子郵件" name="帳號"></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="會員帳號或電子郵件" name="username"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="password" placeholder="密碼" name="pwd"></div>
                                             </div>
 
-                                            <div class="row justify-content-center">
+                                            <!--<div class="row justify-content-center">
                                                 <div class="col-4 mb-10">
                                                     <label><input type="checkbox" name="記住我" style="vertical-align: middle;"><span style="vertical-align: middle;">&nbsp;記住我</span></label>
                                                 </div>
-                                            </div>
+                                            </div>-->
 
 
                                             <div class="row justify-content-center">
