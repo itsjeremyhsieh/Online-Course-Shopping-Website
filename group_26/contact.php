@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
+    or die("無法開啟MySQL資料庫連結!<br>");
+
+// 送出編碼的MySQL指令
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+
+if ($result = mysqli_query($link, "SELECT * FROM message ORDER BY id DESC")) {
+    $count = 1;
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        if ($count == 13)
+            break;
+
+        $allmsg .= "<li class='left clearfix'><span class='chat-img pull-left'><img src='https://bootdey.com/img/Content/user_3.jpg' alt='User Avatar'></span><div class='chat-body clearfix'><div class='header'> <strong class='primary-font'>" .
+            $row['name'] . "</strong></div><p>" . $row['message'] . "</p></div></li>";
+
+        $count = $count + 1;
+    }
+    $num = mysqli_num_rows($result);
+    mysqli_free_result($result);
+}
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -30,6 +59,47 @@
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <!--中文錯誤訊息-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
+
+    <script>
+        $(document).ready(function($) {
+            $("#form3").validate({
+                submitHandler: function(form) {
+                    form.submit();
+                },
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+
+                    },
+                    message: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "姓名為必填欄位"
+
+                    },
+                    email: {
+                        required: "電子信箱為必填欄位",
+
+                    },
+                    message: {
+                        required: "訊息為必填欄位",
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -63,85 +133,7 @@
                         <h3>留言板</h3>
                         <div id="BoxText2">
                             <ul class="chat">
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">John Doe</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-
-
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">John Doe</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-
-
-
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">John Doe</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">John Doe</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">John Doe</strong>
-                                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-
-
+                                <?php echo $allmsg; ?>
 
 
                             </ul>
@@ -150,17 +142,17 @@
 
                     <div class="contact-form-wrap col-md-6 col-12 mb-40">
                         <h3>留言</h3>
-                        <form id="contact-form" action="assets/php/mail.php" method="post">
+                        <form id="form3" action="addmessage.php" method="post">
                             <div class="contact-form">
                                 <div class="row">
-                                    <div class="col-lg-6 col-12 mb-30"><input type="text" name="con_name" placeholder="姓名"></div>
-                                    <div class="col-lg-6 col-12 mb-30"><input type="email" name="con_email" placeholder="電子郵件"></div>
-                                    <div class="col-12 mb-30"><textarea name="con_message" placeholder="訊息"></textarea></div>
+                                    <div class="col-lg-6 col-12 mb-30"><input type="text" name="name" placeholder="姓名"></div>
+                                    <div class="col-lg-6 col-12 mb-30"><input type="email" name="email" placeholder="電子郵件"></div>
+                                    <div class="col-12 mb-30"><textarea name="message" placeholder="訊息"></textarea></div>
                                     <div class="col-12"><input type="submit" value="傳送"></div>
                                 </div>
                             </div>
                         </form>
-                        <div class="form-message mt-3"></div>
+
                     </div>
 
                 </div>
@@ -226,7 +218,7 @@
 
 
         <!-- Page Section End -->
-     
+
         <!-- Brand Section Start -->
 
         <div class="brand-section section section-padding pt-0">

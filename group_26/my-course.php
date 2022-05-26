@@ -22,7 +22,7 @@ if ($result = mysqli_query($link, $sql)) {
     $cnt = 0;
     $usercourses = array();
     while ($row = mysqli_fetch_assoc($result)) {
-       echo $row["courseid"];
+       //echo $row["courseid"];
        
         $new = array_push($usercourses, $row["courseid"]);
         if ($cnt == 9) //$val
