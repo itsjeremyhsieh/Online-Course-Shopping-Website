@@ -41,7 +41,7 @@ session_start();
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="assets/js/form.js"></script>
+   
 
 
     <script>
