@@ -39,191 +39,190 @@
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
     <style>
-    .loginwrapper {
-        margin: auto;
-    }
+        .loginwrapper {
+            margin: auto;
+        }
 
-    .remember {
-        position: relative;
-        width: 42%;
-    }
+        .remember {
+            position: relative;
+            width: 42%;
+        }
 
-    .length {
-        width: 100px;
+        .length {
+            width: 100px;
 
-    }
+        }
     </style>
 
     <style>
-    textarea {
-        overflow-y: scroll;
-        height: 100px;
-        width: 380px;
-        resize: none;
-        /* Remove this if you want the user to resize the textarea */
-    }
+        textarea {
+            overflow-y: scroll;
+            height: 100px;
+            width: 380px;
+            resize: none;
+            /* Remove this if you want the user to resize the textarea */
+        }
 
-    body {
-        background-color: #F7F7F7;
-    }
+        body {
+            background-color: #F7F7F7;
+        }
 
-    .c_title {
-        background-color: #E6E6E6;
-        margin-top: 3px;
-        padding-top: 5px;
-        padding-bottom: 3px;
-        padding-left: 5px;
-        font-size: 11pt;
-        color: #990033;
-    }
+        .c_title {
+            background-color: #E6E6E6;
+            margin-top: 3px;
+            padding-top: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            font-size: 11pt;
+            color: #990033;
+        }
 
-    .c_content {
-        background-color: #FFFFFF;
-        margin-top: 3px;
-        padding-top: 5px;
-        padding-bottom: 3px;
-        padding-left: 5px;
-        font-size: 11pt;
-        color: blue;
-    }
+        .c_content {
+            background-color: #FFFFFF;
+            margin-top: 3px;
+            padding-top: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            font-size: 11pt;
+            color: blue;
+        }
 
-    .c_button {
-        background: #e3e3db;
-        font-size: 16px;
-        color: #6633FF;
-        padding: 6px 14px;
-        border-width: 2px;
-        border-style: solid;
-        border-color: #fff #d8d8d0 #d8d8d0 #fff;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
+        .c_button {
+            background: #e3e3db;
+            font-size: 16px;
+            color: #6633FF;
+            padding: 6px 14px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff #d8d8d0 #d8d8d0 #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-    #message {
-        color: #D82424;
-        font-weight: normal;
-        font-family: "微軟正黑體";
-        display: inline;
-        padding: 1px;
-    }
+        #message {
+            color: #D82424;
+            font-weight: normal;
+            font-family: "微軟正黑體";
+            display: inline;
+            padding: 1px;
+        }
 
-    .error {
-        color: #D82424;
-        font-weight: normal;
-        font-family: "微軟正黑體";
-        display: inline;
-        padding: 1px;
-    }
+        .error {
+            color: #D82424;
+            font-weight: normal;
+            font-family: "微軟正黑體";
+            display: inline;
+            padding: 1px;
+        }
     </style>
 
 
-<script>
-$(document).ready(function($) {
-    //for select
-    $.validator.addMethod("notEqualsto", function(value, element, arg) {
-        return arg != value;
-    }, "您尚未選擇!");
+    <script>
+        $(document).ready(function($) {
+            //for select
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
 
-    $("#form1").validate({
-        submitHandler: function(form) {
-            alert("註冊成功！");
-            form.submit();
-        },
-        rules: {
-            姓名: {
-                required: true,
-                minlength: 1,
-                maxlength: 50
-            },
-            使用者名稱: {
-                required: true,
-                minlength: 1,
-                maxlength: 50
-            },
-            pwd: {
-                required: true,
-                minlength: 6,
-                maxlength: 12
-            },
-            pwd2: {
-                required: true,
-                equalTo: "#pwd"
-            },
-            content: {
-                required: true,
+            $("#form1").validate({
+                submitHandler: function(form) {
+                    alert("註冊成功！");
+                    form.submit();
+                },
+                rules: {
+                    姓名: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 50
+                    },
+                    使用者名稱: {
+                        required: true,
+                        minlength: 1,
+                        maxlength: 50
+                    },
+                    pwd: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    pwd2: {
+                        required: true,
+                        equalTo: "#pwd"
+                    },
+                    content: {
+                        required: true,
 
-            },
-            手機號碼: {
-                length: 10,
-                required: true,
+                    },
+                    手機號碼: {
+                        length: 10,
+                        required: true,
 
-            },
-            email: {
-                required: true,
+                    },
+                    email: {
+                        required: true,
 
-            },
-            通訊地址: {
-                required: true,
+                    },
+                    通訊地址: {
+                        required: true,
 
-            },
-            公告類型: {
-                required: true
-            },
-            url: {
-                required: true
-            },
-            to_1: {
-                require_from_group: [1, ".to_group"]
-            },
-            to_2: {
-                require_from_group: [1, ".to_group"]
-            },
-            to_3: {
-                require_from_group: [1, ".to_group"]
-            }
+                    },
+                    公告類型: {
+                        required: true
+                    },
+                    url: {
+                        required: true
+                    },
+                    to_1: {
+                        require_from_group: [1, ".to_group"]
+                    },
+                    to_2: {
+                        require_from_group: [1, ".to_group"]
+                    },
+                    to_3: {
+                        require_from_group: [1, ".to_group"]
+                    }
 
 
-        },
-        messages: {
-            account: {
-                required: "帳號為必填欄位",
-                minlength: "帳號最少要4個字",
-                maxlength: "帳號最長10個字"
-            },
-            pwd2: {
-                equalTo: "兩次密碼不相符"
-            },
-            to_1: {
-                require_from_group: ""
-            },
-            to_2: {
-                require_from_group: ""
-            },
-            to_3: {
-                require_from_group: "請至少選擇1項"
-            },
+                },
+                messages: {
+                    account: {
+                        required: "帳號為必填欄位",
+                        minlength: "帳號最少要4個字",
+                        maxlength: "帳號最長10個字"
+                    },
+                    pwd2: {
+                        equalTo: "兩次密碼不相符"
+                    },
+                    to_1: {
+                        require_from_group: ""
+                    },
+                    to_2: {
+                        require_from_group: ""
+                    },
+                    to_3: {
+                        require_from_group: "請至少選擇1項"
+                    },
 
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function sendRequest() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == '1') document.getElementById('show_msg').innerHTML = '此帳號已存在!';
+                    else document.getElementById('show_msg').innerHTML = '';
+                }
+            };
+            var url = 'check_account_ajax.php?p_usr=' + document.form1.p_usr.value + '&timeStamp=' + new Date().getTime();
+            xhttp.open('GET', url, true); //建立XMLHttpRequest連線要求
+            xhttp.send();
         }
-    });
-});
-</script>
-
-<script>
-    function sendRequest() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      if (this.responseText=='1')   document.getElementById('show_msg').innerHTML = '此帳號已存在!';
-          else   document.getElementById('show_msg').innerHTML = '';
-    }
-  };
-  var url='check_account_ajax.php?p_usr=' + document.form1.p_usr.value + '&timeStamp='+new Date().getTime();
-  xhttp.open('GET',url,true);//建立XMLHttpRequest連線要求
-  xhttp.send();
-}
-
-</script>
+    </script>
 </head>
 
 <body>
@@ -231,7 +230,7 @@ $(document).ready(function($) {
         <header>
             <div class="main-wrapper">
 
-            <?php include "header.php" ?>
+                <?php include "header.php" ?>
                 <!-- Page Banner Section Start -->
                 <div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
                     <div class="container">
@@ -271,29 +270,24 @@ $(document).ready(function($) {
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱"
-                                                        name="使用者名稱" onkeyup=sendRequest();></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="使用者名稱" onkeyup=sendRequest();></div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="email" placeholder="電子郵件"
-                                                        name="email"></div>
+                                                <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" name="email"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼"
-                                                        name="pwd"></div>
+                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼" name="pwd"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼確認"
-                                                        name="pwd2">
+                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼確認" name="pwd2">
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="手機號碼"
-                                                        name="手機號碼"></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="手機號碼" name="手機號碼"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
@@ -311,34 +305,8 @@ $(document).ready(function($) {
                                             <div class="row justify-content-center ">
                                                 <div class="col-4 mb-10">
                                                     &nbsp;&nbsp;<label for="">生日：</label>
-
-                                                    <select name="birthday" class="dropdown" id="" style="width: 30%;">
-
-                                                        <?php for ($i = 1; $i <= 100; $i++)
-                                                                {
-                                                                    $date = date("Y") - $i;
-                                                                    echo "<option value='$date'>" . $date . "</option>";
-                                                                }
-                                                                ?>
-                                                    </select>
-
-                                                    <select name="birthday" class="dropdown" style="width: 28%;">
-                                                        <?php for ($i = 1; $i <= 12; $i++)
-                                                                {
-                                                                $month =  $i;
-                                                                echo "<option value='$month'>" . $month . "</option>";
-                                                                }
-                                                                ?>
-                                                    </select>
-
-                                                    <select name="birthday" class="dropdown" style="width: 25%;">
-                                                        <?php for ($i = 1; $i <= 31; $i++)
-                                                                {
-                                                                $day = $i;
-                                                                echo "<option value='$day'>" . $day . "</option>";
-                                                                }
-                                                                ?>
-                                                    </select>
+                                                    <input type="date" id="bday" name="bday">
+                                                   
                                                 </div>
                                             </div>
 
@@ -346,8 +314,7 @@ $(document).ready(function($) {
                                                 <div class="col-4 mb-10">
                                                     &nbsp;&nbsp;<label for="">地址：</label>
 
-                                                    <select name="address" class="dropdown" id=""
-                                                        style="position: relative; width: 42%;">
+                                                    <select name="address" class="dropdown" id="" style="position: relative; width: 42%;">
 
                                                         <option value="" disabled selected>縣市</option>
                                                         <option>基隆市</option>
@@ -373,16 +340,14 @@ $(document).ready(function($) {
                                                         <option>金門縣</option>
                                                     </select>
 
-                                                   
-                                                    <input type="text" placeholder="通訊地址"
-                                                        style="position: relative ;top:3px;" name="通訊地址">
+
+                                                    <input type="text" placeholder="通訊地址" style="position: relative ;top:3px;" name="通訊地址">
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10">
-                                                    <div class="shape-ex1"><input type="submit" value="註冊會員"
-                                                            style="position: relative;top:5px;">
+                                                    <div class="shape-ex1"><input type="submit" value="註冊會員" style="position: relative;top:5px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -434,7 +399,7 @@ $(document).ready(function($) {
 
                 <?php include "footer.php" ?>
 
-    </div>
+            </div>
 </body>
 <!-- JS
 ============================================ -->
