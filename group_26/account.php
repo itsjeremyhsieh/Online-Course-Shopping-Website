@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <!-- CSS
 	============================================ -->
@@ -30,6 +36,7 @@
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    
     <style>
         .service-block-inner {
             padding: 15px 20px;
@@ -111,23 +118,9 @@
             $.validator.addMethod("notEqualsto", function(value, element, arg) {
                 return arg != value;
             }, "您尚未選擇!");
-    
-            $("#form2").validate({
-                submitHandler: function(form) {
-                    alert("註冊成功！");
-                    form.submit();
-                },
+
+            $("#form1").validate({
                 rules: {
-                    first_name: {
-                        required: true,
-                        minlength: 1,
-                        maxlength: 50
-                    },
-                    display_name: {
-                        required: true,
-                        minlength: 1,
-                        maxlength: 50
-                    },
                     pwd: {
                         required: true,
                         minlength: 6,
@@ -140,39 +133,10 @@
                     },
                     new_pwd2: {
                         required: true,
-                        equalTo: "#pwd"
-                    },
-                    address: {
-                        required: true,
-    
-                    },
-                    phone: {
-                        length: 10,
-                        required: true,
-    
-                    },
-                    email: {
-                        required: true,
+                        equalTo: "#new_pwd"
                     }
-    
                 },
                 messages: {
-                    first_name: {
-                        required: "姓名為必填欄位",
-                        minlength: "姓名最少要4個字",
-                        maxlength: "姓名最長10個字"
-                    },
-                    display_name: {
-                        required: "帳號為必填欄位",
-                        minlength: "帳號最少要4個字",
-                        maxlength: "帳號最長10個字"
-                    },
-                    phone: {
-                        required: "此為必填欄位",
-                    },
-                    address: {
-                        required: "此為必填欄位",
-                    },
                     pwd: {
                         required: "此為必填欄位",
                     },
@@ -185,7 +149,8 @@
                 }
             });
         });
-        </script>
+    </script>    
+    
 
 </head>
 
@@ -240,10 +205,10 @@
                         <h3>帳號管理</h3>
                         <div class="account-details-form">
 
-                            <form action="" method="POST" name="form2" id="form2" class="mb-2">
+                            <form action="" method="POST" name="form1" id="form1" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="text" id="first_name" name="first_name" placeholder="姓名" >
+                                        <input type="text" id="first_name" name="first_name" placeholder="姓名">
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -276,22 +241,28 @@
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="password" id="current-pwd"  name="pwd" placeholder="請輸入目前密碼">
+                                        <div>
+                                            <input type="password" id="current-pwd"  name="pwd" placeholder="請輸入目前密碼">
+                                        </div>    
                                     </div>
 
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="password" id="new_pwd" name="new_pwd" placeholder="請輸入新密碼">
+                                        <div>
+                                            <input type="password" id="new_pwd" name="new_pwd" placeholder="請輸入新密碼">
+                                        </div>
                                     </div>
 
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
+                                        <div>
+                                            <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
+                                        </div>
                                     </div>
                                 
                                     <div class="col-12">
                                         <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                     </div>
-                                </form>
-                            </div>
+                                </div>    
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -303,7 +274,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="brand-slider">
-
 
                     </div>
                 </div>
