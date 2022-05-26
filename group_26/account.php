@@ -112,7 +112,7 @@
                 return arg != value;
             }, "您尚未選擇!");
     
-            $("#form1").validate({
+            $("#form2").validate({
                 submitHandler: function(form) {
                     alert("註冊成功！");
                     form.submit();
@@ -240,10 +240,10 @@
                         <h3>帳號管理</h3>
                         <div class="account-details-form">
 
-                            <form action="" method="POST" name="form1" id="form1" class="mb-2">
+                            <form action="" method="POST" name="form2" id="form2" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="text" id="first_name" name="first_name" placeholder="姓名">
+                                        <input type="text" id="first_name" name="first_name" placeholder="姓名" >
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -286,11 +286,11 @@
                                     <div class="col-lg-6 col-12 mb-30">
                                         <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
                                     </div>
+                                
+                                    <div class="col-12">
+                                        <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
+                                    </div>
                                 </form>
-                                <div class="col-12">
-                                    <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
-                                </div>
-
                             </div>
                         </div>
                     </div>
