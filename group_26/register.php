@@ -10,12 +10,11 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <!--additional method - for checkbox .. ,require_from_group method ...-->
-    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
-
+    <script src="https://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <!-- CSS
 	============================================ -->
@@ -59,7 +58,7 @@
             height: 100px;
             width: 380px;
             resize: none;
-            /* Remove this if you want the user to resize the textarea */
+
         }
 
         body {
@@ -119,10 +118,13 @@
 
     <script>
         $(document).ready(function($) {
-          
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+
             $("#form3").validate({
                 submitHandler: function(form) {
-
+                    //alert ("認證成功");
                     form.submit();
                 },
                 rules: {
@@ -180,11 +182,10 @@
                     pwd2: {
                         equalTo: "兩次密碼不相符"
                     },
-
                 }
             });
         });
-  
+
         $(function() { //網頁完成後才會載入
             $('#username').keyup(function() {
                 $.ajax({
