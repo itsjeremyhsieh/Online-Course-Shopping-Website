@@ -38,7 +38,7 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    
+
     <style>
         .loginwrapper {
             margin: auto;
@@ -120,7 +120,7 @@
     <script>
         $(document).ready(function($) {
           
-            $("#regform").validate({
+            $("#form3").validate({
                 submitHandler: function(form) {
 
                     form.submit();
@@ -238,7 +238,7 @@
 
                                 <div class="login-register-form-wrap">
 
-                                    <form action="addmember.php" method="POST" name="regform" id="regform" class="mb-2">
+                                    <form action="addmember.php" method="POST" name="form3" id="form3" class="mb-2">
                                         <div class="row">
 
                                             <div class="row justify-content-center">
@@ -294,8 +294,6 @@
 
                                             <div class="row justify-content-center ">
                                                 <div class="col-4 mb-10">
-
-
                                                     <input type="text" placeholder="通訊地址" style="position: relative ;top:3px;" name="address" id="address">
                                                 </div>
                                             </div>
@@ -306,10 +304,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </form>
-                                    <!--<center>訊息：<span id='show_msg' style="color:red"></span></center>-->
                                 </div>
                             </div>
                         </div>
