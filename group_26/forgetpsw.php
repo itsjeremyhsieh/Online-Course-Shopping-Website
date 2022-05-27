@@ -31,30 +31,47 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <script>
         $(document).ready(function($) {
-            //for select
             $.validator.addMethod("notEqualsto", function(value, element, arg) {
                 return arg != value;
             }, "您尚未選擇!");
 
-            $("#form1").validate({
+            $("#form6").validate({
                 submitHandler: function(form) {
-                    alert("註冊成功！");
                     form.submit();
                 },
                 rules: {
-                    password: {
+                    mail: {
                         required: true,
-                    }
+                    },
+
                 },
-                password: {
+                messages: {
+                    mail: {
+                        required: "帳號為必填欄位"
+
+                    },
 
                 }
             });
         });
     </script>
+    <style type="text/css">
+.error {
+     color: #D82424;
+     font-weight: normal;
+     font-family: "微軟正黑體";
+     display: inline;
+     padding: 1px;
+}
+</style>
 </head>
 
 <body>
@@ -87,18 +104,18 @@
                         <div class="container">
                             <div class="row mbn-40">
                                 <div class="login-register-form-wrap">
-                                    <form action="" method="POST" name="form1" id="form1" class="mb-2"></form>
-                                    <div class="row">
-                                        <div class="row justify-content-center">
-                                            <div class="col-4 mb-10"><input type="password" name="password" placeholder="會員帳號或電子郵件"></div>
-                                        </div>
+                                    <form action="sendmail.php" method="POST" name="form6" id="form6" class="mb-2"></form>
+                                        <div class="row">
+                                            <div class="row justify-content-center">
+                                                <div class="col-4 mb-10"><input type="email" name="mail" id="mail" placeholder="會員帳號或電子郵件"></div>
+                                            </div>
 
-                                        <div class="row justify-content-center">
-                                            <div class="col-4 mb-10">
-                                                <div class="shape-ex1"><input type="submit" value="傳送確認電子信件" style="position: relative;top: 50px;"></div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-4 mb-10">
+                                                    <div class="shape-ex1"><input type="submit" value="傳送確認電子信件" style="position: relative;top: 50px;"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
                             </div>

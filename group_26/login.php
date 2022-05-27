@@ -65,7 +65,7 @@ session_start();
                     }
                 },
                 messages: {
-                    帳號: {
+                    username: {
                         required: "帳號為必填欄位"
                       
                     },
