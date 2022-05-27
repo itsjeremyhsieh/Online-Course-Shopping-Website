@@ -3,10 +3,6 @@
 session_start();
 if(!isset($_SESSION['userid']))
     header("Location: login.php");
-
-
-
-
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -161,7 +157,7 @@ if(!isset($_SESSION['userid']))
 
                             <a href="account.php"><i class="fa fa-user"></i> 帳號管理</a>
 
-                            <a href="login.php"><i class="fa fa-sign-out"></i> 登出</a>
+                            <a href="logout.php"><i class="fa fa-sign-out"></i> 登出</a>
                         </div>
                     </div>
                     <!-- My Account Tab Menu End -->

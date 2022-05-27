@@ -6,8 +6,8 @@
                         <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                             <h4 class="title">聯繫我們</h4>
                             <p>500彰化市師大路二號</p>
-                            <p><a href="tel:01234567890">01234 567 890</a><a href="tel:01234567891">01234 567 891</a></p>
-                            <p><a href="mailto:info@example.com">info@example.com</a><a href="#">www.example.com</a></p>
+                            <p><a href="tel:0912345678">+886 0912345678</a></p>
+                            <p><a href="mailto:S0954010@gm.ncue.edu.tw">S0954010@gm.ncue.edu.tw</a><a href="mailto:S0954016@gm.ncue.edu.tw">S0954016@gm.ncue.edu.tw</a></p>
                         </div>
 
                         <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">

@@ -15,11 +15,6 @@ if (isset($_SESSION['wish'])) {
 }
 
 
-if (!isset($_POST['option'])) {
-    $val = $_POST['option'];
-} else
-    $val = 9;
-
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
     or die("無法開啟MySQL資料庫連結!<br>");
@@ -35,7 +30,7 @@ if ($result = mysqli_query($link, $sql)) {
     if (!isset($_GET['page'])) {
         $_GET['page'] = 1;
     }
-    mysqli_data_seek($result, ($_GET['page'] - 1) * $val);
+    mysqli_data_seek($result, ($_GET['page'] - 1) * 9);
     $cnt = 0;
     while ($row = mysqli_fetch_assoc($result)) {
         if ($cnt == 9) //$val
@@ -49,6 +44,7 @@ if ($result = mysqli_query($link, $sql)) {
     $num = mysqli_num_rows($result); //查詢結果筆數
     mysqli_free_result($result); // 釋放佔用的記憶體
 }
+
 $data .= "<div class='col-12'><ul class='page-pagination'>";
 for ($i = 1; $i <= $total_page; $i++) {
     if ($i == $_GET['page']) {
@@ -94,24 +90,7 @@ $data .= "</div></ul>";
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0 /jquery.min.js"></script>
-    <script type="text/javascript">
-        function fetch_select(val) {
-            $.ajax({
-                type: 'post',
-                url: 'courses.php',
-                datatype: 'json',
-                data: {
-                    option: val
-                },
-                success: function(){
-                    <?php
-
-                    ?>
-                }
-              
-            });
-        }
-    </script>
+    
 </head>
 
 <body>
