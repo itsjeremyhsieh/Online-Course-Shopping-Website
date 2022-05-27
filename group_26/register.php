@@ -36,6 +36,7 @@
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
 
     <style>
         .loginwrapper {
@@ -252,7 +253,7 @@
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username"></div>
-                                                <center><span id='show_msg' style="color:red"></span></center>
+                                                <span id='show_msg' style="color:red"></span>
                                             </div>
 
                                             <div class="row justify-content-center">
