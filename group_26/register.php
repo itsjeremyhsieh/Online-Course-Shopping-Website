@@ -37,7 +37,7 @@
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
     <style>
         .loginwrapper {
             margin: auto;
@@ -127,81 +127,67 @@
 
             $("#form1").validate({
                 submitHandler: function(form) {
-                    alert("註冊成功！");
+
                     form.submit();
                 },
                 rules: {
-                    姓名: {
+                    name: {
                         required: true,
                         minlength: 1,
                         maxlength: 50
                     },
-                    使用者名稱: {
+                    username: {
                         required: true,
                         minlength: 1,
                         maxlength: 50
                     },
                     pwd: {
                         required: true,
-                        minlength: 6,
-                        maxlength: 12
+                        minlength: 6
+
                     },
                     pwd2: {
                         required: true,
                         equalTo: "#pwd"
                     },
-                    content: {
-                        required: true,
 
-                    },
-                    手機號碼: {
+                    phone: {
                         length: 10,
                         required: true,
 
+                    },
+                    gender: {
+                        required: true,
+                    },
+                    bday: {
+                        required: true,
                     },
                     email: {
                         required: true,
 
                     },
-                    通訊地址: {
+                    address: {
                         required: true,
 
                     },
-                    公告類型: {
-                        required: true
-                    },
-                    url: {
-                        required: true
-                    },
-                    to_1: {
-                        require_from_group: [1, ".to_group"]
-                    },
-                    to_2: {
-                        require_from_group: [1, ".to_group"]
-                    },
-                    to_3: {
-                        require_from_group: [1, ".to_group"]
-                    }
+
 
 
                 },
                 messages: {
-                    account: {
+                    username: {
                         required: "帳號為必填欄位",
                         minlength: "帳號最少要4個字",
                         maxlength: "帳號最長10個字"
                     },
+
+                    pwd: {
+                        required: "密碼為必填欄位",
+                        minlength: "密碼最少要6個字",
+
+                    },
                     pwd2: {
                         equalTo: "兩次密碼不相符"
-                    },
-                    to_1: {
-                        require_from_group: ""
-                    },
-                    to_2: {
-                        require_from_group: ""
-                    },
-                    to_3: {
-                        require_from_group: "請至少選擇1項"
                     },
 
                 }
@@ -210,18 +196,25 @@
     </script>
 
     <script>
-        function sendRequest() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText == '1') document.getElementById('show_msg').innerHTML = '此帳號已存在!';
-                    else document.getElementById('show_msg').innerHTML = '';
-                }
-            };
-            var url = 'check_account_ajax.php?p_usr=' + document.form1.p_usr.value + '&timeStamp=' + new Date().getTime();
-            xhttp.open('GET', url, true); //建立XMLHttpRequest連線要求
-            xhttp.send();
-        }
+        $(function() { //網頁完成後才會載入
+      $('#username').keyup(function() {
+          $.ajax({
+              url: "checkaccount.php",
+              data: $('#sentToBack').serialize(),
+              type: "POST",
+              dataType: 'text',
+              success: function(msg) {
+                  $("#show_msg").html(msg);//顯示訊息
+                  //document.getElementById('show_msg').innerHTML= msg ;
+              },
+              error: function(xhr, ajaxOptions, thrownError) {
+                  alert(xhr.status);
+                  alert(thrownError);
+              }
+          });
+      });
+  });
+
     </script>
 </head>
 
@@ -257,7 +250,7 @@
 
                                 <div class="login-register-form-wrap">
 
-                                    <form action="" method="POST" name="form1" id="form1" class="mb-2">
+                                    <form action="addmember.php" method="POST" name="form1" id="form1" class="mb-2">
                                         <div class="row">
 
                                             <div class="row justify-content-center">
@@ -265,39 +258,40 @@
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="姓名" name="姓名">
+                                                <div class="col-4 mb-10"><input type="text" placeholder="姓名" name="name">
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="使用者名稱" onkeyup=sendRequest();></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username"></div>
+                                                <span id='show_msg' style="color:red"></span>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" name="email"></div>
+                                                <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" name="email" id="email"> </div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼" name="pwd"></div>
+                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼" name="pwd" id="pwd"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼確認" name="pwd2">
+                                                <div class="col-4 mb-10"><input type="password" placeholder="密碼確認" name="pwd2" id="pwd2">
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="手機號碼" name="手機號碼"></div>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="手機號碼" name="phone" id="phone"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
 
                                                 <div class="col-4 mb-10">
-                                                    &nbsp;&nbsp;性別：
-                                                    <select name="gender" class="dropdown" id="" style="width: 85%;">
-                                                        <option value="" disabled selected>請選擇</option>
-                                                        <option>男性</option>
-                                                        <option>女性</option>
+
+                                                    <select name="gender" class="dropdown" id="gender" style="width: 100%;">
+                                                        <option value="" disabled selected>性別</option>
+                                                        <option value = "1">男性</option>
+                                                        <option value = "0">女性</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -306,42 +300,15 @@
                                                 <div class="col-4 mb-10">
                                                     &nbsp;&nbsp;<label for="">生日：</label>
                                                     <input type="date" id="bday" name="bday">
-                                                   
+
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center ">
                                                 <div class="col-4 mb-10">
-                                                    &nbsp;&nbsp;<label for="">地址：</label>
-
-                                                    <select name="address" class="dropdown" id="" style="position: relative; width: 42%;">
-
-                                                        <option value="" disabled selected>縣市</option>
-                                                        <option>基隆市</option>
-                                                        <option>台北市</option>
-                                                        <option>新北市</option>
-                                                        <option>宜蘭縣</option>
-                                                        <option>桃園市</option>
-                                                        <option>新竹市</option>
-                                                        <option>新竹縣</option>
-                                                        <option>苗栗縣</option>
-                                                        <option>台中市</option>
-                                                        <option>彰化縣</option>
-                                                        <option>南投縣</option>
-                                                        <option>雲林縣</option>
-                                                        <option>嘉義市</option>
-                                                        <option>嘉義縣</option>
-                                                        <option>台南市</option>
-                                                        <option>屏東縣</option>
-                                                        <option>花蓮縣</option>
-                                                        <option>台東縣</option>
-                                                        <option>澎湖縣</option>
-                                                        <option>連江縣</option>
-                                                        <option>金門縣</option>
-                                                    </select>
 
 
-                                                    <input type="text" placeholder="通訊地址" style="position: relative ;top:3px;" name="通訊地址">
+                                                    <input type="text" placeholder="通訊地址" style="position: relative ;top:3px;" name="address" id="address">
                                                 </div>
                                             </div>
 
