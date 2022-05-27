@@ -252,7 +252,7 @@
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username"></div>
-                                                <span id='show_msg' style="color:red"></span>
+                                                <center><span id='show_msg' style="color:red"></span></center>
                                             </div>
 
                                             <div class="row justify-content-center">

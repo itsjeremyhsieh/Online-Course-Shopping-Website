@@ -3,7 +3,7 @@ $user = trim($_POST['username']) ;
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') 
 or die("無法開啟MySQL資料庫連結!<br>");
 
-$sql = "SELECT * FROM member WHERE username='$user' ";
+$sql = "SELECT username FROM member WHERE username='$user' ";
 
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
