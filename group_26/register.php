@@ -38,6 +38,7 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    
     <style>
         .loginwrapper {
             margin: auto;
@@ -52,9 +53,7 @@
             width: 100px;
 
         }
-    </style>
 
-    <style>
         textarea {
             overflow-y: scroll;
             height: 100px;
@@ -120,12 +119,8 @@
 
     <script>
         $(document).ready(function($) {
-            //for select
-            $.validator.addMethod("notEqualsto", function(value, element, arg) {
-                return arg != value;
-            }, "您尚未選擇!");
-
-            $("#form1").validate({
+          
+            $("#regform").validate({
                 submitHandler: function(form) {
 
                     form.submit();
@@ -168,11 +163,7 @@
                     },
                     address: {
                         required: true,
-
                     },
-
-
-
                 },
                 messages: {
                     username: {
@@ -193,28 +184,25 @@
                 }
             });
         });
-    </script>
-
-    <script>
+  
         $(function() { //網頁完成後才會載入
-      $('#username').keyup(function() {
-          $.ajax({
-              url: "checkaccount.php",
-              data: $('#sentToBack').serialize(),
-              type: "POST",
-              dataType: 'text',
-              success: function(msg) {
-                  $("#show_msg").html(msg);//顯示訊息
-                  //document.getElementById('show_msg').innerHTML= msg ;
-              },
-              error: function(xhr, ajaxOptions, thrownError) {
-                  alert(xhr.status);
-                  alert(thrownError);
-              }
-          });
-      });
-  });
-
+            $('#username').keyup(function() {
+                $.ajax({
+                    url: "checkaccount.php",
+                    data: $('#sentToBack').serialize(),
+                    type: "POST",
+                    dataType: 'text',
+                    success: function(msg) {
+                        $("#show_msg").html(msg); //顯示訊息
+                        //document.getElementById('show_msg').innerHTML= msg ;
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                    }
+                });
+            });
+        });
     </script>
 </head>
 
@@ -250,7 +238,7 @@
 
                                 <div class="login-register-form-wrap">
 
-                                    <form action="addmember.php" method="POST" name="form1" id="form1" class="mb-2">
+                                    <form action="addmember.php" method="POST" name="regform" id="regform" class="mb-2">
                                         <div class="row">
 
                                             <div class="row justify-content-center">
@@ -290,8 +278,8 @@
 
                                                     <select name="gender" class="dropdown" id="gender" style="width: 100%;">
                                                         <option value="" disabled selected>性別</option>
-                                                        <option value = "1">男性</option>
-                                                        <option value = "0">女性</option>
+                                                        <option value="1">男性</option>
+                                                        <option value="0">女性</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -382,6 +370,5 @@
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
-</body>
 
 </html>
