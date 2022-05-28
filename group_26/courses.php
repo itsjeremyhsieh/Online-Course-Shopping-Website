@@ -25,15 +25,23 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
 if ($result = mysqli_query($link, $sql)) {
     $total_records = mysqli_num_rows($result);
-    $total_page = ceil($total_records / 9); //$val
+
+    $number = 9;
+
+    if(isset($_POST['display'])){
+        $number = $_POST['display'];
+    }
+    //echo "Your choice: $number";
+
+    $total_page = ceil($total_records / $number); //$val
     
     if (!isset($_GET['page'])) {
         $_GET['page'] = 1;
     }
-    mysqli_data_seek($result, ($_GET['page'] - 1) * 9);
+    mysqli_data_seek($result, ($_GET['page'] - 1) * $number);
     $cnt = 0;
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($cnt == 9) //$val
+        if ($cnt == $number) //$val
             break;
         $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
             . $row["id"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a></div></div></div>"
@@ -56,6 +64,12 @@ for ($i = 1; $i <= $total_page; $i++) {
 $data .= "</div></ul>";
 ?>
 
+<script>
+function myFunction(){
+    document.getElementById("my-form").submit();
+}
+</script>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -67,6 +81,12 @@ $data .= "</div></ul>";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <!-- CSS
 	============================================ -->
@@ -88,7 +108,6 @@ $data .= "</div></ul>";
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0 /jquery.min.js"></script>
     
 </head>
@@ -127,12 +146,14 @@ $data .= "</div></ul>";
                             <div class="col-12">
                                 <div class="product-show">
                                     <h4>顯示:</h4>
-                                    <select class="nice-select" id="display" onchange="fetch_select(this.value);">
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                        <option value="15">15</option>
-                                        <option value="18">18</option>
-                                    </select>
+                                    <form id="my-form" action="" method="post">
+                                        <select name="display" id="display" onchange="myFunction()"><!--class="nice-select"onchange="fetch_select(this.value);"-->
+                                            <option value="9" selected>9</option>
+                                            <option value="12">12</option>
+                                            <option value="15">15</option>
+                                            <option value="18">18</option>
+                                        </select>
+                                    </form>
                                 </div>
                                 <div class="product-short">
                                     <h4>排序:</h4>
