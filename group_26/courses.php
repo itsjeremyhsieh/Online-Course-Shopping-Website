@@ -55,8 +55,13 @@ if ($result_tmp = mysqli_query($link, $sql)) {
     $science = mysqli_num_rows($result_tmp);
 }
 
-$sql = "select * from course";
+/////////////////////////////////////////////////////////////////////////////
 
+$sql = "select * from course";
+ 
+
+
+/////////////////////////////////////////////////////////////////////////////
 if(isset($_POST['sort'])) {
     if($_POST['sort'] == 0)
     $sql = "select * from course ORDER BY name";
@@ -121,7 +126,12 @@ function runMyFunction() {
     runMyFunction();
   }*/
 ?>
-
+<script>
+$('#list').live('click', function(e) {
+  var anchor = e.target;
+  alert('Anchor ' + anchor.id + ' clicked.');
+});
+</script>
 <script>
     function myFunction() {
         document.getElementById("my-form").submit();
@@ -250,10 +260,10 @@ function runMyFunction() {
 
                         <div class="sidebar">
                             <h4 class="sidebar-title">科目分類</h4>
-                            <ul class="sidebar-list">
-                                <li><a href="#">國文<span class="num"><?php echo $chinese; ?></span></a>
+                            <ul class="sidebar-list" id="list">
+                                <li id="1"><a href="#">國文<span class="num"><?php echo $chinese; ?></span></a>
                                 </li>
-                                <li><a href="#">英文<span class="num"><?php echo $english; ?></span></a>
+                                <li id="2"><a href="#">英文<span class="num"><?php echo $english; ?></span></a>
                                 </li>
                                 <li><a href="#">數學<span class="num"><?php echo $math; ?></span></a>
                                 </li>
