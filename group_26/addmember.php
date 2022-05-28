@@ -20,7 +20,7 @@ $address = $_POST['address'];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-
+  
 
     $sqlquery = "INSERT INTO member VALUES
     ('$username', '$name', '$email', '$pwd', '$phone', '$gender', '$birth', '$address', '1')";
@@ -28,7 +28,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if ($result = mysqli_query($link, $sqlquery)) // 送出查詢的SQL指令
     {
         function_alert("帳號新增成功！");
-    }
+    } else
+    function_alert("帳號新增失敗！");
   
 }
 
@@ -39,4 +40,3 @@ function function_alert($message) {
    </script>"; 
    return false;
 }
-?>

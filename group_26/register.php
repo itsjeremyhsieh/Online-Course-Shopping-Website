@@ -186,24 +186,18 @@
             });
         });
 
-        $(function() { //網頁完成後才會載入
-            $('#username').keyup(function() {
-                $.ajax({
-                    url: "checkaccount.php",
-                    data: $('#sentToBack').serialize(),
-                    type: "POST",
-                    dataType: 'text',
-                    success: function(msg) {
-                        $("#show_msg").html(msg); //顯示訊息
-                        //document.getElementById('show_msg').innerHTML= msg ;
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status);
-                        alert(thrownError);
-                    }
-                });
-            });
-        });
+        function sendRequest() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == 1) document.getElementById('show_msg').innerHTML = '此帳號已存在!';
+                    else document.getElementById('show_msg').innerHTML = '';
+                }
+            };
+            var url = 'checkaccount.php?p_usr=' + document.form3.username.value + '&timeStamp=' + new Date().getTime();
+            xhttp.open('GET', url, true); //建立XMLHttpRequest連線要求
+            xhttp.send();
+        }
     </script>
 </head>
 
@@ -252,8 +246,8 @@
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username"></div>
-                                                <span id='show_msg' style="color:red"></span>
+                                                <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username" onkeyup=sendRequest();></div>
+                                                <center><span id='show_msg' style="color:red"></span></center>
                                             </div>
 
                                             <div class="row justify-content-center">
@@ -352,8 +346,8 @@
                 <?php include "footer.php" ?>
 
             </div>
-        </header>    
-    </div>        
+        </header>
+    </div>
 </body>
 <!-- JS
 ============================================ -->

@@ -15,21 +15,46 @@ if (!$link) {
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
-    while($row = mysqli_fetch_assoc($result)){
-    $id = $row['id'];
-    $name = $row['name'];
-    $subject = $row['subject'];
-    $grade = $row['grade'];
-    $smt = $row['smt'];
-    $teacher = $row['teacher'];
-    $length = $row['length'];
-    $total = $row['total'];
-    $price = $row['price'];
-    $sold = $row['sold'];
-    $valid = $row['valid'];
-    $description = $row['description'];}
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
+        $name = $row['name'];
+        $subject = $row['subject'];
+        $grade = $row['grade'];
+        $smt = $row['smt'];
+        $teacher = $row['teacher'];
+        $length = $row['length'];
+        $total = $row['total'];
+        $price = $row['price'];
+        $sold = $row['sold'];
+        $valid = $row['valid'];
+        $description = $row['description'];
+    }
 }
-//echo "subject=" . $subject;
+$five = 0;
+$four = 0;
+$three = 0;
+$two = 0;
+$one = 0;
+$sql1 = "select * from review where courseid = '" . $id . "'";
+if ($result = mysqli_query($link, $sql1)) {
+    $total_records = mysqli_num_rows($result);
+    while ($row1 = mysqli_fetch_assoc($result)) {
+        $review .= "<div class='right'><h4>" . $row1['username'] . "<span class='gig-rating text-body-2'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1792 1792' width='15' height='15'>"
+            . " <path fill='currentColor' d='M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z'></path>"
+            . " </svg>" . $row1['star'] . "</span></h4><div class='country d-flex align-items-center'><span><img class='country-flag img-fluid' src='https://bootdey.com/img/Content/avatar/avatar6.png' />"
+            . " </span><div class='country-name font-accent'>台灣</div></div><div class='review-description'><p>" . $row1['comment'] . "</p></div><br><br>";
+        if ($row1['star'] == '5')
+            $five = $five + 1;
+        else if ($row1['star'] == '4')
+            $four = $four + 1;
+        else if ($row1['star'] == '3')
+            $three = $three + 1;
+        else if ($row1['star'] == '2')
+            $two = $two + 1;
+        else if ($row1['star'] == '1')
+            $one = $one + 1;
+    }
+}
 ?>
 
 <!doctype html>
@@ -102,7 +127,7 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                             <div class="col-lg-6 col-12 mb-40">
 
                                 <div class="pro-large-img mb-10 fix ">
-                                    <p style="text-align:center;"> <?php echo "<img src='assets/images/product/". $id.".jpg'  width='320' />" ?></p>
+                                    <p style="text-align:center;"> <?php echo "<img src='assets/images/product/" . $id . ".jpg'  width='320' />" ?></p>
                                 </div>
                                 <!-- Single Product Thumbnail Slider -->
 
@@ -114,38 +139,38 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                     <div class="head">
                                         <div class="head-left">
 
-                                            <h3 class="title"><?php echo $name?> </h3>
+                                            <h3 class="title"><?php echo $name ?> </h3>
 
-                                           
+
 
                                             <div class="sold">
-                                                <br>已售出: <?php echo $sold?>
+                                                <br>已售出: <?php echo $sold ?>
                                             </div>
                                         </div>
 
                                         <div class="head-right">
-                                            <span class="price"><?php echo $price?></span>
+                                            <span class="price"><?php echo $price ?></span>
                                         </div>
 
 
                                     </div>
 
                                     <div class="description">
-                                        <p><?php echo $description?></p>
+                                        <p><?php echo $description ?></p>
                                     </div>
 
-                                    
+
                                     <div class="actions">
-                                    
-                                    <?php
-                                     echo "<a href='addcart.php?id=" . $id . "'> <button><i class='ti-shopping-cart'></i><span>加入購物車</span></button></a><a href='addwish.php?id=" . $id . "'><button class='box' data-tooltip='Wishlist'><i class='ti-heart'></i></button></a>";
-                                    ?>
-                                   
-                                
+
+                                        <?php
+                                        echo "<a href='addcart.php?id=" . $id . "'> <button><i class='ti-shopping-cart'></i><span>加入購物車</span></button></a><a href='addwish.php?id=" . $id . "'><button class='box' data-tooltip='Wishlist'><i class='ti-heart'></i></button></a>";
+                                        ?>
+
+
                                     </div>
 
 
-                                    
+
                                 </div>
                             </div>
 
@@ -212,23 +237,23 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                         <tbody>
                                             <tr class="odd">
                                                 <td>科目</td>
-                                                <td><?php echo $subject?></td>
+                                                <td><?php echo $subject ?></td>
                                             </tr>
                                             <tr class="even">
                                                 <td>適用年級</td>
-                                                <td><?php echo $grade . " " . $smt?></td>
+                                                <td><?php echo $grade . " " . $smt ?></td>
                                             </tr>
                                             <tr class="odd">
                                                 <td>上課老師</td>
-                                                <td><?php echo $teacher?></td>
+                                                <td><?php echo $teacher ?></td>
                                             </tr>
                                             <tr class="even">
                                                 <td>上課時長</td>
-                                                <td><?php echo $length?></td>
+                                                <td><?php echo $length ?></td>
                                             </tr>
                                             <tr class="odd">
                                                 <td>總節數</td>
-                                                <td><?php echo $total?></td>
+                                                <td><?php echo $total ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -240,20 +265,8 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
 
 
                                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                                <h4 class="m-0">37 則評論</h4>
-                                                <select class="custom-select custom-select-sm border-0 shadow-sm ml-2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                                    <option data-select2-id="3">最相關</option>
-                                                    <option>最新</option>
-                                                </select>
-                                                <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 188px;">
-                                                    <span class="selection">
-                                                        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-qd66-container">
-                                                            <span class="select2-selection__rendered" id="select2-qd66-container" role="textbox" aria-readonly="true" title="Most Relevant"> 最相關</span>
-                                                            <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                                </span>
+                                                <h4 class="m-0"><?php echo $total_records ?> 則評論</h4>
+
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-10">
@@ -268,11 +281,13 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                                                 <td class="progress-bar-container">
                                                                     <div class="fit-progressbar fit-progressbar-bar star-progress-bar">
                                                                         <div class="fit-progressbar-background">
-                                                                            <span class="progress-fill" style="width: 97.2973%;"></span>
+                                                                            <?php if ($total_records > 0) echo "<span class='progress-fill' style='width:" . $five / $total_records * 100 . "%;'></span>";
+                                                                            else echo "<span class='progress-fill' style='width:" . 0 . "%;'></span>"; ?>
+
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td class="star-num">(36)</td>
+                                                                <td class="star-num"><?php echo "(" . $five . ")"; ?></td>
                                                             </tr>
                                                             <tr class="">
                                                                 <td>
@@ -283,11 +298,12 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                                                 <td class="progress-bar-container">
                                                                     <div class="fit-progressbar fit-progressbar-bar star-progress-bar">
                                                                         <div class="fit-progressbar-background">
-                                                                            <span class="progress-fill" style="width: 2.2973%;"></span>
+                                                                            <?php if ($total_records > 0) echo "<span class='progress-fill' style='width:" . $four / $total_records * 100 . "%;'></span>";
+                                                                            else echo "<span class='progress-fill' style='width:" . 0 . "%;'></span>"; ?>
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td class="star-num">(2)</td>
+                                                                <td class="star-num"><?php echo "(" . $four . ")"; ?></td>
                                                             </tr>
                                                             <tr class="">
                                                                 <td>
@@ -298,11 +314,12 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                                                 <td class="progress-bar-container">
                                                                     <div class="fit-progressbar fit-progressbar-bar star-progress-bar">
                                                                         <div class="fit-progressbar-background">
-                                                                            <span class="progress-fill" style="width: 0;"></span>
+                                                                            <?php if ($total_records > 0) echo "<span class='progress-fill' style='width:" . $three / $total_records * 100 . "%;'></span>";
+                                                                            else echo "<span class='progress-fill' style='width:" . 0 . "%;'></span>"; ?>
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td class="star-num">(0)</td>
+                                                                <td class="star-num"><?php echo "(" . $three . ")"; ?></td>
                                                             </tr>
                                                             <tr class="">
                                                                 <td>
@@ -313,11 +330,12 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                                                 <td class="progress-bar-container">
                                                                     <div class="fit-progressbar fit-progressbar-bar star-progress-bar">
                                                                         <div class="fit-progressbar-background">
-                                                                            <span class="progress-fill" style="width: 0;"></span>
+                                                                            <?php if ($total_records > 0) echo "<span class='progress-fill' style='width:" . $two / $total_records * 100 . "%;'></span>";
+                                                                            else echo "<span class='progress-fill' style='width:" . 0 . "%;'></span>"; ?>
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td class="star-num">(0)</td>
+                                                                <td class="star-num"><?php echo "(" . $two . ")"; ?></td>
                                                             </tr>
                                                             <tr class="">
                                                                 <td>
@@ -328,11 +346,12 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                                                 <td class="progress-bar-container">
                                                                     <div class="fit-progressbar fit-progressbar-bar star-progress-bar">
                                                                         <div class="fit-progressbar-background">
-                                                                            <span class="progress-fill" style="width: 0;"></span>
+                                                                            <?php if ($total_records > 0) echo "<span class='progress-fill' style='width:" . $one / $total_records * 100 . "%;'></span>";
+                                                                            else echo "<span class='progress-fill' style='width:" . 0 . "%;'></span>"; ?>
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td class="star-num">(0)</td>
+                                                                <td class="star-num"><?php echo "(" . $one . ")"; ?></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -345,76 +364,21 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
                                             <ul>
                                                 <li>
                                                     <div class="d-flex">
-                                                        <div class="left">
-                                                            <span>
-                                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="profile-pict-img img-fluid" alt="" />
-                                                            </span>
-                                                        </div>
-                                                        <div class="right">
-                                                            <h4>
-                                                                王曉明
-                                                                <span class="gig-rating text-body-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-                                                                        <path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path>
-                                                                    </svg>
-                                                                    5.0
-                                                                </span>
-                                                            </h4>
-                                                            <div class="country d-flex align-items-center">
-                                                                <span>
-                                                                    <img class="country-flag img-fluid" src="https://bootdey.com/img/Content/avatar/avatar6.png" />
-                                                                </span>
-                                                                <div class="country-name font-accent">台北市</div>
-                                                            </div>
-                                                            <div class="review-description">
-                                                                <p>
-                                                                    課程品質佳！謝謝老師用心教導。
-                                                                </p>
-                                                            </div>
-                                                            <span class="publish py-3 d-inline-block w-100">3個禮拜前</span>
-
-                                                            <div class="response-item mt-4 d-flex">
-                                                                <div class="left">
-                                                                    <span>
-                                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="profile-pict-img img-fluid" alt="" />
-                                                                    </span>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h4>
-                                                                        小瓜呆
-                                                                        <span class="gig-rating text-body-2">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-                                                                                <path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path>
-                                                                            </svg>
-                                                                            5.0
-                                                                        </span>
-                                                                    </h4>
-                                                                    <div class="country d-flex align-items-center">
-                                                                        <span>
-                                                                            <img class="country-flag img-fluid" src="https://bootdey.com/img/Content/avatar/avatar3.png" />
-                                                                        </span>
-                                                                        <div class="country-name font-accent">高雄市</div>
-                                                                    </div>
-                                                                    <div class="review-description">
-                                                                        <p>
-                                                                            我也這麼覺得，孩子上完課後考試都100。
-                                                                        </p>
-                                                                    </div>
-                                                                    <span class="publish py-3 d-inline-block w-100">2天前</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <?php echo $review; ?>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="bg-light p-2">
-
-                                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar5.png" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-                                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                        <div class="bg-light p-2"> 
+                                        <form action="addreview.php" method="POST" name="addreview" id="addreview">
+                                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar5.png" width="40"><textarea class="form-control ml-1 shadow-none textarea" placeholder="新增評價" name = "review" id = "review"></textarea></div>
+                                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1" checked><label for="1">☆</label> </div>
                                             <br>
                                             <br>
-                                            <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">新增評價</button>&nbsp;<button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">取消</button></div>
+                                            <?php echo "<input type='hidden' name='courseid' value=' " . $id . "'";?>
+                                            <?php echo "<input type='hidden' name='username' value=' " . $_SESSION['userid'] . "'";?>
+                                            <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">新增評價</button>&nbsp;<button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">取消</button></div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -437,21 +401,21 @@ if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name' ")) {
 
                 <div class="related-product-slider related-product-slider-1 slick-space p-0">
 
-                    
-                <?php
+
+                    <?php
                     if ($result = mysqli_query($link, "SELECT * FROM course WHERE subject = '$subject' ORDER BY sold DESC")) {
                         $count = 1;
                         while ($row = mysqli_fetch_assoc($result)) {
-                           
+
                             echo " <div class='slick-slide'><div class='product-item'><div class='product-inner'><div class='image'><img src='assets/images/product/"
-                                    .  $row['id'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a>"
-                                    . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >" 
-                                    . $row["name"] . "</a></h4></div><div class='content-right'><span class='price'>". $row['price'] ."</span></div></div></div></div></div>";
+                                .  $row['id'] . ".jpg'><div class='image-overlay'><div class='action-buttons'><a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a>"
+                                . "</div></div></div><div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >"
+                                . $row["name"] . "</a></h4></div><div class='content-right'><span class='price'>" . $row['price'] . "</span></div></div></div></div></div>";
                         }
                     }
-                ?>
+                    ?>
                 </div>
-            </div> 
+            </div>
         </div><!-- Related Product Section End -->
 
         <!-- Brand Section Start -->

@@ -8,15 +8,19 @@ mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
 $email = $_POST['email'];
-
+echo $email;
 
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    
+        
     if ($result = mysqli_query($link, "SELECT * FROM member WHERE email = '$email'")) {
-        $subject="=?UTF-8?B?".base64_encode('COURSELUX帳號密碼重設信件')."?=";//信件標題，解決亂碼問題
-        mail("$email", $subject,"您好，請點擊以下連結以重設您的COURSELUX帳號密碼：\n http://localhost:8080/Online-Course-Shopping-Website/Online-Course-Shopping-Website/Online-Course-Shopping-Website/group_26/rstpsw.php")
+        $random_number = random_int(100000, 999999);
+        $msg = "您的COURSELUX密碼重設驗證碼為" . $random_number;
+        $msg = wordwrap($msg,70);
+        mail("$email","COURSELUX密碼重設驗證碼",$msg)
         or die("郵件傳送失敗！");
         function_alert("重設密碼信件傳送成功");
     }
