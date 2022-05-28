@@ -147,7 +147,7 @@ function myFunction(){
                                 <div class="product-show">
                                     <h4>顯示:</h4>
                                     <form id="my-form" action="" method="post">
-                                        <select name="display" id="display" onchange="myFunction()"><!--class="nice-select"onchange="fetch_select(this.value);"-->
+                                        <select name="display" id="display" class="nice-select" onchange="myFunction()"><!--class="nice-select"onchange="fetch_select(this.value);"-->
                                             <option value="9" >9</option>
                                             <option value="12">12</option>
                                             <option value="15">15</option>
