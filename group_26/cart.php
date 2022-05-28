@@ -1,12 +1,9 @@
 <?php 
     session_start();
 
-    if (isset($_SESSION['cart'])) {
-        $cartcnt = count($_SESSION['cart']);
-    } else {
-        $cartcnt = 0;
-    }
+   
 
+   
     $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
     if (!$link) {
@@ -17,6 +14,44 @@
     mysqli_query($link, 'SET CHARACTER SET utf8');
     mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
+    if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart
+        $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
+        
+        if ($result = mysqli_query($link, $sql)) {
+            $total_records = mysqli_num_rows($result);
+            while ($row = mysqli_fetch_assoc($result)) {
+                if(!in_array($row['courseid'], $_SESSION['cart']))
+                    $_SESSION['cart'][] = $row['courseid'];
+            }
+            $sql1 = "DELETE FROM cart WHERE userid = '".$_SESSION['userid']."'";
+            if ($result = mysqli_query($link, $sql1)) {
+                for($i = 0 ; $i < count($_SESSION['cart']); $i = $i + 1) {
+                    $sql2 = "INSERT INTO cart VALUES ('" . $_SESSION['userid'] . "','" . $_SESSION['cart'][$i] . "')";
+                    $result = mysqli_query($link, $sql2);
+                }
+            }
+        }
+    
+    }
+    else if (isset($_SESSION['userid']) && !isset($_SESSION['cart'])) { //login but no session cart
+        $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
+        if ($result = mysqli_query($link, $sql)) {
+            $total_records = mysqli_num_rows($result);
+            while ($row = mysqli_fetch_assoc($result)) {
+                for($i = 0 ; $i < $total_records; $i = $i + 1) {
+                    $_SESSION['cart'][] = $row['courseid'];
+                }
+            }
+        }
+       
+    }
+    
+    if (isset($_SESSION['cart'])) {
+       
+        $cartcnt = count($_SESSION['cart']);
+    } else {
+        $cartcnt = 0;
+    }
 ?>
 
 <!doctype html>
@@ -106,7 +141,9 @@
             
                                                 for($i = 0 ; $i < $cartcnt ; $i ++)
                                                 {
+                                                  
                                                     $name = $_SESSION['cart'][$i];
+                                                        
                                                     if ($result = mysqli_query($link, "SELECT * FROM course WHERE id = '$name'")) {
                                                         while ($row = mysqli_fetch_assoc($result)) {
                                                             echo  "<tr><td class='pro-thumbnail'><a href='single-product.php?id=" . $row["id"] . "' ><img src='assets/images/product/"

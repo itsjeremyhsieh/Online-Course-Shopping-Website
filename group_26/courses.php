@@ -18,23 +18,71 @@ if (isset($_SESSION['wish'])) {
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
     or die("無法開啟MySQL資料庫連結!<br>");
-$sql = "select * from course";
+
 // 送出編碼的MySQL指令
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+$junior = 0;
+$senior = 0;
+
+$sql = "select * from course where grade like '%國中%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $junior = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where grade like '%高中%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $senior = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where subject like '%國文%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $chinese = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where subject like '%英文%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $english = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where subject like '%數學%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $math = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where subject like '%社會%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $social = mysqli_num_rows($result_tmp);
+}
+$sql = "select * from course where subject like '%自然%'";
+if ($result_tmp = mysqli_query($link, $sql)) {
+    $science = mysqli_num_rows($result_tmp);
+}
+
+$sql = "select * from course";
+
+if(isset($_POST['sort'])) {
+    if($_POST['sort'] == 0)
+    $sql = "select * from course ORDER BY name";
+    else if($_POST['sort'] == 1)
+    $sql = "select * from course ORDER BY name DESC";
+    else if($_POST['sort'] == 2)
+    $sql = "select * from course ORDER BY price ";
+    else if($_POST['sort'] == 3)
+    $sql = "select * from course ORDER BY price DESC";
+    else
+    $sql = "select * from course";
+}
+
 
 if ($result = mysqli_query($link, $sql)) {
     $total_records = mysqli_num_rows($result);
 
     $number = 9;
 
-    if(isset($_POST['display'])){
+    if (isset($_POST['display'])) {
         $number = $_POST['display'];
     }
     //echo "Your choice: $number";
-
+  
     $total_page = ceil($total_records / $number); //$val
-    
+
     if (!isset($_GET['page'])) {
         $_GET['page'] = 1;
     }
@@ -62,12 +110,26 @@ for ($i = 1; $i <= $total_page; $i++) {
     }
 }
 $data .= "</div></ul>";
+
+/*
+function runMyFunction() {
+    $sqltoadd = "WHERE grade like '%國中%'";
+    echo $sqltoadd;
+  }
+
+  if (isset($_GET['junior'])) {
+    runMyFunction();
+  }*/
 ?>
 
 <script>
-function myFunction(){
-    document.getElementById("my-form").submit();
-}
+    function myFunction() {
+        document.getElementById("my-form").submit();
+    }
+
+    function myFunction1() {
+        document.getElementById("my-form1").submit();
+    }
 </script>
 
 <!doctype html>
@@ -109,7 +171,7 @@ function myFunction(){
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0 /jquery.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -147,24 +209,25 @@ function myFunction(){
                                 <div class="product-show">
                                     <h4>顯示:</h4>
                                     <form id="my-form" action="" method="post">
-                                        <select name="display" id="display" class="nice-select" onchange="myFunction()"><!--class="nice-select"onchange="fetch_select(this.value);"-->
-                                            <option value="9" >9</option>
-                                            <option value="12">12</option>
-                                            <option value="15">15</option>
-                                            <option value="18">18</option>
+                                        <select name="display" id="display" class="nice-select" onchange="myFunction()">
+                                            <!--class="nice-select"onchange="fetch_select(this.value);"-->
+                                            <option value="9" <?php if ($number == 9) echo "selected"; ?>>9</option>
+                                            <option value="12" <?php if ($number == 12) echo "selected"; ?>>12</option>
+                                            <option value="15" <?php if ($number == 15) echo "selected"; ?>>15</option>
+                                            <option value="18" <?php if ($number == 18) echo "selected"; ?>>18</option>
                                         </select>
                                     </form>
                                 </div>
                                 <div class="product-short">
                                     <h4>排序:</h4>
-                                    <select class="nice-select">
-                                        <option>名稱順序</option>
-                                        <option>名稱倒序</option>
-                                        <option>更新日期：新至舊</option>
-                                        <option>更新日期：舊至新</option>
-                                        <option>價格：低至高</option>
-                                        <option>價格：高至低</option>
-                                    </select>
+                                    <form id="my-form1" action="" method="post">
+                                        <select name="sort" id="sort" class="nice-select" onchange="myFunction1()">
+                                            <option value="0" <?php if ($_POST['sort'] == 0) echo "selected"; ?>>名稱順序</option>
+                                            <option value="1" <?php if ($_POST['sort'] == 1) echo "selected"; ?>>名稱倒序</option>
+                                            <option value="2" <?php if ($_POST['sort'] == 2) echo "selected"; ?>>價格：低至高</option>
+                                            <option value="3" <?php if ($_POST['sort'] == 3) echo "selected"; ?>>價格：高至低</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                             <!--商品-->
@@ -178,9 +241,9 @@ function myFunction(){
                         <div class="sidebar">
                             <h4 class="sidebar-title">課程分類</h4>
                             <ul class="sidebar-list">
-                                <li><a href="#">國小課程 <span class="num">18</span></a></li>
-                                <li><a href="#">國中課程 <span class="num">09</span></a></li>
-                                <li><a href="#">高中課程 <span class="num">05</span></a></li>
+                      
+                                <li><a href="courses.php?junior=true">國中課程 <span class="num"><?php echo $junior; ?></span></a></li>
+                                <li><a href="#">高中課程 <span class="num"><?php echo $senior; ?></span></a></li>
 
                             </ul>
                         </div>
@@ -188,15 +251,15 @@ function myFunction(){
                         <div class="sidebar">
                             <h4 class="sidebar-title">科目分類</h4>
                             <ul class="sidebar-list">
-                                <li><a href="#">國文<span class="num">05</span></a>
+                                <li><a href="#">國文<span class="num"><?php echo $chinese; ?></span></a>
                                 </li>
-                                <li><a href="#">英文<span class="num">10</span></a>
+                                <li><a href="#">英文<span class="num"><?php echo $english; ?></span></a>
                                 </li>
-                                <li><a href="#">數學<span class="num">08</span></a>
+                                <li><a href="#">數學<span class="num"><?php echo $math; ?></span></a>
                                 </li>
-                                <li><a href="#">社會<span class="num">16</span> </a>
+                                <li><a href="#">社會<span class="num"><?php echo $social; ?></span> </a>
                                 </li>
-                                <li><a href="#">自然科學<span class="num">17</span></a>
+                                <li><a href="#">自然<span class="num"><?php echo $science; ?></span></a>
                                 </li>
                             </ul>
                         </div>

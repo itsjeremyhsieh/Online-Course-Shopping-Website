@@ -14,6 +14,7 @@ if (!in_array($id,$_SESSION['cart'])){
         $_SESSION['cart'][]=$id;//加入陣列
     
 }
+array_unique($_SESSION['cart']);
 
 //返回上一頁
 $url = $_SERVER['HTTP_REFERER'];
