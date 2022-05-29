@@ -261,8 +261,8 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                 </div>
             </div><!-- Feature Section End -->
 
+            <!-- Brand Section Start -->
            
-
             <?php include "footer.php" ?>
 
         </div>
