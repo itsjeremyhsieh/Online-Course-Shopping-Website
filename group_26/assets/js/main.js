@@ -376,7 +376,7 @@ function mailChimpResponse(resp) {
 	}  
 }
 
-/
+
 
 /*--
     Scroll Up
