@@ -59,7 +59,7 @@ if ($result = mysqli_query($link, $sql)) {
     $cnt = 0;
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $data .= "<div class='col-xl-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
+        $data .= "<div class='col-xl-3 col-lg-4 col-md-6 col-12 mb-40'> <div class='product-item'> <div class='product-inner'><div class='image'> <img src='assets/images/product/"
             . $row["id"] . ".jpg'><div class='image-overlay'><div class='action-buttons'> <a href='addcart.php?id=" . $row["id"] . "'><button>加入購物車</button></a><a href='addwish.php?id=" . $row["id"] . "'><button>加入願望清單</button></a></div></div></div>"
             . "<div class='content'><div class='content-left'><h4 class='title'><a href='single-product.php?id=" . $row["id"] . "' >" . $row["name"] . "</a></h4>"
             . "</div><div class='content-right'><span class='price'>" . $row["price"] . "</span></div></div></div></div></div>";
@@ -142,12 +142,12 @@ if ($result = mysqli_query($link, $sql)) {
             <div class="container">
                 <div class="row row-30 mbn-40">
 
-                    <div class="col-xl-9 col-lg-8 col-12 order-1 order-lg-2 mb-40">
+                    <!--<div class="col-xl-9 col-lg-8 col-12 order-1 order-lg-2 mb-40">-->
                         <div class="row">
                             <!--商品-->
-                            <?php echo $data;  ?>
+                            <?php echo $data; ?>
                         </div>
-                    </div>
+                    <!--</div>-->
 
                 </div>
             </div>
