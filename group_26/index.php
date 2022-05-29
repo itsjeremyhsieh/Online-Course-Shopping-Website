@@ -85,7 +85,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
                 </div><!-- Hero Item End -->
                 
                 <!-- Hero Item Start -->
-                <!--<div class="hero-item" style="background-image: url(assets/images/hero/hero-2.png)">
+                <div class="hero-item" style="background-image: url(assets/images/hero/hero-2.png)">
 
 
                     <div class="hero-content">
@@ -95,7 +95,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
                     </div>
 
-                </div>--><!-- Hero Item End -->
+                </div><!-- Hero Item End -->
 
             </div><!-- Hero Slider End -->
             
