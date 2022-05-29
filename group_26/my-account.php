@@ -1,9 +1,29 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['userid']))
+if (!isset($_SESSION['userid']))
     header("Location: login.php");
+
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+$sql = "SELECT * FROM member WHERE username = '".$_SESSION['userid'] ."'";
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+if ($result = mysqli_query($link, $sql)) {
+    $count = 1;
+    while ($row = mysqli_fetch_assoc($result)) {
+
+    }
+}
 ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -172,7 +192,7 @@ if(!isset($_SESSION['userid']))
                                     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
                                     <lord-icon src="https://cdn.lordicon.com/rqskgpey.json" trigger="loop" colors="primary:#121331" scale="30" style="width:100px;height:100px">
                                     </lord-icon>
-                                    <b>普通</b>會員,金熙您好
+                                    <b>普通</b>會員， <?php echo $_SESSION['userid'];?>您好
                                     <!------
 								<div class="welcome">
 									<p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
@@ -291,7 +311,7 @@ if(!isset($_SESSION['userid']))
                                 </div>
                             </div>
                             <!-- Single Tab Content End -->
-                           
+
                         </div>
                     </div>
                     <!-- My Account Tab Content End -->
