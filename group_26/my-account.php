@@ -19,7 +19,20 @@ mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 if ($result = mysqli_query($link, $sql)) {
     $count = 1;
     while ($row = mysqli_fetch_assoc($result)) {
+        $userid = $row['userid'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $password = $row['password'];
+        $phone = $row['phone'];
 
+        if($row['level'] == 1)
+            $level = "普通會員";
+        else if($row['level'] == 2)
+            $level = "VIP會員";
+        else if($row['level'] == 3)
+            $level = "SVIP會員";
+        else if($row['level'] == 4)
+            $level = "管理者";
     }
 }
 ?>
@@ -173,8 +186,6 @@ if ($result = mysqli_query($link, $sql)) {
 
                             <a href="payment-method.php"><i class="fa fa-credit-card"></i> 付款方式</a>
 
-                            <a href="address-edit.php"><i class="fa fa-map-marker"></i> 帳單地址</a>
-
                             <a href="account.php"><i class="fa fa-user"></i> 帳號管理</a>
 
                             <a href="logout.php"><i class="fa fa-sign-out"></i> 登出</a>
@@ -192,7 +203,7 @@ if ($result = mysqli_query($link, $sql)) {
                                     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
                                     <lord-icon src="https://cdn.lordicon.com/rqskgpey.json" trigger="loop" colors="primary:#121331" scale="30" style="width:100px;height:100px">
                                     </lord-icon>
-                                    <b>普通</b>會員， <?php echo $_SESSION['userid'];?>您好
+                                    <b><?php echo $level;?></b>會員， <?php echo $name;?>您好
                                     <!------
 								<div class="welcome">
 									<p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
@@ -290,19 +301,28 @@ if ($result = mysqli_query($link, $sql)) {
                                                         <th style="min-width:130px">優惠卷名稱</th>
                                                         <th>序號</th>
                                                         <th>面額</th>
-                                                        <th>抵用門檻</th>
+                                                  
                                                         <th>使用狀況</th>
                                                         <th>有效期限</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>#1</td>
-                                                        <td>生日禮卷</td>
-                                                        <td> #fheg32</td>
-                                                        <td>$500</td>
-                                                        <td>$3000</td>
-                                                        <td>未使用</td>
-                                                        <td>2025/04/11</td>
-                                                    </tr>
+                                                    <?php
+                                                        $sql = "SELECT * FROM coupon WHERE userid = '". $_SESSION['userid'] ."'";
+                                                        if ($result = mysqli_query($link, $sql)) {
+                                                            $count = 1;
+                                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                                if($row['used'] == 0)
+                                                                    $use = "未使用";
+                                                                else 
+                                                                    $use = "已使用";
+                                                                echo "<tr><td>#".$count ."</td><td>" . $row['couponname'] . "</td><td>" . $row['couponid'] . "</td><td>"
+                                                                    . $row['prize'] . "</td><td>" . $use . "</td><td>" . $row['validdate'] . "</td></tr>";
+                                                                $count = $count + 1;
+                                                            }
+                                                        }
+
+
+                                                    ?>
+              
 
                                                 </tbody>
                                             </table>

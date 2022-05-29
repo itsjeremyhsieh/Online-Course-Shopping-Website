@@ -1,3 +1,37 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['userid']))
+    header("Location: login.php");
+
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+$sql = "SELECT * FROM usercourse WHERE username = '".$_SESSION['userid'] ."'";  
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+$msg = "";
+if ($result = mysqli_query($link, $sql)) {
+    $total_records = mysqli_num_rows($result);
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+        $sql1 = "SELECT * FROM course WHERE id = '".$row['courseid'] ."'";  
+        if ($result1 = mysqli_query($link, $sql1)) {
+            while($row1 = mysqli_fetch_assoc($result1))
+            $msg = $msg .  "<tr><td>". $row1['name']. "</td><td>" . $row['start'] . "</td><td>" . $row1['valid'] . "年</td><td><a href='" . $row1['download'] . "'class='btn btn-dark btn-round'>下載教材</a></td></tr>";
+        }
+        
+    }
+}
+
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -146,8 +180,6 @@
 
                         <a href="payment-method.php"><i class="fa fa-credit-card"></i> 付款方式</a>
 
-                        <a href="address-edit.php"><i class="fa fa-map-marker"></i> 帳單地址</a>
-
                         <a href="account.php"><i class="fa fa-user"></i> 帳號管理</a>
 
                         <a href="login.php"><i class="fa fa-sign-out"></i> 登出</a>
@@ -168,20 +200,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Moisturizing Oil</td>
-                                        <td>Aug 22, 2022</td>
-                                        <td>Yes</td>
-                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Katopeno Altuni</td>
-                                        <td>Sep 12, 2022</td>
-                                        <td>Never</td>
-                                        <td><a href="#" class="btn btn-dark btn-round">Download File</a>
-                                        </td>
-                                    </tr>
+                                   <?php echo $msg; ?>
                                 </tbody>
                             </table>
                         </div>
