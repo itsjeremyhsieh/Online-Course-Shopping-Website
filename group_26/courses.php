@@ -14,7 +14,11 @@ if (isset($_SESSION['wish'])) {
     $wishcnt = 0;
 }
 
-
+if(isset($_SESSION['display'])) {
+    $number = $_SESSION['display'];
+} else {
+    $number = 9;
+}
 
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26') // 建立MySQL的資料庫連結
     or die("無法開啟MySQL資料庫連結!<br>");
@@ -59,8 +63,6 @@ if ($result_tmp = mysqli_query($link, $sql)) {
 
 $sql = "select * from course";
  
-
-
 /////////////////////////////////////////////////////////////////////////////
 if(isset($_POST['sort'])) {
     if($_POST['sort'] == 0)
@@ -73,19 +75,23 @@ if(isset($_POST['sort'])) {
     $sql = "select * from course ORDER BY price DESC";
     else
     $sql = "select * from course";
+    $_SESSION['sql'] = $sql;
 }
 
+if(isset($_SESSION['sql'] ))
+    $sql = $_SESSION['sql'];
 
 if ($result = mysqli_query($link, $sql)) {
     $total_records = mysqli_num_rows($result);
 
-    $number = 9;
+    
 
     if (isset($_POST['display'])) {
         $number = $_POST['display'];
+        $_SESSION['display'] = $number;
     }
     //echo "Your choice: $number";
-  
+
     $total_page = ceil($total_records / $number); //$val
 
     if (!isset($_GET['page'])) {
@@ -115,23 +121,8 @@ for ($i = 1; $i <= $total_page; $i++) {
     }
 }
 $data .= "</div></ul>";
-
-/*
-function runMyFunction() {
-    $sqltoadd = "WHERE grade like '%國中%'";
-    echo $sqltoadd;
-  }
-
-  if (isset($_GET['junior'])) {
-    runMyFunction();
-  }*/
 ?>
-<script>
-$('#list').live('click', function(e) {
-  var anchor = e.target;
-  alert('Anchor ' + anchor.id + ' clicked.');
-});
-</script>
+
 <script>
     function myFunction() {
         document.getElementById("my-form").submit();
@@ -219,8 +210,8 @@ $('#list').live('click', function(e) {
                                 <div class="product-show">
                                     <h4>顯示:</h4>
                                     <form id="my-form" action="" method="post">
-                                        <select name="display" id="display" class="nice-select" onchange="myFunction()">
-                                            <!--class="nice-select"onchange="fetch_select(this.value);"-->
+                                        <select name="display" id="display" class="nice-select" onchange="myFunction()" style="width:120px;">
+                                       
                                             <option value="9" <?php if ($number == 9) echo "selected"; ?>>9</option>
                                             <option value="12" <?php if ($number == 12) echo "selected"; ?>>12</option>
                                             <option value="15" <?php if ($number == 15) echo "selected"; ?>>15</option>
@@ -252,8 +243,8 @@ $('#list').live('click', function(e) {
                             <h4 class="sidebar-title">課程分類</h4>
                             <ul class="sidebar-list">
                       
-                                <li><a href="courses.php?junior=true">國中課程 <span class="num"><?php echo $junior; ?></span></a></li>
-                                <li><a href="#">高中課程 <span class="num"><?php echo $senior; ?></span></a></li>
+                                <li><a href="classifycourse.php?junior=true">國中課程 <span class="num"><?php echo $junior; ?></span></a></li>
+                                <li><a href="classifycourse.php?senior=true">高中課程 <span class="num"><?php echo $senior; ?></span></a></li>
 
                             </ul>
                         </div>
@@ -261,15 +252,15 @@ $('#list').live('click', function(e) {
                         <div class="sidebar">
                             <h4 class="sidebar-title">科目分類</h4>
                             <ul class="sidebar-list" id="list">
-                                <li id="1"><a href="#">國文<span class="num"><?php echo $chinese; ?></span></a>
+                                <li id="1"><a href="classifycourse.php?chinese=true">國文<span class="num"><?php echo $chinese; ?></span></a>
                                 </li>
-                                <li id="2"><a href="#">英文<span class="num"><?php echo $english; ?></span></a>
+                                <li id="2"><a href="classifycourse.php?english=true">英文<span class="num"><?php echo $english; ?></span></a>
                                 </li>
-                                <li><a href="#">數學<span class="num"><?php echo $math; ?></span></a>
+                                <li><a href="classifycourse.php?math=true">數學<span class="num"><?php echo $math; ?></span></a>
                                 </li>
-                                <li><a href="#">社會<span class="num"><?php echo $social; ?></span> </a>
+                                <li><a href="classifycourse.php?social=true">社會<span class="num"><?php echo $social; ?></span> </a>
                                 </li>
-                                <li><a href="#">自然<span class="num"><?php echo $science; ?></span></a>
+                                <li><a href="classifycourse.php?science=true">自然<span class="num"><?php echo $science; ?></span></a>
                                 </li>
                             </ul>
                         </div>
@@ -294,10 +285,6 @@ $('#list').live('click', function(e) {
                                 ?>
                             </div>
                         </div>
-
-
-
-
 
                     </div>
 

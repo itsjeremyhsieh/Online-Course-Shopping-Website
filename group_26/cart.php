@@ -1,9 +1,5 @@
 <?php 
     session_start();
-
-   
-
-   
     $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
     if (!$link) {
@@ -14,7 +10,7 @@
     mysqli_query($link, 'SET CHARACTER SET utf8');
     mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
-    if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart
+    if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart merge
         $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
         
         if ($result = mysqli_query($link, $sql)) {
@@ -30,6 +26,7 @@
                     $result = mysqli_query($link, $sql2);
                 }
             }
+    
         }
     
     }
@@ -38,12 +35,12 @@
         if ($result = mysqli_query($link, $sql)) {
             $total_records = mysqli_num_rows($result);
             while ($row = mysqli_fetch_assoc($result)) {
-                for($i = 0 ; $i < $total_records; $i = $i + 1) {
+               
                     $_SESSION['cart'][] = $row['courseid'];
-                }
+        
             }
         }
-       
+    
     }
     
     if (isset($_SESSION['cart'])) {
