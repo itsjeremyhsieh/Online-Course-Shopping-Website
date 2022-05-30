@@ -169,12 +169,12 @@ if(new_pwd != null && new_pwd == $password){
                     new_pwd: {
                         required: true,
                         minlength: 6,
-                        maxlength: 12
-                        notEqual: "#pwd"
+                        maxlength: 12,
+                      
                     },
                     new_pwd2: {
                         required: true,
-                        //equalTo: "#new_pwd"
+                        equalTo: "#new_pwd"
                     }
                 },
                 messages: {
@@ -183,7 +183,7 @@ if(new_pwd != null && new_pwd == $password){
                     },
                     new_pwd: {
                         required: "此為必填欄位",
-                        //notEqual: "新密碼不能與舊密碼相同",
+                      
 
                     },
                     new_pwd2: {
