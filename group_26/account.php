@@ -12,20 +12,21 @@ if (!$link) {
     echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
     exit();
 }
-$sql = "SELECT * FROM member WHERE username = '".$_SESSION['userid'] ."'";
+$sql = "SELECT * FROM member WHERE username = '" . $_SESSION['userid'] . "'";
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
 if ($result = mysqli_query($link, $sql)) {
- 
+
     while ($row = mysqli_fetch_assoc($result)) {
-        $userid = $row['userid'];
+        $username = $row['username'];
         $name = $row['name'];
         $email = $row['email'];
         $password = $row['password'];
         $phone = $row['phone'];
-
-       
+        $gender = $row['gender'];
+        $bday = $row['birth'];
+        $address = $row['address'];
     }
 }
 ?>
@@ -69,7 +70,7 @@ if ($result = mysqli_query($link, $sql)) {
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    
+
     <style>
         .service-block-inner {
             padding: 15px 20px;
@@ -144,7 +145,7 @@ if ($result = mysqli_query($link, $sql)) {
 
         }
     </style>
-    
+
     <script>
         $(document).ready(function($) {
             //for select
@@ -182,8 +183,8 @@ if ($result = mysqli_query($link, $sql)) {
                 }
             });
         });
-    </script>    
-    
+    </script>
+
 
 </head>
 
@@ -234,87 +235,90 @@ if ($result = mysqli_query($link, $sql)) {
                         <h3>帳號管理</h3>
                         <div class="account-details-form">
 
-                            <form action="" method="POST" name="form1" id="form1" class="mb-2">
+                            <form action="changeaccount.php" method="POST" name="form1" id="form1" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="text" id="first_name" name="first_name" placeholder="姓名">
+                                        <input type="text" id="name" name="name" placeholder="<?php echo $name; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="display_name" name="display_name" placeholder="<?php echo $_SESSION['userid'];?>" disabled>
+                                        <input type="text" id="display_name" name="display_name" placeholder="<?php echo $username; ?>" disabled>
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="email" id="email" name="email" placeholder="電子郵件">
+                                        <input type="email" id="email" name="email" placeholder="<?php echo $email; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
                                         &nbsp;&nbsp;性別：
-                                        <select name="gender" class="dropdown" id="" style="width: 85%;">
-                                            <option value="" disabled selected>請選擇</option>
-                                            <option>男性</option>
-                                            <option>女性</option>
+                                        <select name="gender" class="dropdown" id="gender" style="width: 100%;">
+                                            <option value="" disabled selected>性別</option>
+                                            <option value="1" <?php if($gender == 1) echo "selected" ?>>男性</option>
+                                            <option value="0" <?php if($gender == 0) echo "selected" ?>>女性</option>
                                         </select>
                                     </div>
-
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="phone" name="phone" placeholder="手機號碼">
+                                        &nbsp;&nbsp;<label for="">生日：</label>
+                                        <input type="date" id="bday" name="bday" placeholder="<?php echo $bday; ?>">
+                                    </div>
+                                    <div class="col-12 mb-30">
+                                        <input type="text" id="phone" name="phone" placeholder="<?php echo $phone; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="address" name="address" placeholder="通訊地址">
+                                        <input type="text" id="address" name="address" placeholder="<?php echo $address; ?>">
                                     </div>
                                     <div class="col-12">
                                         <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                     </div>
-                                </form>
-                                <br><br>
-                                <form action="" method="POST" name="form2" id="form2" class="mb-2">
-                                    <div class="col-12 mb-30">
-                                        <h4>更改密碼</h4>
-                                    </div>
-
-                                    <div class="col-12 mb-30">
-                                        <div>
-                                            <input type="password" id="current-pwd"  name="pwd" placeholder="請輸入目前密碼">
-                                        </div>    
-                                    </div>
-
-                                    <div class="col-lg-6 col-12 mb-30">
-                                        <div>
-                                            <input type="password" id="new_pwd" name="new_pwd" placeholder="請輸入新密碼">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-12 mb-30">
-                                        <div>
-                                            <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-12">
-                                        <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
-                                    </div>
-                                </div>    
                             </form>
+                            <br><br>
+                            <form action="" method="POST" name="form2" id="form2" class="mb-2">
+                                <div class="col-12 mb-30">
+                                    <h4>更改密碼</h4>
+                                </div>
+
+                                <div class="col-12 mb-30">
+                                    <div>
+                                        <input type="password" id="current-pwd" name="pwd" placeholder="請輸入目前密碼">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12 mb-30">
+                                    <div>
+                                        <input type="password" id="new_pwd" name="new_pwd" placeholder="請輸入新密碼">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12 mb-30">
+                                    <div>
+                                        <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
+                                </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div><!-- Page Section End -->
+        </div>
+    </div><!-- Page Section End -->
 
-        <!-- Brand Section Start -->
-        <div class="brand-section section section-padding pt-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="brand-slider">
+    <!-- Brand Section Start -->
+    <div class="brand-section section section-padding pt-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="brand-slider">
 
-                    </div>
                 </div>
             </div>
-        </div><!-- Brand Section End -->
+        </div>
+    </div><!-- Brand Section End -->
 
-        <?php include "footer.php" ?>
+    <?php include "footer.php" ?>
 
     </div>
 
