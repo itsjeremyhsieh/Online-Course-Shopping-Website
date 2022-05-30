@@ -1,3 +1,36 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['userid']))
+    header("Location: login.php");
+
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+$sql = "SELECT * FROM member WHERE username = '".$_SESSION['userid'] ."'";
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+if ($result = mysqli_query($link, $sql)) {
+ 
+    while ($row = mysqli_fetch_assoc($result)) {
+        $userid = $row['userid'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $password = $row['password'];
+        $phone = $row['phone'];
+
+       
+    }
+}
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -191,10 +224,6 @@
 
                             <a href="download.php"><i class="fa fa-cloud-download"></i> 下載資訊</a>
 
-                            <a href="payment-method.php"><i class="fa fa-credit-card"></i> 付款方式</a>
-
-                            <a href="address-edit.php"><i class="fa fa-map-marker"></i> 帳單地址</a>
-
                             <a href="account.php" class="active"><i class="fa fa-user"></i> 帳號管理</a>
 
                             <a href="login.php"><i class="fa fa-sign-out"></i> 登出</a>
@@ -212,7 +241,7 @@
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="display_name" name="display_name" placeholder="使用者名稱">
+                                        <input type="text" id="display_name" name="display_name" placeholder="<?php echo $_SESSION['userid'];?>" disabled>
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -235,7 +264,12 @@
                                     <div class="col-12 mb-30">
                                         <input type="text" id="address" name="address" placeholder="通訊地址">
                                     </div>
-
+                                    <div class="col-12">
+                                        <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
+                                    </div>
+                                </form>
+                                <br><br>
+                                <form action="" method="POST" name="form2" id="form2" class="mb-2">
                                     <div class="col-12 mb-30">
                                         <h4>更改密碼</h4>
                                     </div>

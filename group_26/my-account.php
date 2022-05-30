@@ -184,7 +184,7 @@ if ($result = mysqli_query($link, $sql)) {
 
                             <a href="download.php"><i class="fa fa-cloud-download"></i> 下載資訊</a>
 
-                            <a href="payment-method.php"><i class="fa fa-credit-card"></i> 付款方式</a>
+                          
 
                             <a href="account.php"><i class="fa fa-user"></i> 帳號管理</a>
 
