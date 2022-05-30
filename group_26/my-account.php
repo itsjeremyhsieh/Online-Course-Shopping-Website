@@ -12,7 +12,7 @@ if (!$link) {
     echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
     exit();
 }
-$sql = "SELECT * FROM member WHERE username = '".$_SESSION['userid'] ."'";
+$sql = "SELECT * FROM member WHERE username = '" . $_SESSION['userid'] . "'";
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
@@ -25,13 +25,13 @@ if ($result = mysqli_query($link, $sql)) {
         $password = $row['password'];
         $phone = $row['phone'];
 
-        if($row['level'] == 1)
+        if ($row['level'] == 1)
             $level = "普通會員";
-        else if($row['level'] == 2)
+        else if ($row['level'] == 2)
             $level = "VIP會員";
-        else if($row['level'] == 3)
+        else if ($row['level'] == 3)
             $level = "SVIP會員";
-        else if($row['level'] == 4)
+        else if ($row['level'] == 4)
             $level = "管理者";
     }
 }
@@ -178,13 +178,11 @@ if ($result = mysqli_query($link, $sql)) {
                     <!-- My Account Tab Menu Start -->
                     <div class="col-lg-3 col-12 mb-30">
                         <div class="myaccount-tab-menu nav" role="tablist">
-                            <a href="my-account.php" class="active"><i class="fa fa-dashboard"></i>會員資訊</a>
+                            <a href="my-account.php"  class="active"><i class="fa fa-dashboard"></i>會員資訊</a>
 
                             <a href="order.php"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
 
                             <a href="download.php"><i class="fa fa-cloud-download"></i> 下載資訊</a>
-
-                          
 
                             <a href="account.php"><i class="fa fa-user"></i> 帳號管理</a>
 
@@ -203,7 +201,7 @@ if ($result = mysqli_query($link, $sql)) {
                                     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
                                     <lord-icon src="https://cdn.lordicon.com/rqskgpey.json" trigger="loop" colors="primary:#121331" scale="30" style="width:100px;height:100px">
                                     </lord-icon>
-                                    <b><?php echo $level;?></b>會員， <?php echo $name;?>您好
+                                    <b><?php echo $level; ?></b>會員， <?php echo $name; ?>您好
                                     <!------
 								<div class="welcome">
 									<p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
@@ -301,28 +299,28 @@ if ($result = mysqli_query($link, $sql)) {
                                                         <th style="min-width:130px">優惠卷名稱</th>
                                                         <th>序號</th>
                                                         <th>面額</th>
-                                                  
+
                                                         <th>使用狀況</th>
                                                         <th>有效期限</th>
                                                     </tr>
                                                     <?php
-                                                        $sql = "SELECT * FROM coupon WHERE userid = '". $_SESSION['userid'] ."'";
-                                                        if ($result = mysqli_query($link, $sql)) {
-                                                            $count = 1;
-                                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                                if($row['used'] == 0)
-                                                                    $use = "未使用";
-                                                                else 
-                                                                    $use = "已使用";
-                                                                echo "<tr><td>#".$count ."</td><td>" . $row['couponname'] . "</td><td>" . $row['couponid'] . "</td><td>"
-                                                                    . $row['prize'] . "</td><td>" . $use . "</td><td>" . $row['validdate'] . "</td></tr>";
-                                                                $count = $count + 1;
-                                                            }
+                                                    $sql = "SELECT * FROM coupon WHERE userid = '" . $_SESSION['userid'] . "'";
+                                                    if ($result = mysqli_query($link, $sql)) {
+                                                        $count = 1;
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            if ($row['used'] == 0)
+                                                                $use = "未使用";
+                                                            else
+                                                                $use = "已使用";
+                                                            echo "<tr><td>#" . $count . "</td><td>" . $row['couponname'] . "</td><td>" . $row['couponid'] . "</td><td>"
+                                                                . $row['prize'] . "</td><td>" . $use . "</td><td>" . $row['validdate'] . "</td></tr>";
+                                                            $count = $count + 1;
                                                         }
+                                                    }
 
 
                                                     ?>
-              
+
 
                                                 </tbody>
                                             </table>

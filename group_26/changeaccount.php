@@ -21,29 +21,37 @@ if(isset($_POST['name'])) {
     $result = mysqli_query($link, $sql);
 }
 if(isset($_POST['email'])) {
-    $sql = "UPDATE member SET email = '". $_POST['email']."' WHERE username = '". $_SESSION['userid']."'";
-    $result = mysqli_query($link, $sql);
+    $sql1 = "UPDATE member SET email = '". $_POST['email']."' WHERE username = '". $_SESSION['userid']."'";
+    $result1 = mysqli_query($link, $sql1);
 }
 if(isset($_POST['gender'])) {
-    $sql = "UPDATE member SET gender = '". $_POST['gender']."' WHERE username = '". $_SESSION['userid']."'";
-    $result = mysqli_query($link, $sql);
+    $sql2 = "UPDATE member SET gender = '". $_POST['gender']."' WHERE username = '". $_SESSION['userid']."'";
+    $result2 = mysqli_query($link, $sql2);
 }
 if(isset($_POST['phone'])) {
-    $sql = "UPDATE member SET phone = '". $_POST['phone']."' WHERE username = '". $_SESSION['userid']."'";
-    $result = mysqli_query($link, $sql);
+    $sql3 = "UPDATE member SET phone = '". $_POST['phone']."' WHERE username = '". $_SESSION['userid']."'";
+    $result3 = mysqli_query($link, $sql3);
 }
 if(isset($_POST['bday'])) {
-    $sql = "UPDATE member SET birth = '". $_POST['bday']."' WHERE username = '". $_SESSION['userid']."'";
-    $result = mysqli_query($link, $sql);
+    $sql4 = "UPDATE member SET birth = '". $_POST['bday']."' WHERE username = '". $_SESSION['userid']."'";
+    $result4 = mysqli_query($link, $sql4);
 }
 if(isset($_POST['address'])) {
-    $sql = "UPDATE member SET address = '". $_POST['address']."' WHERE username = '". $_SESSION['userid']."'";
-    $result = mysqli_query($link, $sql);
+    $sql5 = "UPDATE member SET address = '". $_POST['address']."' WHERE username = '". $_SESSION['userid']."'";
+    $result5 = mysqli_query($link, $sql5);
 }
 
 mysqli_close($link); // 關閉資料庫連結
 
+function_alert("資料更新成功！");
 
-header("Location: {$_SERVER['HTTP_REFERER']}");
+function function_alert($message) { 
+      
+    echo "<script>alert('$message');
+    window.location.href='account.php';
+   </script>"; 
+   return false;
+}
+
 
 ?>

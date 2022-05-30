@@ -227,7 +227,7 @@ if ($result = mysqli_query($link, $sql)) {
 
                             <a href="account.php" class="active"><i class="fa fa-user"></i> 帳號管理</a>
 
-                            <a href="login.php"><i class="fa fa-sign-out"></i> 登出</a>
+                            <a href="logout.php"><i class="fa fa-sign-out"></i> 登出</a>
                         </div>
                     </div>
 
@@ -238,15 +238,15 @@ if ($result = mysqli_query($link, $sql)) {
                             <form action="changeaccount.php" method="POST" name="form1" id="form1" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
-                                        <input type="text" id="name" name="name" placeholder="<?php echo $name; ?>">
+                                        <input type="text" id="name" name="name" value="<?php echo $name; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="display_name" name="display_name" placeholder="<?php echo $username; ?>" disabled>
+                                        <input type="text" id="display_name" name="display_name" value="<?php echo $username; ?>" disabled>
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="email" id="email" name="email" placeholder="<?php echo $email; ?>">
+                                        <input type="email" id="email" name="email" value="<?php echo $email; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
@@ -259,21 +259,21 @@ if ($result = mysqli_query($link, $sql)) {
                                     </div>
                                     <div class="col-12 mb-30">
                                         &nbsp;&nbsp;<label for="">生日：</label>
-                                        <input type="date" id="bday" name="bday" placeholder="<?php echo $bday; ?>">
+                                        <input type="date" id="bday" name="bday" value="<?php echo $bday; ?>">
                                     </div>
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="phone" name="phone" placeholder="<?php echo $phone; ?>">
+                                        <input type="text" id="phone" name="phone" value="<?php echo $phone; ?>">
                                     </div>
 
                                     <div class="col-12 mb-30">
-                                        <input type="text" id="address" name="address" placeholder="<?php echo $address; ?>">
+                                        <input type="text" id="address" name="address" value="<?php echo $address; ?>">
                                     </div>
                                     <div class="col-12">
                                         <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                     </div>
                             </form>
                             <br><br>
-                            <form action="" method="POST" name="form2" id="form2" class="mb-2">
+                            <form action="changepassword.php" method="POST" name="form2" id="form2" class="mb-2">
                                 <div class="col-12 mb-30">
                                     <h4>更改密碼</h4>
                                 </div>
@@ -292,7 +292,7 @@ if ($result = mysqli_query($link, $sql)) {
 
                                 <div class="col-lg-6 col-12 mb-30">
                                     <div>
-                                        <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼">
+                                        <input type="password" id="new_pwd2" name="new_pwd2" placeholder="請再次輸入新密碼"> <!-- 做驗證-->
                                     </div>
                                 </div>
 

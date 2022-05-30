@@ -18,7 +18,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         $_SESSION['userid'] = $username;
        
-
+        if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart merge
+            $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
+            
+            if ($result = mysqli_query($link, $sql)) {
+                $total_records = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if(!in_array($row['courseid'], $_SESSION['cart']))
+                        $_SESSION['cart'][] = $row['courseid'];
+                }
+                $sql1 = "DELETE FROM cart WHERE userid = '".$_SESSION['userid']."'";
+                if ($result = mysqli_query($link, $sql1)) {
+                    for($i = 0 ; $i < count($_SESSION['cart']); $i = $i + 1) {
+                        $sql2 = "INSERT INTO cart VALUES ('" . $_SESSION['userid'] . "','" . $_SESSION['cart'][$i] . "')";
+                        $result = mysqli_query($link, $sql2);
+                    }
+                }
+        
+            }
+        
+        }
+        else if (isset($_SESSION['userid']) && !isset($_SESSION['cart'])) { //login but no session cart
+            $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
+            if ($result = mysqli_query($link, $sql)) {
+                $total_records = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_assoc($result)) {
+                   
+                        $_SESSION['cart'][] = $row['courseid'];
+            
+                }
+            }
+        
+        }
         
         
         function_alert1("登入成功！");
