@@ -29,7 +29,13 @@ if ($result = mysqli_query($link, $sql)) {
         $address = $row['address'];
     }
 }
+/*
+if(new_pwd != null && new_pwd == $password){
+    echo '密碼不能與原本的密碼一樣!';
+}
+*/
 ?>
+
 
 
 <!doctype html>
@@ -153,7 +159,7 @@ if ($result = mysqli_query($link, $sql)) {
                 return arg != value;
             }, "您尚未選擇!");
 
-            $("#form1").validate({
+            $("#form2").validate({
                 rules: {
                     pwd: {
                         required: true,
@@ -164,10 +170,11 @@ if ($result = mysqli_query($link, $sql)) {
                         required: true,
                         minlength: 6,
                         maxlength: 12
+                        notEqual: "#pwd"
                     },
                     new_pwd2: {
                         required: true,
-                        equalTo: "#new_pwd"
+                        //equalTo: "#new_pwd"
                     }
                 },
                 messages: {
@@ -176,6 +183,8 @@ if ($result = mysqli_query($link, $sql)) {
                     },
                     new_pwd: {
                         required: "此為必填欄位",
+                        //notEqual: "新密碼不能與舊密碼相同",
+
                     },
                     new_pwd2: {
                         equalTo: "兩次密碼不相符"
@@ -185,6 +194,27 @@ if ($result = mysqli_query($link, $sql)) {
         });
     </script>
 
+    <script language="javascript">
+    function Check()
+    {
+        /*
+        String psw=String.valueOf(document.form2.pwd.text);
+        String new_psw=String.valueOf(document.form2.new_pwd.text);
+        String new_psw2=String.valueOf(document.form2.new_pwd2.text);
+        */
+        if(document.form2.new_pwd.value == document.form2.pwd.value)
+        {
+            alert("新密碼不能與舊密碼相同");
+            //echo '密碼不能與原本的密碼一樣!';
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    </script>
 
 </head>
 
@@ -272,7 +302,11 @@ if ($result = mysqli_query($link, $sql)) {
                                         <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
                                     </div>
                             </form>
+
                             <br><br>
+                            <br><br>
+                            <br><br>
+                            
                             <form action="changepassword.php" method="POST" name="form2" id="form2" class="mb-2">
                                 <div class="col-12 mb-30">
                                     <h4>更改密碼</h4>
@@ -297,7 +331,7 @@ if ($result = mysqli_query($link, $sql)) {
                                 </div>
 
                                 <div class="col-12">
-                                    <input type="submit" value="儲存變更" class="btn btn-dark btn-round btn-lg">
+                                    <input type="submit" value="儲存變更" onclick="return Check()" class="btn btn-dark btn-round btn-lg">
                                 </div>
                         </div>
                         </form>
