@@ -179,8 +179,6 @@ if ($result = mysqli_query($link, $sql)) {
                     },
                     new_pwd: {
                         required: "此為必填欄位",
-                      
-
                     },
                     new_pwd2: {
                         equalTo: "兩次密碼不相符"

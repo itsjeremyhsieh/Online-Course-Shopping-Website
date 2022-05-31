@@ -49,8 +49,6 @@ if ($result = mysqli_query($link, $sql1)) {
 
 ?>
 
-
-
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -62,12 +60,18 @@ if ($result = mysqli_query($link, $sql1)) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <!-- CSS
 	============================================ -->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="assets/css/icon-font.min.css">
@@ -83,6 +87,81 @@ if ($result = mysqli_query($link, $sql1)) {
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    
+    
+    <script type="text/javascript">
+    $(document).ready(function($) {
+        $.validator.addMethod("notEqualsto", function(value, element, arg) {
+            return arg != value;
+        }, "您尚未選擇!");
+
+        $("#form2").validate({
+            submitHandler: function(form) {
+                form.submit();
+            },
+            rules: {
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "此為必填欄位",   
+                },
+                email: {
+                    required: "此為必填欄位",
+                },
+                phone: {
+                    required: "此為必填欄位",
+                },
+                address: {
+                    required: "此為必填欄位",
+                },
+            }
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+        function radioValidation(){
+            var payment = document.getElementsByName('payment-method');
+            var payValue = false;
+            var textment = document.getElementById('card').value;
+            var check=$("input[name='accept_terms']:checked").length;//判斷有多少個方框被勾選
+			
+            for(var i=0; i<payment.length;i++){
+                if(payment[i].checked == true){
+                    var pay = payment[i].value;
+                    //alert(pay);
+                    payValue = true;    
+                }
+            }
+            if(pay == "paypal" && (textment == "" || textment == null)){
+                alert("請輸入您的信用卡號");
+                //alert(textment);
+                return false;
+            }
+            if(check==0){
+				alert('請勾選"我已閱讀並接受條款細則及私隱政策"');
+				return false;//不要提交表單
+			}
+            if(!payValue){
+                alert("請選擇付費方式");
+                return false;
+            }
+
+        }
+        
+    </script>
 </head>
 
 <body>
@@ -112,112 +191,79 @@ if ($result = mysqli_query($link, $sql1)) {
             <div class="container">
 
                 <!-- Checkout Form s-->
-                <form action="#" class="checkout-form">
+                <form action="" method="POST" name="form2" id="form2" class="checkout-form">
                     <div class="row row-50 mbn-40">
 
-                        <div class="col-lg-7">
-
-                            <!-- Billing Address -->
+                        <div class="col-lg-7"><!-- Billing Address -->
                             <div id="billing-form" class="mb-20">
                                 <h4 class="checkout-title">付款地址</h4>
-
                                 <div class="row">
-
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>訂購人姓名</label>
-                                        <input type="text" value="<?php echo $name; ?>">
+                                        <input type="text" name="name" value="<?php echo $name; ?>">
+                                        <div class="errorInfo"><label for="name"></label></div>
                                     </div>
-
-                                  
-
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>Email *</label>
-                                        <input type="email" value="<?php echo $email; ?>">
+                                        <input type="email" name="email" value="<?php echo $email; ?>">
                                     </div>
-
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>電話號碼*</label>
-                                        <input type="text" value="<?php echo $phone; ?>">
+                                        <input type="text" name="phone" value="<?php echo $phone; ?>">
                                     </div>
-                               
                                     <div class="col-12 mb-5">
                                         <label>地址*</label>
-                                        <input type="text" value="<?php echo $address; ?>">
-                                      
+                                        <input type="text" name="address" value="<?php echo $address; ?>">
                                     </div>
-                             
-                                   
-
                                 </div>
-
                             </div>
-
-                           
-
                         </div>
 
                         <div class="col-lg-5">
                             <div class="row">
-
                                 <!-- Cart Total -->
                                 <div class="col-12 mb-40">
-
                                     <h4 class="checkout-title">購物車</h4>
-
                                     <div class="checkout-cart-total">
-
                                         <h4>商品 <span>總額</span></h4>
-
                                         <ul>
                                            <?php echo $cartitem;?>
                                         </ul>
-
                                         <p>小記 <span> <?php echo $total;?></span></p>
                                         <p>折扣 <span> 0</span></p>
-
                                         <h4>總計 <span> <?php echo $total;?></span></h4>
-
                                     </div>
-
                                 </div>
 
                                 <!-- Payment Method -->
                                 <div class="col-12 mb-40">
-
                                     <h4 class="checkout-title">付款方式</h4>
-                                    <form>
                                     <div class="checkout-payment-method">
-
-                                       
                                         <div class="single-method">
                                             <input type="radio" id="payment_bank" name="payment-method" value="bank">
                                             <label for="payment_bank">銀行轉帳</label>
+
                                             <p data-method="bank">請於下單後一星期內轉帳至 700 004652983157625，逾時將自動取消訂單。 </p>
-                                        </div>
+                                            
+                                            <br>
 
-                                       
-
-                                        <div class="single-method">
-                                            <input type="radio" id="payment_paypal" name="payment-method" value="paypal">
+                                            <input type="radio" id="payment_paypal" name="payment-method" value="paypal" OnClick="updateValidator();">
                                             <label for="payment_paypal">信用卡付款</label>
-                                            <p data-method="paypal">請輸入信用卡卡號
-                                            <input type="text" maxlength="16"></p>
-                                        </div>
+                                            <p data-method="paypal">請輸入信用卡卡號<input type="text" id="card" name="card" maxlength="16"></p>
+                                            
+                                            <br>
 
-                                        <div class="single-method">
-                                            <input type="checkbox" id="accept_terms" require>
+                                            <input type="checkbox" id="accept_terms" name="accept_terms">
                                             <label for="accept_terms">我已閱讀並接受條款細則及私隱政策</label>
                                         </div>
 
-                                        </div>
-                                        <input type="submit" name="submit" class="place-order" value="下訂單">
-                                  
-                                    </form>
+                                    </div>
+                                    <input type="submit" name="submit" class="place-order" value="下訂單" onclick="return radioValidation();">
                                 </div>
 
                             </div>
                         </div>
-
+                        
                     </div>
                 </form>
 
