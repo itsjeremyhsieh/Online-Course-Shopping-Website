@@ -116,13 +116,13 @@ $data .= "</div></ul>";
             </div>
         </div><!-- Page Banner Section End -->
 
-        <!-- Page Section Start -->
+ 
         <div class="page-section section section-padding">
             <div class="container">
 
                 <div class="row">
 
-                    <div class="col-12">
+                    <!--<div class="col-12">
                         <div class="product-show">
                             <h4>顯示:</h4>
                             <select class="nice-select">
@@ -143,11 +143,11 @@ $data .= "</div></ul>";
                                 <option>價格：高至低</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                     <?php echo $data;  ?>
                 </div>
             </div>
-        </div><!-- Page Section End -->
+        </div><!-- Page Section End 
 
        
 

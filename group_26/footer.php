@@ -1,4 +1,40 @@
 <!-- Footer Top Section Start -->
+ <!-- Brand Section Start -->
+ <div class="brand-section section section-padding pt-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="brand-slider">
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-1.png" alt="">
+                            </div>
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-2.png" alt="">
+                            </div>
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-3.png" alt="">
+                            </div>
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-4.png" alt="">
+                            </div>
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-5.png" alt="">
+                            </div>
+
+                            <div class="brand-item col">
+                                <img src="assets/images/brands/brand-6.png" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Brand Section End -->
+
+
 <div class="footer-top-section section bg-theme-two-light section-padding">
                 <div class="container">
                     <div class="row mbn-40">
@@ -13,24 +49,24 @@
                         <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                             <h4 class="title">商品</h4>
                             <ul>
-                                <li><a href="#">新品上架</a></li>
-                                <li><a href="#">最熱銷</a></li>
-                                <li><a href="#">流行商品</a></li>
-                                <li><a href="#">現正優惠</a></li>
-                                <li><a href="#">打折商品</a></li>
-                                <li><a href="#">特色商品</a></li>
+                                <li><a href="courses.php">新品上架</a></li>
+                                <li><a href="courses.php">最熱銷</a></li>
+                                <li><a href="courses.php">流行商品</a></li>
+                                <li><a href="courses.php">現正優惠</a></li>
+                                <li><a href="courses.php">打折商品</a></li>
+                                <li><a href="courses.php">特色商品</a></li>
                             </ul>
                         </div>
 
                         <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                             <h4 class="title">通知</h4>
                             <ul>
-                                <li><a href="#">關於我們</a></li>
-                                <li><a href="#">條款&條件</a></li>
-                                <li><a href="#">付款方式</a></li>
-                                <li><a href="#">產品品質保證</a></li>
-                                <li><a href="#">退貨須知</a></li>
-                                <li><a href="#">付款須知</a></li>
+                                <li><a href="contact.php">關於我們</a></li>
+                                <li><a href="courses.php">條款&條件</a></li>
+                                <li><a href="courses.php">付款方式</a></li>
+                                <li><a href="courses.php">產品品質保證</a></li>
+                                <li><a href="courses.php">退貨須知</a></li>
+                                <li><a href="courses.php">付款須知</a></li>
                             </ul>
                         </div>
 

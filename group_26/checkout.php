@@ -1,3 +1,56 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['userid']))
+    header("Location: login.php");
+
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+$sql = "SELECT * FROM member WHERE username = '" . $_SESSION['userid'] . "'";
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+if ($result = mysqli_query($link, $sql)) {
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $username = $row['username'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $password = $row['password'];
+        $phone = $row['phone'];
+        $gender = $row['gender'];
+        $bday = $row['birth'];
+        $address = $row['address'];
+    }
+}
+
+$sql1 = "SELECT * FROM cart WHERE userid = '" . $_SESSION['userid'] . "'";
+$total = 0;
+if ($result = mysqli_query($link, $sql1)) {
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $sql2 = "SELECT * FROM course WHERE id = '" . $row['courseid'] . "'";
+        if ($result2 = mysqli_query($link, $sql2)) {
+
+            while ($row2 = mysqli_fetch_assoc($result2)) {
+                $cartitem .= "<li>" . $row2['name'] . "<span>" . $row2['price'] . "</span></li>";
+                $total = $total + $row2['price'];
+            }
+        }
+        
+    }
+}
+
+?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -71,143 +124,35 @@
                                 <div class="row">
 
                                     <div class="col-md-6 col-12 mb-5">
-                                        <label>名*</label>
-                                        <input type="text" placeholder="First Name">
+                                        <label>訂購人姓名</label>
+                                        <input type="text" value="<?php echo $name; ?>">
                                     </div>
 
-                                    <div class="col-md-6 col-12 mb-5">
-                                        <label>性*</label>
-                                        <input type="text" placeholder="Last Name">
-                                    </div>
+                                  
 
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>Email *</label>
-                                        <input type="email" placeholder="Email Address">
+                                        <input type="email" value="<?php echo $email; ?>">
                                     </div>
 
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>電話號碼*</label>
-                                        <input type="text" placeholder="Phone number">
+                                        <input type="text" value="<?php echo $phone; ?>">
                                     </div>
-                                    <!---
-							   <div class="col-12 mb-5">
-								   <label>公司名稱</label>
-								   <input type="text" placeholder="Company Name">
-							   </div>
-                                -->
+                               
                                     <div class="col-12 mb-5">
                                         <label>地址*</label>
-                                        <input type="text" placeholder="Address line 1">
-                                        <input type="text" placeholder="Address line 2">
+                                        <input type="text" value="<?php echo $address; ?>">
+                                      
                                     </div>
-                                    <!---
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Country*</label>
-								   <select class="nice-select">
-										<option>Bangladesh</option>
-										<option>China</option>
-										<option>country</option>
-										<option>India</option>
-										<option>Japan</option>
-								   </select>
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Town/City*</label>
-								   <input type="text" placeholder="Town/City">
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>State*</label>
-								   <input type="text" placeholder="State">
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Zip Code*</label>
-								   <input type="text" placeholder="Zip Code">
-							   </div>
-                            -->
-                                    <div class="col-12 mb-5">
-                                        <div class="check-box mb-15">
-                                            <input type="checkbox" id="create_account">
-                                            <label for="create_account">會員註冊?</label>
-                                        </div>
-                                        <div class="check-box mb-15">
-                                            <input type="checkbox" id="shiping_address" data-shipping>
-                                            <label for="shiping_address">運送到不同地點?</label>
-                                        </div>
-                                    </div>
+                             
+                                   
 
                                 </div>
 
                             </div>
 
-                            <!-- Shipping Address -->
-                            <div id="shipping-form" class="mb-20">
-                                <h4 class="checkout-title">收件地址</h4>
-
-                                <div class="row">
-
-                                    <div class="col-md-6 col-12 mb-5">
-                                        <label>名*</label>
-                                        <input type="text" placeholder="First Name">
-                                    </div>
-
-                                    <div class="col-md-6 col-12 mb-5">
-                                        <label>姓*</label>
-                                        <input type="text" placeholder="Last Name">
-                                    </div>
-
-                                    <div class="col-md-6 col-12 mb-5">
-                                        <label>Email*</label>
-                                        <input type="email" placeholder="Email Address">
-                                    </div>
-
-                                    <div class="col-md-6 col-12 mb-5">
-                                        <label>電話號碼*</label>
-                                        <input type="text" placeholder="Phone number">
-                                    </div>
-                                    <!--
-							   <div class="col-12 mb-5">
-								   <label>Company Name</label>
-								   <input type="text" placeholder="Company Name">
-							   </div>
-                                -->
-                                    <div class="col-12 mb-5">
-                                        <label>地址*</label>
-                                        <input type="text" placeholder="Address line 1">
-                                        <input type="text" placeholder="Address line 2">
-                                    </div>
-                                    <!---
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Country*</label>
-								   <select class="nice-select">
-										<option>Bangladesh</option>
-										<option>China</option>
-										<option>country</option>
-										<option>India</option>
-										<option>Japan</option>
-								   </select>
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Town/City*</label>
-								   <input type="text" placeholder="Town/City">
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>State*</label>
-								   <input type="text" placeholder="State">
-							   </div>
-
-							   <div class="col-md-6 col-12 mb-5">
-								   <label>Zip Code*</label>
-								   <input type="text" placeholder="Zip Code">
-							   </div>
-                            -->
-                                </div>
-
-                            </div>
+                           
 
                         </div>
 
@@ -224,16 +169,13 @@
                                         <h4>商品 <span>總額</span></h4>
 
                                         <ul>
-                                            <li>謝宥英文-國中三年級 <span>2495</span></li>
-                                            <li>戴琪社會-國中三年級 <span>5350</span></li>
-                                            <li>戴琪自然-國中三年級 <span>1875</span></li>
-                                            <li>蔡蔓數學-國中二年級 <span>1250</span></li>
+                                           <?php echo $cartitem;?>
                                         </ul>
 
-                                        <p>小記 <span> 10970</span></p>
-                                        <p>運費 <span> 0</span></p>
+                                        <p>小記 <span> <?php echo $total;?></span></p>
+                                        <p>折扣 <span> 0</span></p>
 
-                                        <h4>總計 <span> 10970</span></h4>
+                                        <h4>總計 <span> <?php echo $total;?></span></h4>
 
                                     </div>
 
@@ -243,48 +185,34 @@
                                 <div class="col-12 mb-40">
 
                                     <h4 class="checkout-title">付款方式</h4>
-
+                                    <form>
                                     <div class="checkout-payment-method">
 
-                                        <div class="single-method">
-                                            <input type="radio" id="payment_check" name="payment-method" value="check">
-                                            <label for="payment_check">支票付款</label>
-                                            <p data-method="check">請發送支票包含商店名稱，商店街道、商店城鎮、商店狀態、商店郵政編碼、商店國家</p>
-                                        </div>
-
+                                       
                                         <div class="single-method">
                                             <input type="radio" id="payment_bank" name="payment-method" value="bank">
                                             <label for="payment_bank">銀行轉帳</label>
-                                            <p data-method="bank">請發送支票包含商店名稱，商店街道、商店城鎮、商店狀態、商店郵政編碼、商店國家</p>
+                                            <p data-method="bank">請於下單後一星期內轉帳至 700 004652983157625，逾時將自動取消訂單。 </p>
                                         </div>
 
-                                        <div class="single-method">
-                                            <input type="radio" id="payment_cash" name="payment-method" value="cash">
-                                            <label for="payment_cash">貨到付款</label>
-                                            <p data-method="cash">請發送支票包含商店名稱，商店街道、商店城鎮、商店狀態、商店郵政編碼、商店國家</p>
-                                        </div>
+                                       
 
                                         <div class="single-method">
                                             <input type="radio" id="payment_paypal" name="payment-method" value="paypal">
-                                            <label for="payment_paypal">Paypal</label>
-                                            <p data-method="paypal">請發送支票包含商店名稱，商店街道、商店城鎮、商店狀態、商店郵政編碼、商店國家</p>
+                                            <label for="payment_paypal">信用卡付款</label>
+                                            <p data-method="paypal">請輸入信用卡卡號
+                                            <input type="text" maxlength="16"></p>
                                         </div>
 
                                         <div class="single-method">
-                                            <input type="radio" id="payment_payoneer" name="payment-method" value="payoneer">
-                                            <label for="payment_payoneer">Payoneer</label>
-                                            <p data-method="payoneer">請發送支票包含商店名稱，商店街道、商店城鎮、商店狀態、商店郵政編碼、商店國家</p>
-                                        </div>
-
-                                        <div class="single-method">
-                                            <input type="checkbox" id="accept_terms">
+                                            <input type="checkbox" id="accept_terms" require>
                                             <label for="accept_terms">我已閱讀並接受條款細則及私隱政策</label>
                                         </div>
 
-                                    </div>
-
-                                    <button class="place-order">下訂單</button>
-
+                                        </div>
+                                        <input type="submit" name="submit" class="place-order" value="下訂單">
+                                  
+                                    </form>
                                 </div>
 
                             </div>

@@ -29,11 +29,7 @@ if ($result = mysqli_query($link, $sql)) {
         $address = $row['address'];
     }
 }
-/*
-if(new_pwd != null && new_pwd == $password){
-    echo '密碼不能與原本的密碼一樣!';
-}
-*/
+
 ?>
 
 
@@ -197,15 +193,9 @@ if(new_pwd != null && new_pwd == $password){
     <script language="javascript">
     function Check()
     {
-        /*
-        String psw=String.valueOf(document.form2.pwd.text);
-        String new_psw=String.valueOf(document.form2.new_pwd.text);
-        String new_psw2=String.valueOf(document.form2.new_pwd2.text);
-        */
         if(document.form2.new_pwd.value == document.form2.pwd.value)
         {
             alert("新密碼不能與舊密碼相同");
-            //echo '密碼不能與原本的密碼一樣!';
             return false;
         }
         else

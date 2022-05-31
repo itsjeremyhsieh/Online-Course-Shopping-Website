@@ -194,7 +194,7 @@
                                     </tbody>
                                 </table>
                                 <div class="proceed-to-checkout section mt-30">
-                                    <a href="#">確認結算</a>
+                                    <a href="checkout.php">確認結算</a>
                                 </div>
                             </div>
                         </div>

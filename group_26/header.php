@@ -77,7 +77,7 @@ if (isset($_SESSION['wish'])) {
                             ?>
                           
                         </p>
-                        <p>目前線上人數：1人</p>
+                       
                     </div><!-- Header Shop Links End -->
                 </div>
 
