@@ -40,7 +40,35 @@ if ($result = mysqli_query($link, $sql)) {
     <!-- App favicon -->
     <link rel="shortcut icon" href="public/assets/images/favicon.ico">
 
+    <meta name="description" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
+    <!-- CSS
+	============================================ -->
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/icon-font.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
     <!-- select2 css -->
     <link href="public/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -55,6 +83,122 @@ if ($result = mysqli_query($link, $sql)) {
     <link href="public/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
+
+    <script>
+        $(document).ready(function($) {
+            //for select
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+
+            $("#form3").validate({
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    id: {
+                        required: true,
+                      
+                    },
+                    subject: {
+                        required: true,
+                      
+                    },
+                    grade: {
+                        required: true,
+                      
+                    },
+                    smt: {
+                        required: true,
+                      
+                    },
+                    teacher: {
+                        required: true,
+                      
+                    },
+                    length: {
+                        required: true,
+                      
+                    },
+                    total: {
+                        required: true,
+                      
+                    },
+                    sold: {
+                        required: true,
+                    },
+                    price: {
+                        required: true,
+                    },
+                    valid: {
+                        required: true,
+                    },
+                    cover: {
+                        required: true,
+                    },
+                    download: {
+                        required: true,
+                    },
+                    description: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "此為必填欄位",
+                    },
+                    id: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    subject: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    grade: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    smt: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    teacher: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    length: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    total: {
+                        required: "此為必填欄位",
+                      
+                    },
+                    sold: {
+                        required: "此為必填欄位",
+                    },
+                    price: {
+                        required: "此為必填欄位",
+                    },
+                    valid: {
+                        required: "此為必填欄位",
+                    },
+                    /*cover: {
+                        required: "此為必填欄位",
+                    },
+                    download: {
+                        required: "此為必填欄位",
+                    },*/
+                    description: {
+                        required: "此為必填欄位",
+                    },
+                }
+            });
+        });
+    </script>
 
 </head>
 
