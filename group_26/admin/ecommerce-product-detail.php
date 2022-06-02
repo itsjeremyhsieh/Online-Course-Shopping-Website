@@ -581,35 +581,35 @@ if ($result = mysqli_query($link, $sql)) {
 
                                                         <div class="mb-3">
                                                             <label class="form-label" for="length">上課時長</label>
-                                                            <input id="length" name="length" type="text" class="form-control" value=<?php echo $length; ?>>
+                                                            <input id="length" oninput="value=value.replace(/[^\d]/g,'')" name="length" type="text" class="form-control" value=<?php echo $length; ?>>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
 
                                                         <div class="mb-3">
                                                             <label class="form-label" for="total">總節數</label>
-                                                            <input id="total" name="total" type="text" class="form-control" value=<?php echo $total; ?>>
+                                                            <input id="total" oninput="value=value.replace(/[^\d]/g,'')" name="total" type="text" class="form-control" value=<?php echo $total; ?>>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
 
                                                         <div class="mb-3">
                                                             <label class="form-label" for="sold">售出數量</label>
-                                                            <input id="sold" name="sold" type="text" class="form-control" value=<?php echo $sold; ?>>
+                                                            <input id="sold" oninput="value=value.replace(/[^\d]/g,'')" name="sold" type="text" class="form-control" value=<?php echo $sold; ?>>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
 
                                                         <div class="mb-3">
                                                             <label class="form-label" for="price">售價</label>
-                                                            <input id="price" name="price" type="text" class="form-control" value=<?php echo $price; ?>>
+                                                            <input id="price" oninput="value=value.replace(/[^\d]/g,'')" name="price" type="text" class="form-control" value=<?php echo $price; ?>>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
 
                                                         <div class="mb-3">
                                                             <label class="form-label" for="valid">有效期限</label>
-                                                            <input id="valid" name="valid" type="text" class="form-control" value=<?php echo $valid; ?>>
+                                                            <input id="valid" oninput="value=value.replace(/[^\d]/g,'')" name="valid" type="text" class="form-control" value=<?php echo $valid; ?>>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
