@@ -17,8 +17,8 @@ if (isset($_SESSION['userid'])) {
     if ($result = mysqli_query($link, $sql)) {
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if($row['level'] != 4)
-            header("Location: ../logout.php");
+            if ($row['level'] != 4)
+                header("Location: ../logout.php");
         }
     }
 }
@@ -31,30 +31,26 @@ if (isset($_SESSION['userid'])) {
 <head>
 
   <meta charset="utf-8" />
-  <title>Products | Minible - Admin & Dashboard Template</title>
+  <title>課程總覽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
   <meta content="Themesbrand" name="author">
   <!-- App favicon -->
   <link rel="shortcut icon" href="public/assets/images/favicon.ico">
-
-
-
   <!-- ION Slider -->
   <link href="public/assets/libs/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" type="text/css" />
-
-
   <!-- Bootstrap Css -->
   <link href="public/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
   <!-- Icons Css -->
   <link href="public/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
   <!-- App Css-->
   <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-  <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
   <script>
     var tbl;
@@ -266,7 +262,7 @@ if (isset($_SESSION['userid'])) {
               <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                   <li class="breadcrumb-item"><a href="javascript: void(0);">課程</a></li>
-                  <li class="breadcrumb-item active">課程總覽</li>
+                  <li class="breadcrumb-item active">課程列表</li>
                 </ol>
               </div>
 
@@ -275,56 +271,53 @@ if (isset($_SESSION['userid'])) {
         </div>
         <!-- end page title -->
 
-
-
-
         <div class="row">
-          <div>
-            <form name="form1" id="form1" method="post">
-              <table class="table table-hover tm-table-small tm-product-table" id="course">
-                <thead>
-                  <tr>
-                    <th scope="col">課程編號</th>
-                    <th scope="col">課程名稱</th>
-                    <th scope="col">科目</th>
-                    <th scope="col">適用年級</th>
-                    <th scope="col">適用學期</th>
-                    <th scope="col">授課教師</th>
-                    <th scope="col">上課時長</th>
-                    <th scope="col">總節數</th>
-                    <th scope="col">售價</th>
-                    <th scope="col">售出數量</th>
-                    <th scope="col">課程敘述</th>
-                    <th scope="col">修改/刪除</th>
-                  </tr>
-                </thead>
-              </table>
-            </form>
-          </div>
+          <form name="form1" id="form1" method="post">
+            <table class="table table-hover tm-table-small tm-product-table" id="course">
+              <thead>
+                <tr>
+                  <th scope="col">課程編號</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">科目</th>
+                  <th scope="col">適用年級</th>
+                  <th scope="col">適用學期</th>
+                  <th scope="col">授課教師</th>
+                  <th scope="col">上課時長</th>
+                  <th scope="col">總節數</th>
+                  <th scope="col">售價</th>
+                  <th scope="col">售出數量</th>
+                  <th scope="col">課程敘述</th>
+                  <th scope="col">修改/刪除</th>
+                </tr>
+              </thead>
+            </table>
+          </form>
         </div>
-        <!-- end row -->
       </div>
     </div>
-
-    <?php include "adminfooter.php";?>
-     <!-- JAVASCRIPT -->
-     <script src="public/assets/libs/jquery/jquery.min.js"></script>
-        <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="public/assets/libs/node-waves/waves.min.js"></script>
-        <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
-        <!-- select 2 plugin -->
-        <script src="public/assets/libs/select2/js/select2.min.js"></script>
-        <!-- dropzone plugin -->
-        <script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
-        <!-- init js -->
-        <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
-        <script src="public/assets/js/app.js"></script>
-
-
-  
+  </div>
+  <?php include "adminfooter.php"; ?>
 
 </body>
+
+<!-- JAVASCRIPT -->
+
+<script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="public/assets/libs/node-waves/waves.min.js"></script>
+<script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+
+<!-- select 2 plugin -->
+<script src="public/assets/libs/select2/js/select2.min.js"></script>
+
+<!-- dropzone plugin -->
+<script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
+
+<!-- init js -->
+<script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+
+<script src="public/assets/js/app.js"></script>
+
 </html>

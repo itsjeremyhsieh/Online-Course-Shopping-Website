@@ -17,8 +17,8 @@ if (isset($_SESSION['userid'])) {
     if ($result = mysqli_query($link, $sql)) {
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if($row['level'] != 4)
-            header("Location: ../logout.php");
+            if ($row['level'] != 4)
+                header("Location: ../logout.php");
         }
     }
 }
@@ -378,7 +378,7 @@ if (isset($_SESSION['userid'])) {
                 </form>
             </div>
         </div>
-    </div>
+
     </div>
 
     <?php include "adminfooter.php"; ?>
@@ -391,8 +391,6 @@ if (isset($_SESSION['userid'])) {
     <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
 
-
-
     <!-- select 2 plugin -->
     <script src="public/assets/libs/select2/js/select2.min.js"></script>
 
@@ -401,8 +399,6 @@ if (isset($_SESSION['userid'])) {
 
     <!-- init js -->
     <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
-
-
 
     <script src="public/assets/js/app.js"></script>
 

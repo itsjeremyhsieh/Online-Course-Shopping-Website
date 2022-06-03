@@ -17,8 +17,8 @@ if (isset($_SESSION['userid'])) {
     if ($result = mysqli_query($link, $sql)) {
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if($row['level'] != 4)
-            header("Location: ../logout.php");
+            if ($row['level'] != 4)
+                header("Location: ../logout.php");
         }
     }
 }
@@ -50,6 +50,7 @@ if ($result = mysqli_query($link, $sql)) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -403,8 +404,29 @@ if ($result = mysqli_query($link, $sql)) {
 
             </div>
         </div>
-        <?php include "adminfooter.php"; ?>
-       
+    </div>
+    
+    <?php include "adminfooter.php"; ?>
+   
+     <!-- JAVASCRIPT -->
+     <script src="public/assets/libs/jquery/jquery.min.js"></script>
+    <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="public/assets/libs/node-waves/waves.min.js"></script>
+    <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+
+    <!-- select 2 plugin -->
+    <script src="public/assets/libs/select2/js/select2.min.js"></script>
+
+    <!-- dropzone plugin -->
+    <script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
+
+    <!-- init js -->
+    <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+
+    <script src="public/assets/js/app.js"></script>
 </body>
 
 </html>
