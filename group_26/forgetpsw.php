@@ -1,3 +1,9 @@
+<?php
+$subject="=?UTF-8?B?".base64_encode('主旨')."?=";//信件標題，解決亂碼問題
+mail("kirklan0423@gmail.com", $subject,"這是郵件內容")
+or die("郵件傳送失敗！");
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
