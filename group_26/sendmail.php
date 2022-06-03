@@ -7,8 +7,8 @@ or die("無法開啟MySQL資料庫連結!<br>");
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
 
-$email = $_POST['email'];
-echo $email;
+$email = $_POST['mail'];
+//echo $email;
 
 
 
@@ -17,12 +17,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
         
     if ($result = mysqli_query($link, "SELECT * FROM member WHERE email = '$email'")) {
-        $random_number = random_int(100000, 999999);
-        $msg = "您的COURSELUX密碼重設驗證碼為" . $random_number;
+     
+        while ($row = mysqli_fetch_assoc($result)) {
+            $pwd = $row['password'];
+        }
+
+        /*$msg = "您的COURSELUX密碼為####" ;
         $msg = wordwrap($msg,70);
-        mail("$email","COURSELUX密碼重設驗證碼",$msg)
+        mail($email,"COURSELUX密碼",$msg)
         or die("郵件傳送失敗！");
-        function_alert("重設密碼信件傳送成功");
+        function_alert("密碼信件傳送成功");*/
+        function_alert("您的COURSELUX密碼為". $pwd);
     }
 }
 

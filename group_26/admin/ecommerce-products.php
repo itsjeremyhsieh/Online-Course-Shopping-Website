@@ -216,11 +216,11 @@ session_start();
       });
       $('tbody').on('click', '#btn_update', function() {
 
-        
-          var data = tbl.row($(this).closest('tr')).data();
-          var direct = "ecommerce-product-detail.php?id=" + data[0];
-          window.location.href = direct;
-        
+
+        var data = tbl.row($(this).closest('tr')).data();
+        var direct = "ecommerce-product-detail.php?id=" + data[0];
+        window.location.href = direct;
+
       });
     })
   </script>
@@ -228,338 +228,81 @@ session_start();
 
 <body>
 
-  <!-- Begin page -->
-  <div id="layout-wrapper">
+  <?php include "adminheader.php"; ?>
 
-    <header id="page-topbar">
-      <div class="navbar-header">
-        <div class="d-flex">
-          <!-- LOGO -->
-          <div class="navbar-brand-box">
-            <a href="admin.html" class="logo logo-dark">
-              <span class="logo-sm">
-                <img src="public/assets/images/logo-sm.png" alt="" height="22">
-              </span>
-              <span class="logo-lg">
-                <img src="public/assets/images/logo-dark.png" alt="" height="20">
-              </span>
-            </a>
-
-            <a href="admin.html" class="logo logo-light">
-              <span class="logo-sm">
-                <img src="public/assets/images/logo-sm.png" alt="" height="22">
-              </span>
-              <span class="logo-lg">
-                <img src="public/assets/images/logo-light.png" alt="" height="20">
-              </span>
-            </a>
-          </div>
-
-          <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
-            <i class="fa fa-fw fa-bars"></i>
-          </button>
-
-          <!-- App Search-->
-          <form class="app-search d-none d-lg-block">
-            <div class="position-relative">
-              <input type="text" class="form-control" placeholder="Search...">
-              <span class="uil-search"></span>
-            </div>
-          </form>
-        </div>
-
-        <div class="d-flex">
-
-          <div class="dropdown d-inline-block d-lg-none ms-2">
-            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="uil-search"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
-
-              <form class="p-3">
-                <div class="form-group m-0">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+  <div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
 
 
+        <!-- start page title -->
+        <div class="row">
+          <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+              <h4 class="mb-0">課程</h4>
 
-
-          <div class="dropdown d-none d-lg-inline-block ms-1">
-            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
-              <i class="uil-minus-path"></i>
-            </button>
-          </div>
-
-          <div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="uil-bell"></i>
-              <span class="badge bg-danger rounded-pill">3</span>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-              <div class="p-3">
-                <div class="row align-items-center">
-                  <div class="col">
-                    <h5 class="m-0 font-size-16"> 通知 </h5>
-                  </div>
-                  <div class="col-auto">
-                    <a href="#!" class="small"> 全部已讀</a>
-                  </div>
-                </div>
+              <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="javascript: void(0);">課程</a></li>
+                  <li class="breadcrumb-item active">課程總覽</li>
+                </ol>
               </div>
-              <div data-simplebar style="max-height: 230px;">
-                <a href="" class="text-reset notification-item">
-                  <div class="d-flex align-items-start">
-                    <div class="avatar-xs me-3">
-                      <span class="avatar-title bg-primary rounded-circle font-size-16">
-                        <i class="uil-shopping-basket"></i>
-                      </span>
-                    </div>
-                    <div class="flex-1">
-                      <h6 class="mt-0 mb-1">您的訂單已送達</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">If several languages coalesce the grammar</p>
-                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 分鐘 前</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="" class="text-reset notification-item">
-                  <div class="d-flex align-items-start">
-                    <img src="public/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                    <div class="flex-1">
-                      <h6 class="mt-0 mb-1">James Lemire</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">It will seem like simplified English.</p>
-                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 小時 前</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="" class="text-reset notification-item">
-                  <div class="d-flex align-items-start">
-                    <div class="avatar-xs me-3">
-                      <span class="avatar-title bg-success rounded-circle font-size-16">
-                        <i class="uil-truck"></i>
-                      </span>
-                    </div>
-                    <div class="flex-1">
-                      <h6 class="mt-0 mb-1">Your item is shipped</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">If several languages coalesce the grammar</p>
-                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 分鐘 前</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
 
-                <a href="" class="text-reset notification-item">
-                  <div class="d-flex align-items-start">
-                    <img src="public/assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                    <div class="flex-1">
-                      <h6 class="mt-0 mb-1">Salena Layfield</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 小時 前</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="p-2 border-top d-grid">
-                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                  <i class="uil-arrow-circle-right me-1"></i> 查看更多..
-                </a>
-              </div>
             </div>
           </div>
-
-          <div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-circle header-profile-user" src="public/assets/images/users/avatar-4.jpg" alt="Header Avatar">
-              <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Marcus</span>
-              <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end">
-              <!-- item-->
-              <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">查看帳號</span></a>
-              <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">帳號設定</span> <span class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
-              <a class="dropdown-item" href="/logout"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">登出</span></a>
-            </div>
-          </div>
-
-          <div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-              <i class="uil-cog"></i>
-            </button>
-          </div>
-
         </div>
-      </div>
-    </header>
-    <!-- ========== Left Sidebar Start ========== -->
-    <div class="vertical-menu">
-
-      <!-- LOGO -->
-      <div class="navbar-brand-box">
-        <a href="admin.html" class="logo logo-dark">
-          <span class="logo-sm">
-            <img src="public/assets/images/logo.png" alt="" height="50">
-          </span>
-          <span class="logo-lg">
-            <img src="public/assets/images/logo.png" alt="" height="50">
-          </span>
-        </a>
-
-        <a href="admin.html" class="logo logo-light">
-          <span class="logo-sm">
-            <img src="public/assets/images/logo.png" alt="" height="50">
-          </span>
-          <span class="logo-lg">
-            <img src="public/assets/images/logo.png" alt="" height="50">
-          </span>
-        </a>
-      </div>
-
-      <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
-        <i class="fa fa-fw fa-bars"></i>
-      </button>
-
-      <div data-simplebar class="sidebar-menu-scroll">
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-          <!-- Left Menu Start -->
-          <ul class="metismenu list-unstyled" id="side-menu">
-            <li class="menu-title">Menu</li>
-
-            <li>
-              <a href="admin.html">
-                <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
-                <span>Dashboard</span>
-              </a>
-            </li>
+        <!-- end page title -->
 
 
 
-            <li class="menu-title">功能列表</li>
 
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="uil-store"></i>
-                <span>課程管理</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="ecommerce-products.html">課程</a></li>
-                <li><a href="ecommerce-product-detail.html">修改課程資訊</a></li>
-                <li><a href="ecommerce-add-product.html">新增課程</a></li>
-              </ul>
-            </li>
-
-
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="uil-invoice"></i>
-                <span>訂單管理</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="invoices-list.html">訂單列表</a></li>
-                <li><a href="invoices-detail.html">訂單明細</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="uil-book-alt"></i>
-                <span>會員帳號管理</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="contacts-grid.html">會員列表</a></li>
-
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="uil-book-alt"></i>
-                <span>留言管理</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="message.html">留言列表</a></li>
-
-              </ul>
-            </li>
-            <li class="menu-title">Pages</li>
-
-
-          </ul>
+        <div class="row">
+          <div>
+            <form name="form1" id="form1" method="post">
+              <table class="table table-hover tm-table-small tm-product-table" id="course">
+                <thead>
+                  <tr>
+                    <th scope="col">課程編號</th>
+                    <th scope="col">課程名稱</th>
+                    <th scope="col">科目</th>
+                    <th scope="col">適用年級</th>
+                    <th scope="col">適用學期</th>
+                    <th scope="col">授課教師</th>
+                    <th scope="col">上課時長</th>
+                    <th scope="col">總節數</th>
+                    <th scope="col">售價</th>
+                    <th scope="col">售出數量</th>
+                    <th scope="col">課程敘述</th>
+                    <th scope="col">修改/刪除</th>
+                  </tr>
+                </thead>
+              </table>
+            </form>
+          </div>
         </div>
-        <!-- Sidebar -->
+        <!-- end row -->
       </div>
     </div>
-    <!-- Left Sidebar End -->
 
-    <div class="main-content">
-      <div class="page-content">
-        <div class="container-fluid">
-
-
-          <!-- start page title -->
-          <div class="row">
-            <div class="col-12">
-              <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0">課程</h4>
-
-                <div class="page-title-right">
-                  <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                    <li class="breadcrumb-item active">Products</li>
-                  </ol>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <!-- end page title -->
+    <?php include "adminfooter.php";?>
+     <!-- JAVASCRIPT -->
+     <script src="public/assets/libs/jquery/jquery.min.js"></script>
+        <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="public/assets/libs/node-waves/waves.min.js"></script>
+        <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <!-- select 2 plugin -->
+        <script src="public/assets/libs/select2/js/select2.min.js"></script>
+        <!-- dropzone plugin -->
+        <script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
+        <!-- init js -->
+        <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+        <script src="public/assets/js/app.js"></script>
 
 
+  
 
-
-          <div class="row">
-            <div>
-              <h4>課程列表</h4>
-              <form name="form1" id="form1" method="post">
-                <table class="table table-hover tm-table-small tm-product-table" id="course">
-                  <thead>
-                    <tr>
-                      <th scope="col">課程編號</th>
-                      <th scope="col">課程名稱</th>
-                      <th scope="col">科目</th>
-                      <th scope="col">適用年級</th>
-                      <th scope="col">適用學期</th>
-                      <th scope="col">授課教師</th>
-                      <th scope="col">上課時長</th>
-                      <th scope="col">總節數</th>
-                      <th scope="col">售價</th>
-                      <th scope="col">售出數量</th>
-                      <th scope="col">課程敘述</th>
-                      <th scope="col">修改/刪除</th>
-                    </tr>
-                  </thead>
-
-                </table>
-              </form>
-            </div>
-
-
-          </div>
-          <!-- end row -->
+</body>
+</html>
