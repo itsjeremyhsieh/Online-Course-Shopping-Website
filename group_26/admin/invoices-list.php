@@ -1,3 +1,30 @@
+<?php
+session_start();
+if (!isset($_SESSION['userid']))
+    header("Location: ../login.php");
+if (isset($_SESSION['userid'])) {
+    $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+    if (!$link) {
+        echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+        echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+        exit();
+    }
+    $sql = "SELECT * FROM member WHERE username = '" . $_SESSION['userid'] . "'";
+    mysqli_query($link, 'SET CHARACTER SET utf8');
+    mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+    if ($result = mysqli_query($link, $sql)) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            if($row['level'] != 4)
+            header("Location: ../logout.php");
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

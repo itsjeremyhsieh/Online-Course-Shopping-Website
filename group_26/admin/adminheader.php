@@ -1,4 +1,6 @@
 
+
+
   <!-- Begin page -->
   <div id="layout-wrapper">
 
@@ -127,7 +129,6 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="ecommerce-products.php">課程</a></li>
-                        <li><a href="ecommerce-product-detail.php">修改課程資訊</a></li>
                         <li><a href="ecommerce-add-product.php">新增課程</a></li>
                     </ul>
                 </li>

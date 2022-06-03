@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(mysqli_num_rows($result)==1 && $password==mysqli_fetch_assoc($result)["password"]) {
         session_start();
         $_SESSION['userid'] = $username;
-       
+        
         if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart merge
             $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
             
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
         
-        function_alert1("登入成功！");
+        function_alert1("登入成功！".$_SESSION['level']);
         //header("location:index.php");
     }
     else{
