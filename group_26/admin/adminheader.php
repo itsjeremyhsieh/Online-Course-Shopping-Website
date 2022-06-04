@@ -88,7 +88,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="order.php">訂單列表</a></li>
-                        <li><a href="addorder.php">新增訂單</a></li>
+                        <li><a href="order-add.php">新增訂單</a></li>
                     </ul>
                 </li>
 

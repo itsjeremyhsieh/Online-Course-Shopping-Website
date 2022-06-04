@@ -20,10 +20,10 @@ $bank = $_POST['bank'];
 $course = $_POST['course'];
 $price = $_POST['total'];
 $status = $_POST['st'];
-echo $price;
+//echo $price;
 
 $sql = "UPDATE orders SET username = '" . $username . "', name='". $name . "', email='" . $email . "', phone='". $phone . "', address='". $address . "', payment='". $payment. "', bank='". $bank. "', price='". $price . "', status='" . $status . "' WHERE id='" . $id . "'";
-echo $sql;
+//echo $sql;
 $result = mysqli_query($link, $sql);
 //echo $sql;
 
@@ -36,8 +36,30 @@ $course_arr = explode(",", $course);
 
 for($i = 0 ; $i < count($course_arr) ; $i = $i + 1) {
     $sql2 = "INSERT INTO order_subject VALUES ('$id', '$course_arr[$i]')";
-    echo $sql2;
     $result2 = mysqli_query($link, $sql2);
+
+}
+
+if($status == 1) {
+    date_default_timezone_set('Asia/Taipei'); 
+    $date = date('Ymd');
+    $ownedcourse = array();
+    $sqlcheck = "SELECT * FROM usercourse WHERE username= '" . $username . "'";
+    $result3 = mysqli_query($link, $sqlcheck);
+    while($row = mysqli_fetch_assoc($result3)) {
+        array_push($ownedcourse, $row['courseid']);
+    }
+    //echo $ownedcourse[1];
+    for($i = 0 ; $i < count($course_arr) ; $i = $i + 1) {
+        //echo "test";
+        if(!in_array($course_arr[$i], $ownedcourse))
+        {
+            $sql3 = "INSERT INTO usercourse VALUES ('$username', '$course_arr[$i]', '$date')";
+            $result4 = mysqli_query($link, $sql3);
+        }
+            
+    }
+
 }
 
 function_alert("資料更新成功！");

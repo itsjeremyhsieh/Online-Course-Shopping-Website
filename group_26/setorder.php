@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($status == 1) {
                 date_default_timezone_set('Asia/Taipei'); 
                 $date = date('Ymd');
-                echo $date;
+                //echo $date;
                 $sql2 = "INSERT INTO usercourse VALUES ('$userid', '$course', '$date')";
                 $result3 = mysqli_query($link, $sql2);
             }
