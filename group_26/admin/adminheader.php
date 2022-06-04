@@ -10,7 +10,6 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
               
-
                 <a href="../index.php" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="public/assets/images/logo.png" alt="" height="40">
@@ -21,8 +20,6 @@
                 </a>
             </div>
 
-          
-           
         </div>
 
         
@@ -62,7 +59,7 @@
 
                 <li>
                     <a href="admin.php">
-                        <span>儀錶板</span>
+                        <span>首頁</span>
                     </a>
                 </li>
 
@@ -101,11 +98,21 @@
                         <span>會員帳號管理</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="contacts-grid.php">會員列表</a></li>
+                        <li><a href="member.php">會員列表</a></li>
                         
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-book-alt"></i>
+                        <span>評價管理</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="review.php">評價列表</a></li>
+                        
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-book-alt"></i>
@@ -116,6 +123,7 @@
                         
                     </ul>
                 </li>
+
          
 
 

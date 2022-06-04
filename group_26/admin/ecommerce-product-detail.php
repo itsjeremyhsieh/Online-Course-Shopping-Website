@@ -57,7 +57,7 @@ if ($result = mysqli_query($link, $sql)) {
 <head>
 
     <meta charset="utf-8" />
-    <title>修改課程資訊</title>
+    <title>CourseLux後臺管理系統</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -159,12 +159,6 @@ if ($result = mysqli_query($link, $sql)) {
                     valid: {
                         required: true,
                     },
-                    cover: {
-                        required: true,
-                    },
-                    download: {
-                        required: true,
-                    },
                     description: {
                         required: true,
                     }
@@ -210,12 +204,7 @@ if ($result = mysqli_query($link, $sql)) {
                     valid: {
                         required: "此為必填欄位",
                     },
-                    /*cover: {
-                        required: "此為必填欄位",
-                    },
-                    download: {
-                        required: "此為必填欄位",
-                    },*/
+                  
                     description: {
                         required: "此為必填欄位",
                     },

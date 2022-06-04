@@ -34,7 +34,7 @@ if (isset($_SESSION['userid'])) {
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Minible - Admin & Dashboard Template</title>
+    <title>CourseLux後臺管理系統</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -64,12 +64,12 @@ if (isset($_SESSION['userid'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-flex align-items-center justify-content-between">
-                            <h4 class="mb-0">儀錶板</h4>
+                          
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li>
-                                    <li class="breadcrumb-item active">儀錶板</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">COURSELUX</a></li>
+                                    <li class="breadcrumb-item active">首頁</li>
                                 </ol>
                             </div>
 
@@ -86,10 +86,10 @@ if (isset($_SESSION['userid'])) {
                 <br><br><br>
                 <div style="text-align:center;">
                     <h4>
-                        歡迎來到COURSELUX後端，在這裡您可以新增、修改及刪除資料。<br><br>
-                        <b>請注意</b>，一但經編輯，資料難以復原，每次的修改請務必謹慎。<br><br>
+                        歡迎進入<b>COURSELUX</b>後臺管理，在這裡您可以新增、修改及刪除資料。<br><br>
+                        <b>請注意</b>，一但經編輯，資料難以復原，每次修改請務必謹慎。<br><br>
                         後端資料庫的一切資料均屬於本企業財產，禁止惡意外流及破壞。<br><br>
-                        請在合理規範內好好使用，謝謝配合!
+                        請在合理規範內妥善使用，謝謝配合!
                     </h4>
                 </div>
 

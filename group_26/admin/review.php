@@ -58,7 +58,7 @@ if (isset($_SESSION['userid'])) {
     <script>
     var tbl;
     $(function() {
-      tbl = $('#message').DataTable({
+      tbl = $('#review').DataTable({
         "language": {
           "processing": "處理中...",
           "loadingRecords": "載入中...",
@@ -213,9 +213,9 @@ if (isset($_SESSION['userid'])) {
         },
 
         "ajax": {
-          url: "datatable3_ajax.php",
+          url: "datatable4_ajax.php",
           data: function(d) {
-            return $('#form3').serialize() + "&oper=query";
+            return $('#form4').serialize() + "&oper=query";
           },
           type: 'POST',
           dataType: 'json'
@@ -229,10 +229,9 @@ if (isset($_SESSION['userid'])) {
           return false;
         else {
           var data = tbl.row($(this).closest('tr')).data();
-          var direct = "deletemessage.php?id=" + data[0];
+          var direct = "deletereview.php?id=" + data[0];
           window.location.href = direct;
         }
-
 
       });
       
@@ -272,14 +271,15 @@ if (isset($_SESSION['userid'])) {
 
 
                 <div class="row">
-                    <form name="form3" id="form3" method="post">
-                        <table class="table table-hover tm-table-small tm-product-table" id="message">
+                    <form name="form4" id="form4" method="post">
+                        <table class="table table-hover tm-table-small tm-product-table" id="review">
                             <thead>
                                 <tr class="bg-transparent">
                                     <th>編號</th>
-                                    <th>留言用戶</th>
-                                    <th>電子郵件</th>
-                                    <th>留言內容</th>
+                                    <th>課程</th>
+                                    <th>評價用戶</th>
+                                    <th>評價星等</th>
+                                    <th>評價內容</th>
                                     <th style="width: 120px;">刪除</th>
                                 </tr>
                             </thead>

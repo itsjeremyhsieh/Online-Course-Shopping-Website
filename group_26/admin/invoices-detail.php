@@ -31,7 +31,7 @@ if (isset($_SESSION['userid'])) {
 <head>
 
     <meta charset="utf-8" />
-    <title>Invoice Detail | Minible - Admin & Dashboard Template</title>
+    <title>CourseLux後臺管理系統</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">

@@ -37,10 +37,6 @@ if (isset($_SESSION['userid'])) {
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
     <link rel="shortcut icon" href="public/assets/images/favicon.ico">
-
-
-   <!-- App favicon -->
-   <link rel="shortcut icon" href="public/assets/images/favicon.ico">
     <!-- Bootstrap Css -->
     <link href="public/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -58,7 +54,7 @@ if (isset($_SESSION['userid'])) {
     <script>
     var tbl;
     $(function() {
-      tbl = $('#message').DataTable({
+      tbl = $('#member').DataTable({
         "language": {
           "processing": "處理中...",
           "loadingRecords": "載入中...",
@@ -213,9 +209,9 @@ if (isset($_SESSION['userid'])) {
         },
 
         "ajax": {
-          url: "datatable3_ajax.php",
+          url: "datatable2_ajax.php",
           data: function(d) {
-            return $('#form3').serialize() + "&oper=query";
+            return $('#form2').serialize() + "&oper=query";
           },
           type: 'POST',
           dataType: 'json'
@@ -229,20 +225,23 @@ if (isset($_SESSION['userid'])) {
           return false;
         else {
           var data = tbl.row($(this).closest('tr')).data();
-          var direct = "deletemessage.php?id=" + data[0];
+          var direct = "deletemember.php?id=" + data[0];
           window.location.href = direct;
         }
 
 
       });
-      
-    })
-    </script>
+      $('tbody').on('click', '#btn_update', function() {
+        var data = tbl.row($(this).closest('tr')).data();
+        var direct = "member-detail.php?id=" + data[0];
+        window.location.href = direct;
 
+      });
+    })
+  </script>
 </head>
 
 <body>
-
     <?php include "adminheader.php"; ?>
 
 
@@ -255,12 +254,12 @@ if (isset($_SESSION['userid'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-flex align-items-center justify-content-between">
-                            <h4 class="mb-0">留言列表</h4>
+                            <h4 class="mb-0">用戶網格</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">留言</a></li>
-                                    <li class="breadcrumb-item active">留言列表</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">聯繫人</a></li>
+                                    <li class="breadcrumb-item active">用戶網格</li>
                                 </ol>
                             </div>
 
@@ -269,31 +268,36 @@ if (isset($_SESSION['userid'])) {
                 </div>
                 <!-- end page title -->
 
-
-
                 <div class="row">
-                    <form name="form3" id="form3" method="post">
-                        <table class="table table-hover tm-table-small tm-product-table" id="message">
+                    <form name="form2" id="form2" method="post">
+                        <table class="table table-hover tm-table-small tm-product-table" id="member">
                             <thead>
-                                <tr class="bg-transparent">
-                                    <th>編號</th>
-                                    <th>留言用戶</th>
-                                    <th>電子郵件</th>
-                                    <th>留言內容</th>
-                                    <th style="width: 120px;">刪除</th>
+                                <tr>
+                                    <th scope="col">帳號名稱</th>
+                                    <th scope="col">姓名</th>
+                                    <th scope="col">電子郵件</th>
+                                    <th scope="col">密碼</th>
+                                    <th scope="col">手機號碼</th>
+                                    <th scope="col">性別</th>
+                                    <th scope="col">生日</th>
+                                    <th scope="col">地址</th>
+                                    <th scope="col">會員等級</th>
+                                    <th scope="col">修改/刪除</th>
                                 </tr>
                             </thead>
                         </table>
                     </form>
                 </div>
                 <!-- end row -->
-
-
             </div>
         </div>
+    </div>
+    </div>
 
-        <?php include "adminfooter.php"; ?>
-          <!-- JAVASCRIPT -->
+
+
+    <?php include "adminfooter.php"; ?>
+    <!-- JAVASCRIPT -->
     <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
@@ -311,8 +315,6 @@ if (isset($_SESSION['userid'])) {
 <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
 
 <script src="public/assets/js/app.js"></script>
-
-
 </body>
 
 </html>

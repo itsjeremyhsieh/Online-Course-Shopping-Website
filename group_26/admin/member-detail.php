@@ -23,9 +23,40 @@ if (isset($_SESSION['userid'])) {
     }
 }
 
+$id = $_GET['id'];
+
+$link = mysqli_connect("localhost", "root", "root123456", "group_26") // 建立MySQL的資料庫連結
+    or die("無法開啟MySQL資料庫連結!<br>");
+
+// 送出編碼的MySQL指令
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+$sql = "SELECT * FROM member WHERE username='" . $id . "'";
+if ($result = mysqli_query($link, $sql)) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $username = $row['username'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $password = $row['password'];
+        $phone = $row['phone'];
+        $gender = $row['gender'];
+        $birth = $row['birth'];
+        $address = $row['address'];
+        $level = $row['level'];
+    }
+}
+if ($level == 4 && $username != $_SESSION['userid'])
+    function_alert("沒有權限！");
+
+function function_alert($message)
+{
+
+    echo "<script>alert('$message');
+    window.location.href='member.php';
+   </script>";
+    return false;
+}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -135,12 +166,6 @@ if (isset($_SESSION['userid'])) {
                     valid: {
                         required: true,
                     },
-                    cover: {
-                        required: true,
-                    },
-                    download: {
-                        required: true,
-                    },
                     description: {
                         required: true,
                     }
@@ -186,12 +211,7 @@ if (isset($_SESSION['userid'])) {
                     valid: {
                         required: "此為必填欄位",
                     },
-                    /*cover: {
-                        required: "此為必填欄位",
-                    },
-                    download: {
-                        required: "此為必填欄位",
-                    },*/
+
                     description: {
                         required: "此為必填欄位",
                     },
@@ -199,6 +219,7 @@ if (isset($_SESSION['userid'])) {
             });
         });
     </script>
+
 </head>
 
 <body>
@@ -215,12 +236,12 @@ if (isset($_SESSION['userid'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-flex align-items-center justify-content-between">
-                            <h4 class="mb-0">新增課程</h4>
+                            <h4 class="mb-0">修改會員</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                                    <li class="breadcrumb-item active">Add Product</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">會員管理</a></li>
+                                    <li class="breadcrumb-item active">修改會員資訊</li>
                                 </ol>
                             </div>
 
@@ -248,8 +269,8 @@ if (isset($_SESSION['userid'])) {
                                                 </div>
                                             </div>
                                             <div class="flex-1 overflow-hidden">
-                                                <h5 class="font-size-16 mb-1">課程資訊</h5>
-                                                <p class="text-muted text-truncate mb-0">請填寫以下資訊</p>
+                                                <h5 class="font-size-16 mb-1">會員資訊</h5>
+                                                <p class="text-muted text-truncate mb-0">請修改以下資訊</p>
                                             </div>
                                             <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
                                         </div>
@@ -259,150 +280,113 @@ if (isset($_SESSION['userid'])) {
 
                                 <div id="addproduct-billinginfo-collapse" class="collapse show" data-bs-parent="#addproduct-accordion">
                                     <div class="p-4 border-top">
-                                        <form action="addcourse.php" method="POST" name="form3" id="form3" class="mb-2" enctype="multipart/form-data">
+                                        <form action="editmember.php" method="POST" name="form4" id="form4" class="mb-2">
 
-
-                                            <div class="mb-3">
-                                                <label class="form-label" for="name">課程名稱</label>
-                                                <input id="name" name="name" type="text" class="form-control">
-                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="id">課程編號</label>
-                                                        <input id="id" name="id" type="text" class="form-control" value=<?php echo $newid; ?> readonly>
+                                                        <label class="form-label" for="id">使用者名稱</label>
+                                                        <input id="username" name="username" type="text" class="form-control" value=<?php echo $username; ?> readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="id">姓名</label>
+                                                        <input id="name" name="name" type="text" class="form-control" value=<?php echo $name; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="subject">科目</label>
-                                                        <input id="subject" name="subject" type="text" class="form-control">
+                                                        <label class="form-label" for="subject">電子郵件</label>
+                                                        <input id="email" name="email" type="text" class="form-control" value=<?php echo $email; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="grade">適用年級</label>
-                                                        <input id="grade" name="grade" type="text" class="form-control">
+                                                        <label class="form-label" for="grade">密碼</label>
+                                                        <input id="password" name="password" type="text" class="form-control" value=<?php echo $password; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="smt">適用學期</label>
-                                                        <input id="smt" name="smt" type="text" class="form-control">
+                                                        <label class="form-label" for="smt">電話號碼</label>
+                                                        <input id="phone" name="phone" type="text" class="form-control" value=<?php echo $phone; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="teacher">授課老師</label>
-                                                        <input id="teacher" name="teacher" type="text" class="form-control">
+                                                        <label class="form-label" for="teacher">性別（0為女性；1為男性）</label>
+                                                        <input id="gender" name="gender" type="text" class="form-control" value=<?php echo $gender; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="length">上課時長</label>
-                                                        <input id="length" oninput="value=value.replace(/[^\d]/g,'')" name="length" type="text" class="form-control">
+                                                        <label class="form-label" for="length">生日</label>
+                                                        <input id="birth" name="birth" type="date" class="form-control" value=<?php echo $birth; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="total">總節數</label>
-                                                        <input id="total" oninput="value=value.replace(/[^\d]/g,'')" name="total" type="text" class="form-control">
+                                                        <label class="form-label" for="teacher">地址</label>
+                                                        <input id="address" name="address" type="text" class="form-control" value=<?php echo $address; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="sold">售出數量</label>
-                                                        <input id="sold" oninput="value=value.replace(/[^\d]/g,'')" name="sold" type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="price">售價</label>
-                                                        <input id="price" oninput="value=value.replace(/[^\d]/g,'')" name="price" type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="valid">有效期限</label>
-                                                        <input id="valid" oninput="value=value.replace(/[^\d]/g,'')" name="valid" type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="cover">課程封面</label>
-                                                        <input name="cover" type="file" id="cover" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="cover">課程教材</label>
-                                                        <input name="download" type="file" id="download" class="form-control">
+                                                        <label class="form-label" for="total">會員等級（1為一般會員；2為VIP會員；3為SVIP會員；4為管理員）</label>
+                                                        <input id="level" oninput="value=value.replace(/[^\d]/g,'')" name="level" type="text" class="form-control" value=<?php echo $level; ?>>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <div class="mb-0">
-                                                <label class="form-label" for="description">課程敘述</label>
-                                                <textarea class="form-control" id="description" name="description" rows="4"></textarea>
-                                            </div>
-
                                     </div>
                                 </div>
+
                             </div>
-
-
                         </div>
                     </div>
+                    <!-- end row -->
+
+                    <div class="row mb-4">
+                        <div class="col text-end">
+                            <a href="ecommerce-products.php" class="btn btn-danger">取消 </a>
+                            <input type="submit" value="儲存" class="btn btn-success uil uil-file-alt me-1">
+
+                        </div> <!-- end col -->
+                    </div> <!-- end row-->
+                    </form>
+
                 </div>
-                <!-- end row -->
-
-                <div class="row mb-4">
-                    <div class="col text-end">
-                        <a href="ecommerce-products.php" class="btn btn-danger">取消 </a>
-                        <input type="submit" value="儲存" class="btn btn-success uil uil-file-alt me-1">
-
-                    </div> <!-- end col -->
-                </div> <!-- end row-->
-                </form>
             </div>
         </div>
 
-    </div>
+        <?php include "adminfooter.php"; ?>
 
-    <?php include "adminfooter.php"; ?>
-    <!-- JAVASCRIPT -->
-    <script src="public/assets/libs/jquery/jquery.min.js"></script>
-    <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="public/assets/libs/node-waves/waves.min.js"></script>
-    <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <!-- JAVASCRIPT -->
+        <script src="public/assets/libs/jquery/jquery.min.js"></script>
+        <script src="public/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="public/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="public/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="public/assets/libs/node-waves/waves.min.js"></script>
+        <script src="public/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="public/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
 
-    <!-- select 2 plugin -->
-    <script src="public/assets/libs/select2/js/select2.min.js"></script>
+        <!-- select 2 plugin -->
+        <script src="public/assets/libs/select2/js/select2.min.js"></script>
 
-    <!-- dropzone plugin -->
-    <script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
+        <!-- dropzone plugin -->
+        <script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
 
-    <!-- init js -->
-    <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+        <!-- init js -->
+        <script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
 
-    <script src="public/assets/js/app.js"></script>
-
-
+        <script src="public/assets/js/app.js"></script>
 </body>
 
 </html>

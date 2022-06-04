@@ -31,7 +31,7 @@ if (isset($_SESSION['userid'])) {
 <head>
 
   <meta charset="utf-8" />
-  <title>課程總覽</title>
+  <title>CourseLux後臺管理系統</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
   <meta content="Themesbrand" name="author">
@@ -48,7 +48,6 @@ if (isset($_SESSION['userid'])) {
 
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
