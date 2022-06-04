@@ -51,7 +51,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         }
         
-        
         function_alert1("登入成功！".$_SESSION['level']);
         //header("location:index.php");
     }

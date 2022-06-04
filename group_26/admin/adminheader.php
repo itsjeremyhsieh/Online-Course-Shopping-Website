@@ -87,8 +87,8 @@
                         <span>訂單管理</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="invoices-list.php">訂單列表</a></li>
-                        <li><a href="invoices-detail.php">發票明細</a></li>
+                        <li><a href="order.php">訂單列表</a></li>
+                        <li><a href="addorder.php">新增訂單</a></li>
                     </ul>
                 </li>
 

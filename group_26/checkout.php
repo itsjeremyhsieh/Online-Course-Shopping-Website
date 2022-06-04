@@ -191,7 +191,7 @@ if ($result = mysqli_query($link, $sql1)) {
             <div class="container">
 
                 <!-- Checkout Form s-->
-                <form action="" method="POST" name="form2" id="form2" class="checkout-form">
+                <form action="setorder.php" method="POST" name="form2" id="form2" class="checkout-form">
                     <div class="row row-50 mbn-40">
 
                         <div class="col-lg-7"><!-- Billing Address -->
@@ -200,20 +200,20 @@ if ($result = mysqli_query($link, $sql1)) {
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>訂購人姓名</label>
-                                        <input type="text" name="name" value="<?php echo $name; ?>">
+                                        <input type="text" name="name" id="name" value="<?php echo $name; ?>">
                                         <div class="errorInfo"><label for="name"></label></div>
                                     </div>
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>Email *</label>
-                                        <input type="email" name="email" value="<?php echo $email; ?>">
+                                        <input type="email" name="email" id="email" value="<?php echo $email; ?>">
                                     </div>
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>電話號碼*</label>
-                                        <input type="text" name="phone" value="<?php echo $phone; ?>">
+                                        <input type="text" name="phone" id="phone" value="<?php echo $phone; ?>">
                                     </div>
                                     <div class="col-12 mb-5">
                                         <label>地址*</label>
-                                        <input type="text" name="address" value="<?php echo $address; ?>">
+                                        <input type="text" name="address" id="address" value="<?php echo $address; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -232,6 +232,7 @@ if ($result = mysqli_query($link, $sql1)) {
                                         <p>小記 <span> <?php echo $total;?></span></p>
                                         <p>折扣 <span> 0</span></p>
                                         <h4>總計 <span> <?php echo $total;?></span></h4>
+                                        <input type="hidden" name="total" id="total" value="<?php echo $total; ?>" >
                                     </div>
                                 </div>
 
