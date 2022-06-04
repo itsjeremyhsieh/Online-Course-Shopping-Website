@@ -77,7 +77,21 @@ if (isset($_SESSION['userid'])) {
                     </div>
                 </div>
                 <!-- end page title -->
-
+                <br><br> <br><br>
+                <div >
+                    <span class="logo-sm">
+                        <img src="public/assets/images/logo.png" alt="" height="120" style="display:block; margin:auto;">
+                    </span>
+                </div>
+                <br><br><br>
+                <div style="text-align:center;">
+                    <h4>
+                        歡迎來到COURSELUX後端，在這裡您可以新增、修改及刪除資料。<br><br>
+                        <b>請注意</b>，一但經編輯，資料難以復原，每次的修改請務必謹慎。<br><br>
+                        後端資料庫的一切資料均屬於本企業財產，禁止惡意外流及破壞。<br><br>
+                        請在合理規範內好好使用，謝謝配合!
+                    </h4>
+                </div>
 
                 <?php include "adminfooter.php"; ?>
                 <!-- JAVASCRIPT -->
