@@ -201,21 +201,8 @@ if ($result = mysqli_query($link, $sql)) {
                                     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
                                     <lord-icon src="https://cdn.lordicon.com/rqskgpey.json" trigger="loop" colors="primary:#121331" scale="30" style="width:100px;height:100px">
                                     </lord-icon>
-                                    <b><?php echo $level; ?></b>會員， <?php echo $name; ?>您好
-                                    <!------
-								<div class="welcome">
-									<p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
-								</div>
-                                
-								<p class="mb-0">您當前的等級為普通會員</p>----->
-                                    <div class="g-progress" style="--progress: 70%">
-                                    </div>
-
-
-                                    <br>
-                                    <center>距離下一等級還差$4500</center>
-
-
+                                    <b><?php echo $level; ?></b>， <?php echo $name; ?>您好
+                         
 
                                     <div class="row my-5">
                                         <div class="col-sm-6 col-lg-4">

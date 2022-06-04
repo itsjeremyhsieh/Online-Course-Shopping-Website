@@ -1,3 +1,54 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['userid']))
+    header("Location: login.php");
+
+
+$link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
+
+if (!$link) {
+    echo "連結錯誤代碼: " . mysqli_connect_errno() . "<br>";
+    echo "連結錯誤訊息: " . mysqli_connect_error() . "<br>";
+    exit();
+}
+$sql = "SELECT * FROM orders WHERE username = '" . $_SESSION['userid'] . "'";
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+
+if ($result = mysqli_query($link, $sql)) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $order_course = "";
+        $sql1 = "SELECT * from order_subject WHERE ordernum = '" . $row['id'] . "'";
+        if ($result1 = mysqli_query($link, $sql1)) {
+            while ($row1 = mysqli_fetch_assoc($result1)) {
+                $order_course .= $row1['subject'] . ", ";
+            }
+        }
+        $order_course = substr_replace($order_course, "", -2);
+        $id = $row['id'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $phone = $row['phone'];
+        $address = $row['address'];
+        $bank = $row['bank'];
+        $price = $row['price'];
+        if ($row["status"] == 0)
+            $status = "待處理";
+        else if ($row["status"] == 1)
+            $status = "已完成";
+        if ($row['payment'] == "paypal")
+            $payment = "信用卡付款";
+        else
+            $payment = "銀行轉帳";
+        $orders .= "<tr><td>". $id . "</td><td>". $name . "</td><td>". $email ."</td><td>". $phone . "</td><td>". $address . "</td><td>". $payment. "</td><td>". $bank. "</td><td>". $order_course . "</td><td>". $price . "</td><td>". $status. "</td></tr>";
+    }
+
+}
+?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -141,7 +192,7 @@
 
                             <a href="my-account.php"><i class="fa fa-dashboard"></i>會員資訊</a>
 
-                            <a href="order.php"  class="active"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
+                            <a href="order.php" class="active"><i class="fa fa-cart-arrow-down"></i> 訂單管理</a>
 
                             <a href="download.php"><i class="fa fa-cloud-download"></i> 下載資訊</a>
 
@@ -158,39 +209,20 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>編號</th>
-                                        <th>名稱</th>
-                                        <th>日期</th>
-                                        <th>狀態</th>
+                                        <th>姓名</th>
+                                        <th>電子郵件</th>
+                                        <th>電話</th>
+                                        <th>地址</th>
+                                        <th>付款方式</th>
+                                        <th>信用卡號</th>
+                                        <th>訂單內容</th>
                                         <th>總價</th>
-                                        <th>明細</th>
+                                        <th>訂單狀態</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Moisturizing Oil</td>
-                                        <td>Aug 22, 2022</td>
-                                        <td>Pending</td>
-                                        <td>$45</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Katopeno Altuni</td>
-                                        <td>July 22, 2022</td>
-                                        <td>Approved</td>
-                                        <td>$100</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Murikhete Paris</td>
-                                        <td>June 12, 2022</td>
-                                        <td>On Hold</td>
-                                        <td>$99</td>
-                                        <td><a href="cart.php" class="btn btn-dark btn-round">查看</a></td>
-                                    </tr>
+                                   <?php echo $orders;?>
                                 </tbody>
                             </table>
                         </div>
