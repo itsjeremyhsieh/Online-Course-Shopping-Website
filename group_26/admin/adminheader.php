@@ -123,7 +123,13 @@
                         
                     </ul>
                 </li>
-
+                <li>
+                    <a href="../logout.php">
+                        <i class="uil-book-alt"></i>
+                        <span><?php echo "登出 " .$_SESSION['userid']?></span>
+                    </a>
+                   
+                </li>
          
 
 
