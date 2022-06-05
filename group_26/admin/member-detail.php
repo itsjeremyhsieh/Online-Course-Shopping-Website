@@ -115,6 +115,71 @@ function function_alert($message)
     <!-- App Css-->
     <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+    <script>
+        $(document).ready(function($) {
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+
+            $("#form4").validate({
+                submitHandler: function(form) {
+                    form.submit();
+                },
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                    },
+                    password: {
+                        required: true,
+                    },
+                    phone: {
+                        required: true,
+                    },
+                    gender: {
+                        required: true,
+                    },
+                    birth: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+                    },
+                    level: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "此為必填欄位"
+                    },
+                    email: {
+                        required: "此為必填欄位"
+                    },
+                    password: {
+                        required: "此為必填欄位"
+                    },
+                    phone: {
+                        required: "此為必填欄位"
+                    },
+                    gender: {
+                        required: "此為必填欄位"
+                    },
+                    birth: {
+                        required: "此為必填欄位"
+                    },
+                    address: {
+                        required: "此為必填欄位"
+                    },
+                    level: {
+                        required: "此為必填欄位"
+                    },
+                }
+            });
+        });
+    </script>
 
 </head>
 
