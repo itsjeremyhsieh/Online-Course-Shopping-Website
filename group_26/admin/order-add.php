@@ -102,7 +102,77 @@ if ($result2 = mysqli_query($link, $sql2)) {
     <!-- App Css-->
     <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+    <script>
+        $(document).ready(function($) {
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
 
+            $("#form7").validate({
+                submitHandler: function(form) {
+                    form.submit();
+                },
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                    },
+                    phone: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+                    },
+                    payment: {
+                        required: true,
+                    },
+                    bank: {
+                        required: true,
+                    },
+                    course: {
+                        required: true,
+                    },
+                    total: {
+                        required: true,
+                    },
+                    st: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "此為必填欄位"
+                    },
+                    email: {
+                        required: "此為必填欄位"
+                    },
+                    phone: {
+                        required: "此為必填欄位"
+                    },
+                    address: {
+                        required: "此為必填欄位"
+                    },
+                    payment: {
+                        required: "此為必填欄位"
+                    },
+                    bank: {
+                        required: "此為必填欄位"
+                    },
+                    course: {
+                        required: "此為必填欄位"
+                    },
+                    total: {
+                        required: "此為必填欄位"
+                    },
+                    st: {
+                        required: "此為必填欄位"
+                    },
+                }
+            });
+        });
+    </script>
 
 </head>
 
