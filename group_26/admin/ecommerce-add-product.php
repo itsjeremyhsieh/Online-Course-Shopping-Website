@@ -23,6 +23,12 @@ if (isset($_SESSION['userid'])) {
     }
 }
 
+$sql1 = "SELECT MAX(id) as max_id FROM course";
+if ($result1 = mysqli_query($link, $sql1)) {
+    while ($row1 = mysqli_fetch_assoc($result1))
+        $newid = $row1['max_id'] + 1;
+}
+
 ?>
 
 

@@ -195,7 +195,7 @@ if ($result = mysqli_query($link, $sql)) {
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="username">訂單用戶</label>
-                                                        <input id="username" name="username" type="text" class="form-control" value=<?php echo $username; ?>>
+                                                        <input id="username" name="username" type="text" class="form-control" value=<?php echo $username; ?> readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -230,13 +230,16 @@ if ($result = mysqli_query($link, $sql)) {
 
                                                     <div class="mb-3">
                                                         <label class="form-label" for="payment">付款方式</label>
-                                                        <input id="payment" name="payment" type="text" class="form-control" value=<?php echo $payment; ?>>
+                                                        <select id="payment" name="payment" class="form-control">
+                                                            <option value="bank">銀行轉帳</option>
+                                                            <option value="paypal">信用卡付款</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="bank">信用卡號</label>
+                                                        <label class="form-label" for="bank">信用卡號（若無請填0）</label>
                                                         <input id="bank" name="bank" type="text" class="form-control" value=<?php echo $bank; ?>>
                                                     </div>
                                                 </div>
