@@ -116,110 +116,6 @@ function function_alert($message)
     <link href="public/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 
-
-    <script>
-        $(document).ready(function($) {
-            //for select
-            $.validator.addMethod("notEqualsto", function(value, element, arg) {
-                return arg != value;
-            }, "您尚未選擇!");
-
-            $("#form3").validate({
-                rules: {
-                    name: {
-                        required: true,
-                    },
-                    id: {
-                        required: true,
-
-                    },
-                    subject: {
-                        required: true,
-
-                    },
-                    grade: {
-                        required: true,
-
-                    },
-                    smt: {
-                        required: true,
-
-                    },
-                    teacher: {
-                        required: true,
-
-                    },
-                    length: {
-                        required: true,
-
-                    },
-                    total: {
-                        required: true,
-
-                    },
-                    sold: {
-                        required: true,
-                    },
-                    price: {
-                        required: true,
-                    },
-                    valid: {
-                        required: true,
-                    },
-                    description: {
-                        required: true,
-                    }
-                },
-                messages: {
-                    name: {
-                        required: "此為必填欄位",
-                    },
-                    id: {
-                        required: "此為必填欄位",
-
-                    },
-                    subject: {
-                        required: "此為必填欄位",
-
-                    },
-                    grade: {
-                        required: "此為必填欄位",
-
-                    },
-                    smt: {
-                        required: "此為必填欄位",
-
-                    },
-                    teacher: {
-                        required: "此為必填欄位",
-
-                    },
-                    length: {
-                        required: "此為必填欄位",
-
-                    },
-                    total: {
-                        required: "此為必填欄位",
-
-                    },
-                    sold: {
-                        required: "此為必填欄位",
-                    },
-                    price: {
-                        required: "此為必填欄位",
-                    },
-                    valid: {
-                        required: "此為必填欄位",
-                    },
-
-                    description: {
-                        required: "此為必填欄位",
-                    },
-                }
-            });
-        });
-    </script>
-
 </head>
 
 <body>
@@ -291,57 +187,67 @@ function function_alert($message)
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="id">姓名</label>
+                                                        <label class="form-label" for="name">姓名</label>
                                                         <input id="name" name="name" type="text" class="form-control" value=<?php echo $name; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="subject">電子郵件</label>
+                                                        <label class="form-label" for="email">電子郵件</label>
                                                         <input id="email" name="email" type="text" class="form-control" value=<?php echo $email; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="grade">密碼</label>
+                                                        <label class="form-label" for="password">密碼</label>
                                                         <input id="password" name="password" type="text" class="form-control" value=<?php echo $password; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="smt">電話號碼</label>
+                                                        <label class="form-label" for="phone">電話號碼</label>
                                                         <input id="phone" name="phone" type="text" class="form-control" value=<?php echo $phone; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="teacher">性別（0為女性；1為男性）</label>
-                                                        <input id="gender" name="gender" type="text" class="form-control" value=<?php echo $gender; ?>>
+                                                        <label class="form-label" for="gender">性別</label>
+                                                        <select id="gender" name="gender" class="form-control">
+                                                            <option value="0" <?php  if($gender == 0) echo "selected"; ?>>女性</option>
+                                                            <option value="1" <?php  if($gender == 1) echo "selected"; ?>>男性</option>
+                                                        </select>
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="length">生日</label>
+                                                        <label class="form-label" for="birth">生日</label>
                                                         <input id="birth" name="birth" type="date" class="form-control" value=<?php echo $birth; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="teacher">地址</label>
+                                                        <label class="form-label" for="address">地址</label>
                                                         <input id="address" name="address" type="text" class="form-control" value=<?php echo $address; ?>>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
 
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="total">會員等級（1為一般會員；2為VIP會員；3為SVIP會員；4為管理員）</label>
-                                                        <input id="level" oninput="value=value.replace(/[^\d]/g,'')" name="level" type="text" class="form-control" value=<?php echo $level; ?>>
+                                                        <label class="form-label" for="level">會員等級</label>
+                                                        <select id="level" name="level" class="form-control">
+                                                            <option value="1" <?php  if($level == 1) echo "selected"; ?>>一般會員</option>
+                                                            <option value="2" <?php  if($level == 2) echo "selected"; ?>>VIP會員</option>
+                                                            <option value="3" <?php  if($level == 3) echo "selected"; ?>>SVIP會員</option>
+                                                            <option value="4" <?php  if($level == 4) echo "selected"; ?>>管理員</option>
+                                                        </select>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -355,7 +261,7 @@ function function_alert($message)
 
                     <div class="row mb-4">
                         <div class="col text-end">
-                            <a href="ecommerce-products.php" class="btn btn-danger">取消 </a>
+                            <a href="member.php" class="btn btn-danger">取消 </a>
                             <input type="submit" value="儲存" class="btn btn-success uil uil-file-alt me-1">
 
                         </div> <!-- end col -->

@@ -254,12 +254,12 @@ if (isset($_SESSION['userid'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-flex align-items-center justify-content-between">
-                            <h4 class="mb-0">用戶網格</h4>
+                  
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">聯繫人</a></li>
-                                    <li class="breadcrumb-item active">用戶網格</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">會員</a></li>
+                                    <li class="breadcrumb-item active">會員列表</li>
                                 </ol>
                             </div>
 
