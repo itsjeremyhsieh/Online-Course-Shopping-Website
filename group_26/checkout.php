@@ -44,17 +44,26 @@ if ($result = mysqli_query($link, $sql1)) {
                 $totaltmp = $totaltmp + $row2['price'];
             }
         }
-        
     }
 }
 
-if($_SESSION['level'] == 2)
+if ($_SESSION['level'] == 2)
     $discount = 0.95;
-else if($_SESSION['level'] == 3)
+else if ($_SESSION['level'] == 3)
     $discount = 0.9;
 else
     $discount = 1;
-$total = $totaltmp*$discount;
+$total = $totaltmp * $discount;
+$discount1 = 0;
+
+$sql3 = "SELECT * FROM coupon WHERE userid = '" . $_SESSION['userid'] . "'";
+$coupon = "";
+if ($result3 = mysqli_query($link, $sql3)) {
+
+    while ($row3 = mysqli_fetch_assoc($result3)) {
+        $coupons .= "<option value='" . $row3['prize'] . "'>" . $row3['couponname'] . ":可折抵 " . $row3['prize'] . "元 </option>";
+    }
+}
 ?>
 
 <!doctype html>
@@ -78,8 +87,8 @@ $total = $totaltmp*$discount;
     <!-- CSS
 	============================================ -->
 
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="assets/css/icon-font.min.css">
@@ -95,80 +104,90 @@ $total = $totaltmp*$discount;
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    
-    
-    <script type="text/javascript">
-    $(document).ready(function($) {
-        $.validator.addMethod("notEqualsto", function(value, element, arg) {
-            return arg != value;
-        }, "您尚未選擇!");
 
-        $("#form2").validate({
-            submitHandler: function(form) {
-                form.submit();
-            },
-            rules: {
-                name: {
-                    required: true,
+
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            $.validator.addMethod("notEqualsto", function(value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+
+            $("#form2").validate({
+                submitHandler: function(form) {
+                    form.submit();
                 },
-                email: {
-                    required: true,
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                    },
+                    phone: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+                    }
                 },
-                phone: {
-                    required: true,
-                },
-                address: {
-                    required: true,
+                messages: {
+                    name: {
+                        required: "此為必填欄位",
+                    },
+                    email: {
+                        required: "此為必填欄位",
+                    },
+                    phone: {
+                        required: "此為必填欄位",
+                    },
+                    address: {
+                        required: "此為必填欄位",
+                    },
                 }
-            },
-            messages: {
-                name: {
-                    required: "此為必填欄位",   
-                },
-                email: {
-                    required: "此為必填欄位",
-                },
-                phone: {
-                    required: "此為必填欄位",
-                },
-                address: {
-                    required: "此為必填欄位",
-                },
-            }
+            });
         });
-    });
     </script>
 
     <script type="text/javascript">
-        function radioValidation(){
+        function radioValidation() {
             var payment = document.getElementsByName('payment-method');
             var payValue = false;
             var textment = document.getElementById('card').value;
-            var check=$("input[name='accept_terms']:checked").length;//判斷有多少個方框被勾選
-			
-            for(var i=0; i<payment.length;i++){
-                if(payment[i].checked == true){
+            var check = $("input[name='accept_terms']:checked").length; //判斷有多少個方框被勾選
+
+            for (var i = 0; i < payment.length; i++) {
+                if (payment[i].checked == true) {
                     var pay = payment[i].value;
                     //alert(pay);
-                    payValue = true;    
+                    payValue = true;
                 }
             }
-            if(pay == "paypal" && (textment == "" || textment == null)){
+            if (pay == "paypal" && (textment == "" || textment == null)) {
                 alert("請輸入您的信用卡號");
                 //alert(textment);
                 return false;
             }
-            if(check==0){
-				alert('請勾選"我已閱讀並接受條款細則及私隱政策"');
-				return false;//不要提交表單
-			}
-            if(!payValue){
+            if (check == 0) {
+                alert('請勾選"我已閱讀並接受條款細則及私隱政策"');
+                return false; //不要提交表單
+            }
+            if (!payValue) {
                 alert("請選擇付費方式");
                 return false;
             }
 
         }
-        
+
+        $(document).ready(function(){
+            $('#coupon').change(function(){
+                //Selected value
+                var usecoupon = $(this).val();
+                alert("value in js "+usecoupon);
+
+                //Ajax for calling php function
+               
+            });
+        });
     </script>
 </head>
 
@@ -202,7 +221,8 @@ $total = $totaltmp*$discount;
                 <form action="setorder.php" method="POST" name="form2" id="form2" class="checkout-form">
                     <div class="row row-50 mbn-40">
 
-                        <div class="col-lg-7"><!-- Billing Address -->
+                        <div class="col-lg-7">
+                            <!-- Billing Address -->
                             <div id="billing-form" class="mb-20">
                                 <h4 class="checkout-title">付款地址</h4>
                                 <div class="row">
@@ -223,12 +243,27 @@ $total = $totaltmp*$discount;
                                         <label>地址*</label>
                                         <input type="text" name="address" id="address" value="<?php echo $address; ?>">
                                     </div>
+
+
+                                    <div class="row justify-content-center">
+                                        <label>選擇折價券</label>
+                                        <div class="col-12 mb-5">
+                                          
+                                                <select id="coupon" >
+                                                    <option value="0">不使用折價券</option>
+                                                    <?php echo $coupons; ?>
+                                                </select>
+                                         
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                           
-                
+
+
+
                         </div>
-                        
+
                         <div class="col-lg-5">
                             <div class="row">
                                 <!-- Cart Total -->
@@ -237,13 +272,14 @@ $total = $totaltmp*$discount;
                                     <div class="checkout-cart-total">
                                         <h4>商品 <span>總額</span></h4>
                                         <ul>
-                                           <?php echo $cartitem;?>
+                                            <?php echo $cartitem; ?>
                                         </ul>
-                                        <p>小記 <span> <?php echo $totaltmp;?></span></p>
-                                        <p>折扣 <span> <?php echo $totaltmp * (1- $discount); ?></span></p>
-                                        <h4>總計 <span> <?php echo $total;?></span></h4>
-                                        <input type="hidden" name="total" id="total" value="<?php echo $total; ?>" >
+                                        <p>小記 <span> <?php echo $totaltmp; ?></span></p>
+                                        <p>折扣 <span> <?php echo $totaltmp * (1 - $discount); ?></span></p>
+                                        <h4>總計 <span> <?php echo $total; ?></span></h4>
+                                        <input type="hidden" name="total" id="total" value="<?php echo $total; ?>">
                                     </div>
+
                                 </div>
 
                                 <!-- Payment Method -->
@@ -255,13 +291,13 @@ $total = $totaltmp*$discount;
                                             <label for="payment_bank">銀行轉帳</label>
 
                                             <p data-method="bank">請於下單後一星期內轉帳至 700 004652983157625，逾時將自動取消訂單。 </p>
-                                            
+
                                             <br>
 
                                             <input type="radio" id="payment_paypal" name="payment-method" value="paypal" OnClick="updateValidator();">
                                             <label for="payment_paypal">信用卡付款</label>
                                             <p data-method="paypal">請輸入信用卡卡號<input type="text" id="card" name="card" maxlength="16"></p>
-                                            
+
                                             <br>
 
                                             <input type="checkbox" id="accept_terms" name="accept_terms">
@@ -274,49 +310,49 @@ $total = $totaltmp*$discount;
 
                             </div>
                         </div>
-                        
-                    </div>
                 </form>
 
             </div>
-        </div><!-- Page Section End -->
 
-        <!-- Brand Section Start -->
-        <div class="brand-section section section-padding pt-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="brand-slider">
+        </div>
+    </div><!-- Page Section End -->
 
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-1.png" alt="">
-                        </div>
+    <!-- Brand Section Start -->
+    <div class="brand-section section section-padding pt-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="brand-slider">
 
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-2.png" alt="">
-                        </div>
-
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-3.png" alt="">
-                        </div>
-
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-4.png" alt="">
-                        </div>
-
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-5.png" alt="">
-                        </div>
-
-                        <div class="brand-item col">
-                            <img src="assets/images/brands/brand-6.png" alt="">
-                        </div>
-
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-1.png" alt="">
                     </div>
+
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-2.png" alt="">
+                    </div>
+
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-3.png" alt="">
+                    </div>
+
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-4.png" alt="">
+                    </div>
+
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-5.png" alt="">
+                    </div>
+
+                    <div class="brand-item col">
+                        <img src="assets/images/brands/brand-6.png" alt="">
+                    </div>
+
                 </div>
             </div>
-        </div><!-- Brand Section End -->
+        </div>
+    </div><!-- Brand Section End -->
 
-        <?php include "footer.php" ?>
+    <?php include "footer.php" ?>
 
     </div>
 
