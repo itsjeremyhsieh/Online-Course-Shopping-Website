@@ -63,7 +63,7 @@ if(isset($_SESSION['coupon'])) {
 
 //$discount1 = 0;
 
-$sql3 = "SELECT * FROM coupon WHERE userid = '" . $_SESSION['userid'] . "'";
+$sql3 = "SELECT * FROM coupon WHERE userid = '" . $_SESSION['userid'] . "'and used='0'";
 $coupon = "";
 if ($result3 = mysqli_query($link, $sql3)) {
 
@@ -188,19 +188,30 @@ if ($result3 = mysqli_query($link, $sql3)) {
         $(document).ready(function(){
             $('#coupon').change(function(){
                 //Selected value
-                var usecoupon = $(this).val();
-                alert("value in js "+usecoupon);
-
-                //Ajax for calling php function
-               
+                var usecoupon = Number($(this).val());
+                var discount = '<?php echo($discount);?>';
+                var totaltmp = '<?php echo($totaltmp);?>';
+                
+                var discounttmp1 = Math.round(totaltmp * (1-discount)) ;
+                discounttmp1 += usecoupon;
+              
+                
+                var el = document.getElementById("discountnew");
+                el.textContent = discounttmp1;
+                var totalnew = Math.round(totaltmp - discounttmp1);
+                var el1 = document.getElementById("totalnew");
+                el1.textContent = totalnew;
+                
+                document.getElementById("totalfin").value = totalnew;
+                document.getElementById("couponused").value = usecoupon;
+            
             });
         });
 
-        function myFunction() {
-            document.getElementById("my-form").submit();
-        }
+       
 
     </script>
+   
 </head>
 
 <body>
@@ -263,7 +274,8 @@ if ($result3 = mysqli_query($link, $sql3)) {
                                         <div class="col-12 mb-5">
 
                                             <form id="my-form" action="" method="post">
-                                                <select name="coupon" id="coupon" onchange="myFunction()">
+                                                <select name="coupon" id="coupon" onchange="myFunction()" required>
+                                                    <option disabled selected>請選擇折價券</option>
                                                     <option value="0">不使用折價券</option>
                                                     <?php echo $coupons; ?>
                                                 </select>
@@ -290,12 +302,12 @@ if ($result3 = mysqli_query($link, $sql3)) {
                                             <?php echo $cartitem; ?>
                                         </ul>
                                         <p>小記 <span> <?php echo $totaltmp; ?></span></p>
-                                        <p>折扣 <span> <?php echo $totaltmp * (1 - $discount); ?></span></p>
-                                        <p>折價券 <span> 
-                                            <?php echo $discount1; ?>
-                                        </span></p>
-                                        <h4>總計 <span> <?php echo $total; ?></span></h4>
-                                        <input type="hidden" name="total" id="total" value="<?php echo $total; ?>">
+
+                                        <p>折扣 <span><div id="discountnew"> <?php echo $totaltmp*(1 - $discount); ?> </div></span></p>
+
+                                        <h4>總計 <span><div id="totalnew"><?php echo $total;?></div></span></h4>
+                                        <input type="hidden" name="totalfin" id="totalfin" >
+                                        <input type="hidden" name="couponused" id="couponused" value=0 >
                                     </div>
 
                                 </div>

@@ -18,7 +18,9 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $payment = $_POST['payment-method'];
-$total = $_POST['total'];
+$total = $_POST['totalfin'];
+$coupon = $_POST['couponused'];
+
 if($payment == "paypal")
     $bank = $_POST['card'];
 else
@@ -56,7 +58,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         unset($_SESSION['cart']);
 
-        function_alert("訂單新增成功！若付款方式為銀行轉帳，待收到款項後，課程將自動匯入您的帳號！");
+        $sql123 = "UPDATE coupon SET used = 1 WHERE userid='".$userid. "' and prize='" .$coupon . "'";
+        if ($result123 = mysqli_query($link, $sql123))
+            function_alert("訂單新增成功！若付款方式為銀行轉帳，待收到款項後，課程將自動匯入您的帳號！");
     }
 
 }
