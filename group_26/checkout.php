@@ -5,6 +5,7 @@ if (!isset($_SESSION['userid']))
     header("Location: login.php");
 
 
+
 $link = mysqli_connect('localhost', 'root', 'root123456', 'group_26');
 
 if (!$link) {
@@ -40,13 +41,20 @@ if ($result = mysqli_query($link, $sql1)) {
 
             while ($row2 = mysqli_fetch_assoc($result2)) {
                 $cartitem .= "<li>" . $row2['name'] . "<span>" . $row2['price'] . "</span></li>";
-                $total = $total + $row2['price'];
+                $totaltmp = $totaltmp + $row2['price'];
             }
         }
         
     }
 }
 
+if($_SESSION['level'] == 2)
+    $discount = 0.95;
+else if($_SESSION['level'] == 3)
+    $discount = 0.9;
+else
+    $discount = 1;
+$total = $totaltmp*$discount;
 ?>
 
 <!doctype html>
@@ -229,8 +237,8 @@ if ($result = mysqli_query($link, $sql1)) {
                                         <ul>
                                            <?php echo $cartitem;?>
                                         </ul>
-                                        <p>小記 <span> <?php echo $total;?></span></p>
-                                        <p>折扣 <span> 0</span></p>
+                                        <p>小記 <span> <?php echo $totaltmp;?></span></p>
+                                        <p>折扣 <span> <?php echo $totaltmp * (1- $discount); ?></span></p>
                                         <h4>總計 <span> <?php echo $total;?></span></h4>
                                         <input type="hidden" name="total" id="total" value="<?php echo $total; ?>" >
                                     </div>
