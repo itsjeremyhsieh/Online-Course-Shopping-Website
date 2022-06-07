@@ -303,7 +303,7 @@ if ($result3 = mysqli_query($link, $sql3)) {
                                         </ul>
                                         <p>小記 <span> <?php echo $totaltmp; ?></span></p>
 
-                                        <p>折扣 <span><div id="discountnew"> <?php echo $totaltmp*(1 - $discount); ?> </div></span></p>
+                                        <p>折扣 <span id="discountnew"> <?php echo $totaltmp*(1 - $discount); ?> </span></p>
 
                                         <h4>總計 <span><div id="totalnew"><?php echo $total;?></div></span></h4>
                                         <input type="hidden" name="totalfin" id="totalfin" >
