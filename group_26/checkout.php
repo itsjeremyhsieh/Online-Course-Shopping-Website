@@ -54,7 +54,14 @@ else if ($_SESSION['level'] == 3)
 else
     $discount = 1;
 $total = $totaltmp * $discount;
-$discount1 = 0;
+
+if(isset($_SESSION['coupon'])) {
+    $discount1 = $_SESSION['coupon'];
+} else {
+    $discount1 = 0;
+}
+
+//$discount1 = 0;
 
 $sql3 = "SELECT * FROM coupon WHERE userid = '" . $_SESSION['userid'] . "'";
 $coupon = "";
@@ -188,6 +195,11 @@ if ($result3 = mysqli_query($link, $sql3)) {
                
             });
         });
+
+        function myFunction() {
+            document.getElementById("my-form").submit();
+        }
+
     </script>
 </head>
 
@@ -247,13 +259,16 @@ if ($result3 = mysqli_query($link, $sql3)) {
 
                                     <div class="row justify-content-center">
                                         <label>選擇折價券</label>
+
                                         <div class="col-12 mb-5">
-                                          
-                                                <select id="coupon" >
+
+                                            <form id="my-form" action="" method="post">
+                                                <select name="coupon" id="coupon" onchange="myFunction()">
                                                     <option value="0">不使用折價券</option>
                                                     <?php echo $coupons; ?>
                                                 </select>
-                                         
+                                            </form>
+
                                         </div>
                                     </div>
 
@@ -276,6 +291,9 @@ if ($result3 = mysqli_query($link, $sql3)) {
                                         </ul>
                                         <p>小記 <span> <?php echo $totaltmp; ?></span></p>
                                         <p>折扣 <span> <?php echo $totaltmp * (1 - $discount); ?></span></p>
+                                        <p>折價券 <span> 
+                                            <?php echo $discount1; ?>
+                                        </span></p>
                                         <h4>總計 <span> <?php echo $total; ?></span></h4>
                                         <input type="hidden" name="total" id="total" value="<?php echo $total; ?>">
                                     </div>
