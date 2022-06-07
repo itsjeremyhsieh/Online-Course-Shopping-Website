@@ -164,16 +164,17 @@
                                 
                                 <a href="courses.php">繼續選購</a>
                             </div>
-                            <div class="cart-coupon">
+                            <!--<div class="cart-coupon">
                                 <br>
                                 <h4>優惠券</h4>
                                 <br>
-                                <p>前往察看您的優惠券</p>
+                               
                                 <div class="cuppon-form">
+                                 
                                     <input type="text" placeholder="優惠代碼" />
                                     <input type="submit" value="新增優惠券" />
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-lg-4 col-md-5 col-12 mb-40">
                             <div class="cart-total fix">
@@ -194,7 +195,7 @@
                                     </tbody>
                                 </table>
                                 <div class="proceed-to-checkout section mt-30">
-                                    <a href="checkout.php">確認結算</a>
+                                    <?php if($totalcost > 0)  echo "<a href='checkout.php'>確認結算</a> " ?>
                                 </div>
                             </div>
                         </div>
