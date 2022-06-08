@@ -49,12 +49,9 @@
                         <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                             <h4 class="title">商品</h4>
                             <ul>
-                                <li><a href="courses.php">新品上架</a></li>
+                                <li><a href="courses.php">新課程上架</a></li>
                                 <li><a href="courses.php">最熱銷</a></li>
-                                <li><a href="courses.php">流行商品</a></li>
-                                <li><a href="courses.php">現正優惠</a></li>
-                                <li><a href="courses.php">打折商品</a></li>
-                                <li><a href="courses.php">特色商品</a></li>
+                             
                             </ul>
                         </div>
 
@@ -62,11 +59,7 @@
                             <h4 class="title">通知</h4>
                             <ul>
                                 <li><a href="contact.php">關於我們</a></li>
-                                <li><a href="courses.php">條款&條件</a></li>
-                                <li><a href="courses.php">付款方式</a></li>
-                                <li><a href="courses.php">產品品質保證</a></li>
-                                <li><a href="courses.php">退貨須知</a></li>
-                                <li><a href="courses.php">付款須知</a></li>
+                                
                             </ul>
                         </div>
 
