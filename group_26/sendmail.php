@@ -27,8 +27,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mail($email,"COURSELUX密碼",$msg)
         or die("郵件傳送失敗！");
         function_alert("密碼信件傳送成功");*/
+        if($pwd != "")
         function_alert("您的COURSELUX密碼為". $pwd);
+        else
+        function_alert("查無此帳號");
     }
+    
+        
 }
 
 function function_alert($message) { 
