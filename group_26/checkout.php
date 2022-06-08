@@ -247,7 +247,7 @@ if ($result3 = mysqli_query($link, $sql3)) {
                         <div class="col-lg-7">
                             <!-- Billing Address -->
                             <div id="billing-form" class="mb-20">
-                                <h4 class="checkout-title">付款地址</h4>
+                                <h4 class="checkout-title">付款資訊</h4>
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb-5">
                                         <label>訂購人姓名</label>
