@@ -36,7 +36,7 @@
 
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    
 
     <style>
         .loginwrapper {
@@ -116,13 +116,13 @@
     </style>
 
 
-    <script>
+    <script  type="text/javascript">
         $(document).ready(function($) {
             $.validator.addMethod("notEqualsto", function(value, element, arg) {
                 return arg != value;
             }, "您尚未選擇!");
 
-            $("#form3").validate({
+            $("#form123").validate({
                 submitHandler: function(form) {
                     //alert ("認證成功");
                     form.submit();
@@ -198,7 +198,7 @@
                 }
             });
         });
-        /*
+        
         function sendRequest() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -207,10 +207,10 @@
                     else document.getElementById('show_msg').innerHTML = '';
                 }
             };
-            var url = 'checkaccount.php?p_usr=' + document.form3.username.value + '&timeStamp=' + new Date().getTime();
+            var url = 'checkaccount.php?p_usr=' + document.form123.username.value + '&timeStamp=' + new Date().getTime();
             xhttp.open('GET', url, true); //建立XMLHttpRequest連線要求
             xhttp.send();
-        }*/
+        }
     </script>
 </head>
 
@@ -246,7 +246,7 @@
 
                                 <div class="login-register-form-wrap">
 
-                                    <form action="addmember.php" method="POST" name="form3" id="form3" class="mb-2">
+                                    <form action="addmember.php" method="POST" name="form123" id="form123" class="mb-2">
                                         <div class="row">
 
                                             <div class="row justify-content-center">
