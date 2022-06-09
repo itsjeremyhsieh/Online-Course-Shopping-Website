@@ -130,24 +130,18 @@
                 rules: {
                     name: {
                         required: true,
-                        minlength: 1,
-                        maxlength: 50
                     },
                     username: {
                         required: true,
-                        minlength: 1,
-                        maxlength: 50
                     },
                     pwd: {
                         required: true,
                         minlength: 6
-
                     },
                     pwd2: {
                         required: true,
                         equalTo: "#pwd"
                     },
-
                     phone: {
                         length: 10,
                         required: true,
@@ -165,27 +159,46 @@
                     },
                     address: {
                         required: true,
-                    },
+                    }
                 },
                 messages: {
+                    name: {
+                        required: "此為必填欄位",
+                    },
                     username: {
-                        required: "帳號為必填欄位",
-                        minlength: "帳號最少要4個字",
-                        maxlength: "帳號最長10個字"
+                        required: "此為必填欄位",
                     },
 
                     pwd: {
-                        required: "密碼為必填欄位",
+                        required: "此為必填欄位",
                         minlength: "密碼最少要6個字",
 
                     },
                     pwd2: {
+                        required: "此為必填欄位",
                         equalTo: "兩次密碼不相符"
+                    },
+                    phone: {
+                        required: "此為必填欄位"
+
+                    },
+                    gender: {
+                        required: "此為必填欄位"
+                    },
+                    bday: {
+                        required: "此為必填欄位"
+                    },
+                    email: {
+                        required: "此為必填欄位"
+
+                    },
+                    address: {
+                        required: "此為必填欄位"
                     },
                 }
             });
         });
-
+        /*
         function sendRequest() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -197,7 +210,7 @@
             var url = 'checkaccount.php?p_usr=' + document.form3.username.value + '&timeStamp=' + new Date().getTime();
             xhttp.open('GET', url, true); //建立XMLHttpRequest連線要求
             xhttp.send();
-        }
+        }*/
     </script>
 </head>
 
@@ -244,12 +257,12 @@
                                                 <div class="col-4 mb-10"><input type="text" placeholder="姓名" name="name">
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="text" placeholder="使用者名稱" name="username" id="username" onkeyup=sendRequest();></div>
                                                 <center><span id='show_msg' style="color:red"></span></center>
                                             </div>
-
+            
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10"><input type="email" placeholder="電子郵件" name="email" id="email"> </div>
                                             </div>
