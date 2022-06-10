@@ -205,6 +205,7 @@ if ($result = mysqli_query($link, $sql)) {
                     <div class="col-lg-9 col-12 mb-30">
                         <h3>訂單</h3>
                         <div class="myaccount-table table-responsive text-center">
+                           
                             <table class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
@@ -225,7 +226,9 @@ if ($result = mysqli_query($link, $sql)) {
                                    <?php echo $orders;?>
                                 </tbody>
                             </table>
+                           
                         </div>
+                        <h4>若需取消訂單，請聯繫管理員</h4>
                     </div>
                 </div>
             </div>
