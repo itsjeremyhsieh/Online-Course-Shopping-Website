@@ -67,7 +67,7 @@ if ($result = mysqli_query($link, $sql)) {
 
     <!-- Helper CSS -->
     <link rel="stylesheet" href="assets/css/helper.css">
-
+32
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
