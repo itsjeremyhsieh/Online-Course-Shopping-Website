@@ -46,11 +46,12 @@ if ($result = mysqli_query($link, $sql)) {
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <!--additional method - for checkbox .. ,require_from_group method ...-->
-    <script src="//jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <!--中文錯誤訊息-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 
     <!-- CSS
 	============================================ -->
@@ -150,10 +151,56 @@ if ($result = mysqli_query($link, $sql)) {
 
     <script>
         $(document).ready(function($) {
-            //for select
-            $.validator.addMethod("notEqualsto", function(value, element, arg) {
-                return arg != value;
-            }, "您尚未選擇!");
+            $("#form12").validate({
+                submitHandler: function(form) {
+                    //alert("success");
+                    form.submit();
+                },
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    gender: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+
+                    },
+                    phone: {
+                        length: 10,
+                        required: true,
+
+                    },
+                    email: {
+                        required: true,
+                    },
+                    bday: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "姓名為必填欄位",
+                    },
+                    gender: {
+                        required: "此為必填欄位",
+                    },
+                    email: {
+                        required: "此為必填欄位",
+                    },
+                    phone: {
+                        required: "此為必填欄位",
+                    },
+                    address: {
+                        required: "此為必填欄位",
+                    },
+                    bday: {
+                        required: "此為必填欄位",
+                    },
+                }
+            });
+
 
             $("#form2").validate({
                 rules: {
@@ -166,7 +213,7 @@ if ($result = mysqli_query($link, $sql)) {
                         required: true,
                         minlength: 6,
                         maxlength: 12,
-                      
+
                     },
                     new_pwd2: {
                         required: true,
@@ -189,19 +236,14 @@ if ($result = mysqli_query($link, $sql)) {
     </script>
 
     <script language="javascript">
-    function Check()
-    {
-        if(document.form2.new_pwd.value == document.form2.pwd.value)
-        {
-            alert("新密碼不能與舊密碼相同");
-            return false;
+        function Check() {
+            if (document.form2.new_pwd.value == document.form2.pwd.value) {
+                alert("新密碼不能與舊密碼相同");
+                return false;
+            } else {
+                return true;
+            }
         }
-        else
-        {
-            return true;
-        }
-    }
-
     </script>
 
 </head>
@@ -253,7 +295,7 @@ if ($result = mysqli_query($link, $sql)) {
                         <h3>帳號管理</h3>
                         <div class="account-details-form">
 
-                            <form action="changeaccount.php" method="POST" name="form1" id="form1" class="mb-2">
+                            <form action="changeaccount.php" method="POST" name="form12" id="form12" class="mb-2">
                                 <div class="row">
                                     <div class="col-lg-6 col-12 mb-30">
                                         <input type="text" id="name" name="name" value="<?php echo $name; ?>">
@@ -271,8 +313,8 @@ if ($result = mysqli_query($link, $sql)) {
                                         &nbsp;&nbsp;性別：
                                         <select name="gender" class="dropdown" id="gender" style="width: 100%;">
                                             <option value="" disabled selected>性別</option>
-                                            <option value="1" <?php if($gender == 1) echo "selected" ?>>男性</option>
-                                            <option value="0" <?php if($gender == 0) echo "selected" ?>>女性</option>
+                                            <option value="1" <?php if ($gender == 1) echo "selected" ?>>男性</option>
+                                            <option value="0" <?php if ($gender == 0) echo "selected" ?>>女性</option>
                                         </select>
                                     </div>
                                     <div class="col-12 mb-30">
@@ -294,7 +336,7 @@ if ($result = mysqli_query($link, $sql)) {
                             <br><br>
                             <br><br>
                             <br><br>
-                            
+
                             <form action="changepassword.php" method="POST" name="form2" id="form2" class="mb-2">
                                 <div class="col-12 mb-30">
                                     <h4>更改密碼</h4>
