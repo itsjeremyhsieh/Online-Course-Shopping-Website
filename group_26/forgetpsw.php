@@ -108,12 +108,12 @@
                                     <form action="sendmail.php" method="POST" name="form6" id="form6" class="mb-2">
                                         <div class="row">
                                             <div class="row justify-content-center">
-                                                <div class="col-4 mb-10"><input type="email" name="mail" id="mail" placeholder="會員帳號或電子郵件"></div>
+                                                <div class="col-4 mb-10"><input type="email" name="mail" id="mail" placeholder="會員電子郵件"></div>
                                             </div>
 
                                             <div class="row justify-content-center">
                                                 <div class="col-4 mb-10">
-                                                    <div class="shape-ex1"><input type="submit" value="傳送確認電子信件" style="position: relative;top: 50px;"></div>
+                                                    <div class="shape-ex1"><input type="submit" value="偷偷查看密碼" style="position: relative;top: 50px;"></div>
                                                 </div>
                                             </div>
                                         </div>
