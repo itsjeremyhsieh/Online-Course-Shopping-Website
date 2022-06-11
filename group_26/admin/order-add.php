@@ -318,7 +318,10 @@ if ($result2 = mysqli_query($link, $sql2)) {
 
                                                     <div class="mb-3">
                                                         <label class="form-label" for="st">訂單狀態</label>
-                                                        <input id="st" name="st" type="text" class="form-control" >
+                                                        <select id="st" name="st" class="form-control">
+                                                            <option value="0">待處理</option>
+                                                            <option value="1">已完成</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
