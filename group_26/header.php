@@ -65,7 +65,7 @@ if (isset($_SESSION['wish'])) {
                              if(!isset($_SESSION['userid'])) 
                                 echo "<a href='register.php'>註冊會員</a>";
                             
-                            if($_SESSION['userid'] == 'admin') 
+                            if($_SESSION['userid'] == 'admin' || $_SESSION['userid'] == 'admin1') 
                                 echo "<a href='admin/admin.php'>後臺管理</a>";
                            
                             ?>
