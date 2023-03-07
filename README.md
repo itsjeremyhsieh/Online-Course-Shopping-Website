@@ -58,3 +58,7 @@
 
 **6/7 Final Version**  
 
+### 6.說明影片
+* [精華版說明影片](https://youtu.be/P74NeALenKc)
+* [正式版說明影片](https://youtu.be/LeNLKZRi7D0)
+
