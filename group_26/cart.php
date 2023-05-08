@@ -12,7 +12,7 @@
 
     if (isset($_SESSION['userid']) && isset($_SESSION['cart'])) { //login and session cart merge
         $sql = "SELECT * FROM cart WHERE userid = '".$_SESSION['userid']."'";
-        
+    
         if ($result = mysqli_query($link, $sql)) {
             $total_records = mysqli_num_rows($result);
             while ($row = mysqli_fetch_assoc($result)) {
